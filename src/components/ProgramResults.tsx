@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Card, CardContent, Typography, IconButton, Grid, Chip } from '@mui/material';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
+import { Box, Card, CardContent, Typography, IconButton, Grid } from '@mui/material';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import { useFilter } from '../context/FilterContext';
 import { Program } from '../types';
 
@@ -9,7 +9,15 @@ export const ProgramResults: React.FC = () => {
   const { state } = useFilter();
 
   const ResultCard: React.FC<{ program: Program }> = ({ program }) => (
-    <Card sx={{ mb: 2, '&:hover': { boxShadow: 6 } }}>
+    <Card
+      sx={{
+        mb: 2,
+        '&:hover': {
+          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)'
+        },
+        borderRadius: '8px'
+      }}
+    >
       <CardContent>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={2}>
@@ -21,24 +29,19 @@ export const ProgramResults: React.FC = () => {
             />
           </Grid>
           <Grid item xs={12} sm={8}>
-            <Typography variant="h6" component="div">
+            <Typography variant="h6" sx={{ fontWeight: '600', fontSize: '1rem' }}>
               {program.name}
             </Typography>
-            <Typography color="text.secondary" gutterBottom>
+            <Typography sx={{ fontSize: '0.875rem', color: '#666' }}>
               {program.university} • {program.province}
             </Typography>
-            <Box sx={{ mt: 1 }}>
-              <Chip label={program.level} size="small" sx={{ mr: 1 }} />
-              <Chip label={program.language} size="small" sx={{ mr: 1 }} />
-              <Chip label={program.areaOfStudy} size="small" />
-            </Box>
           </Grid>
-          <Grid item xs={12} sm={2} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
+          <Grid item xs={12} sm={2} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <IconButton>
+              <CompareArrowsIcon fontSize="small" />
             </IconButton>
-            <IconButton aria-label="share">
-              <ShareIcon />
+            <IconButton>
+              <FavoriteBorderIcon fontSize="small" />
             </IconButton>
           </Grid>
         </Grid>
@@ -47,8 +50,8 @@ export const ProgramResults: React.FC = () => {
   );
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h6" gutterBottom>
+    <Box>
+      <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: '500' }}>
         Showing {state.results.length} programs
       </Typography>
       {state.results.map((program) => (
@@ -57,6 +60,5 @@ export const ProgramResults: React.FC = () => {
     </Box>
   );
 };
-
 
 export default ProgramResults;
