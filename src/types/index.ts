@@ -1,12 +1,14 @@
 export interface Program {
   id: string;
-  name: string;
+  image: string;
+  programName: string;
+  programLevel: string;
+  language: string;
+  coop: boolean;
+  remote: boolean;
+  studyArea: string;
   university: string;
   province: string;
-  level: string;
-  language: string;
-  areaOfStudy: string;
-  results: Program[];
 }
 
 export interface FilterState {
@@ -15,4 +17,6 @@ export interface FilterState {
   areaOfStudy: string[];
   province: string[];
   searchQuery: string;
+  results: Program[];
+  studyArea: string[];
 }

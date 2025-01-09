@@ -18,17 +18,6 @@ const TopBar = styled(Box)({
   fontSize: '14px',
 });
 
-const ExternalLink = styled('a')({
-  color: '#666',
-  textDecoration: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '4px',
-  '&:hover': {
-    textDecoration: 'underline',
-  },
-});
-
 const MainHeader = styled(AppBar)({
   backgroundColor: 'white',
   color: '#333',
@@ -56,63 +45,40 @@ const NavButton = styled(Button)({
   },
 });
 
-const LanguageButton = styled(Button)({
-  minWidth: '40px',
-  padding: '4px 8px',
-  color: '#666',
-  border: '1px solid #ddd',
-  borderRadius: '20px',
-  marginRight: '8px',
-});
-
 export const Header: React.FC = () => {
   return (
     <>
       <TopBar>
         <div>An initiative of Universities Canada</div>
         <Box sx={{ display: 'flex', gap: 3 }}>
-          <ExternalLink href="#">
+          <a href="#" style={{ color: '#666', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
             Univcan.ca <ArrowForwardIcon sx={{ fontSize: 14 }} />
-          </ExternalLink>
-          <ExternalLink href="#">
-            UniversityAffairs.ca <ArrowForwardIcon sx={{ fontSize: 14 }} />
-          </ExternalLink>
+          </a>
         </Box>
       </TopBar>
-      
       <MainHeader position="static">
         <Toolbar sx={{ justifyContent: 'space-between', padding: '16px 24px' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Link to="/">
-              <Logo src={UniversityImg} alt="UniversityStudy.ca" />
-            </Link>
-            <Logo src={FoundationImg} alt="RBC Foundation" />
+            <Logo src={UniversityImg} alt="UniversityStudy.ca" />
           </Box>
-
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Box sx={{ display: 'flex', mr: 4 }}>
-              <NavButton component={Link} to="/programs" className="active">
-                Programs
-              </NavButton>
-              <NavButton component={Link} to="/">
-                Schools
-              </NavButton>
-              <NavButton component={Link} to="/">
-                Scholarships
-              </NavButton>
-              <NavButton component={Link} to="/">
-                Resources
-              </NavButton>
-            </Box>
-            
-            <LanguageButton>
+            <NavButton className="active">Programs</NavButton>
+            <Button
+              sx={{
+                minWidth: '40px',
+                padding: '4px 8px',
+                color: '#666',
+                border: '1px solid #ddd',
+                borderRadius: '20px',
+                marginRight: '8px',
+              }}
+            >
               FR
-            </LanguageButton>
-            
-            <IconButton 
-              sx={{ 
-                width: '40px', 
-                height: '40px', 
+            </Button>
+            <IconButton
+              sx={{
+                width: '40px',
+                height: '40px',
                 backgroundColor: '#f8f8f8',
                 '&:hover': { backgroundColor: '#eaeaea' }
               }}
@@ -125,5 +91,3 @@ export const Header: React.FC = () => {
     </>
   );
 };
-
-export default Header;

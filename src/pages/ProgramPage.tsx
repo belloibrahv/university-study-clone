@@ -4,7 +4,6 @@ import { Container, Grid, Box, Typography } from '@mui/material';
 import { SearchBar } from '../components/SearchBar';
 import { FilterPanel } from '../components/FilterPanel';
 import { AdditionalFilters } from '../components/AdditionalFilters';
-import { useFilter } from '../context/FilterContext';
 
 const PageHeader = styled(Box)`
   margin-bottom: 24px;
