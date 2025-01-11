@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { Box, Typography, Checkbox, FormGroup, FormControlLabel } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useFilter } from '../context/FilterContext';
@@ -9,7 +9,6 @@ interface CountItem {
   count: number;
 }
 
-// Get unique values and counts from DUMMY_PROGRAMS
 const getUniqueValuesWithCount = (key: keyof typeof DUMMY_PROGRAMS[0]): CountItem[] => {
   const countMap = DUMMY_PROGRAMS.reduce((acc, program) => {
     const value = program[key];
@@ -22,6 +21,10 @@ const getUniqueValuesWithCount = (key: keyof typeof DUMMY_PROGRAMS[0]): CountIte
   return Object.entries(countMap)
     .map(([name, count]) => ({ name, count }))
     .sort((a, b) => a.name.localeCompare(b.name));
+};
+
+const getCoopCount = (): number => {
+  return DUMMY_PROGRAMS.filter(program => program.coop).length;
 };
 
 const FilterContainer = styled(Box)(({ theme }) => ({
@@ -72,11 +75,11 @@ const FilterLabel = styled('span')({
 });
 
 export const FilterPanel = () => {
-  const { state = { province: [], university: [], coop: false }, dispatch } = useFilter();
+  const { state, dispatch } = useFilter();
 
-  // Generate dynamic data from DUMMY_PROGRAMS
   const provinces = getUniqueValuesWithCount('province');
   const universities = getUniqueValuesWithCount('university');
+  const coopCount = getCoopCount();
 
   const handleProvinceChange = (provinceName: string) => {
     const currentProvinces = state.province || [];
@@ -92,6 +95,10 @@ export const FilterPanel = () => {
       ? currentUniversities.filter(u => u !== universityName)
       : [...currentUniversities, universityName];
     dispatch({ type: 'SET_UNIVERSITY', payload: updatedUniversities });
+  };
+
+  const handleCoopChange = (checked: boolean) => {
+    dispatch({ type: 'SET_COOP', payload: checked });
   };
 
   return (
@@ -146,10 +153,15 @@ export const FilterPanel = () => {
           control={
             <Checkbox
               checked={state.coop || false}
-              onChange={(e) => dispatch({ type: 'SET_COOP', payload: e.target.checked })}
+              onChange={(e) => handleCoopChange(e.target.checked)}
             />
           }
-          label="Co-op available"
+          label={
+            <FilterLabel>
+              <span>Co-op available</span>
+              <span>({coopCount})</span>
+            </FilterLabel>
+          }
         />
       </FormGroup>
     </FilterContainer>

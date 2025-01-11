@@ -5,20 +5,30 @@ import { updateFilterInteractions } from '../utils/tracking';
 
 const STORAGE_KEY = 'filterState';
 
+// Define default state with all properties initialized
+const defaultState: FilterState = {
+  programLevel: [],
+  language: [],
+  studyArea: [],
+  province: [],
+  university: [],
+  coop: false,
+  searchQuery: '',
+  areaOfStudy: [],
+  results: [],
+};
+
 const getInitialState = (): FilterState => {
-  const stored = sessionStorage.getItem(STORAGE_KEY);
-  if (stored) {
-    return JSON.parse(stored);
+  try {
+    const stored = sessionStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      // Merge stored state with default state to ensure all properties exist
+      return { ...defaultState, ...JSON.parse(stored) };
+    }
+  } catch (error) {
+    console.error('Error reading from sessionStorage:', error);
   }
-  return {
-    programLevel: [],
-    language: [],
-    studyArea: [],
-    province: [],
-    searchQuery: '',
-    areaOfStudy: [],
-    results: [],
-  };
+  return defaultState;
 };
 
 type FilterAction =
@@ -26,6 +36,8 @@ type FilterAction =
   | { type: 'SET_LANGUAGE'; payload: string[] }
   | { type: 'SET_STUDY_AREA'; payload: string[] }
   | { type: 'SET_PROVINCE'; payload: string[] }
+  | { type: 'SET_UNIVERSITY'; payload: string[] }
+  | { type: 'SET_COOP'; payload: boolean }
   | { type: 'SET_SEARCH_QUERY'; payload: string }
   | { type: 'SET_AREA_OF_STUDY'; payload: string[] }
   | { type: 'RESET_FILTERS' };
@@ -46,6 +58,12 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
     case 'SET_PROVINCE':
       newState = { ...state, province: action.payload };
       break;
+    case 'SET_UNIVERSITY':
+      newState = { ...state, university: action.payload };
+      break;
+    case 'SET_COOP':
+      newState = { ...state, coop: action.payload };
+      break;
     case 'SET_SEARCH_QUERY':
       newState = { ...state, searchQuery: action.payload };
       break;
@@ -53,14 +71,17 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
       newState = { ...state, areaOfStudy: action.payload };
       break;
     case 'RESET_FILTERS':
-      newState = getInitialState();
+      newState = defaultState;
       break;
     default:
       return state;
   }
-
-  // Store in sessionStorage
-  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(newState));
+  
+  try {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(newState));
+  } catch (error) {
+    console.error('Error saving to sessionStorage:', error);
+  }
   return newState;
 };
 
@@ -74,28 +95,40 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [state, dispatch] = useReducer(filterReducer, getInitialState());
 
   const filteredPrograms = DUMMY_PROGRAMS.filter(program => {
-    const matchesSearch = state.searchQuery
-      ? program.programName.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
-        program.university.toLowerCase().includes(state.searchQuery.toLowerCase())
-      : true;
+    // Safe access to state properties with fallbacks
+    const searchQuery = state.searchQuery || '';
+    const programLevel = state.programLevel || [];
+    const language = state.language || [];
+    const studyArea = state.studyArea || [];
+    const province = state.province || [];
+    const university = state.university || [];
+    const coop = state.coop ?? false;
 
-    const matchesProgramLevel = state.programLevel.length === 0 ||
-      state.programLevel.includes(program.programLevel);
+    const matchesSearch = !searchQuery || 
+      program.programName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      program.university.toLowerCase().includes(searchQuery.toLowerCase());
 
-    const matchesLanguage = state.language.length === 0 ||
-      state.language.includes(program.language);
+    const matchesProgramLevel = programLevel.length === 0 ||
+      programLevel.includes(program.programLevel);
 
-    const matchesStudyArea = state.studyArea.length === 0 ||
-      state.studyArea.includes(program.studyArea);
+    const matchesLanguage = language.length === 0 ||
+      language.includes(program.language);
 
-    const matchesProvince = state.province.length === 0 ||
-      state.province.includes(program.province);
+    const matchesStudyArea = studyArea.length === 0 ||
+      studyArea.includes(program.studyArea);
+
+    const matchesProvince = province.length === 0 ||
+      province.includes(program.province);
+
+    const matchesUniversity = university.length === 0 ||
+      university.includes(program.university);
+
+    const matchesCoop = !coop || program.coop === true;
 
     return matchesSearch && matchesProgramLevel && matchesLanguage &&
-           matchesStudyArea && matchesProvince;
+           matchesStudyArea && matchesProvince && matchesUniversity && matchesCoop;
   }).sort((a, b) => a.programName.localeCompare(b.programName));
 
-  // Update window.filterInteractions whenever state changes
   useEffect(() => {
     updateFilterInteractions({
       ...state,
