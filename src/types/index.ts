@@ -8,6 +8,7 @@ export interface FilterState {
   searchQuery: string;
   areaOfStudy: string[];
   results: Program[];
+  remote: boolean;
 }
 
 export interface Program {
@@ -19,5 +20,6 @@ export interface Program {
   language: string;
   studyArea: string;
   image: string;
-  coop: boolean;  // Added coop property
+  coop: boolean;
+  remote: boolean;
 }

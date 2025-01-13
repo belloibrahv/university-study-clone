@@ -1,5 +1,5 @@
 // import React from 'react';
-import { Box, Typography, Checkbox, FormGroup, FormControlLabel } from '@mui/material';
+import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useFilter } from '../context/FilterContext';
 import { DUMMY_PROGRAMS } from '../assets/data';
@@ -25,6 +25,10 @@ const getUniqueValuesWithCount = (key: keyof typeof DUMMY_PROGRAMS[0]): CountIte
 
 const getCoopCount = (): number => {
   return DUMMY_PROGRAMS.filter(program => program.coop).length;
+};
+
+const getRemoteLearningCount = (): number => {
+  return DUMMY_PROGRAMS.filter(program => program.remote).length;
 };
 
 const FilterContainer = styled(Box)(({ theme }) => ({
@@ -60,10 +64,18 @@ const FilterContainer = styled(Box)(({ theme }) => ({
     width: '100%',
     paddingRight: theme.spacing(1)
   },
-  '& .MuiCheckbox-root': {
+  '& .MuiRadio-root': {
     color: '#757575',
     '&.Mui-checked': {
       color: '#1976d2'
+    }
+  },
+  '& .MuiSwitch-root': {
+    '& .MuiSwitch-track': {
+      backgroundColor: '#4CAF50'
+    },
+    '& .MuiSwitch-thumb': {
+      backgroundColor: '#fff'
     }
   }
 }));
@@ -74,31 +86,31 @@ const FilterLabel = styled('span')({
   width: '100%'
 });
 
+const SwitchContainer = styled(Box)({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  width: '100%',
+  padding: '8px 0',
+  '& .MuiTypography-root': {
+    marginRight: '16px'
+  }
+});
+
 export const FilterPanel = () => {
   const { state, dispatch } = useFilter();
 
   const provinces = getUniqueValuesWithCount('province');
   const universities = getUniqueValuesWithCount('university');
   const coopCount = getCoopCount();
+  const remoteLearningCount = getRemoteLearningCount();
 
   const handleProvinceChange = (provinceName: string) => {
-    const currentProvinces = state.province || [];
-    const updatedProvinces = currentProvinces.includes(provinceName)
-      ? currentProvinces.filter(p => p !== provinceName)
-      : [...currentProvinces, provinceName];
-    dispatch({ type: 'SET_PROVINCE', payload: updatedProvinces });
+    dispatch({ type: 'SET_PROVINCE', payload: provinceName });
   };
 
   const handleUniversityChange = (universityName: string) => {
-    const currentUniversities = state.university || [];
-    const updatedUniversities = currentUniversities.includes(universityName)
-      ? currentUniversities.filter(u => u !== universityName)
-      : [...currentUniversities, universityName];
-    dispatch({ type: 'SET_UNIVERSITY', payload: updatedUniversities });
-  };
-
-  const handleCoopChange = (checked: boolean) => {
-    dispatch({ type: 'SET_COOP', payload: checked });
+    dispatch({ type: 'SET_UNIVERSITY', payload: universityName });
   };
 
   return (
@@ -111,8 +123,8 @@ export const FilterPanel = () => {
           <FormControlLabel
             key={name}
             control={
-              <Checkbox
-                checked={(state.province || []).includes(name)}
+              <Radio
+                checked={state.province?.[0] === name}
                 onChange={() => handleProvinceChange(name)}
               />
             }
@@ -126,14 +138,34 @@ export const FilterPanel = () => {
         ))}
       </FormGroup>
 
+      <Typography variant="h6">Co-op availability</Typography>
+      <SwitchContainer>
+        <Typography>Co-op available ({coopCount})</Typography>
+        <Switch
+          checked={state.coop || false}
+          onChange={(e) => dispatch({ type: 'SET_COOP', payload: e.target.checked })}
+          color="primary"
+        />
+      </SwitchContainer>
+
+      <Typography variant="h6">Remote learning</Typography>
+      <SwitchContainer>
+        <Typography>Remote learning available ({remoteLearningCount})</Typography>
+        <Switch
+          checked={state.remote || false}
+          onChange={(e) => dispatch({ type: 'SET_REMOTE_LEARNING', payload: e.target.checked })}
+          color="primary"
+        />
+      </SwitchContainer>
+
       <Typography variant="h6">University</Typography>
       <FormGroup>
         {universities.map(({ name, count }) => (
           <FormControlLabel
             key={name}
             control={
-              <Checkbox
-                checked={(state.university || []).includes(name)}
+              <Radio
+                checked={state.university?.[0] === name}
                 onChange={() => handleUniversityChange(name)}
               />
             }
@@ -145,24 +177,6 @@ export const FilterPanel = () => {
             }
           />
         ))}
-      </FormGroup>
-
-      <Typography variant="h6">Co-op availability</Typography>
-      <FormGroup>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={state.coop || false}
-              onChange={(e) => handleCoopChange(e.target.checked)}
-            />
-          }
-          label={
-            <FilterLabel>
-              <span>Co-op available</span>
-              <span>({coopCount})</span>
-            </FilterLabel>
-          }
-        />
       </FormGroup>
     </FilterContainer>
   );

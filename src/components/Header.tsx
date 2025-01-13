@@ -7,7 +7,6 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import UniversityImg from '../assets/images/university.svg';
 import FoundationImg from '../assets/images/foundation.svg';
 
-
 const TopBar = styled(Box)({
   backgroundColor: '#f8f8f8',
   padding: '4px 24px',
@@ -45,24 +44,48 @@ const NavButton = styled(Button)({
   },
 });
 
+const TopBarLink = styled('a')({
+  color: '#666',
+  textDecoration: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '4px',
+  '&:hover': {
+    color: '#0066cc',
+  },
+});
+
 export const Header: React.FC = () => {
   return (
     <>
       <TopBar>
         <div>An initiative of Universities Canada</div>
         <Box sx={{ display: 'flex', gap: 3 }}>
-          <a href="#" style={{ color: '#666', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
+          <TopBarLink href="#">
             Univcan.ca <ArrowForwardIcon sx={{ fontSize: 14 }} />
-          </a>
+          </TopBarLink>
+          <TopBarLink href="#">
+            UniversityAffairs.ca <ArrowForwardIcon sx={{ fontSize: 14 }} />
+          </TopBarLink>
         </Box>
       </TopBar>
       <MainHeader position="static">
         <Toolbar sx={{ justifyContent: 'space-between', padding: '16px 24px' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Logo src={UniversityImg} alt="UniversityStudy.ca" />
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', borderRight: '1px solid #eaeaea', pr: 2 }}>
+              <Logo src={UniversityImg} alt="UniversityStudy.ca"  sx={{ height: '60px' }}/>
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Logo src={FoundationImg} alt="Foundation Fondation" sx={{ height: '60px' }} />
+            </Box>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <NavButton className="active">Programs</NavButton>
+            <Box sx={{ display: 'flex', mr: 2 }}>
+              <NavButton className="active">Programs</NavButton>
+              <NavButton>Schools</NavButton>
+              <NavButton>Scholarships</NavButton>
+              <NavButton>Resources</NavButton>
+            </Box>
             <Button
               sx={{
                 minWidth: '40px',
@@ -71,6 +94,9 @@ export const Header: React.FC = () => {
                 border: '1px solid #ddd',
                 borderRadius: '20px',
                 marginRight: '8px',
+                '&:hover': {
+                  backgroundColor: '#f8f8f8',
+                },
               }}
             >
               FR
@@ -80,7 +106,7 @@ export const Header: React.FC = () => {
                 width: '40px',
                 height: '40px',
                 backgroundColor: '#f8f8f8',
-                '&:hover': { backgroundColor: '#eaeaea' }
+                '&:hover': { backgroundColor: '#eaeaea' },
               }}
             >
               <PersonOutlineIcon />
