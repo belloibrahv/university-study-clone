@@ -1,11 +1,51 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Button, IconButton } from '@mui/material';
-import { Link } from 'react-router-dom';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import CloseIcon from '@mui/icons-material/Close';
 import UniversityImg from '../assets/images/university.svg';
 import FoundationImg from '../assets/images/foundation.svg';
+import AdsImg from '../assets/images/ads.jpg';
+
+const AdBanner = styled('div')({
+  width: '100%',
+  backgroundColor: '#fff',
+  display: 'flex',
+  justifyContent: 'center',
+  padding: '8px 0',
+  '& img': {
+    maxWidth: '100%',
+    height: 'auto',
+  },
+});
+
+const NewsletterBar = styled(Box)({
+  width: '100%',
+  backgroundColor: '#FFF7D6',
+  padding: '12px 24px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  position: 'relative',
+});
+
+const SubscribeLink = styled('a')({
+  color: '#000',
+  textDecoration: 'underline',
+  marginLeft: '8px',
+  fontWeight: 500,
+  '&:hover': {
+    color: '#0066cc',
+  },
+});
+
+const CloseButton = styled(IconButton)({
+  position: 'absolute',
+  right: '16px',
+  padding: '4px',
+  color: '#666',
+});
 
 const TopBar = styled(Box)({
   backgroundColor: '#f8f8f8',
@@ -56,8 +96,32 @@ const TopBarLink = styled('a')({
 });
 
 export const Header: React.FC = () => {
+  const [showNewsletter, setShowNewsletter] = React.useState(true);
+
   return (
     <>
+      <AdBanner>
+        <a href="#" rel="noopener noreferrer">
+          <img 
+            src={AdsImg}
+            alt="UVIC - Reach Farther. Push the boundaries of possibility" 
+          />
+        </a>
+      </AdBanner>
+
+      {showNewsletter && (
+        <NewsletterBar>
+          <span>Sign up for our newsletter!</span>
+          <SubscribeLink href="#">Subscribe</SubscribeLink>
+          <CloseButton 
+            onClick={() => setShowNewsletter(false)}
+            size="small"
+          >
+            <CloseIcon fontSize="small" />
+          </CloseButton>
+        </NewsletterBar>
+      )}
+
       <TopBar>
         <div>An initiative of Universities Canada</div>
         <Box sx={{ display: 'flex', gap: 3 }}>
@@ -69,11 +133,12 @@ export const Header: React.FC = () => {
           </TopBarLink>
         </Box>
       </TopBar>
+
       <MainHeader position="static">
         <Toolbar sx={{ justifyContent: 'space-between', padding: '16px 24px' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', borderRight: '1px solid #eaeaea', pr: 2 }}>
-              <Logo src={UniversityImg} alt="UniversityStudy.ca"  sx={{ height: '60px' }}/>
+              <Logo src={UniversityImg} alt="UniversityStudy.ca" sx={{ height: '60px' }} />
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <Logo src={FoundationImg} alt="Foundation Fondation" sx={{ height: '60px' }} />
@@ -117,3 +182,5 @@ export const Header: React.FC = () => {
     </>
   );
 };
+
+export default Header;
