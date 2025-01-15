@@ -12,7 +12,7 @@ import { FilterProvider } from './context/FilterContext';
 const theme = createTheme({
   palette: {
     primary: { main: '#0066cc' },
-    background: { default: '#f8f8f8' },
+    background: { default: '#fff' },
   },
   typography: {
     h1: { 
@@ -25,7 +25,7 @@ const theme = createTheme({
 
 const PageHeader = styled(Box)({
   background: 'linear-gradient(135deg, #fff5e6 0%, #ffe4d3 100%)',
-  padding: '48px 0',
+  padding: '28px 0',
   marginBottom: '32px',
 });
 
@@ -41,7 +41,7 @@ const App: React.FC = () => {
           <SearchFilters />
         </Container>
       </PageHeader>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ bgcolor: '#fff' }}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={3}>
             <FilterPanel />

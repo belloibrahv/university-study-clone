@@ -1,5 +1,5 @@
 // import React from 'react';
-import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch } from '@mui/material';
+import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch, Divider } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useFilter } from '../context/FilterContext';
 import { DUMMY_PROGRAMS } from '../assets/data';
@@ -23,28 +23,21 @@ const getUniqueValuesWithCount = (key: keyof typeof DUMMY_PROGRAMS[0]): CountIte
     .sort((a, b) => a.name.localeCompare(b.name));
 };
 
-const getCoopCount = (): number => {
-  return DUMMY_PROGRAMS.filter(program => program.coop).length;
-};
-
-const getRemoteLearningCount = (): number => {
-  return DUMMY_PROGRAMS.filter(program => program.remote).length;
-};
 
 const FilterContainer = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(3),
-  background: '#fff',
+  padding: theme.spacing(0.3),
+  background: 'transparent',
   '& .MuiTypography-root': {
     fontFamily: "'Inter', sans-serif",
   },
   '& .MuiTypography-h4': {
-    fontSize: '2.5rem',
+    fontSize: '2rem',
     fontWeight: 700,
     color: '#2D2D2D',
     marginBottom: theme.spacing(4)
   },
   '& .MuiTypography-h6': {
-    fontSize: '1.5rem',
+    fontSize: '1.2rem',
     fontWeight: 600,
     color: '#2D2D2D',
     marginBottom: theme.spacing(2),
@@ -72,10 +65,18 @@ const FilterContainer = styled(Box)(({ theme }) => ({
   },
   '& .MuiSwitch-root': {
     '& .MuiSwitch-track': {
-      backgroundColor: '#4CAF50'
+      backgroundColor: '#757575',
+      opacity: 0.3,
     },
     '& .MuiSwitch-thumb': {
-      backgroundColor: '#fff'
+      backgroundColor: '#fff',
+      boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.2)',
+    },
+    '&.Mui-checked': {
+      '& .MuiSwitch-track': {
+        backgroundColor: '#1976d2 !important',
+        opacity: 0.5,
+      },
     }
   }
 }));
@@ -91,19 +92,31 @@ const SwitchContainer = styled(Box)({
   justifyContent: 'space-between',
   alignItems: 'center',
   width: '100%',
-  padding: '8px 0',
-  '& .MuiTypography-root': {
-    marginRight: '16px'
+  padding: '16px 0',
+  '& .switch-section': {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+  },
+  '& .switch-label': {
+    color: '#757575',
+    fontSize: '1rem',
+    fontWeight: 500,
   }
 });
+
+const FeatureTitle = styled(Typography)({
+  fontSize: '1.125rem',
+  fontWeight: 500,
+  color: '#2D2D2D',
+});
+
 
 export const FilterPanel = () => {
   const { state, dispatch } = useFilter();
 
   const provinces = getUniqueValuesWithCount('province');
   const universities = getUniqueValuesWithCount('university');
-  const coopCount = getCoopCount();
-  const remoteLearningCount = getRemoteLearningCount();
 
   const handleProvinceChange = (provinceName: string) => {
     dispatch({ type: 'SET_PROVINCE', payload: provinceName });
@@ -116,6 +129,7 @@ export const FilterPanel = () => {
   return (
     <FilterContainer>
       <Typography variant="h4">More filters</Typography>
+      <Divider sx={{ mt: -2 }}/>
       
       <Typography variant="h6">Province/Territory</Typography>
       <FormGroup>
@@ -137,27 +151,36 @@ export const FilterPanel = () => {
           />
         ))}
       </FormGroup>
+      
+      <Divider sx={{ mt: 3 }}/>
 
-      <Typography variant="h6">Co-op availability</Typography>
       <SwitchContainer>
-        <Typography>Co-op available ({coopCount})</Typography>
-        <Switch
-          checked={state.coop || false}
-          onChange={(e) => dispatch({ type: 'SET_COOP', payload: e.target.checked })}
-          color="primary"
-        />
+        <FeatureTitle>Co-op availability</FeatureTitle>
+        <div className="switch-section">
+          <span className="switch-label">{state.coop ? 'Yes' : 'No'}</span>
+          <Switch
+            checked={state.coop || false}
+            onChange={(e) => dispatch({ type: 'SET_COOP', payload: e.target.checked })}
+            color="primary"
+          />
+        </div>
       </SwitchContainer>
 
-      <Typography variant="h6">Remote learning</Typography>
-      <SwitchContainer>
-        <Typography>Remote learning available ({remoteLearningCount})</Typography>
-        <Switch
-          checked={state.remote || false}
-          onChange={(e) => dispatch({ type: 'SET_REMOTE_LEARNING', payload: e.target.checked })}
-          color="primary"
-        />
-      </SwitchContainer>
+      <Divider />
 
+      <SwitchContainer>
+        <FeatureTitle>Remote learning</FeatureTitle>
+        <div className="switch-section">
+          <span className="switch-label">{state.remote ? 'Yes' : 'No'}</span>
+          <Switch
+            checked={state.remote || false}
+            onChange={(e) => dispatch({ type: 'SET_REMOTE_LEARNING', payload: e.target.checked })}
+            color="primary"
+          />
+        </div>
+      </SwitchContainer>
+      
+      <Divider />
       <Typography variant="h6">University</Typography>
       <FormGroup>
         {universities.map(({ name, count }) => (
