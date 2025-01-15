@@ -15,8 +15,10 @@ const initializeFilterInteractions = () => {
       studyArea: [],
       province: [],
       searchQuery: '',
-      areaOfStudy: [],
-      results: []
+      results: [],
+      university: [],
+      coop: false,
+      remote: false,
     };
   }
 };

@@ -70,7 +70,7 @@ export const AdditionalFilters: React.FC = () => {
         <InputLabel>Area of Study</InputLabel>
         <Select
           multiple
-          value={state.areaOfStudy}
+          value={state.studyArea}
           onChange={(e) => dispatch({
             type: 'SET_AREA_OF_STUDY',
             payload: typeof e.target.value === 'string' ? e.target.value.split(',') : e.target.value

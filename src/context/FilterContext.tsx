@@ -14,7 +14,6 @@ const defaultState: FilterState = {
   coop: false,
   remote: false,
   searchQuery: '',
-  areaOfStudy: [],
   results: [],
 };
 
@@ -71,7 +70,7 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
       newState = { ...state, searchQuery: action.payload };
       break;
     case 'SET_AREA_OF_STUDY':
-      newState = { ...state, areaOfStudy: action.payload };
+      newState = { ...state, studyArea: action.payload };
       break;
     case 'RESET_FILTERS':
       newState = defaultState;

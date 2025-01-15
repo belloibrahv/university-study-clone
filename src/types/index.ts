@@ -1,12 +1,11 @@
 export interface FilterState {
+  coop: boolean;
   programLevel: string[];
   language: string[];
   studyArea: string[];
   province: string[];
-  university: string[];  // Added university array
-  coop: boolean;         // Added coop boolean
+  university: string[]; 
   searchQuery: string;
-  areaOfStudy: string[];
   results: Program[];
   remote: boolean;
 }
