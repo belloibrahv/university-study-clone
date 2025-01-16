@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Diamond shapes -->
+  <g transform="translate(50, 100) scale(0.8)">
+    <!-- Outer diamond -->
+    <path d="M0,40 L40,0 L80,40 L40,80 Z" 
+          fill="none" 
+          stroke="black" 
+          stroke-width="3"/>
+    <!-- Inner diamond -->
+    <path d="M20,40 L40,20 L60,40 L40,60 Z" 
+          fill="black"/>
+  </g>
+  
+  <!-- Text Groups -->
+  <g transform="translate(130, 110)">
+    <!-- Universities Canada -->
+    <text font-family="Arial, sans-serif" font-weight="bold" font-size="24">
+      <tspan x="0" y="0">Universities</tspan>
+      <tspan x="0" y="30">Canada.</tspan>
+    </text>
+    
+    <!-- Universités Canada -->
+    <text font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#0099FF">
+      <tspan x="0" y="70">Universités</tspan>
+      <tspan x="0" y="100">Canada.</tspan>
+    </text>
+  </g>
+  
+  <!-- Dotted border
+  <rect x="10" y="50" 
+        width="380" height="200" 
+        fill="none" 
+        stroke="#FF0000" 
+        stroke-width="2" 
+        stroke-dasharray="3,3"/> -->
+</svg>

@@ -8,6 +8,15 @@ import { FilterPanel } from './components/FilterPanel';
 import { DUMMY_PROGRAMS } from './assets/data';
 import { ProgramResults } from './components/ProgramResults';
 import { FilterProvider } from './context/FilterContext';
+import Ads from './components/Ads';
+import { Footer } from './components/Footer';
+import { PartnerSlider } from './components/PartnerSlider';
+import UniversityImg from './assets/images/university.svg';
+import FoundationImg from './assets/images/foundation.svg';
+import NSPImg from './assets/images/nsp.png';
+import JackmanImg from './assets/images/jackman.png';
+import PostmanImg from './assets/images/postmedia.png';
+import CanadaImg from './assets/images/canadauni.svg';
 
 const theme = createTheme({
   palette: {
@@ -30,6 +39,18 @@ const PageHeader = styled(Box)({
 });
 
 const App: React.FC = () => {
+  const partners = [
+    { id: 1, name: 'RBC Foundation', logo: FoundationImg },
+    { id: 2, name: 'Postmedia', logo: PostmanImg },
+    { id: 3, name: 'Jackman Foundation', logo: JackmanImg },
+    { id: 4, name: 'NSI', logo: NSPImg },
+    { id: 5, name: 'UNI', logo: UniversityImg },
+    { id: 6, name: 'UNI', logo: CanadaImg },
+    { id: 7, name: 'RBC Foundation', logo: FoundationImg },
+    { id: 8, name: 'NSI', logo: NSPImg },
+    { id: 9, name: 'Postmedia', logo: PostmanImg },
+  ];
+
   return (
     <FilterProvider>
       <ThemeProvider theme={theme}>
@@ -51,6 +72,9 @@ const App: React.FC = () => {
           </Grid>
         </Grid>
       </Container>
+      <Ads text="Advertisment" position='340px' addBorder/>
+      <PartnerSlider partners={partners} />
+      <Footer />
     </ThemeProvider>
     </FilterProvider>
     
