@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Card, CardContent, Typography, IconButton, Grid } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Card, CardContent, Typography, IconButton, Grid, Button } from '@mui/material';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { styled } from '@mui/material/styles';
@@ -23,16 +23,43 @@ const UniversityLogo = styled('img')({
   objectFit: 'contain',
 });
 
+const LoadMoreButton = styled(Button)({
+  display: 'block',
+  margin: '20px auto',
+  padding: '8px 24px',
+  borderRadius: '8px',
+  backgroundColor: '#fff',
+  border: '1px solid #ddd',
+  color: '#ca2c3d',
+  cursor: 'pointer',
+  fontWeight: 'bold',
+  textTransform: 'initial',
+  '&:hover': {
+    backgroundColor: '#f5f5f5',
+  }
+});
+
 export const ProgramResults: React.FC = () => {
   const { filteredPrograms } = useFilter();
+  const [displayCount, setDisplayCount] = useState(10);
+  
+  const displayedPrograms = filteredPrograms.slice(0, displayCount);
+  const hasMore = displayCount < filteredPrograms.length;
+
+  const handleLoadMore = () => {
+    setDisplayCount(prevCount => Math.min(prevCount + 10, filteredPrograms.length));
+  };
 
   return (
     <Box>
-      <Typography variant="h5" sx={{ mb: 3 }}>
+      <Typography variant="h5" sx={{ mb: 3, fontWeight: 600 }}>
+        Search results for programs
+      </Typography>
+      <Typography variant="h6" sx={{ mb: 3 }}>
         Showing {filteredPrograms.length} programs
       </Typography>
       
-      {filteredPrograms.map((program) => (
+      {displayedPrograms.map((program) => (
         <ResultCard key={program.id}>
           <CardContent>
             <Grid container spacing={3} alignItems="center">
@@ -62,6 +89,12 @@ export const ProgramResults: React.FC = () => {
           </CardContent>
         </ResultCard>
       ))}
+
+      {hasMore && (
+        <LoadMoreButton onClick={handleLoadMore}>
+          Load more
+        </LoadMoreButton>
+      )}
     </Box>
   );
 };

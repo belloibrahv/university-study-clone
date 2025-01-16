@@ -6,19 +6,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CloseIcon from '@mui/icons-material/Close';
 import UniversityImg from '../assets/images/university.svg';
 import FoundationImg from '../assets/images/foundation.svg';
-import AdsImg from '../assets/images/ads.jpg';
-
-const AdBanner = styled('div')({
-  width: '100%',
-  backgroundColor: '#fff',
-  display: 'flex',
-  justifyContent: 'center',
-  padding: '8px 0',
-  '& img': {
-    maxWidth: '100%',
-    height: 'auto',
-  },
-});
+import Ads from './Ads';
 
 const NewsletterBar = styled(Box)({
   width: '100%',
@@ -100,14 +88,7 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <AdBanner>
-        <a href="#" rel="noopener noreferrer">
-          <img 
-            src={AdsImg}
-            alt="UVIC - Reach Farther. Push the boundaries of possibility" 
-          />
-        </a>
-      </AdBanner>
+      <Ads position='340px' />
 
       {showNewsletter && (
         <NewsletterBar>
