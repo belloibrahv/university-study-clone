@@ -23,7 +23,6 @@ const getUniqueValuesWithCount = (key: keyof typeof DUMMY_PROGRAMS[0]): CountIte
     .sort((a, b) => a.name.localeCompare(b.name));
 };
 
-
 const FilterContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(0.3),
   background: 'transparent',
