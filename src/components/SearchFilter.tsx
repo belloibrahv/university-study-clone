@@ -215,11 +215,15 @@ export const SearchFilters = () => {
       )
     : [];
 
-  const hasActiveFilters =
-    state.programLevel.length > 0 ||
-    state.language.length > 0 ||
-    state.studyArea.length > 0 ||
-    state.searchQuery.length > 0;
+    const hasActiveFilters =
+      state.programLevel.length > 0 ||
+      state.language.length > 0 ||
+      state.studyArea.length > 0 ||
+      state.searchQuery.length > 0 ||
+      state.province.length > 0 ||
+      state.university.length > 0 ||
+      state.coop ||
+      state.remote;
 
     const filterButtons = [
       { key: 'programLevel', label: 'Program Level' },
@@ -235,7 +239,7 @@ export const SearchFilters = () => {
             <FilterButton
               key={key}
               onClick={(e) => handleFilterClick(e, key)}
-              active={selectedCount > 0 ? 1 : 0} // Convert boolean to number
+              active={selectedCount > 0 ? 1 : 0}
             >
               {label}
               {selectedCount > 0 && <span className="count">{selectedCount}</span>}
@@ -302,5 +306,5 @@ export const SearchFilters = () => {
         </FilterPopover>
       </FilterContainer>
     );
-  };
+};
   
