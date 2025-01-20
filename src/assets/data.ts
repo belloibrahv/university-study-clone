@@ -1,23 +1,30 @@
 import { Program } from '../types';
 
 import Providence from '../assets/images/Providence.png';
-import UAlberta from '../assets/images/tm.jpg'; // TO BE CHANGED
-import McGill from '../assets/images/mcgill.webp';
-import UofT from '../assets/images/tu.png';
-import UBC from '../assets/images/bcu.jpg';
+import UAlberta from '../assets/images/UAlberta.jpg'; // TO BE CHANGED
+import McGill from '../assets/images/McGill.webp';
+import UofT from '../assets/images/UofT.png';
+import UBC from '../assets/images/UBC.jpg';
 import CMU from '../assets/images/CMU.png';
-import UManitoba from '../assets/images/um.png';
+import UManitoba from '../assets/images/UManitoba.png';
 import BrandonU from '../assets/images/BrandonU.png';
-import USB from '../assets/images/usb.jpg';
+import USB from '../assets/images/USB.jpg';
 import UCalgary from '../assets/images/UCalgary.png';
 import UWinnipeg from '../assets/images/UWinnipeg.png';
 import BoothUC from '../assets/images/BoothUC.png';
 import Acadia from '../assets/images/Acadia.jpg';
 import Brock from '../assets/images/Brock.jpg';
 import Campion from '../assets/images/Campion.jpg';
-import Huron from '../assets/images/huron.jpg';
+import Huron from '../assets/images/Huron.jpg';
 import MacEwan from '../assets/images/MacEwan.jpg';
 import Luther from '../assets/images/Luther.jpg';
+import Dalhousie from '../assets/images/Dalhousie.jpg';
+import Nipissing from '../assets/images/Nipissing.webp';
+import McMaster from '../assets/images/McMaster.jpg';
+import York from '../assets/images/York.jpg';
+import Bishop from '../assets/images/Bishops.webp'
+import Memorial from '../assets/images/Memorial.jpg'
+import Laurentian from '../assets/images/Laurentian.webp';
 
 export const DUMMY_PROGRAMS: Program[] = [
 
@@ -1118,400 +1125,762 @@ export const DUMMY_PROGRAMS: Program[] = [
     university: 'Luther College',
     province: 'Saskatchewan'
   },
-  // {
-  //   id: '89',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '90',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '91',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '92',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '93',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '94',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '95',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '96',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '97',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '98',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '99',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '100',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
-  // {
-  //   id: '',
-  //   image: ,
-  //   programName: '',
-  //   programLevel: '',
-  //   language: '',
-  //   coop: ,
-  //   remote: ,
-  //   studyArea: '',
-  //   university: '',
-  //   province:
-  // },
+
+  // Dalhousie University Programs
+  {
+    id: '89',
+    image: Dalhousie,
+    programName: 'BA in Environment, Sustainability and Society',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Environmental studies',
+    university: 'Dalhousie University',
+    province: 'Nova Scotia'
+  },
+  {
+    id: '90',
+    image: Dalhousie,
+    programName: 'Bachelor of Applied Computer Science',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Computer science',
+    university: 'Dalhousie University',
+    province: 'Nova Scortia'
+  },
+  {
+    id: '91',
+    image: Dalhousie,
+    programName: 'Bachelor of Arts in Actuarial Science',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Actuarial science',
+    university: 'Dalhousie University',
+    province: 'Nova Scotia'
+  },
+  {
+    id: '92',
+    image: Dalhousie,
+    programName: 'Bachelor of Arts in Biology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Biological sciences',
+    university: 'Dalhousie University',
+    province: 'Nova Scortia'
+  },
+  {
+    id: '93',
+    image: Dalhousie,
+    programName: 'Bachelor of Arts in Black and African Diaspora Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'African American/Black studies',
+    university: 'Dalhousie University',
+    province: 'Nova Scortia'
+  },
+  {
+    id: '94',
+    image: Dalhousie,
+    programName: 'Bachelor of Arts in Canadian Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Canadian studies',
+    university: 'Dalhousie University',
+    province: 'Nova Scortia'
+  },
+  {
+    id: '95',
+    image: Dalhousie,
+    programName: 'Bachelor of Arts in Chemistry',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Chemistry',
+    university: 'Dalhousie University',
+    province: 'Nova Scortia'
+  },
+
+  // Nipissing University Programs
+  {
+    id: '96',
+    image: Nipissing,
+    programName: 'BA in Anthropology (Specialization, Major, Minor)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Anthropology',
+    university: 'Nipissing University',
+    province: 'Ontario'
+  },
+  {
+    id: '97',
+    image: Nipissing,
+    programName: 'BA in Child and Family Studies (Honours Specialization, Specialization, Major, Minor)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Human development and family studies',
+    university: 'Nipissing University',
+    province: 'Ontario'
+  },
+  {
+    id: '98',
+    image: Nipissing,
+    programName: 'BA in Computer Science (Honours Specialization, Specialization, Major, Minor)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Computer science',
+    university: 'Nipissing University',
+    province: 'Ontario'
+  },
+  {
+    id: '99',
+    image: Nipissing,
+    programName: 'BA in English (Honours Specialization, Specialization, Major, Minor)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English language and literature',
+    university: 'Nipissing University',
+    province: 'Ontario'
+  },
+  {
+    id: '100',
+    image: Nipissing,
+    programName: 'BA in Environmental Geography (Honours Specialization, Specialization, Major)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Environmental studies',
+    university: 'Nipissing University',
+    province: 'Ontario'
+  },
+  {
+    id: '101',
+    image: Nipissing,
+    programName: 'BA in Geography (Honours, Specialization, Specialization, Major, Minor)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Geography',
+    university: 'Nipissing University',
+    province: 'Ontario'
+  },
+  {
+    id: '102',
+    image: Nipissing,
+    programName: 'BA in History (Honours Specialization, Specialization, Major, Minor)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'History',
+    university: 'Nipissing University',
+    province: 'Ontario'
+  },
+
+  // McMaster University Programs
+  {
+    id: '103',
+    image: McMaster,
+    programName: 'Applied Clinical Research Certificate',
+    programLevel: 'Undergraduate',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Clinical research coordinator',
+    university: 'McMaster University',
+    province: 'Ontario'
+  },
+  {
+    id: '104',
+    image: McMaster,
+    programName: 'B.Mus. in Music Cognition (Honours)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Cognitive science',
+    university: 'McMaster University',
+    province: 'Ontario'
+  },
+  {
+    id: '105',
+    image: McMaster,
+    programName: 'B.Sc. in neuroscience (Honours)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Neuroscience',
+    university: 'McMaster University',
+    province: 'Ontario'
+  },
+  {
+    id: '106',
+    image: McMaster,
+    programName: 'BA in Aging &amp; Society',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Adult development and aging, Gerontology',
+    university: 'McMaster University',
+    province: 'Ontario'
+  },
+  {
+    id: '107',
+    image: McMaster,
+    programName: 'BA in anthropology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Anthropology',
+    university: 'McMaster University',
+    province: 'Ontario'
+  },
+  {
+    id: '108',
+    image: McMaster,
+    programName: 'BA in art history',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Art history',
+    university: 'McMaster University',
+    province: 'Ontario'
+  },
+  {
+    id: '109',
+    image: McMaster,
+    programName: 'BA in cognitive science of language',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Cognitive psychology and psycholinguistics',
+    university: 'McMaster University',
+    province: 'Ontario'
+  },
+  {
+    id: '110',
+    image: McMaster,
+    programName: 'BA in communications studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Speech communication and rhetoric',
+    university: 'McMaster University',
+    province: 'Ontario'
+  },
+
+  // York University Programs
+  {
+    id: '111',
+    image: York,
+    programName: 'Advanced Certificate in Hebrew and Jewish Studies',
+    programLevel: 'Undergraduate',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Jewish/Judaic studies',
+    university: 'York University',
+    province: 'Ontario'
+  },
+  {
+    id: '112',
+    image: York,
+    programName: 'B.A en études anglaises',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'English language and literature',
+    university: 'York University',
+    province: 'Ontario'
+  },
+  {
+    id: '113',
+    image: York,
+    programName: 'B.A. en communications',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'Business/managerial economics',
+    university: 'York University',
+    province: 'Ontario'
+  },
+  {
+    id: '114',
+    image: York,
+    programName: 'B.A. en économie',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'Economics',
+    university: 'York University',
+    province: 'Ontario'
+  },
+  {
+    id: '115',
+    image: York,
+    programName: 'B.A. en études françaises',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'French language and literature',
+    university: 'York University',
+    province: 'Ontario'
+  },
+  {
+    id: '116',
+    image: York,
+    programName: 'B.A. en études internationales',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'International/globalization studies',
+    university: 'York University',
+    province: 'Ontario'
+  },
+  {
+    id: '117',
+    image: York,
+    programName: 'B.A. en histoire',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'History',
+    university: 'York University',
+    province: 'Ontario'
+  },
+  {
+    id: '118',
+    image: York,
+    programName: 'B.A. en linguistique et sciences du language',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'Linguistics',
+    university: 'York University',
+    province: 'Ontario'
+  },
+  {
+    id: '119',
+    image: York,
+    programName: 'B.A. en psychologie',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'Psychology',
+    university: 'York University',
+    province: 'Ontario'
+  },
+  {
+    id: '120',
+    image: York,
+    programName: 'B.A. en science politique',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'Political science and government',
+    university: 'York University',
+    province: 'Ontario'
+  },
+
+  // Bishop University Programs
+  {
+    id: '121',
+    image: Bishop,
+    programName: 'BA Economics (major, honours)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Economics',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '122',
+    image: Bishop,
+    programName: 'BA in Biology (major)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Biological sciences',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '123',
+    image: Bishop,
+    programName: 'BA in Business (major)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Business/commerce',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '124',
+    image: Bishop,
+    programName: 'BA in classical studies (major, honours)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Classics and classical languages',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '125',
+    image: Bishop,
+    programName: 'BA in Divisional Major in Popular Culture (major)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Multidisciplinary/interdisciplinary studies',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '126',
+    image: Bishop,
+    programName: 'BA in Educational Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Education',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '127',
+    image: Bishop,
+    programName: 'BA in English (major, honours)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English language and literature',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '128',
+    image: Bishop,
+    programName: 'BA in Environmental Studies and Geography (major, honours)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Environmental studies',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '129',
+    image: Bishop,
+    programName: 'BA in Fine Arts (major)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Fine/studio arts',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '130',
+    image: Bishop,
+    programName: 'BA in French Language Studies (major)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'French language and literature',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '131',
+    image: Bishop,
+    programName: 'BA in History (major, honours)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'History',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '132',
+    image: Bishop,
+    programName: 'BA in Information Technology (major)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Information technology',
+    university: 'Bishops University',
+    province: 'Quebec'
+  },
+  {
+    id: '133',
+    image: Bishop,
+    programName: 'BA in international political economy (major, honours)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'International economics',
+    university: 'Bishops Umiversity',
+    province: 'Quebec'
+  },
+
+  // Memorial University Programs
+  {
+    id: '134',
+    image: Memorial,
+    programName: 'Advanced Diploma - Food Safety',
+    programLevel: 'Undergraduate',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Food science',
+    university: 'Memorial University',
+    province: 'Newfoundland and Labrador'
+  },
+  {
+    id: '135',
+    image: Memorial,
+    programName: 'BA in anthropology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Anthropology',
+    university: 'Memorial University',
+    province: 'Newfoundland and Labrador'
+  },
+  {
+    id: '136',
+    image: Memorial,
+    programName: 'BA in archaeology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Archaeology',
+    university: 'Memorial University',
+    province: 'Newfoundland and Labrador'
+  },
+  {
+    id: '137',
+    image: Memorial,
+    programName: 'BA in communication and media studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Communication and Media Studies',
+    university: 'Memorial University',
+    province: 'Newfoundland and Labrador'
+  },
+  {
+    id: '138',
+    image: Memorial,
+    programName: 'BA in computer science',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Computer science',
+    university: 'Memorial University',
+    province: 'Newfoundland and Labrador'
+  },
+  {
+    id: '139',
+    image: Memorial,
+    programName: 'International Bachelor of Arts',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'International/globalization studies',
+    university: 'Memorial University',
+    province: 'Newfoundland and Labrador'
+  },
+  {
+    id: '140',
+    image: Memorial,
+    programName: 'BA in French',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'French language and literature',
+    university: 'Memorial University',
+    province: 'Newfoundland and Labrador'
+  },
+  {
+    id: '141',
+    image: Memorial,
+    programName: 'BA in English',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English language and literature',
+    university: 'Memorial University',
+    province: 'Newfoundland and Labrador'
+  },
+  {
+    id: '142',
+    image: Memorial,
+    programName: 'BA in German',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'German language and literature',
+    university: 'Memorial University',
+    province: 'Newfoundland and Labrador'
+  },
+
+  // Laurentian University Programs
+  {
+    id: '143',
+    image: Laurentian,
+    programName: 'Administration des affaires',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: true,
+    remote: false,
+    studyArea: 'Business administration and management',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '144',
+    image: Laurentian,
+    programName: 'B.Sc.S - Sciences de la santé en orthophonie',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'Speech-language pathology',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '145',
+    image: Laurentian,
+    programName: 'BA en droit et justice',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'Criminal justice/safety studies',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '146',
+    image: Laurentian,
+    programName: 'BA en psychologie',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'Psychology',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '147',
+    image: Laurentian,
+    programName: 'BA en sociologie',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: false,
+    remote: false,
+    studyArea: 'Sociology',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '148',
+    image: Laurentian,
+    programName: 'BA in Computer Science (3-year only)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Computer science',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '149',
+    image: Laurentian,
+    programName: 'BA in Criminnology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Criminology',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '150',
+    image: Laurentian,
+    programName: 'BA in Economics',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Economics',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  }
 ];
