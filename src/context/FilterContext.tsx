@@ -95,6 +95,7 @@ const FilterContext = createContext<{
 
 export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, getInitialState());
+  const [isInitialRender, setIsInitialRender] = React.useState(true);
 
   const filteredPrograms = DUMMY_PROGRAMS.filter(program => {
     const searchQuery = state.searchQuery || '';
@@ -103,9 +104,13 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     const studyArea = state.studyArea || [];
     const province = state.province || [];
     const university = state.university || [];
-    const coop = state.coop ?? false;
-    const remoteLearning = state.remote ?? false;
+    
+    // Handle initial render case
+    if (isInitialRender) {
+      return !program.coop && !program.remote;
+    }
 
+    // Basic filters
     const matchesSearch = !searchQuery || 
       program.programName.toLowerCase().includes(searchQuery.toLowerCase()) ||
       program.university.toLowerCase().includes(searchQuery.toLowerCase());
@@ -125,23 +130,28 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     const matchesUniversity = university.length === 0 ||
       university.includes(program.university);
 
-    const matchesCoop = !coop || program.coop === true;
-    const matchesRemoteLearning = !remoteLearning || program.remote === true;
-
-    // Initial filter: only include programs with coop and remote set to false
-    const initialFilter = !state.coop && !state.remote ? !program.coop && !program.remote : true;
+    // Updated coop and remote filtering logic
+    const matchesCoopAndRemote = (state.coop === state.remote) 
+      ? (state.coop ? program.coop && program.remote : !program.coop && !program.remote)
+      : (state.coop ? program.coop && !program.remote : !program.coop && program.remote);
 
     return matchesSearch && matchesProgramLevel && matchesLanguage &&
            matchesStudyArea && matchesProvince && matchesUniversity && 
-           matchesCoop && matchesRemoteLearning && initialFilter;
+           matchesCoopAndRemote;
   }).sort((a, b) => a.programName.localeCompare(b.programName));
 
   useEffect(() => {
+    // Update filterInteractions
     updateFilterInteractions({
       ...state,
       results: filteredPrograms
     });
-  }, [state, filteredPrograms]);
+
+    // After first render or any filter change, set isInitialRender to false
+    if (isInitialRender) {
+      setIsInitialRender(false);
+    }
+  }, [state, filteredPrograms, isInitialRender]);
 
   return (
     <FilterContext.Provider value={{ state, dispatch, filteredPrograms }}>

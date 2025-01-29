@@ -1,13 +1,16 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { shouldForwardProp } from '@mui/system';
 import AdsImg from '../assets/images/ads.jpg';
 
 interface AddBorder {
   addBorder?: boolean;
 }
 
-const AdContainer = styled(Box)<AddBorder>(({ addBorder }) => ({
+const AdContainer = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'addBorder'
+})<AddBorder>(({ addBorder }) => ({
   position: 'relative',
   width: '100%',
   backgroundColor: '#fff',
@@ -22,7 +25,9 @@ interface AdLabelProps {
   ps?: string;
 }
 
-const AdLabel = styled(Typography)<AdLabelProps>(({ ps = '12px' }) => ({
+const AdLabel = styled(Typography, {
+  shouldForwardProp: (prop) => prop !== 'ps'
+})<AdLabelProps>(({ ps = '12px' }) => ({
   position: 'absolute',
   top: 0,
   left: ps,
