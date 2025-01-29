@@ -3,7 +3,6 @@ import { Box, Card, CardContent, Typography, IconButton, Grid, Button } from '@m
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { styled } from '@mui/material/styles';
-import { Program } from '../types';
 import { useFilter } from '../context/FilterContext';
 
 const ResultCard = styled(Card)({

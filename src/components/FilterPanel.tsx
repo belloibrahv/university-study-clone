@@ -1,4 +1,3 @@
-// import React from 'react';
 import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch, Divider } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useFilter } from '../context/FilterContext';

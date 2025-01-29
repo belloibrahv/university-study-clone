@@ -128,9 +128,12 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     const matchesCoop = !coop || program.coop === true;
     const matchesRemoteLearning = !remoteLearning || program.remote === true;
 
+    // Initial filter: only include programs with coop and remote set to false
+    const initialFilter = !state.coop && !state.remote ? !program.coop && !program.remote : true;
+
     return matchesSearch && matchesProgramLevel && matchesLanguage &&
            matchesStudyArea && matchesProvince && matchesUniversity && 
-           matchesCoop && matchesRemoteLearning;
+           matchesCoop && matchesRemoteLearning && initialFilter;
   }).sort((a, b) => a.programName.localeCompare(b.programName));
 
   useEffect(() => {

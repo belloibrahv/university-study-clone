@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Box, Checkbox, FormControlLabel, Popover, InputBase, IconButton } from '@mui/material';
+import { Box, Checkbox, FormControlLabel, Popover, InputBase } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useFilter } from '../context/FilterContext';
 import { DUMMY_PROGRAMS } from '../assets/data';
-
 
 const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0]) => {
   const counts: Record<string, number> = {};
