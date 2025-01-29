@@ -109,36 +109,36 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     if (isInitialRender) {
       return !program.coop && !program.remote;
     }
-
+  
     // Basic filters
     const matchesSearch = !searchQuery || 
       program.programName.toLowerCase().includes(searchQuery.toLowerCase()) ||
       program.university.toLowerCase().includes(searchQuery.toLowerCase());
-
+  
     const matchesProgramLevel = programLevel.length === 0 ||
       programLevel.includes(program.programLevel);
-
+  
     const matchesLanguage = language.length === 0 ||
       language.includes(program.language);
-
+  
     const matchesStudyArea = studyArea.length === 0 ||
       studyArea.includes(program.studyArea);
-
+  
     const matchesProvince = province.length === 0 ||
       province.includes(program.province);
-
+  
     const matchesUniversity = university.length === 0 ||
       university.includes(program.university);
-
+  
     // Updated coop and remote filtering logic
     const matchesCoopAndRemote = (state.coop === state.remote) 
       ? (state.coop ? program.coop && program.remote : !program.coop && !program.remote)
       : (state.coop ? program.coop && !program.remote : !program.coop && program.remote);
-
+  
     return matchesSearch && matchesProgramLevel && matchesLanguage &&
            matchesStudyArea && matchesProvince && matchesUniversity && 
            matchesCoopAndRemote;
-  }).sort((a, b) => a.programName.localeCompare(b.programName));
+  }).sort((a, b) => a.id - b.id); // Sort by id in ascending order
 
   useEffect(() => {
     // Update filterInteractions
