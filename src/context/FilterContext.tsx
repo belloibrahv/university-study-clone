@@ -98,47 +98,57 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [isInitialRender, setIsInitialRender] = React.useState(true);
 
   const filteredPrograms = DUMMY_PROGRAMS.filter(program => {
-    const searchQuery = state.searchQuery || '';
-    const programLevel = state.programLevel || [];
-    const language = state.language || [];
-    const studyArea = state.studyArea || [];
-    const province = state.province || [];
-    const university = state.university || [];
-    
     // Handle initial render case
     if (isInitialRender) {
       return !program.coop && !program.remote;
     }
-  
-    // Basic filters
-    const matchesSearch = !searchQuery || 
-      program.programName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      program.university.toLowerCase().includes(searchQuery.toLowerCase());
-  
-    const matchesProgramLevel = programLevel.length === 0 ||
-      programLevel.includes(program.programLevel);
-  
-    const matchesLanguage = language.length === 0 ||
-      language.includes(program.language);
-  
-    const matchesStudyArea = studyArea.length === 0 ||
-      studyArea.includes(program.studyArea);
-  
-    const matchesProvince = province.length === 0 ||
-      province.includes(program.province);
-  
-    const matchesUniversity = university.length === 0 ||
-      university.includes(program.university);
-  
-    // Updated coop and remote filtering logic
-    const matchesCoopAndRemote = (state.coop === state.remote) 
-      ? (state.coop ? program.coop && program.remote : !program.coop && !program.remote)
-      : (state.coop ? program.coop && !program.remote : !program.coop && program.remote);
-  
-    return matchesSearch && matchesProgramLevel && matchesLanguage &&
-           matchesStudyArea && matchesProvince && matchesUniversity && 
-           matchesCoopAndRemote;
-  }).sort((a, b) => a.id - b.id); // Sort by id in ascending order
+
+    // Apply filters sequentially to ensure accurate counts
+    let matches = true;
+
+    // Search query filter
+    if (state.searchQuery) {
+      matches = matches && (
+        program.programName.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
+        program.university.toLowerCase().includes(state.searchQuery.toLowerCase())
+      );
+    }
+
+    // Program level filter
+    if (state.programLevel.length > 0) {
+      matches = matches && state.programLevel.includes(program.programLevel);
+    }
+
+    // Language filter
+    if (state.language.length > 0) {
+      matches = matches && state.language.includes(program.language);
+    }
+
+    // Study area filter
+    if (state.studyArea.length > 0) {
+      matches = matches && state.studyArea.includes(program.studyArea);
+    }
+
+    // Province filter
+    if (state.province.length > 0) {
+      matches = matches && state.province.includes(program.province);
+    }
+
+    // University filter
+    if (state.university.length > 0) {
+      matches = matches && state.university.includes(program.university);
+    }
+
+    // Co-op and remote filter logic
+    if (state.coop || state.remote) {
+      matches = matches && (
+        (state.coop && program.coop) ||
+        (state.remote && program.remote)
+      );
+    }
+
+    return matches;
+  });
 
   useEffect(() => {
     // Update filterInteractions

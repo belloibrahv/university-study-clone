@@ -7,14 +7,33 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useFilter } from '../context/FilterContext';
 import { DUMMY_PROGRAMS } from '../assets/data';
 
-const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0]) => {
+const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFilters: any) => {
   const counts: Record<string, number> = {};
-  DUMMY_PROGRAMS.forEach(program => {
-    const value = program[key];
-    if (typeof value === 'string') {
-      counts[value] = (counts[value] || 0) + 1;
+  
+  DUMMY_PROGRAMS.filter(program => {
+    // Apply all other active filters except the current one
+    const matchesOtherFilters = Object.entries(activeFilters).every(([filterKey, filterValue]) => {
+      if (filterKey === key || !filterValue || 
+         (Array.isArray(filterValue) && filterValue.length === 0)) {
+        return true;
+      }
+      
+      if (Array.isArray(filterValue)) {
+        return filterValue.includes(program[filterKey as keyof typeof program]);
+      }
+      
+      return program[filterKey as keyof typeof program] === filterValue;
+    });
+
+    if (matchesOtherFilters) {
+      const value = program[key];
+      if (typeof value === 'string') {
+        counts[value] = (counts[value] || 0) + 1;
+      }
     }
+    return matchesOtherFilters;
   });
+
   return Object.entries(counts).map(([value, count]) => ({
     value,
     label: value,
@@ -99,6 +118,7 @@ const ResetButton = styled(Box)({
 
 const FilterPopover = styled(Popover)({
   '& .MuiPaper-root': {
+    width: '320px',
     marginTop: '4px',
     padding: '16px',
     minWidth: '300px',
@@ -118,14 +138,20 @@ const PopoverSearch = styled(Box)({
 });
 
 const CheckboxGroup = styled(Box)({
-  maxHeight: '300px',
+  maxHeight: '280px',
   overflowY: 'auto',
   '& .MuiFormControlLabel-root': {
     margin: '4px 0',
     width: '100%',
   },
+  '& .MuiFormControlLabel-label': {
+    fontSize: '14px',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
   '& .MuiCheckbox-root': {
-    padding: '8px',
+    padding: '6px',
   },
   '&::-webkit-scrollbar': {
     width: '6px',
@@ -146,16 +172,21 @@ export const SearchFilters = () => {
   const [filterSearch, setFilterSearch] = useState('');
 
   const getFilterOptions = (filter: string) => {
-    switch (filter) {
-      case 'programLevel':
-        return getFilterOptionsWithCount('programLevel');
-      case 'language':
-        return getFilterOptionsWithCount('language');
-      case 'studyArea':
-        return getFilterOptionsWithCount('studyArea');
-      default:
-        return [];
-    }
+    const activeFilters = {
+      programLevel: state.programLevel,
+      language: state.language,
+      studyArea: state.studyArea,
+      province: state.province,
+      university: state.university,
+      coop: state.coop,
+      remote: state.remote
+    };
+
+    // Remove current filter from active filters
+    const otherFilters = { ...activeFilters };
+    delete otherFilters[filter as keyof typeof otherFilters];
+
+    return getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], otherFilters);
   };
 
   const handleFilterClick = (event: React.MouseEvent<HTMLElement>, filter: string) => {
