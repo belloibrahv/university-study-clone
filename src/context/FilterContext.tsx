@@ -17,6 +17,11 @@ const defaultState: FilterState = {
   results: [],
 };
 
+// Helper function to get initial filtered programs
+const getInitialFilteredPrograms = (programs: Program[]): Program[] => {
+  return programs.filter(program => !program.coop && !program.remote);
+};
+
 const getInitialState = (): FilterState => {
   try {
     const stored = sessionStorage.getItem(STORAGE_KEY);
@@ -97,67 +102,64 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [state, dispatch] = useReducer(filterReducer, getInitialState());
   const [isInitialRender, setIsInitialRender] = React.useState(true);
 
-  const filteredPrograms = DUMMY_PROGRAMS.filter(program => {
-    // Handle initial render case
+  const filteredPrograms = React.useMemo(() => {
+    // On initial render, only show programs with both coop and remote set to false
     if (isInitialRender) {
-      return !program.coop && !program.remote;
+      return getInitialFilteredPrograms(DUMMY_PROGRAMS);
     }
 
-    // Apply filters sequentially to ensure accurate counts
-    let matches = true;
+    return DUMMY_PROGRAMS.filter(program => {
+      let matches = true;
 
-    // Search query filter
-    if (state.searchQuery) {
-      matches = matches && (
-        program.programName.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
-        program.university.toLowerCase().includes(state.searchQuery.toLowerCase())
-      );
-    }
+      // Apply search query filter
+      if (state.searchQuery) {
+        matches = matches && (
+          program.programName.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
+          program.university.toLowerCase().includes(state.searchQuery.toLowerCase())
+        );
+      }
 
-    // Program level filter
-    if (state.programLevel.length > 0) {
-      matches = matches && state.programLevel.includes(program.programLevel);
-    }
+      // Apply program level filter
+      if (state.programLevel.length > 0) {
+        matches = matches && state.programLevel.includes(program.programLevel);
+      }
 
-    // Language filter
-    if (state.language.length > 0) {
-      matches = matches && state.language.includes(program.language);
-    }
+      // Apply language filter
+      if (state.language.length > 0) {
+        matches = matches && state.language.includes(program.language);
+      }
 
-    // Study area filter
-    if (state.studyArea.length > 0) {
-      matches = matches && state.studyArea.includes(program.studyArea);
-    }
+      // Apply study area filter
+      if (state.studyArea.length > 0) {
+        matches = matches && state.studyArea.includes(program.studyArea);
+      }
 
-    // Province filter
-    if (state.province.length > 0) {
-      matches = matches && state.province.includes(program.province);
-    }
+      // Apply province filter
+      if (state.province.length > 0) {
+        matches = matches && state.province.includes(program.province);
+      }
 
-    // University filter
-    if (state.university.length > 0) {
-      matches = matches && state.university.includes(program.university);
-    }
+      // Apply university filter
+      if (state.university.length > 0) {
+        matches = matches && state.university.includes(program.university);
+      }
 
-    // Co-op and remote filter logic
-    if (state.coop || state.remote) {
-      matches = matches && (
-        (state.coop && program.coop) ||
-        (state.remote && program.remote)
-      );
-    }
+      // Apply coop and remote filters
+      // Only include programs that match the exact coop/remote combination
+      matches = matches && program.coop === state.coop && program.remote === state.remote;
 
-    return matches;
-  });
+      return matches;
+    });
+  }, [state, isInitialRender]);
 
   useEffect(() => {
-    // Update filterInteractions
+    // Update filterInteractions with the current state and filtered results
     updateFilterInteractions({
       ...state,
       results: filteredPrograms
     });
 
-    // After first render or any filter change, set isInitialRender to false
+    // After first render, set isInitialRender to false
     if (isInitialRender) {
       setIsInitialRender(false);
     }
