@@ -2597,7 +2597,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: 'Ontario'
   },
 
-  //
+  // Concordia University Programs
   {
     id: '209',
     image: Concordia,
