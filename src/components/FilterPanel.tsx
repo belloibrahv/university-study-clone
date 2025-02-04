@@ -2,16 +2,40 @@ import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch, Divider } 
 import { styled } from '@mui/material/styles';
 import { useFilter } from '../context/FilterContext';
 import { DUMMY_PROGRAMS } from '../assets/data';
+import { FilterState, Program } from '../types';
 
 interface CountItem {
   name: string;
   count: number;
 }
 
-const getUniqueValuesWithCount = (key: keyof typeof DUMMY_PROGRAMS[0]): CountItem[] => {
+const getUniqueValuesWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], state: FilterState): CountItem[] => {
+  const activeFilters: Partial<FilterState> = {
+    programLevel: state.programLevel,
+    language: state.language,
+    studyArea: state.studyArea,
+    coop: state.coop,
+    remote: state.remote
+  };
+
   const countMap = DUMMY_PROGRAMS.reduce((acc, program) => {
+    // Check if program matches all current active filters
+    const matchesFilters = Object.entries(activeFilters).every(([filterKey, filterValue]) => {
+      if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) return true;
+      
+      if (typeof filterValue === 'boolean') {
+        return program[filterKey as keyof Program] === filterValue;
+      }
+      
+      if (Array.isArray(filterValue)) {
+        return (filterValue as string[]).includes(program[filterKey as keyof Program] as string);
+      }
+      
+      return true;
+    });
+
     const value = program[key];
-    if (typeof value === 'string') {
+    if (matchesFilters && typeof value === 'string') {
       acc[value] = (acc[value] || 0) + 1;
     }
     return acc;
@@ -113,8 +137,8 @@ const FeatureTitle = styled(Typography)({
 export const FilterPanel = () => {
   const { state, dispatch } = useFilter();
 
-  const provinces = getUniqueValuesWithCount('province');
-  const universities = getUniqueValuesWithCount('university');
+  const provinces = getUniqueValuesWithCount('province', state);
+  const universities = getUniqueValuesWithCount('university', state);
 
   const handleProvinceChange = (provinceName: string) => {
     dispatch({ type: 'SET_PROVINCE', payload: provinceName });
