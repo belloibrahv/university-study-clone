@@ -2,7 +2,7 @@ import { FilterState } from "../types";
 
 declare global {
   interface Window {
-    filterInteractions: Partial<FilterState> & { results: any[] };
+    filterInteractions: FilterState & { results: any[] };
   }
 }
 
@@ -17,6 +17,8 @@ const initializeFilterInteractions = () => {
       searchQuery: '',
       results: [],
       university: [],
+      coop: '',
+      remote: '',
     };
   }
 };
@@ -25,33 +27,16 @@ export const updateFilterInteractions = (filters: FilterState & { results: any[]
   if (typeof window !== 'undefined') {
     initializeFilterInteractions();
     
-    // Create a copy of filterInteractions to modify
-    const updatedInteractions = { ...window.filterInteractions };
+    // Handle coop and remote fields
+    const newInteractions = { ...filters };
     
-    // Conditionally add coop field only if true
-    if (filters.coop) {
-      updatedInteractions.coop = filters.coop;
-    } else {
-      delete updatedInteractions.coop;
-    }
-    
-    // Conditionally add remote field only if true
-    if (filters.remote) {
-      updatedInteractions.remote = filters.remote;
-    } else {
-      delete updatedInteractions.remote;
-    }
-    
-    // Update other fields
+    // Convert false to empty string
+    newInteractions.coop = filters.coop ? true : '';
+    newInteractions.remote = filters.remote ? true : '';
+
     window.filterInteractions = {
-      ...updatedInteractions,
-      programLevel: filters.programLevel,
-      language: filters.language,
-      studyArea: filters.studyArea,
-      province: filters.province,
-      searchQuery: filters.searchQuery,
-      results: filters.results,
-      university: filters.university
+      ...window.filterInteractions,
+      ...newInteractions
     };
   }
 };
