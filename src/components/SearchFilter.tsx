@@ -6,39 +6,54 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useFilter } from '../context/FilterContext';
 import { DUMMY_PROGRAMS } from '../assets/data';
+import { FilterState, Program } from '../types';
 
-const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFilters: any) => {
+const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFilters: Partial<FilterState>) => {
   const counts: Record<string, number> = {};
   
-  DUMMY_PROGRAMS.filter(program => {
-    // Apply all other active filters except the current one
-    const matchesOtherFilters = Object.entries(activeFilters).every(([filterKey, filterValue]) => {
-      if (filterKey === key || !filterValue || 
-         (Array.isArray(filterValue) && filterValue.length === 0)) {
-        return true;
+  DUMMY_PROGRAMS.forEach(program => {
+    // Check if the program matches all current active filters
+    const matchesFilters = Object.entries(activeFilters).every(([filterKey, filterValue]) => {
+      // Skip if no filter value or empty array
+      if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) return true;
+      
+      // For boolean filters (coop, remote)
+      if (typeof filterValue === 'boolean') {
+        return program[filterKey as keyof Program] === filterValue;
       }
       
+      // For array filters (programLevel, language, studyArea)
       if (Array.isArray(filterValue)) {
-        return filterValue.includes(program[filterKey as keyof typeof program]);
+        return filterValue.includes(program[filterKey as keyof Program]);
       }
       
-      return program[filterKey as keyof typeof program] === filterValue;
+      // For string filters (province, university, searchQuery)
+      if (typeof filterValue === 'string') {
+        if (filterKey === 'searchQuery') {
+          return program.programName.toLowerCase().includes(filterValue.toLowerCase()) ||
+                 program.university.toLowerCase().includes(filterValue.toLowerCase());
+        }
+        return program[filterKey as keyof Program] === filterValue;
+      }
+      
+      return true;
     });
 
-    if (matchesOtherFilters) {
+    if (matchesFilters) {
       const value = program[key];
       if (typeof value === 'string') {
         counts[value] = (counts[value] || 0) + 1;
       }
     }
-    return matchesOtherFilters;
   });
 
-  return Object.entries(counts).map(([value, count]) => ({
-    value,
-    label: value,
-    count
-  })).sort((a, b) => a.label.localeCompare(b.label));
+  return Object.entries(counts)
+    .map(([value, count]) => ({
+      value,
+      label: value,
+      count
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label));
 };
 
 const FilterContainer = styled(Box)({
@@ -172,20 +187,21 @@ export const SearchFilters = () => {
   const [filterSearch, setFilterSearch] = useState('');
 
   const getFilterOptions = (filter: string) => {
-    const activeFilters = {
+    const activeFilters: Partial<FilterState> = {
       programLevel: state.programLevel,
       language: state.language,
       studyArea: state.studyArea,
-      province: state.province,
-      university: state.university,
+      province: state.province?.[0],
+      university: state.university?.[0],
       coop: state.coop,
-      remote: state.remote
+      remote: state.remote,
+      searchQuery: state.searchQuery
     };
-
+  
     // Remove current filter from active filters
     const otherFilters = { ...activeFilters };
     delete otherFilters[filter as keyof typeof otherFilters];
-
+  
     return getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], otherFilters);
   };
 
