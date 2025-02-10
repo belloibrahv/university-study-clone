@@ -17,6 +17,11 @@ const defaultState: FilterState = {
   results: [],
 };
 
+// Helper function to get initial filtered programs
+const getInitialFilteredPrograms = (programs: Program[]): Program[] => {
+  return programs.filter(program => !program.coop && !program.remote);
+};
+
 const getInitialState = (): FilterState => {
   try {
     const stored = sessionStorage.getItem(STORAGE_KEY);
@@ -95,50 +100,70 @@ const FilterContext = createContext<{
 
 export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, getInitialState());
+  const [isInitialRender, setIsInitialRender] = React.useState(true);
 
-  const filteredPrograms = DUMMY_PROGRAMS.filter(program => {
-    const searchQuery = state.searchQuery || '';
-    const programLevel = state.programLevel || [];
-    const language = state.language || [];
-    const studyArea = state.studyArea || [];
-    const province = state.province || [];
-    const university = state.university || [];
-    const coop = state.coop ?? false;
-    const remoteLearning = state.remote ?? false;
+  const filteredPrograms = React.useMemo(() => {
+    // On initial render, only show programs with both coop and remote set to false
+    if (isInitialRender) {
+      return getInitialFilteredPrograms(DUMMY_PROGRAMS);
+    }
 
-    const matchesSearch = !searchQuery || 
-      program.programName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      program.university.toLowerCase().includes(searchQuery.toLowerCase());
+    return DUMMY_PROGRAMS.filter(program => {
+      let matches = true;
 
-    const matchesProgramLevel = programLevel.length === 0 ||
-      programLevel.includes(program.programLevel);
+      // Apply search query filter
+      if (state.searchQuery) {
+        matches = matches && (
+          program.programName.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
+          program.university.toLowerCase().includes(state.searchQuery.toLowerCase())
+        );
+      }
 
-    const matchesLanguage = language.length === 0 ||
-      language.includes(program.language);
+      // Apply program level filter
+      if (state.programLevel.length > 0) {
+        matches = matches && state.programLevel.includes(program.programLevel);
+      }
 
-    const matchesStudyArea = studyArea.length === 0 ||
-      studyArea.includes(program.studyArea);
+      // Apply language filter
+      if (state.language.length > 0) {
+        matches = matches && state.language.includes(program.language);
+      }
 
-    const matchesProvince = province.length === 0 ||
-      province.includes(program.province);
+      // Apply study area filter
+      if (state.studyArea.length > 0) {
+        matches = matches && state.studyArea.includes(program.studyArea);
+      }
 
-    const matchesUniversity = university.length === 0 ||
-      university.includes(program.university);
+      // Apply province filter
+      if (state.province.length > 0) {
+        matches = matches && state.province.includes(program.province);
+      }
 
-    const matchesCoop = !coop || program.coop === true;
-    const matchesRemoteLearning = !remoteLearning || program.remote === true;
+      // Apply university filter
+      if (state.university.length > 0) {
+        matches = matches && state.university.includes(program.university);
+      }
 
-    return matchesSearch && matchesProgramLevel && matchesLanguage &&
-           matchesStudyArea && matchesProvince && matchesUniversity && 
-           matchesCoop && matchesRemoteLearning;
-  }).sort((a, b) => a.programName.localeCompare(b.programName));
+      // Apply coop and remote filters
+      // Only include programs that match the exact coop/remote combination
+      matches = matches && program.coop === state.coop && program.remote === state.remote;
+
+      return matches;
+    });
+  }, [state, isInitialRender]);
 
   useEffect(() => {
+    // Update filterInteractions with the current state and filtered results
     updateFilterInteractions({
       ...state,
       results: filteredPrograms
     });
-  }, [state, filteredPrograms]);
+
+    // After first render, set isInitialRender to false
+    if (isInitialRender) {
+      setIsInitialRender(false);
+    }
+  }, [state, filteredPrograms, isInitialRender]);
 
   return (
     <FilterContext.Provider value={{ state, dispatch, filteredPrograms }}>

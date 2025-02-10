@@ -11,12 +11,12 @@ import { FilterProvider } from './context/FilterContext';
 import Ads from './components/Ads';
 import { Footer } from './components/Footer';
 import { PartnerSlider } from './components/PartnerSlider';
-import UniversityImg from './assets/images/university.svg';
-import FoundationImg from './assets/images/foundation.svg';
 import NSPImg from './assets/images/nsp.png';
 import JackmanImg from './assets/images/jackman.png';
-import PostmanImg from './assets/images/postmedia.png';
 import CanadaImg from './assets/images/canadauni.svg';
+import PostmanImg from './assets/images/postmedia.png';
+import UniversityImg from './assets/images/university.svg';
+import FoundationImg from './assets/images/foundation.svg';
 
 const theme = createTheme({
   palette: {
