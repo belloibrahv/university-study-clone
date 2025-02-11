@@ -1161,7 +1161,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'Computer science',
     university: 'Dalhousie University',
-    province: 'Nova Scortia'
+    province: 'Nova Scotia'
   },
   {
     id: '91',
@@ -1185,7 +1185,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'Biological sciences',
     university: 'Dalhousie University',
-    province: 'Nova Scortia'
+    province: 'Nova Scotia'
   },
   {
     id: '93',
@@ -1197,7 +1197,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'African American/Black studies',
     university: 'Dalhousie University',
-    province: 'Nova Scortia'
+    province: 'Nova Scotia'
   },
   {
     id: '94',
@@ -1209,7 +1209,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'Canadian studies',
     university: 'Dalhousie University',
-    province: 'Nova Scortia'
+    province: 'Nova Scotia'
   },
   {
     id: '95',
@@ -1221,7 +1221,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'Chemistry',
     university: 'Dalhousie University',
-    province: 'Nova Scortia'
+    province: 'Nova Scotia'
   },
 
   // Nipissing University Programs
