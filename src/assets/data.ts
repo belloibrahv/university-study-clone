@@ -1672,7 +1672,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'International economics',
-    university: 'Bishops Umiversity',
+    university: 'Bishops University',
     province: 'Quebec'
   },
 
