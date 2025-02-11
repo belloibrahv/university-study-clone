@@ -315,6 +315,8 @@ export const SearchFilters = () => {
           open={Boolean(anchorEl)}
           anchorEl={anchorEl}
           onClose={handleClose}
+          disableAutoFocus
+          disableEnforceFocus
           anchorOrigin={{
             vertical: 'bottom',
             horizontal: 'left',
