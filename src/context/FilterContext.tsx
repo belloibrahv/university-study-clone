@@ -39,7 +39,8 @@ type FilterAction =
   | { type: 'SET_REMOTE_LEARNING'; payload: boolean }
   | { type: 'SET_SEARCH_QUERY'; payload: string }
   | { type: 'SET_AREA_OF_STUDY'; payload: string[] }
-  | { type: 'RESET_FILTERS' };
+  | { type: 'RESET_FILTERS';  }
+  | { type: 'CLEAR_UNIVERSITY'; };  // New action type
 
 const filterReducer = (state: FilterState, action: FilterAction): FilterState => {
   let newState: FilterState;
@@ -55,7 +56,12 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
       newState = { ...state, studyArea: action.payload };
       break;
     case 'SET_PROVINCE':
-      newState = { ...state, province: [action.payload] };
+      // Clear university selection when province changes
+      newState = { 
+        ...state, 
+        province: [action.payload],
+        university: [] // Reset university when province changes
+      };
       break;
     case 'SET_UNIVERSITY':
       newState = { ...state, university: [action.payload] };
@@ -71,6 +77,9 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
       break;
     case 'SET_AREA_OF_STUDY':
       newState = { ...state, studyArea: action.payload };
+      break;
+    case 'CLEAR_UNIVERSITY':
+      newState = { ...state, university: [] };
       break;
     case 'RESET_FILTERS':
       newState = defaultState;
@@ -98,10 +107,24 @@ const FilterContext = createContext<{
     province: { [key: string]: number };
     university: { [key: string]: number };
   };
+  universitiesByProvince: { [key: string]: Program[] };  // New context value
 } | null>(null);
 
 export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, getInitialState());
+
+  // Calculate universities by province
+  const universitiesByProvince = useMemo(() => {
+    return DUMMY_PROGRAMS.reduce((acc, program) => {
+      if (!acc[program.province]) {
+        acc[program.province] = [];
+      }
+      if (!acc[program.province].find(p => p.university === program.university)) {
+        acc[program.province].push(program);
+      }
+      return acc;
+    }, {} as { [key: string]: Program[] });
+  }, []);
 
   const { filteredPrograms, filterCounts } = useMemo(() => {
     // Apply filters step by step to calculate accurate counts
@@ -125,18 +148,12 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     });
 
     // Calculate initial counts for each filter dimension
-    const initialCounts: {
-      programLevel: { [key: string]: number };
-      language: { [key: string]: number };
-      studyArea: { [key: string]: number };
-      province: { [key: string]: number };
-      university: { [key: string]: number };
-    } = {
-      programLevel: {},
-      language: {},
-      studyArea: {},
-      province: {},
-      university: {}
+    const initialCounts = {
+      programLevel: {} as { [key: string]: number },
+      language: {} as { [key: string]: number },
+      studyArea: {} as { [key: string]: number },
+      province: {} as { [key: string]: number },
+      university: {} as { [key: string]: number }
     };
 
     basePrograms.forEach(program => {
@@ -162,32 +179,29 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       initialCounts.province[program.province] = 
         (initialCounts.province[program.province] || 0) + 1;
 
-      // Count universities
-      initialCounts.university[program.university] = 
-        (initialCounts.university[program.university] || 0) + 1;
+      // Count universities (filtered by selected province)
+      if (!state.province.length || state.province.includes(program.province)) {
+        initialCounts.university[program.university] = 
+          (initialCounts.university[program.university] || 0) + 1;
+      }
     });
 
     // Final filtering with all constraints
     const finalFilteredPrograms = basePrograms.filter(program => {
-      // Apply remaining filters
       let matches = true;
 
-      // Program level filter
       if (state.programLevel.length > 0) {
         matches = matches && state.programLevel.includes(program.programLevel);
       }
 
-      // Language filter
       if (state.language.length > 0) {
         matches = matches && state.language.includes(program.language);
       }
 
-      // Study area filter
       if (state.studyArea.length > 0) {
         matches = matches && state.studyArea.includes(program.studyArea);
       }
 
-      // Coop and remote filters
       matches = matches && 
         (state.coop === false || program.coop === state.coop) &&
         (state.remote === false || program.remote === state.remote);
@@ -202,7 +216,6 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, [state]);
 
   useEffect(() => {
-    // Update filterInteractions with the current state and filtered results
     updateFilterInteractions({
       ...state,
       results: filteredPrograms
@@ -214,7 +227,8 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       state, 
       dispatch, 
       filteredPrograms, 
-      filterCounts 
+      filterCounts,
+      universitiesByProvince 
     }}>
       {children}
     </FilterContext.Provider>

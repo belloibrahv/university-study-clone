@@ -9,33 +9,10 @@ interface CountItem {
   count: number;
 }
 
-const getUniqueValuesWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], state: FilterState): CountItem[] => {
-  const activeFilters: Partial<FilterState> = {
-    programLevel: state.programLevel,
-    language: state.language,
-    studyArea: state.studyArea,
-    coop: state.coop,
-    remote: state.remote
-  };
-
-  const countMap = DUMMY_PROGRAMS.reduce((acc, program) => {
-    // Check if program matches all current active filters
-    const matchesFilters = Object.entries(activeFilters).every(([filterKey, filterValue]) => {
-      if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) return true;
-      
-      if (typeof filterValue === 'boolean') {
-        return program[filterKey as keyof Program] === filterValue;
-      }
-      
-      if (Array.isArray(filterValue)) {
-        return (filterValue as string[]).includes(program[filterKey as keyof Program] as string);
-      }
-      
-      return true;
-    });
-
+const getUniqueValuesWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], programs: Program[]): CountItem[] => {
+  const countMap = programs.reduce((acc, program) => {
     const value = program[key];
-    if (matchesFilters && typeof value === 'string') {
+    if (typeof value === 'string') {
       acc[value] = (acc[value] || 0) + 1;
     }
     return acc;
@@ -133,19 +110,49 @@ const FeatureTitle = styled(Typography)({
   color: '#2D2D2D',
 });
 
+const EmptyStateMessage = styled(Typography)({
+  color: '#666',
+  fontStyle: 'italic',
+  textAlign: 'center',
+  padding: '16px 0',
+});
 
 export const FilterPanel = () => {
-  const { state, dispatch } = useFilter();
+  const { state, dispatch, universitiesByProvince } = useFilter();
 
-  const provinces = getUniqueValuesWithCount('province', state);
-  const universities = getUniqueValuesWithCount('university', state);
+  const provinces = getUniqueValuesWithCount('province', DUMMY_PROGRAMS);
+
+  // Get universities based on selected province
+  const getUniversitiesByProvince = () => {
+    if (!state.province.length) {
+      return getUniqueValuesWithCount('university', DUMMY_PROGRAMS);
+    }
+
+    const selectedProvince = state.province[0];
+    const universities = universitiesByProvince[selectedProvince] || [];
+    return getUniqueValuesWithCount('university', universities);
+  };
+
+  const universities = getUniversitiesByProvince();
 
   const handleProvinceChange = (provinceName: string) => {
-    dispatch({ type: 'SET_PROVINCE', payload: provinceName });
+    // If clicking the same province, clear the selection
+    if (state.province[0] === provinceName) {
+      dispatch({ type: 'SET_PROVINCE', payload: '' });
+    } else {
+      dispatch({ type: 'SET_PROVINCE', payload: provinceName });
+    }
+    // Clear university selection when province changes
+    dispatch({ type: 'CLEAR_UNIVERSITY' });
   };
 
   const handleUniversityChange = (universityName: string) => {
-    dispatch({ type: 'SET_UNIVERSITY', payload: universityName });
+    // If clicking the same university, clear the selection
+    if (state.university[0] === universityName) {
+      dispatch({ type: 'SET_UNIVERSITY', payload: '' });
+    } else {
+      dispatch({ type: 'SET_UNIVERSITY', payload: universityName });
+    }
   };
 
   return (
@@ -203,26 +210,33 @@ export const FilterPanel = () => {
       </SwitchContainer>
       
       <Divider />
+
       <Typography variant="h6">University</Typography>
-      <FormGroup>
-        {universities.map(({ name, count }) => (
-          <FormControlLabel
-            key={name}
-            control={
-              <Radio
-                checked={state.university?.[0] === name}
-                onChange={() => handleUniversityChange(name)}
-              />
-            }
-            label={
-              <FilterLabel>
-                <span>{name}</span>
-                <span>({count})</span>
-              </FilterLabel>
-            }
-          />
-        ))}
-      </FormGroup>
+      {universities.length > 0 ? (
+        <FormGroup>
+          {universities.map(({ name, count }) => (
+            <FormControlLabel
+              key={name}
+              control={
+                <Radio
+                  checked={state.university?.[0] === name}
+                  onChange={() => handleUniversityChange(name)}
+                />
+              }
+              label={
+                <FilterLabel>
+                  <span>{name}</span>
+                  <span>({count})</span>
+                </FilterLabel>
+              }
+            />
+          ))}
+        </FormGroup>
+      ) : (
+        <EmptyStateMessage>
+          No universities available for the selected filters
+        </EmptyStateMessage>
+      )}
     </FilterContainer>
   );
 };
