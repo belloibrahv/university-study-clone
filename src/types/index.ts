@@ -8,6 +8,7 @@ export interface FilterState {
   searchQuery: string;
   results: Program[];
   remote: boolean;
+  selectedProvince: string | null;
 }
 
 export interface Program {

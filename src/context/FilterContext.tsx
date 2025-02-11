@@ -15,6 +15,7 @@ const defaultState: FilterState = {
   remote: false,
   searchQuery: '',
   results: [],
+  selectedProvince: null,
 };
 
 const getInitialState = (): FilterState => {
@@ -38,9 +39,8 @@ type FilterAction =
   | { type: 'SET_COOP'; payload: boolean }
   | { type: 'SET_REMOTE_LEARNING'; payload: boolean }
   | { type: 'SET_SEARCH_QUERY'; payload: string }
-  | { type: 'SET_AREA_OF_STUDY'; payload: string[] }
-  | { type: 'RESET_FILTERS';  }
-  | { type: 'CLEAR_UNIVERSITY'; };  // New action type
+  | { type: 'RESET_FILTERS' }
+  | { type: 'CLEAR_PROVINCE' };
 
 const filterReducer = (state: FilterState, action: FilterAction): FilterState => {
   let newState: FilterState;
@@ -56,11 +56,22 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
       newState = { ...state, studyArea: action.payload };
       break;
     case 'SET_PROVINCE':
-      // Clear university selection when province changes
-      newState = { 
-        ...state, 
+      // Reset other filters when province changes
+      newState = {
+        ...defaultState,
+        searchQuery: state.searchQuery,
         province: [action.payload],
-        university: [] // Reset university when province changes
+        selectedProvince: action.payload
+      };
+      break;
+    case 'CLEAR_PROVINCE':
+      newState = {
+        ...state,
+        province: [],
+        selectedProvince: null,
+        university: [], // Clear university selection when province is cleared
+        coop: false,   // Reset coop filter
+        remote: false  // Reset remote filter
       };
       break;
     case 'SET_UNIVERSITY':
@@ -75,14 +86,8 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
     case 'SET_SEARCH_QUERY':
       newState = { ...state, searchQuery: action.payload };
       break;
-    case 'SET_AREA_OF_STUDY':
-      newState = { ...state, studyArea: action.payload };
-      break;
-    case 'CLEAR_UNIVERSITY':
-      newState = { ...state, university: [] };
-      break;
     case 'RESET_FILTERS':
-      newState = defaultState;
+      newState = { ...defaultState, searchQuery: state.searchQuery };
       break;
     default:
       return state;
@@ -100,6 +105,14 @@ const FilterContext = createContext<{
   state: FilterState;
   dispatch: React.Dispatch<FilterAction>;
   filteredPrograms: Program[];
+  availableFilters: {
+    universities: string[];
+    programLevels: string[];
+    languages: string[];
+    provinces: string[];
+    hasCoopPrograms: boolean;
+    hasRemotePrograms: boolean;
+  };
   filterCounts: {
     programLevel: { [key: string]: number };
     language: { [key: string]: number };
@@ -107,39 +120,57 @@ const FilterContext = createContext<{
     province: { [key: string]: number };
     university: { [key: string]: number };
   };
-  universitiesByProvince: { [key: string]: Program[] };  // New context value
 } | null>(null);
 
 export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, getInitialState());
 
-  // Calculate universities by province
-  const universitiesByProvince = useMemo(() => {
-    return DUMMY_PROGRAMS.reduce((acc, program) => {
-      if (!acc[program.province]) {
-        acc[program.province] = [];
+  const { filteredPrograms, filterCounts, availableFilters } = useMemo(() => {
+    // First, filter by province
+    const provinceFilteredPrograms = DUMMY_PROGRAMS.filter(program => {
+      if (state.selectedProvince) {
+        return program.province === state.selectedProvince;
       }
-      if (!acc[program.province].find(p => p.university === program.university)) {
-        acc[program.province].push(program);
+      return true;
+    });
+
+    // Then apply coop and remote filters before calculating available options
+    let intermediatePrograms = provinceFilteredPrograms;
+    if (state.coop) {
+      intermediatePrograms = intermediatePrograms.filter(p => p.coop);
+    }
+    if (state.remote) {
+      intermediatePrograms = intermediatePrograms.filter(p => p.remote);
+    }
+
+    // Calculate available filters based on intermediate filtered programs
+    const availableFilters = {
+      universities: [...new Set(intermediatePrograms.map(p => p.university))].sort(),
+      programLevels: [...new Set(intermediatePrograms.map(p => p.programLevel))].sort(),
+      languages: [...new Set(intermediatePrograms.map(p => p.language))].sort(),
+      provinces: [...new Set(DUMMY_PROGRAMS.map(p => p.province))].sort(),
+      hasCoopPrograms: intermediatePrograms.some(p => p.coop),
+      hasRemotePrograms: intermediatePrograms.some(p => p.remote)
+    };
+
+    // Apply remaining filters
+    const finalFilteredPrograms = intermediatePrograms.filter(program => {
+      let matches = true;
+
+      if (state.searchQuery) {
+        const searchLower = state.searchQuery.toLowerCase();
+        matches = matches && (
+          program.programName.toLowerCase().includes(searchLower) ||
+          program.university.toLowerCase().includes(searchLower)
+        );
       }
-      return acc;
-    }, {} as { [key: string]: Program[] });
-  }, []);
 
-  const { filteredPrograms, filterCounts } = useMemo(() => {
-    // Apply filters step by step to calculate accurate counts
-    const basePrograms = DUMMY_PROGRAMS.filter(program => {
-      // Base filter for search query
-      let matches = !state.searchQuery || 
-        program.programName.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
-        program.university.toLowerCase().includes(state.searchQuery.toLowerCase());
-
-      // Apply province filter if selected
-      if (state.province.length > 0) {
-        matches = matches && state.province.includes(program.province);
+      if (state.programLevel.length > 0) {
+        matches = matches && state.programLevel.includes(program.programLevel);
       }
-
-      // Apply university filter if selected
+      if (state.language.length > 0) {
+        matches = matches && state.language.includes(program.language);
+      }
       if (state.university.length > 0) {
         matches = matches && state.university.includes(program.university);
       }
@@ -147,71 +178,30 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       return matches;
     });
 
-    // Calculate initial counts for each filter dimension
-    const initialCounts = {
-      programLevel: {} as { [key: string]: number },
-      language: {} as { [key: string]: number },
-      studyArea: {} as { [key: string]: number },
-      province: {} as { [key: string]: number },
-      university: {} as { [key: string]: number }
+    // Calculate counts based on intermediate filtered programs
+    const filterCounts = {
+      programLevel: {},
+      language: {},
+      studyArea: {},
+      province: {},
+      university: {}
     };
 
-    basePrograms.forEach(program => {
-      // Count program levels
-      if (state.programLevel.length === 0 || state.programLevel.includes(program.programLevel)) {
-        initialCounts.programLevel[program.programLevel] = 
-          (initialCounts.programLevel[program.programLevel] || 0) + 1;
-      }
-
-      // Count languages
-      if (state.language.length === 0 || state.language.includes(program.language)) {
-        initialCounts.language[program.language] = 
-          (initialCounts.language[program.language] || 0) + 1;
-      }
-
-      // Count study areas
-      if (state.studyArea.length === 0 || state.studyArea.includes(program.studyArea)) {
-        initialCounts.studyArea[program.studyArea] = 
-          (initialCounts.studyArea[program.studyArea] || 0) + 1;
-      }
-
-      // Count provinces
-      initialCounts.province[program.province] = 
-        (initialCounts.province[program.province] || 0) + 1;
-
-      // Count universities (filtered by selected province)
-      if (!state.province.length || state.province.includes(program.province)) {
-        initialCounts.university[program.university] = 
-          (initialCounts.university[program.university] || 0) + 1;
-      }
+    intermediatePrograms.forEach(program => {
+      filterCounts.programLevel[program.programLevel] = 
+        (filterCounts.programLevel[program.programLevel] || 0) + 1;
+      filterCounts.language[program.language] = 
+        (filterCounts.language[program.language] || 0) + 1;
+      filterCounts.university[program.university] = 
+        (filterCounts.university[program.university] || 0) + 1;
+      filterCounts.province[program.province] = 
+        (filterCounts.province[program.province] || 0) + 1;
     });
 
-    // Final filtering with all constraints
-    const finalFilteredPrograms = basePrograms.filter(program => {
-      let matches = true;
-
-      if (state.programLevel.length > 0) {
-        matches = matches && state.programLevel.includes(program.programLevel);
-      }
-
-      if (state.language.length > 0) {
-        matches = matches && state.language.includes(program.language);
-      }
-
-      if (state.studyArea.length > 0) {
-        matches = matches && state.studyArea.includes(program.studyArea);
-      }
-
-      matches = matches && 
-        (state.coop === false || program.coop === state.coop) &&
-        (state.remote === false || program.remote === state.remote);
-
-      return matches;
-    });
-
-    return { 
-      filteredPrograms: finalFilteredPrograms, 
-      filterCounts: initialCounts 
+    return {
+      filteredPrograms: finalFilteredPrograms,
+      filterCounts,
+      availableFilters
     };
   }, [state]);
 
@@ -223,12 +213,12 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, [state, filteredPrograms]);
 
   return (
-    <FilterContext.Provider value={{ 
-      state, 
-      dispatch, 
-      filteredPrograms, 
+    <FilterContext.Provider value={{
+      state,
+      dispatch,
+      filteredPrograms,
       filterCounts,
-      universitiesByProvince 
+      availableFilters
     }}>
       {children}
     </FilterContext.Provider>
@@ -242,3 +232,5 @@ export const useFilter = () => {
   }
   return context;
 };
+
+export default FilterContext;
