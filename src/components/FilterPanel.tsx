@@ -1,5 +1,6 @@
-import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch, Divider } from '@mui/material';
+import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch, Divider, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import CloseIcon from '@mui/icons-material/Close';
 import { useFilter } from '../context/FilterContext';
 
 const FilterContainer = styled(Box)(({ theme }) => ({
@@ -43,7 +44,6 @@ const SelectedProvince = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: theme.spacing(2),
-  // backgroundColor: '#f5f5f5',
   borderRadius: theme.spacing(1),
   marginBottom: theme.spacing(2),
 }));
@@ -84,6 +84,7 @@ export const FilterPanel = () => {
     dispatch, 
     filterCounts, 
     availableFilters,
+    filteredPrograms 
   } = useFilter();
 
   const handleProvinceChange = (provinceName: string) => {
@@ -92,6 +93,10 @@ export const FilterPanel = () => {
 
   const handleUniversityChange = (universityName: string) => {
     dispatch({ type: 'SET_UNIVERSITY', payload: universityName });
+  };
+
+  const handleClearUniversity = () => {
+    dispatch({ type: 'CLEAR_UNIVERSITY' });
   };
 
   return (
@@ -118,6 +123,13 @@ export const FilterPanel = () => {
                 </FilterLabel>
               }
             />
+            <IconButton
+              size="small"
+              onClick={() => dispatch({ type: 'CLEAR_PROVINCE' })}
+              sx={{ ml: 1 }}
+            >
+              <CloseIcon />
+            </IconButton>
           </SelectedProvince>
         ) : (
           <FormGroup>
@@ -143,44 +155,34 @@ export const FilterPanel = () => {
       </FilterSection>
 
       <Divider />
+      <SwitchContainer>
+        <Box>
+          <Typography variant="h6" sx={{ mb: 0 }}>Co-op availability</Typography>
+        </Box>
+        <div className="switch-section">
+          <span className="switch-label">{state.coop ? 'Yes' : 'No'}</span>
+          <Switch
+            checked={state.coop}
+            onChange={(e) => dispatch({ type: 'SET_COOP', payload: e.target.checked })}
+            color="primary"
+          />
+        </div>
+      </SwitchContainer>
 
-      {availableFilters.hasCoopPrograms && (
-        <>
-          <Divider />
-          <SwitchContainer>
-            <Box>
-              <Typography variant="h6" sx={{ mb: 0 }}>Co-op availability</Typography>
-            </Box>
-            <div className="switch-section">
-              <span className="switch-label">{state.coop ? 'Yes' : 'No'}</span>
-              <Switch
-                checked={state.coop}
-                onChange={(e) => dispatch({ type: 'SET_COOP', payload: e.target.checked })}
-                color="primary"
-              />
-            </div>
-          </SwitchContainer>
-        </>
-      )}
-
-      {availableFilters.hasRemotePrograms && (
-        <>
-          <Divider />
-          <SwitchContainer>
-            <Box>
-              <Typography variant="h6" sx={{ mb: 0 }}>Remote learning</Typography>
-            </Box>
-            <div className="switch-section">
-              <span className="switch-label">{state.remote ? 'Yes' : 'No'}</span>
-              <Switch
-                checked={state.remote}
-                onChange={(e) => dispatch({ type: 'SET_REMOTE_LEARNING', payload: e.target.checked })}
-                color="primary"
-              />
-            </div>
-          </SwitchContainer>
-        </>
-      )}
+      <Divider />
+      <SwitchContainer>
+        <Box>
+          <Typography variant="h6" sx={{ mb: 0 }}>Remote learning</Typography>
+        </Box>
+        <div className="switch-section">
+          <span className="switch-label">{state.remote ? 'Yes' : 'No'}</span>
+          <Switch
+            checked={state.remote}
+            onChange={(e) => dispatch({ type: 'SET_REMOTE_LEARNING', payload: e.target.checked })}
+            color="primary"
+          />
+        </div>
+      </SwitchContainer>
 
       <Divider />
       <FilterSection>
@@ -202,6 +204,13 @@ export const FilterPanel = () => {
                 </FilterLabel>
               }
             />
+            <IconButton
+              size="small"
+              onClick={handleClearUniversity}
+              sx={{ ml: 1 }}
+            >
+              <CloseIcon />
+            </IconButton>
           </SelectedProvince>
         ) : (
           <FormGroup>
@@ -225,7 +234,6 @@ export const FilterPanel = () => {
           </FormGroup>
         )}
       </FilterSection>
-      
     </FilterContainer>
   );
 };
