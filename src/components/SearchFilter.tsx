@@ -195,7 +195,24 @@ export const SearchFilters = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [filterSearch, setFilterSearch] = useState('');
-  const [tempSelectedValues, setTempSelectedValues] = useState<string[]>([]);
+  const [selectedOptions, setSelectedOptions] = useState<{
+    programLevel: string[];
+    language: string[];
+    studyArea: string[];
+  }>({
+    programLevel: [],
+    language: [],
+    studyArea: [],
+  });
+  const [appliedFilters, setAppliedFilters] = useState<{
+    programLevel: boolean;
+    language: boolean;
+    studyArea: boolean;
+  }>({
+    programLevel: false,
+    language: false,
+    studyArea: false,
+  });
 
   const getFilterOptions = (filter: string) => {
     const activeFilters: Partial<FilterState> = {
@@ -212,28 +229,33 @@ export const SearchFilters = () => {
     const otherFilters = { ...activeFilters };
     delete otherFilters[filter as keyof typeof otherFilters];
   
-    return getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], otherFilters);
+    const options = getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], otherFilters);
+    
+    // Filter out options based on applied filters
+    if (appliedFilters[filter as keyof typeof appliedFilters]) {
+      return options.filter(option => 
+        selectedOptions[filter as keyof typeof selectedOptions].includes(option.value)
+      );
+    }
+    
+    return options;
   };
 
   const handleFilterClick = (event: React.MouseEvent<HTMLElement>, filter: string) => {
-    // Close any open filter before opening new one
-    if (activeFilter && activeFilter !== filter) {
-      handleClose();
-    }
-    
     setAnchorEl(event.currentTarget);
     setActiveFilter(filter);
     setFilterSearch('');
     
-    // Set temporary values to current selected values
-    const currentValues = getSelectedValues(filter);
-    setTempSelectedValues(currentValues);
+    // Initialize selected options for this filter if not already set
+    setSelectedOptions(prev => ({
+      ...prev,
+      [filter]: getSelectedValues(filter)
+    }));
   };
 
   const handleClose = () => {
     setAnchorEl(null);
     setActiveFilter(null);
-    setTempSelectedValues([]);
   };
 
   const getSelectedValues = (filter: string): string[] => {
@@ -248,36 +270,69 @@ export const SearchFilters = () => {
         return [];
     }
   };
+ 
+  //   if (!activeFilter) return;
+    
+  //   setTempSelectedValues(prev => 
+  //     prev.includes(value)
+  //       ? prev.filter(v => v !== value)
+  //       : [...prev, value]
+  //   );
+  // };
+
+  const handleApplyFilter = () => {
+    if (!activeFilter) return;
+    
+    // Update the applied filters state
+    setAppliedFilters(prev => ({
+      ...prev,
+      [activeFilter]: true
+    }));
+    
+    // Dispatch the selected options to the global state
+    switch (activeFilter) {
+      case 'programLevel':
+        dispatch({ type: 'SET_PROGRAM_LEVEL', payload: selectedOptions.programLevel });
+        break;
+      case 'language':
+        dispatch({ type: 'SET_LANGUAGE', payload: selectedOptions.language });
+        break;
+      case 'studyArea':
+        dispatch({ type: 'SET_STUDY_AREA', payload: selectedOptions.studyArea });
+        break;
+    }
+    
+    handleClose();
+  };
 
   const handleOptionToggle = (value: string) => {
     if (!activeFilter) return;
     
-    setTempSelectedValues(prev => 
-      prev.includes(value)
-        ? prev.filter(v => v !== value)
-        : [...prev, value]
-    );
-  };
-
-  const handleApplyFilter = () => {
-    if (!activeFilter) return;
-
-    switch (activeFilter) {
-      case 'programLevel':
-        dispatch({ type: 'SET_PROGRAM_LEVEL', payload: tempSelectedValues });
-        break;
-      case 'language':
-        dispatch({ type: 'SET_LANGUAGE', payload: tempSelectedValues });
-        break;
-      case 'studyArea':
-        dispatch({ type: 'SET_STUDY_AREA', payload: tempSelectedValues });
-        break;
-    }
-    handleClose();
+    setSelectedOptions(prev => {
+      const currentValues = prev[activeFilter as keyof typeof prev];
+      const newValues = currentValues.includes(value)
+        ? currentValues.filter(v => v !== value)
+        : [...currentValues, value];
+        
+      return {
+        ...prev,
+        [activeFilter]: newValues
+      };
+    });
   };
 
   const handleReset = () => {
     dispatch({ type: 'RESET_FILTERS' });
+    setAppliedFilters({
+      programLevel: false,
+      language: false,
+      studyArea: false,
+    });
+    setSelectedOptions({
+      programLevel: [],
+      language: [],
+      studyArea: [],
+    });
     handleClose();
   };
 
@@ -305,7 +360,7 @@ export const SearchFilters = () => {
   
   return (
     <FilterContainer>
-      {filterButtons.map(({ key, label }) => {
+     {filterButtons.map(({ key, label }) => {
         const selectedCount = getSelectedValues(key).length;
         return (
           <FilterButton
@@ -337,7 +392,7 @@ export const SearchFilters = () => {
         </ResetButton>
       )}
 
-      <FilterPopover
+<FilterPopover
         open={Boolean(anchorEl)}
         anchorEl={anchorEl}
         onClose={handleClose}
@@ -364,7 +419,7 @@ export const SearchFilters = () => {
               key={option.value}
               control={
                 <Checkbox
-                  checked={tempSelectedValues.includes(option.value)}
+                  checked={selectedOptions[activeFilter as keyof typeof selectedOptions]?.includes(option.value)}
                   onChange={() => handleOptionToggle(option.value)}
                 />
               }
@@ -377,10 +432,10 @@ export const SearchFilters = () => {
             />
           ))}
         </CheckboxGroup>
-
-        <ApplyButton 
-          onClick={handleApplyFilter}
+        
+        <ApplyButton
           variant="contained"
+          onClick={handleApplyFilter}
         >
           Apply Now
         </ApplyButton>
