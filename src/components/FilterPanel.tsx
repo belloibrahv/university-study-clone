@@ -2,6 +2,7 @@ import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch, Divider, I
 import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import { useFilter } from '../context/FilterContext';
+import { DUMMY_PROGRAMS } from '../assets/data';
 
 const FilterContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(0.3),
@@ -84,6 +85,7 @@ export const FilterPanel = () => {
     dispatch, 
     filterCounts, 
     availableFilters,
+    filteredPrograms 
   } = useFilter();
 
   const handleProvinceChange = (provinceName: string) => {
@@ -94,8 +96,30 @@ export const FilterPanel = () => {
     dispatch({ type: 'SET_UNIVERSITY', payload: universityName });
   };
 
-  const handleClearUniversity = () => {
-    dispatch({ type: 'CLEAR_UNIVERSITY' });
+  const getAvailableProvinces = () => {
+    if (state.university?.length > 0) {
+      // Filter provinces based on selected university
+      return availableFilters.provinces.filter(province => {
+        return DUMMY_PROGRAMS.some(program => 
+          program.university === state.university[0] && 
+          program.province === province
+        );
+      });
+    }
+    return availableFilters.provinces;
+  };
+
+  const getAvailableUniversities = () => {
+    if (state.selectedProvince) {
+      // Filter universities based on selected province
+      return availableFilters.universities.filter(university => {
+        return DUMMY_PROGRAMS.some(program => 
+          program.province === state.selectedProvince && 
+          program.university === university
+        );
+      });
+    }
+    return availableFilters.universities;
   };
 
   return (
@@ -132,7 +156,7 @@ export const FilterPanel = () => {
           </SelectedProvince>
         ) : (
           <FormGroup>
-            {availableFilters.provinces.map((province) => (
+            {getAvailableProvinces().map((province) => (
               <FormControlLabel
                 key={province}
                 control={
@@ -205,7 +229,7 @@ export const FilterPanel = () => {
             />
             <IconButton
               size="small"
-              onClick={handleClearUniversity}
+              onClick={() => dispatch({ type: 'CLEAR_UNIVERSITY' })}
               sx={{ ml: 1 }}
             >
               <CloseIcon />
@@ -213,7 +237,7 @@ export const FilterPanel = () => {
           </SelectedProvince>
         ) : (
           <FormGroup>
-            {availableFilters.universities.map((university) => (
+            {getAvailableUniversities().map((university) => (
               <FormControlLabel
                 key={university}
                 control={
