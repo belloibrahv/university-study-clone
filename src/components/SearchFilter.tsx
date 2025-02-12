@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Checkbox, FormControlLabel, Popover, InputBase } from '@mui/material';
+import { Box, Checkbox, FormControlLabel, Popover, InputBase, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -64,6 +64,16 @@ const FilterContainer = styled(Box)({
   flexWrap: 'wrap',
   width: '100%'
 });
+
+const ApplyButton = styled(Button)(({ theme }) => ({
+  width: '100%',
+  marginTop: theme.spacing(2),
+  backgroundColor: '#DC3545',
+  color: 'white',
+  '&:hover': {
+    backgroundColor: '#C82333',
+  },
+}));
 
 interface StyledFilterButtonProps {
   active: number;
@@ -185,6 +195,7 @@ export const SearchFilters = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [filterSearch, setFilterSearch] = useState('');
+  const [tempSelectedValues, setTempSelectedValues] = useState<string[]>([]);
 
   const getFilterOptions = (filter: string) => {
     const activeFilters: Partial<FilterState> = {
@@ -198,7 +209,6 @@ export const SearchFilters = () => {
       searchQuery: state.searchQuery
     };
   
-    // Remove current filter from active filters
     const otherFilters = { ...activeFilters };
     delete otherFilters[filter as keyof typeof otherFilters];
   
@@ -206,14 +216,24 @@ export const SearchFilters = () => {
   };
 
   const handleFilterClick = (event: React.MouseEvent<HTMLElement>, filter: string) => {
+    // Close any open filter before opening new one
+    if (activeFilter && activeFilter !== filter) {
+      handleClose();
+    }
+    
     setAnchorEl(event.currentTarget);
     setActiveFilter(filter);
     setFilterSearch('');
+    
+    // Set temporary values to current selected values
+    const currentValues = getSelectedValues(filter);
+    setTempSelectedValues(currentValues);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
     setActiveFilter(null);
+    setTempSelectedValues([]);
   };
 
   const getSelectedValues = (filter: string): string[] => {
@@ -232,22 +252,28 @@ export const SearchFilters = () => {
   const handleOptionToggle = (value: string) => {
     if (!activeFilter) return;
     
-    const currentValues = getSelectedValues(activeFilter);
-    const newValues = currentValues.includes(value)
-      ? currentValues.filter(v => v !== value)
-      : [...currentValues, value];
+    setTempSelectedValues(prev => 
+      prev.includes(value)
+        ? prev.filter(v => v !== value)
+        : [...prev, value]
+    );
+  };
+
+  const handleApplyFilter = () => {
+    if (!activeFilter) return;
 
     switch (activeFilter) {
       case 'programLevel':
-        dispatch({ type: 'SET_PROGRAM_LEVEL', payload: newValues });
+        dispatch({ type: 'SET_PROGRAM_LEVEL', payload: tempSelectedValues });
         break;
       case 'language':
-        dispatch({ type: 'SET_LANGUAGE', payload: newValues });
+        dispatch({ type: 'SET_LANGUAGE', payload: tempSelectedValues });
         break;
       case 'studyArea':
-        dispatch({ type: 'SET_STUDY_AREA', payload: newValues });
+        dispatch({ type: 'SET_STUDY_AREA', payload: tempSelectedValues });
         break;
     }
+    handleClose();
   };
 
   const handleReset = () => {
@@ -261,98 +287,105 @@ export const SearchFilters = () => {
       )
     : [];
 
-    const hasActiveFilters =
-      state.programLevel.length > 0 ||
-      state.language.length > 0 ||
-      state.studyArea.length > 0 ||
-      state.searchQuery.length > 0 ||
-      state.province.length > 0 ||
-      state.university.length > 0 ||
-      state.coop ||
-      state.remote;
+  const hasActiveFilters =
+    state.programLevel.length > 0 ||
+    state.language.length > 0 ||
+    state.studyArea.length > 0 ||
+    state.searchQuery.length > 0 ||
+    state.province.length > 0 ||
+    state.university.length > 0 ||
+    state.coop ||
+    state.remote;
 
-    const filterButtons = [
-      { key: 'programLevel', label: 'Program Level' },
-      { key: 'language', label: 'Language' },
-      { key: 'studyArea', label: 'Area of Study' }
-    ];
+  const filterButtons = [
+    { key: 'programLevel', label: 'Program Level' },
+    { key: 'language', label: 'Language' },
+    { key: 'studyArea', label: 'Area of Study' }
+  ];
   
-    return (
-      <FilterContainer>
-        {filterButtons.map(({ key, label }) => {
-          const selectedCount = getSelectedValues(key).length;
-          return (
-            <FilterButton
-              key={key}
-              onClick={(e) => handleFilterClick(e, key)}
-              active={selectedCount > 0 ? 1 : 0}
-            >
-              {label}
-              {selectedCount > 0 && <span className="count">{selectedCount}</span>}
-              <ExpandMoreIcon />
-            </FilterButton>
-          );
-        })}
-        
-        <SearchBox>
+  return (
+    <FilterContainer>
+      {filterButtons.map(({ key, label }) => {
+        const selectedCount = getSelectedValues(key).length;
+        return (
+          <FilterButton
+            key={key}
+            onClick={(e) => handleFilterClick(e, key)}
+            active={selectedCount > 0 ? 1 : 0}
+          >
+            {label}
+            {selectedCount > 0 && <span className="count">{selectedCount}</span>}
+            <ExpandMoreIcon />
+          </FilterButton>
+        );
+      })}
+      
+      <SearchBox>
+        <SearchIcon sx={{ color: '#666', mr: 1 }} />
+        <InputBase
+          fullWidth
+          placeholder="Search..."
+          value={state.searchQuery}
+          onChange={(e) => dispatch({ type: 'SET_SEARCH_QUERY', payload: e.target.value })}
+        />
+      </SearchBox>
+
+      {hasActiveFilters && (
+        <ResetButton onClick={handleReset}>
+          <RestartAltIcon />
+          Reset All
+        </ResetButton>
+      )}
+
+      <FilterPopover
+        open={Boolean(anchorEl)}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        disableAutoFocus
+        disableEnforceFocus
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+      >
+        <PopoverSearch>
           <SearchIcon sx={{ color: '#666', mr: 1 }} />
           <InputBase
             fullWidth
-            placeholder="Search..."
-            value={state.searchQuery}
-            onChange={(e) => dispatch({ type: 'SET_SEARCH_QUERY', payload: e.target.value })}
+            placeholder="Search options..."
+            value={filterSearch}
+            onChange={(e) => setFilterSearch(e.target.value)}
           />
-        </SearchBox>
-  
-        {hasActiveFilters && (
-          <ResetButton onClick={handleReset}>
-            <RestartAltIcon />
-            Reset All
-          </ResetButton>
-        )}
-  
-        <FilterPopover
-          open={Boolean(anchorEl)}
-          anchorEl={anchorEl}
-          onClose={handleClose}
-          disableAutoFocus
-          disableEnforceFocus
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-          }}
-        >
-          <PopoverSearch>
-            <SearchIcon sx={{ color: '#666', mr: 1 }} />
-            <InputBase
-              fullWidth
-              placeholder="Search options..."
-              value={filterSearch}
-              onChange={(e) => setFilterSearch(e.target.value)}
+        </PopoverSearch>
+        
+        <CheckboxGroup>
+          {filteredOptions.map((option) => (
+            <FormControlLabel
+              key={option.value}
+              control={
+                <Checkbox
+                  checked={tempSelectedValues.includes(option.value)}
+                  onChange={() => handleOptionToggle(option.value)}
+                />
+              }
+              label={
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                  <span>{option.label}</span>
+                  <span style={{ color: '#666' }}>({option.count})</span>
+                </Box>
+              }
             />
-          </PopoverSearch>
-          
-          <CheckboxGroup>
-            {filteredOptions.map((option) => (
-              <FormControlLabel
-                key={option.value}
-                control={
-                  <Checkbox
-                    checked={getSelectedValues(activeFilter || '').includes(option.value)}
-                    onChange={() => handleOptionToggle(option.value)}
-                  />
-                }
-                label={
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                    <span>{option.label}</span>
-                    <span style={{ color: '#666' }}>({option.count})</span>
-                  </Box>
-                }
-              />
-            ))}
-          </CheckboxGroup>
-        </FilterPopover>
-      </FilterContainer>
-    );
+          ))}
+        </CheckboxGroup>
+
+        <ApplyButton 
+          onClick={handleApplyFilter}
+          variant="contained"
+        >
+          Apply Now
+        </ApplyButton>
+      </FilterPopover>
+    </FilterContainer>
+  );
 };
   

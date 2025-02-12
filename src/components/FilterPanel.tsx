@@ -84,7 +84,6 @@ export const FilterPanel = () => {
     dispatch, 
     filterCounts, 
     availableFilters,
-    filteredPrograms 
   } = useFilter();
 
   const handleProvinceChange = (provinceName: string) => {
