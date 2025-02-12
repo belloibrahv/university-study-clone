@@ -1,6 +1,5 @@
-import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch, Divider, IconButton } from '@mui/material';
+import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch, Divider } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import CloseIcon from '@mui/icons-material/Close';
 import { useFilter } from '../context/FilterContext';
 
 const FilterContainer = styled(Box)(({ theme }) => ({
@@ -44,7 +43,7 @@ const SelectedProvince = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: theme.spacing(2),
-  backgroundColor: '#f5f5f5',
+  // backgroundColor: '#f5f5f5',
   borderRadius: theme.spacing(1),
   marginBottom: theme.spacing(2),
 }));
@@ -85,7 +84,6 @@ export const FilterPanel = () => {
     dispatch, 
     filterCounts, 
     availableFilters,
-    filteredPrograms 
   } = useFilter();
 
   const handleProvinceChange = (provinceName: string) => {
@@ -96,14 +94,6 @@ export const FilterPanel = () => {
     dispatch({ type: 'SET_UNIVERSITY', payload: universityName });
   };
 
-  const getCoopCount = () => {
-    return filteredPrograms.filter(program => program.coop).length;
-  };
-
-  const getRemoteCount = () => {
-    return filteredPrograms.filter(program => program.remote).length;
-  };
-
   return (
     <FilterContainer>
       <Typography variant="h4">More filters</Typography>
@@ -112,21 +102,23 @@ export const FilterPanel = () => {
       <FilterSection>
         <Typography variant="h6">Province/Territory</Typography>
         {state.selectedProvince ? (
-          <FormControlLabel
-            key={state.selectedProvince}
-            control={
-              <Radio
-                checked={true}
-                onChange={() => handleProvinceChange(state.selectedProvince!)}
-              />
-            }
-            label={
-              <FilterLabel>
-                <span>{state.selectedProvince}</span>
-                <span>({filterCounts.province[state.selectedProvince] || 0})</span>
-              </FilterLabel>
-            }
-          />
+          <SelectedProvince>
+            <FormControlLabel
+              key={state.selectedProvince}
+              control={
+                <Radio
+                  checked={true}
+                  onChange={() => handleProvinceChange(state.selectedProvince!)}
+                />
+              }
+              label={
+                <FilterLabel>
+                  <span>{state.selectedProvince}</span>
+                  <span>({filterCounts.province[state.selectedProvince] || 0})</span>
+                </FilterLabel>
+              }
+            />
+          </SelectedProvince>
         ) : (
           <FormGroup>
             {availableFilters.provinces.map((province) => (
@@ -149,7 +141,9 @@ export const FilterPanel = () => {
           </FormGroup>
         )}
       </FilterSection>
-      
+
+      <Divider />
+
       {availableFilters.hasCoopPrograms && (
         <>
           <Divider />
@@ -187,30 +181,51 @@ export const FilterPanel = () => {
           </SwitchContainer>
         </>
       )}
-      
+
       <Divider />
       <FilterSection>
         <Typography variant="h6">University</Typography>
-        <FormGroup>
-          {availableFilters.universities.map((university) => (
+        {state.university?.length > 0 ? (
+          <SelectedProvince>
             <FormControlLabel
-              key={university}
+              key={state.university[0]}
               control={
                 <Radio
-                  checked={state.university?.[0] === university}
-                  onChange={() => handleUniversityChange(university)}
+                  checked={true}
+                  onChange={() => handleUniversityChange(state.university[0])}
                 />
               }
               label={
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                  <span>{university}</span>
-                  <span>({filterCounts.university[university] || 0})</span>
-                </Box>
+                <FilterLabel>
+                  <span>{state.university[0]}</span>
+                  <span>({filterCounts.university[state.university[0]] || 0})</span>
+                </FilterLabel>
               }
             />
-          ))}
-        </FormGroup>
+          </SelectedProvince>
+        ) : (
+          <FormGroup>
+            {availableFilters.universities.map((university) => (
+              <FormControlLabel
+                key={university}
+                control={
+                  <Radio
+                    checked={state.university?.[0] === university}
+                    onChange={() => handleUniversityChange(university)}
+                  />
+                }
+                label={
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                    <span>{university}</span>
+                    <span>({filterCounts.university[university] || 0})</span>
+                  </Box>
+                }
+              />
+            ))}
+          </FormGroup>
+        )}
       </FilterSection>
+      
     </FilterContainer>
   );
 };

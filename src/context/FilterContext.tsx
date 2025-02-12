@@ -40,7 +40,8 @@ type FilterAction =
   | { type: 'SET_REMOTE_LEARNING'; payload: boolean }
   | { type: 'SET_SEARCH_QUERY'; payload: string }
   | { type: 'RESET_FILTERS' }
-  | { type: 'CLEAR_PROVINCE' };
+  | { type: 'CLEAR_PROVINCE' }
+  | { type: 'CLEAR_UNIVERSITY' };
 
 const filterReducer = (state: FilterState, action: FilterAction): FilterState => {
   let newState: FilterState;
@@ -75,7 +76,16 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
       };
       break;
     case 'SET_UNIVERSITY':
-      newState = { ...state, university: [action.payload] };
+      newState = {
+        ...state,
+        university: [action.payload]
+      };
+      break;
+    case 'CLEAR_UNIVERSITY':
+      newState = {
+        ...state,
+        university: []
+      };
       break;
     case 'SET_COOP':
       newState = { ...state, coop: action.payload };
