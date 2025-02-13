@@ -97,85 +97,117 @@ export const FilterPanel = () => {
   };
 
   const getAvailableProvinces = () => {
-    if (state.university?.length > 0) {
-      // Filter provinces based on selected university
-      return availableFilters.provinces.filter(province => {
-        return DUMMY_PROGRAMS.some(program => 
-          program.university === state.university[0] && 
-          program.province === province
-        );
-      });
-    }
-    return availableFilters.provinces;
+    const activeFilters = {
+      programLevel: state.programLevel,
+      language: state.language,
+      studyArea: state.studyArea,
+      university: state.university,
+      coop: state.coop,
+      remote: state.remote,
+      searchQuery: state.searchQuery
+    };
+
+    return DUMMY_PROGRAMS
+      .filter(program => {
+        // Check if program matches all active filters
+        return Object.entries(activeFilters).every(([key, value]) => {
+          if (!value || (Array.isArray(value) && value.length === 0)) return true;
+          if (typeof value === 'boolean') return program[key] === value;
+          if (Array.isArray(value)) return value.includes(program[key]);
+          if (key === 'searchQuery') {
+            return program.programName.toLowerCase().includes(value.toLowerCase()) ||
+                   program.university.toLowerCase().includes(value.toLowerCase());
+          }
+          return true;
+        });
+      })
+      .map(program => program.province)
+      .filter((province, index, self) => self.indexOf(province) === index)
+      .sort();
   };
 
   const getAvailableUniversities = () => {
-    if (state.selectedProvince) {
-      // Filter universities based on selected province
-      return availableFilters.universities.filter(university => {
-        return DUMMY_PROGRAMS.some(program => 
-          program.province === state.selectedProvince && 
-          program.university === university
-        );
-      });
-    }
-    return availableFilters.universities;
+    const activeFilters = {
+      programLevel: state.programLevel,
+      language: state.language,
+      studyArea: state.studyArea,
+      province: state.province,
+      coop: state.coop,
+      remote: state.remote,
+      searchQuery: state.searchQuery
+    };
+
+    return DUMMY_PROGRAMS
+      .filter(program => {
+        // Check if program matches all active filters
+        return Object.entries(activeFilters).every(([key, value]) => {
+          if (!value || (Array.isArray(value) && value.length === 0)) return true;
+          if (typeof value === 'boolean') return program[key] === value;
+          if (Array.isArray(value)) return value.includes(program[key]);
+          if (key === 'searchQuery') {
+            return program.programName.toLowerCase().includes(value.toLowerCase()) ||
+                   program.university.toLowerCase().includes(value.toLowerCase());
+          }
+          return true;
+        });
+      })
+      .map(program => program.university)
+      .filter((university, index, self) => self.indexOf(university) === index)
+      .sort();
   };
+
 
   return (
     <FilterContainer>
-      <Typography variant="h4">More filters</Typography>
-      <Divider sx={{ mt: -2 }}/>
-      
-      <FilterSection>
-        <Typography variant="h6">Province/Territory</Typography>
-        {state.selectedProvince ? (
-          <SelectedProvince>
+    <Typography variant="h6">More filters</Typography>
+    
+    <FilterSection>
+      <Typography variant="h6">Province/Territory</Typography>
+      {state.selectedProvince ? (
+        <SelectedProvince>
+          <FormControlLabel
+            control={
+              <Radio
+                checked={true}
+                onChange={() => handleProvinceChange(state.selectedProvince!)}
+              />
+            }
+            label={
+              <FilterLabel>
+                {state.selectedProvince}
+                <span>({filterCounts.province[state.selectedProvince] || 0})</span>
+              </FilterLabel>
+            }
+          />
+          <IconButton
+            onClick={() => dispatch({ type: 'CLEAR_PROVINCE' })}
+            sx={{ ml: 1 }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </SelectedProvince>
+      ) : (
+        <FormGroup>
+          {getAvailableProvinces().map((province) => (
             <FormControlLabel
-              key={state.selectedProvince}
+              key={province}
               control={
                 <Radio
-                  checked={true}
-                  onChange={() => handleProvinceChange(state.selectedProvince!)}
+                  checked={state.province.includes(province)}
+                  onChange={() => handleProvinceChange(province)}
                 />
               }
               label={
                 <FilterLabel>
-                  <span>{state.selectedProvince}</span>
-                  <span>({filterCounts.province[state.selectedProvince] || 0})</span>
+                  {province}
+                  <span>({filterCounts.province[province] || 0})</span>
                 </FilterLabel>
               }
             />
-            <IconButton
-              size="small"
-              onClick={() => dispatch({ type: 'CLEAR_PROVINCE' })}
-              sx={{ ml: 1 }}
-            >
-              <CloseIcon />
-            </IconButton>
-          </SelectedProvince>
-        ) : (
-          <FormGroup>
-            {getAvailableProvinces().map((province) => (
-              <FormControlLabel
-                key={province}
-                control={
-                  <Radio
-                    checked={state.province?.[0] === province}
-                    onChange={() => handleProvinceChange(province)}
-                  />
-                }
-                label={
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                    <span>{province}</span>
-                    <span>({filterCounts.province[province] || 0})</span>
-                  </Box>
-                }
-              />
-            ))}
-          </FormGroup>
-        )}
-      </FilterSection>
+          ))}
+        </FormGroup>
+      )}
+    </FilterSection>
 
       <Divider />
       <SwitchContainer>
@@ -213,7 +245,6 @@ export const FilterPanel = () => {
         {state.university?.length > 0 ? (
           <SelectedProvince>
             <FormControlLabel
-              key={state.university[0]}
               control={
                 <Radio
                   checked={true}
@@ -222,13 +253,12 @@ export const FilterPanel = () => {
               }
               label={
                 <FilterLabel>
-                  <span>{state.university[0]}</span>
+                  {state.university[0]}
                   <span>({filterCounts.university[state.university[0]] || 0})</span>
                 </FilterLabel>
               }
             />
             <IconButton
-              size="small"
               onClick={() => dispatch({ type: 'CLEAR_UNIVERSITY' })}
               sx={{ ml: 1 }}
             >
@@ -242,15 +272,15 @@ export const FilterPanel = () => {
                 key={university}
                 control={
                   <Radio
-                    checked={state.university?.[0] === university}
+                    checked={state.university.includes(university)}
                     onChange={() => handleUniversityChange(university)}
                   />
                 }
                 label={
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                    <span>{university}</span>
+                  <FilterLabel>
+                    {university}
                     <span>({filterCounts.university[university] || 0})</span>
-                  </Box>
+                  </FilterLabel>
                 }
               />
             ))}
