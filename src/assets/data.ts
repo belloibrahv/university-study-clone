@@ -2,29 +2,41 @@ import { Program } from '../types';
 
 import Providence from '../assets/images/Providence.png';
 import UAlberta from '../assets/images/UAlberta.jpg'; // TO BE CHANGED
-import McGill from '../assets/images/McGill.webp';
+import McGill from '../assets/images/McGill.png';
 import UofT from '../assets/images/UofT.png';
 import UBC from '../assets/images/UBC.jpg';
 import CMU from '../assets/images/CMU.png';
 import UManitoba from '../assets/images/UManitoba.png';
 import BrandonU from '../assets/images/BrandonU.png';
-import USB from '../assets/images/USB.jpg';
+import USB from '../assets/images/USB.png';
 import UCalgary from '../assets/images/UCalgary.png';
 import UWinnipeg from '../assets/images/UWinnipeg.png';
 import BoothUC from '../assets/images/BoothUC.png';
 import Acadia from '../assets/images/Acadia.jpg';
 import Brock from '../assets/images/Brock.jpg';
 import Campion from '../assets/images/Campion.jpg';
-import Huron from '../assets/images/Huron.jpg';
-import MacEwan from '../assets/images/MacEwan.jpg';
+import Huron from '../assets/images/Huron.png';
+import MacEwan from '../assets/images/MacEwan.png';
 import Luther from '../assets/images/Luther.jpg';
 import Dalhousie from '../assets/images/Dalhousie.jpg';
-import Nipissing from '../assets/images/Nipissing.webp';
+import Nipissing from '../assets/images/Nipissing.png';
 import McMaster from '../assets/images/McMaster.jpg';
 import York from '../assets/images/York.jpg';
-import Bishop from '../assets/images/Bishops.webp'
+import Bishop from '../assets/images/Bishop.png'
 import Memorial from '../assets/images/Memorial.jpg'
-import Laurentian from '../assets/images/Laurentian.webp';
+import Laurentian from '../assets/images/Laurentian.png';
+import Kings from '../assets/images/Kings.jpg';
+import Athabasca from '../assets/images/Athabasca.png';
+import Algoma from '../assets/images/Algoma.png';
+import Lakehead from '../assets/images/Lakehead.png';
+import Concordia from '../assets/images/Concordia.png';
+import OCAD from '../assets/images/OCAD.png';
+import Redeemer from '../assets/images/Redeemer.png';
+import Trent from '../assets/images/Trent.png';
+
+
+import { Agent } from 'http';
+
 
 export const DUMMY_PROGRAMS: Program[] = [
 
@@ -1149,7 +1161,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'Computer science',
     university: 'Dalhousie University',
-    province: 'Nova Scortia'
+    province: 'Nova Scotia'
   },
   {
     id: '91',
@@ -1173,7 +1185,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'Biological sciences',
     university: 'Dalhousie University',
-    province: 'Nova Scortia'
+    province: 'Nova Scotia'
   },
   {
     id: '93',
@@ -1185,7 +1197,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'African American/Black studies',
     university: 'Dalhousie University',
-    province: 'Nova Scortia'
+    province: 'Nova Scotia'
   },
   {
     id: '94',
@@ -1197,7 +1209,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'Canadian studies',
     university: 'Dalhousie University',
-    province: 'Nova Scortia'
+    province: 'Nova Scotia'
   },
   {
     id: '95',
@@ -1209,7 +1221,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'Chemistry',
     university: 'Dalhousie University',
-    province: 'Nova Scortia'
+    province: 'Nova Scotia'
   },
 
   // Nipissing University Programs
@@ -1881,6 +1893,1222 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'Economics',
     university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '151',
+    image: Laurentian,
+    programName: 'BA in Gerontology (4-year)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Gerontology',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '152',
+    image: Laurentian,
+    programName: 'BA in History',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'History',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '153',
+    image: Laurentian,
+    programName: 'BA in Equity, Diversity and Human Rights',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Intercultural/multicultural and diversity studies',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '154',
+    image: Laurentian,
+    programName: 'BA in Psychology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Psychology',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+  {
+    id: '155',
+    image: Laurentian,
+    programName: 'BA in Sociology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Sociology',
+    university: 'Laurentian University',
+    province: 'Ontario'
+  },
+
+  // Kings University College Programs
+  {
+    id: '156',
+    image: Kings,
+    programName: 'BA - Foundations in The New Liberal Arts',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Liberal arts and sciences/liberal studies',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+  {
+    id: '157',
+    image: Kings,
+    programName: 'BA - Analytics and Decision Sciences (minor/major*)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Business statistics',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+  {
+    id: '158',
+    image: Kings,
+    programName: 'BA History (minor/major/honors specialization)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'History',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+  {
+    id: '159',
+    image: Kings,
+    programName: 'BA in Applied Psychology (honours specialization)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Applied psychology',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+  {
+    id: '160',
+    image: Kings,
+    programName: 'BA in Catholic Studies (minor/major/specialization/honors specialization)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Christian studies',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+  {
+    id: '161',
+    image: Kings,
+    programName: 'BA in Childhood and Youth Studies (minor/major/honors specialization)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Early childhood education and teaching',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+  {
+    id: '162',
+    image: Kings,
+    programName: 'BA in Criminology (minor/major/honors specialization)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Criminology',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+  {
+    id: '163',
+    image: Kings,
+    programName: 'BA in Disability Studies (minor/major)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Disability studies',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+  {
+    id: '164',
+    image: Kings,
+    programName: 'BA in Economics (minor/major/specialization/honors specialization)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Economics',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+  {
+    id: '165',
+    image: Kings,
+    programName: 'BA in English for Teachers (minor)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English/English language arts teacher education',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+  {
+    id: '166',
+    image: Kings,
+    programName: 'BA in Finance (minor/major)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Finance',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+  {
+    id: '167',
+    image: Kings,
+    programName: 'BA in Financial Economics (specialization)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Applied economics, Business managerial economics',
+    university: 'Kings University College',
+    province: 'Ontario'
+  },
+
+  // Athabasca University Programs
+  {
+    id: '168',
+    image: Athabasca,
+    programName: 'BA - General',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'General studies',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '169',
+    image: Athabasca,
+    programName: 'BA (concentration) in English',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English language and literature',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '170',
+    image: Athabasca,
+    programName: 'BA (concentration) in French',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'French language and literature',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '171',
+    image: Athabasca,
+    programName: 'BA (concentration) in History',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'History',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '172',
+    image: Athabasca,
+    programName: 'BA (concentration) in Psychology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Psychology',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '173',
+    image: Athabasca,
+    programName: 'BA (concentration) in Sociology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Sociology',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '174',
+    image: Athabasca,
+    programName: 'BA (major) in Anthropology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Anthropology',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '175',
+    image: Athabasca,
+    programName: 'BA (major) in English',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English language and literature',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '176',
+    image: Athabasca,
+    programName: 'BA (major) in French',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'French language and literature',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '177',
+    image: Athabasca,
+    programName: 'BA (major) in History',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'History',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '178',
+    image: Athabasca,
+    programName: 'BA (major) in Humanities',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Humanities/humanistics studies',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '179',
+    image: Athabasca,
+    programName: 'BA (major) in Labour Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Labour and industrial relations',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '180',
+    image: Athabasca,
+    programName: 'BA (major) in Political Economy',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Political economy',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '181',
+    image: Athabasca,
+    programName: 'BA (major) in Political Science',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Political science and government',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+  {
+    id: '182',
+    image: Athabasca,
+    programName: 'BA (minor) in Anthropology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Anthropology',
+    university: 'Athabasca University',
+    province: 'Alberta'
+  },
+
+  // Algoma University Programs
+  {
+    id: '183',
+    image: Algoma,
+    programName: 'BA (four-year) in Community Economic and Social Development',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Development economics and international development',
+    university: 'Algoma University',
+    province: 'Onario'
+  },
+  {
+    id: '184',
+    image: Algoma,
+    programName: 'BA (four-year) in English',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English language and literature',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '185',
+    image: Algoma,
+    programName: 'BA (four-year) in Finance and Economics',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'General economics and finance',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '186',
+    image: Algoma,
+    programName: 'BA (four-year) in Geography, Geology, and Land Stewardship',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Land use planning and management/development',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '187',
+    image: Algoma,
+    programName: 'BA (four-year) in History',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'History',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '188',
+    image: Algoma,
+    programName: 'BA (four-year) in Law and Justice',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Criminal justice/safety studies',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '189',
+    image: Algoma,
+    programName: 'BA (four-year) in Political Science',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Political science and government',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '190',
+    image: Algoma,
+    programName: 'BA (four-year) in Psychology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Psychology',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '191',
+    image: Algoma,
+    programName: 'BA (four-year) in Sociology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Sociology',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '192',
+    image: Algoma,
+    programName: 'BA (General) in Accounting',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Accounting',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '193',
+    image: Algoma,
+    programName: 'BA (General) in Anishinaabe Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Indegenous peoples of the Americas studies',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '194',
+    image: Algoma,
+    programName: 'BA (General) in Community Development',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Development economics and international development',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '195',
+    image: Algoma,
+    programName: 'BA (General) in Community Economic and Social Development',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Development economics and international development',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+  {
+    id: '196',
+    image: Algoma,
+    programName: 'BA (General) in Economics',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Economics',
+    university: 'Algoma University',
+    province: 'Ontario'
+  },
+
+  // Lakehead University Programs
+  {
+    id: '197',
+    image: Lakehead,
+    programName: 'Aboriginal Languages Specialists Certificate',
+    programLevel: 'Undergraduate',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Indigenous languages, literatures, and linguistics of the Americas',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+  {
+    id: '198',
+    image: Lakehead,
+    programName: 'BA (Anthropology)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Anthropology',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+  {
+    id: '199',
+    image: Lakehead,
+    programName: 'BA (Economics & Political Science) Double Major',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'General Economics, Political science and government',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+  {
+    id: '200',
+    image: Lakehead,
+    programName: 'BA (Economics)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Economics',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+  {
+    id: '201',
+    image: Lakehead,
+    programName: 'BA (English)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English language and literature',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+  {
+    id: '202',
+    image: Lakehead,
+    programName: 'BA (French)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'French language and literature',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+  {
+    id: '203',
+    image: Lakehead,
+    programName: 'BA (General Arts)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'General studies',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+  {
+    id: '204',
+    image: Lakehead,
+    programName: 'BA (Geography)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Geography',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+  {
+    id: '205',
+    image: Lakehead,
+    programName: 'BA (History)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'History',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+  {
+    id: '206',
+    image: Lakehead,
+    programName: 'BA (Indigenous Learning)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Indigenous education',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+  {
+    id: '207',
+    image: Lakehead,
+    programName: 'BA (Mathematics & Economics)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'General Mathematics and Economics',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+  {
+    id: '208',
+    image: Lakehead,
+    programName: 'BA (Mathematics)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Mathematics',
+    university: 'Lakehead University',
+    province: 'Ontario'
+  },
+
+  // Concordia University Programs
+  {
+    id: '209',
+    image: Concordia,
+    programName: 'BA en Traduction',
+    programLevel: 'Bachelor',
+    language: 'French',
+    coop: true,
+    remote: false,
+    studyArea: 'Language interpretation and translation',
+    university: 'Concordia University',
+    province: 'Quebec'
+  },
+  {
+    id: '210',
+    image: Concordia,
+    programName: 'BA in Actuarial Mathematics',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Actuarial science',
+    university: 'Concordia University',
+    province: 'Quebec'
+  },
+  {
+    id: '211',
+    image: Concordia,
+    programName: 'BA in Actuarial Mathematics/Finance',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Actuarial science, Finance, general',
+    university: 'Concordia University',
+    province: 'Quebec'
+  },
+  {
+    id: '212',
+    image: Concordia,
+    programName: 'BA in Anthropology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Anthropology',
+    university: 'Concordia University',
+    province: 'Quebec'
+  },
+  {
+    id: '213',
+    image: Concordia,
+    programName: 'BA in Anthropology and Sociology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Anthropology and Sociology, general',
+    university: 'Concordia University',
+    province: 'Quebec'
+  },
+  {
+    id: '214',
+    image: Concordia,
+    programName: 'BA in Child Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Child development',
+    university: 'Concordia University',
+    province: 'Quebec'
+  },
+  {
+    id: '215',
+    image: Concordia,
+    programName: 'BA in Classics',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Classics and classical language, literatures and linguistics, general',
+    university: 'Concordia University',
+    province: 'Quebec'
+  },
+  {
+    id: '216',
+    image: Concordia,
+    programName: 'BA in Communication and Cultural Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Communication, general, Cultural studies/critical theory and analysis',
+    university: 'Concordia University',
+    province: 'Quebec'
+  },
+  {
+    id: '217',
+    image: Concordia,
+    programName: 'BA in Communication Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Communication, general, Speech communication and rhetoric',
+    university: 'Concordia University',
+    province: 'Quebec'
+  },
+  {
+    id: '218',
+    image: Concordia,
+    programName: 'BA in Creative Writing',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English creative writing',
+    university: 'Concordia University',
+    province: 'Quebec'
+  },
+
+  // OCAD University Programs
+  {
+    id: '219',
+    image: OCAD,
+    programName: 'Bachelor of Arts (Honours) - Visual and Critical Studies: Art History',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Art history, criticism and conservation',
+    university: 'OCAD University',
+    province: 'Ontario'
+  },
+  {
+    id: '220',
+    image: OCAD,
+    programName: 'Bachelor of Design (Honours) - Advertising',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Commercial and advertising art',
+    university: 'OCAD University',
+    province: 'Ontario'
+  },
+  {
+    id: '221',
+    image: OCAD,
+    programName: 'Bachelor of Design (Honours) - Environment Design',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Environment design/architecture, general',
+    university: 'OCAD University',
+    province: 'Ontario'
+  },
+  {
+    id: '222',
+    image: OCAD,
+    programName: 'Bachelor of Design (Honours) - Graphic Design',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Graphic design',
+    university: 'OCAD University',
+    province: 'Ontario'
+  },
+  {
+    id: '223',
+    image: OCAD,
+    programName: 'Bachelor of Design',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Illustration',
+    university: 'OCAD University',
+    province: 'Ontario'
+  },
+  {
+    id: '224',
+    image: OCAD,
+    programName: 'Bachelor of Design (Honours) - Industrial Design',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Industrial and product design',
+    university: 'OCAD University',
+    province: 'Ontario'
+  },
+  {
+    id: '225',
+    image: OCAD,
+    programName: 'Bachelor of Fine Arts (Honours) - Creative Writing',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English creative writing, Fine arts and art studies',
+    university: 'OCAD University',
+    province: 'Ontario'
+  },
+  {
+    id: '226',
+    image: OCAD,
+    programName: 'Bachelor of Fine Arts (Honours) - Integrated Media',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Intermedia/multimedia',
+    university: 'OCAD University',
+    province: 'Ontario'
+  },
+
+  // Redeemer University Programs
+  {
+    id: '227',
+    image: Redeemer,
+    programName: 'BA in Applied Social Sciences - Social Work Stream (Honours)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Social science, social work, general',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '228',
+    image: Redeemer,
+    programName: 'BA in Applied Social Sciences (General)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Social sciences',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '229',
+    image: Redeemer,
+    programName: 'BA in Arts (General)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Art/art studies',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '230',
+    image: Redeemer,
+    programName: 'BA in Biblical and Theological Studies (General)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Bible/Biblical studies, Theology/theological studies',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '231',
+    image: Redeemer,
+    programName: 'BA in Business (General)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Business/commerce, general',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '232',
+    image: Redeemer,
+    programName: 'BA in English - Literature Stream (General)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English language and literature, general',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '233',
+    image: Redeemer,
+    programName: 'BA in English - Literature Stream (Honours)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English language and literature, general',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '234',
+    image: Redeemer,
+    programName: 'BA in English - Writig Stream (General)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'English creative working',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '235',
+    image: Redeemer,
+    programName: 'BA in Environmental Studies: Humanities Stream (Four-Year Major)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Environmental studies',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '236',
+    image: Redeemer,
+    programName: 'BA in History (General)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'History',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '237',
+    image: Redeemer,
+    programName: 'BA in Media &amp; Communication Studies - Media Production (General)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Digital communication and media/multimedia, Mass communication/media studies',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '238',
+    image: Redeemer,
+    programName: 'BA in Mission &amp; Ministry (Honours)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Lay ministry',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+  {
+    id: '239',
+    image: Redeemer,
+    programName: 'BA in Philosophy',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Philosophy',
+    university: 'Redeemer University',
+    province: 'Ontario'
+  },
+
+  // Trent University Programs
+  {
+    id: '240',
+    image: Trent,
+    programName: 'BA Honours in Accounting and Economics',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Economics, Accounting, general',
+    university: 'Trent University',
+    province: 'Ontario'
+  },
+  {
+    id: '241',
+    image: Trent,
+    programName: 'BA Honours in Anthropology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Anthropology',
+    university: 'Trent University',
+    province: 'Ontario'
+  },
+  {
+    id: '242',
+    image: Trent,
+    programName: 'BA Honours in Archaeology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Archaeology, Classical, ancient Mediterranean and Near Eastern studies and archaeology',
+    university: 'Trent University',
+    province: 'Ontario'
+  },
+  {
+    id: '243',
+    image: Trent,
+    programName: 'BA Honours in Artificial Intelligence',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Artificial intelligence',
+    university: 'Trent University',
+    province: 'Ontario'
+  },
+  {
+    id: '244',
+    image: Trent,
+    programName: 'BA Honours in Business Administration',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Business administration and management',
+    university: 'Trent University',
+    province: 'Ontario'
+  },
+  {
+    id: '245',
+    image: Trent,
+    programName: 'BA Honours in Canadian Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Canadian studies',
+    university: 'Trent University',
+    province: 'Ontario'
+  },
+  {
+    id: '246',
+    image: Trent,
+    programName: 'BA Honours in Child &amp; Youth Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Child development, Youth service/administration',
+    university: 'Trent University',
+    province: 'Ontario'
+  },
+  {
+    id: '247',
+    image: Trent,
+    programName: 'BA Honours in Communications',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Business/corporate communication, Communication, general',
+    university: 'Trent University',
+    province: 'Ontario'
+  },
+  {
+    id: '248',
+    image: Trent,
+    programName: 'BA Honours in Computing Systems',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Information technology',
+    university: 'Trent University',
+    province: 'Ontario'
+  },
+  {
+    id: '249',
+    image: Trent,
+    programName: 'BA Honours in Criminology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Criminology',
+    university: 'Trent University',
+    province: 'Ontario'
+  },
+  {
+    id: '250',
+    image: Trent,
+    programName: 'BA Honours in Economics',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Economics',
+    university: 'Trent University',
     province: 'Ontario'
   }
 ];
