@@ -15,6 +15,79 @@ const defaultState: FilterState = {
   remote: false,
   searchQuery: '',
   results: [],
+  selectedProvince: null,
+};
+
+// Helper function to calculate counts based on filtered programs
+const calculateCounts = (programs: Program[]) => {
+  const counts = {
+    programLevel: {} as Record<string, number>,
+    language: {} as Record<string, number>,
+    studyArea: {} as Record<string, number>,
+    province: {} as Record<string, number>,
+    university: {} as Record<string, number>,
+  };
+
+  programs.forEach(program => {
+    counts.programLevel[program.programLevel] = (counts.programLevel[program.programLevel] || 0) + 1;
+    counts.language[program.language] = (counts.language[program.language] || 0) + 1;
+    counts.studyArea[program.studyArea] = (counts.studyArea[program.studyArea] || 0) + 1;
+    counts.province[program.province] = (counts.province[program.province] || 0) + 1;
+    counts.university[program.university] = (counts.university[program.university] || 0) + 1;
+  });
+
+  return counts;
+};
+
+// Helper function to filter programs based on current state
+const filterPrograms = (programs: Program[], state: FilterState) => {
+  return programs.filter(program => {
+    // Search query filter
+    if (state.searchQuery) {
+      const searchLower = state.searchQuery.toLowerCase();
+      const matchesSearch = 
+        program.programName.toLowerCase().includes(searchLower) ||
+        program.university.toLowerCase().includes(searchLower);
+      if (!matchesSearch) return false;
+    }
+
+    // Program level filter
+    if (state.programLevel.length > 0 && !state.programLevel.includes(program.programLevel)) {
+      return false;
+    }
+
+    // Language filter
+    if (state.language.length > 0 && !state.language.includes(program.language)) {
+      return false;
+    }
+
+    // Study area filter
+    if (state.studyArea.length > 0 && !state.studyArea.includes(program.studyArea)) {
+      return false;
+    }
+
+    // Province filter
+    if (state.province.length > 0 && !state.province.includes(program.province)) {
+      return false;
+    }
+
+    // University filter
+    if (state.university.length > 0 && !state.university.includes(program.university)) {
+      return false;
+    }
+
+    // Co-op filter
+    if (state.coop && !program.coop) {
+      return false;
+    }
+
+    // Remote learning filter
+    if (state.remote && !program.remote) {
+      return false;
+    }
+
+    return true;
+  });
 };
 
 const getInitialState = (): FilterState => {
@@ -38,8 +111,9 @@ type FilterAction =
   | { type: 'SET_COOP'; payload: boolean }
   | { type: 'SET_REMOTE_LEARNING'; payload: boolean }
   | { type: 'SET_SEARCH_QUERY'; payload: string }
-  | { type: 'SET_AREA_OF_STUDY'; payload: string[] }
-  | { type: 'RESET_FILTERS' };
+  | { type: 'RESET_FILTERS' }
+  | { type: 'CLEAR_PROVINCE' }
+  | { type: 'CLEAR_UNIVERSITY' };
 
 const filterReducer = (state: FilterState, action: FilterAction): FilterState => {
   let newState: FilterState;
@@ -55,10 +129,34 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
       newState = { ...state, studyArea: action.payload };
       break;
     case 'SET_PROVINCE':
-      newState = { ...state, province: [action.payload] };
+      // Modified to preserve other filter selections
+      newState = {
+        ...state,
+        province: [action.payload],
+        selectedProvince: action.payload,
+        // Only reset university when changing province
+        university: []
+      };
+      break;
+    case 'CLEAR_PROVINCE':
+      newState = {
+        ...state,
+        province: [],
+        selectedProvince: null,
+        university: [] // Only clear university when clearing province
+      };
       break;
     case 'SET_UNIVERSITY':
-      newState = { ...state, university: [action.payload] };
+      newState = {
+        ...state,
+        university: [action.payload]
+      };
+      break;
+    case 'CLEAR_UNIVERSITY':
+      newState = {
+        ...state,
+        university: []
+      };
       break;
     case 'SET_COOP':
       newState = { ...state, coop: action.payload };
@@ -69,11 +167,8 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
     case 'SET_SEARCH_QUERY':
       newState = { ...state, searchQuery: action.payload };
       break;
-    case 'SET_AREA_OF_STUDY':
-      newState = { ...state, studyArea: action.payload };
-      break;
     case 'RESET_FILTERS':
-      newState = defaultState;
+      newState = { ...defaultState, searchQuery: state.searchQuery };
       break;
     default:
       return state;
@@ -91,6 +186,14 @@ const FilterContext = createContext<{
   state: FilterState;
   dispatch: React.Dispatch<FilterAction>;
   filteredPrograms: Program[];
+  availableFilters: {
+    universities: string[];
+    programLevels: string[];
+    languages: string[];
+    provinces: string[];
+    hasCoopPrograms: boolean;
+    hasRemotePrograms: boolean;
+  };
   filterCounts: {
     programLevel: { [key: string]: number };
     language: { [key: string]: number };
@@ -103,106 +206,48 @@ const FilterContext = createContext<{
 export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, getInitialState());
 
-  const { filteredPrograms, filterCounts } = useMemo(() => {
-    // Apply filters step by step to calculate accurate counts
-    const basePrograms = DUMMY_PROGRAMS.filter(program => {
-      // Base filter for search query
-      let matches = !state.searchQuery || 
-        program.programName.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
-        program.university.toLowerCase().includes(state.searchQuery.toLowerCase());
-
-      // Apply province filter if selected
-      if (state.province.length > 0) {
-        matches = matches && state.province.includes(program.province);
+  const { filteredPrograms, filterCounts, availableFilters } = useMemo(() => {
+    // Create a temporary state without the current filter to calculate available options
+    const getFilteredProgramsWithoutCurrentFilter = (currentFilter: keyof FilterState) => {
+      const tempState = { ...state };
+      if (Array.isArray(tempState[currentFilter])) {
+        (tempState[currentFilter] as any) = [];
+      } else if (typeof tempState[currentFilter] === 'boolean') {
+        tempState[currentFilter] = false;
       }
-
-      // Apply university filter if selected
-      if (state.university.length > 0) {
-        matches = matches && state.university.includes(program.university);
-      }
-
-      return matches;
-    });
-
-    // Calculate initial counts for each filter dimension
-    const initialCounts: {
-      programLevel: { [key: string]: number };
-      language: { [key: string]: number };
-      studyArea: { [key: string]: number };
-      province: { [key: string]: number };
-      university: { [key: string]: number };
-    } = {
-      programLevel: {},
-      language: {},
-      studyArea: {},
-      province: {},
-      university: {}
+      return filterPrograms(DUMMY_PROGRAMS, tempState);
     };
 
-    basePrograms.forEach(program => {
-      // Count program levels
-      if (state.programLevel.length === 0 || state.programLevel.includes(program.programLevel)) {
-        initialCounts.programLevel[program.programLevel] = 
-          (initialCounts.programLevel[program.programLevel] || 0) + 1;
-      }
+    // Get filtered programs with all current filters
+    const finalFilteredPrograms = filterPrograms(DUMMY_PROGRAMS, state);
 
-      // Count languages
-      if (state.language.length === 0 || state.language.includes(program.language)) {
-        initialCounts.language[program.language] = 
-          (initialCounts.language[program.language] || 0) + 1;
-      }
+    // Calculate available filters based on programs filtered without their respective filter
+    const availableFilters = {
+      universities: [...new Set(getFilteredProgramsWithoutCurrentFilter('university')
+        .map(p => p.university))].sort(),
+      programLevels: [...new Set(getFilteredProgramsWithoutCurrentFilter('programLevel')
+        .map(p => p.programLevel))].sort(),
+      languages: [...new Set(getFilteredProgramsWithoutCurrentFilter('language')
+        .map(p => p.language))].sort(),
+      provinces: [...new Set(getFilteredProgramsWithoutCurrentFilter('province')
+        .map(p => p.province))].sort(),
+      hasCoopPrograms: getFilteredProgramsWithoutCurrentFilter('coop')
+        .some(p => p.coop),
+      hasRemotePrograms: getFilteredProgramsWithoutCurrentFilter('remote')
+        .some(p => p.remote)
+    };
 
-      // Count study areas
-      if (state.studyArea.length === 0 || state.studyArea.includes(program.studyArea)) {
-        initialCounts.studyArea[program.studyArea] = 
-          (initialCounts.studyArea[program.studyArea] || 0) + 1;
-      }
+    // Calculate counts based on the filtered programs
+    const filterCounts = calculateCounts(finalFilteredPrograms);
 
-      // Count provinces
-      initialCounts.province[program.province] = 
-        (initialCounts.province[program.province] || 0) + 1;
-
-      // Count universities
-      initialCounts.university[program.university] = 
-        (initialCounts.university[program.university] || 0) + 1;
-    });
-
-    // Final filtering with all constraints
-    const finalFilteredPrograms = basePrograms.filter(program => {
-      // Apply remaining filters
-      let matches = true;
-
-      // Program level filter
-      if (state.programLevel.length > 0) {
-        matches = matches && state.programLevel.includes(program.programLevel);
-      }
-
-      // Language filter
-      if (state.language.length > 0) {
-        matches = matches && state.language.includes(program.language);
-      }
-
-      // Study area filter
-      if (state.studyArea.length > 0) {
-        matches = matches && state.studyArea.includes(program.studyArea);
-      }
-
-      // Coop and remote filters
-      matches = matches && 
-        (state.coop === false || program.coop === state.coop) &&
-        (state.remote === false || program.remote === state.remote);
-
-      return matches;
-    });
-
-    return { 
-      filteredPrograms: finalFilteredPrograms, 
-      filterCounts: initialCounts 
+    return {
+      filteredPrograms: finalFilteredPrograms,
+      filterCounts,
+      availableFilters
     };
   }, [state]);
 
   useEffect(() => {
-    // Update filterInteractions with the current state and filtered results
     updateFilterInteractions({
       ...state,
       results: filteredPrograms
@@ -210,11 +255,12 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, [state, filteredPrograms]);
 
   return (
-    <FilterContext.Provider value={{ 
-      state, 
-      dispatch, 
-      filteredPrograms, 
-      filterCounts 
+    <FilterContext.Provider value={{
+      state,
+      dispatch,
+      filteredPrograms,
+      filterCounts,
+      availableFilters
     }}>
       {children}
     </FilterContext.Provider>
@@ -228,3 +274,5 @@ export const useFilter = () => {
   }
   return context;
 };
+
+export default FilterContext;
