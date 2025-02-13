@@ -2,37 +2,37 @@ import { Program } from '../types';
 
 import Providence from '../assets/images/Providence.png';
 import UAlberta from '../assets/images/UAlberta.jpg'; // TO BE CHANGED
-import McGill from '../assets/images/McGill.webp';
+import McGill from '../assets/images/McGill.png';
 import UofT from '../assets/images/UofT.png';
 import UBC from '../assets/images/UBC.jpg';
 import CMU from '../assets/images/CMU.png';
 import UManitoba from '../assets/images/UManitoba.png';
 import BrandonU from '../assets/images/BrandonU.png';
-import USB from '../assets/images/USB.jpg';
+import USB from '../assets/images/USB.png';
 import UCalgary from '../assets/images/UCalgary.png';
 import UWinnipeg from '../assets/images/UWinnipeg.png';
 import BoothUC from '../assets/images/BoothUC.png';
 import Acadia from '../assets/images/Acadia.jpg';
 import Brock from '../assets/images/Brock.jpg';
 import Campion from '../assets/images/Campion.jpg';
-import Huron from '../assets/images/Huron.jpg';
-import MacEwan from '../assets/images/MacEwan.jpg';
+import Huron from '../assets/images/Huron.png';
+import MacEwan from '../assets/images/MacEwan.png';
 import Luther from '../assets/images/Luther.jpg';
 import Dalhousie from '../assets/images/Dalhousie.jpg';
-import Nipissing from '../assets/images/Nipissing.webp';
+import Nipissing from '../assets/images/Nipissing.png';
 import McMaster from '../assets/images/McMaster.jpg';
 import York from '../assets/images/York.jpg';
-import Bishop from '../assets/images/Bishops.webp';
-import Memorial from '../assets/images/Memorial.jpg';
-import Laurentian from '../assets/images/Laurentian.webp';
-import Kings from '../assets/images/Kings.webp';
-import Athabasca from '../assets/images/Athabasca.jpg';
-import Algoma from '../assets/images/Algoma.webp';
-import Lakehead from '../assets/images/Lakehead.jpg';
-import Concordia from '../assets/images/Concordia.webp';
-import OCAD from '../assets/images/OCAD.jpg';
-import Redeemer from '../assets/images/Redeemer.webp';
-import Trent from '../assets/images/Trent.webp';
+import Bishop from '../assets/images/Bishop.png'
+import Memorial from '../assets/images/Memorial.jpg'
+import Laurentian from '../assets/images/Laurentian.png';
+import Kings from '../assets/images/Kings.jpg';
+import Athabasca from '../assets/images/Athabasca.png';
+import Algoma from '../assets/images/Algoma.png';
+import Lakehead from '../assets/images/Lakehead.png';
+import Concordia from '../assets/images/Concordia.png';
+import OCAD from '../assets/images/OCAD.png';
+import Redeemer from '../assets/images/Redeemer.png';
+import Trent from '../assets/images/Trent.png';
 
 
 import { Agent } from 'http';
@@ -2022,7 +2022,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     image: Kings,
     programName: 'BA in Childhood and Youth Studies (minor/major/honors specialization)',
     programLevel: 'Bachelor',
-    language: 'Englissh',
+    language: 'English',
     coop: false,
     remote: false,
     studyArea: 'Early childhood education and teaching',
@@ -2763,7 +2763,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     id: '222',
     image: OCAD,
     programName: 'Bachelor of Design (Honours) - Graphic Design',
-    programLevel: 'bachelor',
+    programLevel: 'Bachelor',
     language: 'English',
     coop: false,
     remote: false,
