@@ -129,11 +129,13 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
       newState = { ...state, studyArea: action.payload };
       break;
     case 'SET_PROVINCE':
+      // Modified to preserve other filter selections
       newState = {
-        ...defaultState,
-        searchQuery: state.searchQuery,
+        ...state,
         province: [action.payload],
-        selectedProvince: action.payload
+        selectedProvince: action.payload,
+        // Only reset university when changing province
+        university: []
       };
       break;
     case 'CLEAR_PROVINCE':
@@ -141,9 +143,7 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
         ...state,
         province: [],
         selectedProvince: null,
-        university: [],
-        coop: false,
-        remote: false
+        university: [] // Only clear university when clearing province
       };
       break;
     case 'SET_UNIVERSITY':
