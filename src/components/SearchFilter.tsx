@@ -254,14 +254,23 @@ export const SearchFilters = () => {
   };
 
   const handleClose = () => {
+    // Forcefully remove focus from any element inside the popover
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+  
+    // Move focus back to the button that opened the popover
     if (anchorEl) {
-      anchorEl.focus(); // Move focus back to the button that opened the popover
+      anchorEl.focus();
     } else {
       document.body.focus(); // Fallback if anchorEl is null
     }
+  
+    // Close the popover
     setAnchorEl(null);
     setActiveFilter(null);
   };
+  
   
 
   const getSelectedValues = (filter: string): string[] => {
@@ -402,8 +411,9 @@ export const SearchFilters = () => {
         open={Boolean(anchorEl)}
         anchorEl={anchorEl}
         onClose={handleClose}
-        disableAutoFocus
-        disableEnforceFocus
+        // disableAutoFocus // Prevents autofocus on the popover when opening
+        // disableEnforceFocus // Prevents MUI from trapping focus inside
+        // disableRestoreFocus // Prevents MUI from restoring focus on close
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',
