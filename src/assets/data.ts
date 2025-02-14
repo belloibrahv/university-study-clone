@@ -34,10 +34,6 @@ import OCAD from '../assets/images/OCAD.png';
 import Redeemer from '../assets/images/Redeemer.png';
 import Trent from '../assets/images/Trent.png';
 
-
-import { Agent } from 'http';
-
-
 export const DUMMY_PROGRAMS: Program[] = [
 
     // University of Manitoba Programs
