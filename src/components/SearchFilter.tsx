@@ -411,9 +411,9 @@ export const SearchFilters = () => {
         open={Boolean(anchorEl)}
         anchorEl={anchorEl}
         onClose={handleClose}
-        // disableAutoFocus // Prevents autofocus on the popover when opening
-        // disableEnforceFocus // Prevents MUI from trapping focus inside
-        // disableRestoreFocus // Prevents MUI from restoring focus on close
+        disableAutoFocus // Prevents autofocus on the popover when opening
+        disableEnforceFocus // Prevents MUI from trapping focus inside
+        disableRestoreFocus // Prevents MUI from restoring focus on close
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',
