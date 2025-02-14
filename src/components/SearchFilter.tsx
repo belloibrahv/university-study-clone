@@ -254,9 +254,15 @@ export const SearchFilters = () => {
   };
 
   const handleClose = () => {
+    if (anchorEl) {
+      anchorEl.focus(); // Move focus back to the button that opened the popover
+    } else {
+      document.body.focus(); // Fallback if anchorEl is null
+    }
     setAnchorEl(null);
     setActiveFilter(null);
   };
+  
 
   const getSelectedValues = (filter: string): string[] => {
     switch (filter) {
@@ -392,7 +398,7 @@ export const SearchFilters = () => {
         </ResetButton>
       )}
 
-<FilterPopover
+      <FilterPopover
         open={Boolean(anchorEl)}
         anchorEl={anchorEl}
         onClose={handleClose}
