@@ -248,8 +248,10 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, [state]);
 
   useEffect(() => {
+    // Create a filtered state object without selectedProvince for tracking
+    const { selectedProvince, ...trackingState } = state;
     updateFilterInteractions({
-      ...state,
+      ...trackingState,
       results: filteredPrograms
     });
   }, [state, filteredPrograms]);
