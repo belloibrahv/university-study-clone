@@ -129,21 +129,18 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
       newState = { ...state, studyArea: action.payload };
       break;
     case 'SET_PROVINCE':
-      // Modified to preserve other filter selections
+      // Only set province without affecting other filters
       newState = {
         ...state,
         province: [action.payload],
-        selectedProvince: action.payload,
-        // Only reset university when changing province
-        university: []
+        selectedProvince: action.payload
       };
       break;
     case 'CLEAR_PROVINCE':
       newState = {
         ...state,
         province: [],
-        selectedProvince: null,
-        university: [] // Only clear university when clearing province
+        selectedProvince: null
       };
       break;
     case 'SET_UNIVERSITY':
@@ -207,35 +204,51 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [state, dispatch] = useReducer(filterReducer, getInitialState());
 
   const { filteredPrograms, filterCounts, availableFilters } = useMemo(() => {
-    // Create a temporary state without the current filter to calculate available options
-    const getFilteredProgramsWithoutCurrentFilter = (currentFilter: keyof FilterState) => {
+    // Helper function to get filtered programs excluding specific filters
+    const getFilteredProgramsExcluding = (excludeFilters: (keyof FilterState)[]) => {
       const tempState = { ...state };
-      if (Array.isArray(tempState[currentFilter])) {
-        (tempState[currentFilter] as any) = [];
-      } else if (typeof tempState[currentFilter] === 'boolean') {
-        tempState[currentFilter] = false;
-      }
+      excludeFilters.forEach(filter => {
+        if (Array.isArray(tempState[filter])) {
+          (tempState[filter] as any) = [];
+        } else if (typeof tempState[filter] === 'boolean') {
+          tempState[filter] = false;
+        }
+      });
       return filterPrograms(DUMMY_PROGRAMS, tempState);
     };
 
-    // Get filtered programs with all current filters
-    const finalFilteredPrograms = filterPrograms(DUMMY_PROGRAMS, state);
-
-    // Calculate available filters based on programs filtered without their respective filter
+    // Get programs filtered by everything except the current filter being calculated
     const availableFilters = {
-      universities: [...new Set(getFilteredProgramsWithoutCurrentFilter('university')
+      universities: [...new Set(getFilteredProgramsExcluding(['university'])
+        .filter(program => {
+          // If province is selected, only show universities in that province
+          if (state.province.length > 0) {
+            return state.province.includes(program.province);
+          }
+          return true;
+        })
         .map(p => p.university))].sort(),
-      programLevels: [...new Set(getFilteredProgramsWithoutCurrentFilter('programLevel')
-        .map(p => p.programLevel))].sort(),
-      languages: [...new Set(getFilteredProgramsWithoutCurrentFilter('language')
-        .map(p => p.language))].sort(),
-      provinces: [...new Set(getFilteredProgramsWithoutCurrentFilter('province')
+      provinces: [...new Set(getFilteredProgramsExcluding(['province'])
+        .filter(program => {
+          // If university is selected, only show provinces with that university
+          if (state.university.length > 0) {
+            return state.university.includes(program.university);
+          }
+          return true;
+        })
         .map(p => p.province))].sort(),
-      hasCoopPrograms: getFilteredProgramsWithoutCurrentFilter('coop')
+      programLevels: [...new Set(getFilteredProgramsExcluding(['programLevel'])
+        .map(p => p.programLevel))].sort(),
+      languages: [...new Set(getFilteredProgramsExcluding(['language'])
+        .map(p => p.language))].sort(),
+      hasCoopPrograms: getFilteredProgramsExcluding(['coop'])
         .some(p => p.coop),
-      hasRemotePrograms: getFilteredProgramsWithoutCurrentFilter('remote')
+      hasRemotePrograms: getFilteredProgramsExcluding(['remote'])
         .some(p => p.remote)
     };
+
+    // Get final filtered programs with all filters applied
+    const finalFilteredPrograms = filterPrograms(DUMMY_PROGRAMS, state);
 
     // Calculate counts based on the filtered programs
     const filterCounts = calculateCounts(finalFilteredPrograms);
