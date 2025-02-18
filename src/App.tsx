@@ -17,6 +17,7 @@ import CanadaImg from './assets/images/canadauni.svg';
 import PostmanImg from './assets/images/postmedia.png';
 import UniversityImg from './assets/images/university.svg';
 import FoundationImg from './assets/images/foundation.svg';
+import "./App.css"
 
 const theme = createTheme({
   palette: {
@@ -29,6 +30,7 @@ const theme = createTheme({
       fontWeight: 700,
       marginBottom: '32px',
     },
+    fontFamily: "'CircularStd', sans-serif",
   },
 });
 

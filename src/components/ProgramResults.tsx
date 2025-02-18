@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Card, CardContent, Typography, IconButton, Grid, Button } from '@mui/material';
+import { Box, Card, CardContent, Typography, IconButton, Grid, Button, Tooltip } from '@mui/material';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { styled } from '@mui/material/styles';
@@ -76,13 +76,110 @@ export const ProgramResults: React.FC = () => {
                   {program.programLevel} • {program.language}
                 </Typography>
               </Grid>
-              <Grid item xs={12} sm={2} sx={{ textAlign: 'right' }}>
-                <IconButton size="small">
-                  <CompareArrowsIcon />
-                </IconButton>
-                <IconButton size="small">
-                  <FavoriteBorderIcon />
-                </IconButton>
+              <Grid 
+                item xs={12} 
+                sm={2} 
+                sx={{ 
+                  textAlign: 'right', 
+                  display: 'flex', 
+                  justifyContent: 'flex-end', 
+                  gap: '7px', 
+                  paddingBottom: '80px' 
+                }}
+              >
+                {/* Tooltip for Compare Icon */}
+                <Tooltip 
+                  title="Compare"
+                  placement="top"
+                  arrow
+                  componentsProps={{
+                    tooltip: {
+                      sx: {
+                        backgroundColor: '#fff',
+                        color: '#0009',
+                        fontSize: '14px',
+                        boxShadow: 1,
+                        border: '1px solid #ddd',
+                        textAlign: 'center'
+                      }
+                    },
+                    arrow: {
+                      sx: {
+                        color: '#fff', // Matches tooltip background
+                        '&::before': {
+                          borderTop: '1px solid #ddd', // Border for downward arrow
+                          boxShadow: 1
+                        }
+                      }
+                    }
+                  }}
+                >
+                  <IconButton
+                    size="small"
+                    sx={{
+                      border: '1px solid #d6dadc',
+                      borderRadius: '8px',
+                      minHeight: '40px',
+                      color: '#ca2c3d',
+                      padding: '7px',
+                      transition: 'all 0.15s ease-in-out',
+                      '&:hover': {
+                        border: '1px solid #ca2c3d',
+                      }
+                    }}                
+                  >
+                    <CompareArrowsIcon />
+                  </IconButton>
+                </Tooltip>
+
+                {/* Tooltip for Favorite Icon */}
+                <Tooltip 
+                  title={
+                    <span>
+                      <span style={{ color: 'red' }}>Sign in</span> to save to your <br></br>dashboard
+                    </span>
+                  }
+                  placement="top"
+                  arrow
+                  componentsProps={{
+                    tooltip: {
+                      sx: {
+                        backgroundColor: '#fff',
+                        color: '#0009',
+                        fontSize: '14px',
+                        boxShadow: 1,
+                        border: '1px solid #ddd',
+                        textAlign: 'center'
+                      }
+                    },
+                    arrow: {
+                      sx: {
+                        color: '#fff', // Matches tooltip background
+                        '&::before': {
+                          borderTop: '1px solid #ddd', // Border for downward arrow
+                          boxShadow: 1
+                        }
+                      }
+                    }
+                  }}
+                >
+                  <IconButton 
+                    size="small"
+                    sx={{
+                      border: '1px solid #d6dadc',
+                      borderRadius: '8px',
+                      minHeight: '40px',
+                      color: '#ca2c3d',
+                      padding: '7px',
+                      transition: 'all 0.15s ease-in-out',
+                      '&:hover': {
+                        border: '1px solid #ca2c3d',
+                      }
+                    }}  
+                  >
+                    <FavoriteBorderIcon />
+                  </IconButton>
+                </Tooltip>
               </Grid>
             </Grid>
           </CardContent>

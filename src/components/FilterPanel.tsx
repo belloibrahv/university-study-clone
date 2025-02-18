@@ -8,7 +8,7 @@ const FilterContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(0.3),
   background: 'transparent',
   '& .MuiTypography-root': {
-    fontFamily: "'Inter', sans-serif",
+    fontFamily: "'CircularStd', sans-serif",
   },
   '& .MuiTypography-h4': {
     fontSize: '2rem',

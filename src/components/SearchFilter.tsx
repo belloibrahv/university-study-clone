@@ -441,20 +441,20 @@ export const SearchFilters = () => {
               }
               label={
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                  <span>{option.label}</span>
-                  <span style={{ color: '#666' }}>({option.count})</span>
+                  <span>{option.label}</span> &nbsp; <span>({option.count})</span>
                 </Box>
               }
             />
           ))}
         </CheckboxGroup>
-        
-        <ApplyButton
-          variant="contained"
-          onClick={handleApplyFilter}
-        >
-          Apply Now
-        </ApplyButton>
+
+          <ApplyButton
+            variant="contained"
+            onClick={handleApplyFilter}
+            sx={{ width: "fit-content", background: 'linear-gradient(180deg,#535353,#111 66.66%,#000)', color: '#fff' }}
+          >
+            Apply Now
+          </ApplyButton>
       </FilterPopover>
     </FilterContainer>
   );
