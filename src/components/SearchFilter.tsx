@@ -59,136 +59,102 @@ const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFi
 const FilterContainer = styled(Box)({
   display: 'flex',
   gap: '12px',
-  marginBottom: '32px',
   alignItems: 'center',
-  flexWrap: 'wrap',
-  width: '100%'
+  width: '100%',
+  padding: '20px 0 20px 44px',
+  borderBottom: '1px solid #d6dadc',
+  marginBottom: '40px',
+  '& > *': {
+    marginRight: '12px'
+  }
 });
 
-const ApplyButton = styled(Button)(({ theme }) => ({
-  width: '100%',
-  marginTop: theme.spacing(2),
-  backgroundColor: '#DC3545',
-  color: 'white',
-  '&:hover': {
-    backgroundColor: '#C82333',
-  },
-}));
-
-interface StyledFilterButtonProps {
-  active: number;
-}
-
-const FilterButton = styled(Box)<StyledFilterButtonProps>(({ active }) => ({
-  height: '44px',
-  padding: '0 16px',
-  borderRadius: '4px',
-  border: '1px solid #E0E0E0',
-  backgroundColor: active ? '#FFF5F5' : '#FFF',
+const FilterButton = styled(Box)<{ active: number }>(({ active }) => ({
+  height: '40px',
+  padding: '24px 16px',
+  borderRadius: '8px',
+  border: '1px solid #E2E8F0',
+  backgroundColor: '#fff',
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
   gap: '8px',
+  fontSize: '16px',
+  color: '#1A202C',
+  fontWeight: 700,
   minWidth: '140px',
-  position: 'relative',
   '&:hover': {
-    borderColor: '#999',
+    borderColor: '#CBD5E0',
+    outline: '1px solid #ed6f33',
   },
-  '& .count': {
-    position: 'absolute',
-    top: '-8px',
-    right: '-8px',
-    background: '#DC3545',
-    color: 'white',
-    borderRadius: '50%',
-    width: '24px',
-    height: '24px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '14px',
+  '& .MuiSvgIcon-root': {
+    fontSize: '20px',
+    marginLeft: 'auto'
   }
 }));
 
 const SearchBox = styled(Box)({
   flex: 1,
-  minWidth: '200px',
-  height: '44px',
-  border: '1px solid #E0E0E0',
-  borderRadius: '4px',
+  padding: '24px 16px',
+  fontSize: '16px',
+  color: '#1A202C',
+  fontWeight: 700,
+  maxWidth: '400px',
+  height: '40px',
+  border: '1px solid #E2E8F0',
+  borderRadius: '8px',
   display: 'flex',
   alignItems: 'center',
-  padding: '0 12px',
-  backgroundColor: '#FFF',
+  backgroundColor: '#fff',
+  position: 'relative',
   '&:hover': {
-    borderColor: '#999',
+    borderColor: '#CBD5E0',
+    outline: '1px solid #ed6f33',
   },
-});
-
-const ResetButton = styled(Box)({
-  height: '44px',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '8px',
-  padding: '0 16px',
-  backgroundColor: '#FFF5F5',
-  color: '#DC3545',
-  borderRadius: '4px',
-  cursor: 'pointer',
-  border: '1px solid transparent',
-  '&:hover': {
-    backgroundColor: '#FFE9E9',
+  '& .MuiInputBase-root': {
+    width: '100%',
   },
+  '& .MuiSvgIcon-root': {
+    position: 'absolute',
+    right: '16px',
+    color: '#718096',
+    fontSize: '20px'
+  }
 });
 
 const FilterPopover = styled(Popover)({
   '& .MuiPaper-root': {
     width: '320px',
-    marginTop: '4px',
+    marginTop: '8px',
     padding: '16px',
-    minWidth: '300px',
-    maxHeight: '400px',
-    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
-  },
-});
-
-const PopoverSearch = styled(Box)({
-  marginBottom: '16px',
-  border: '1px solid #E0E0E0',
-  borderRadius: '4px',
-  padding: '8px 12px',
-  display: 'flex',
-  alignItems: 'center',
-  backgroundColor: '#F8F9FA',
+    boxShadow: '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
+    borderRadius: '8px'
+  }
 });
 
 const CheckboxGroup = styled(Box)({
   maxHeight: '280px',
   overflowY: 'auto',
+  marginTop: '16px',
   '& .MuiFormControlLabel-root': {
     margin: '4px 0',
     width: '100%',
-  },
-  '& .MuiFormControlLabel-label': {
-    fontSize: '14px',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-  },
-  '& .MuiCheckbox-root': {
-    padding: '6px',
-  },
-  '&::-webkit-scrollbar': {
-    width: '6px',
-  },
-  '&::-webkit-scrollbar-track': {
-    background: '#f1f1f1',
-  },
-  '&::-webkit-scrollbar-thumb': {
-    background: '#888',
-    borderRadius: '3px',
-  },
+  }
 });
+
+const ApplyButton = styled(Button)({
+  width: '100%',
+  marginTop: '16px',
+  padding: '8px 16px',
+  backgroundColor: '#2D3748',
+  color: '#fff',
+  borderRadius: '8px',
+  textTransform: 'none',
+  '&:hover': {
+    backgroundColor: '#1A202C',
+  }
+});
+
 
 export const SearchFilters = () => {
   const { state, dispatch } = useFilter();
@@ -285,15 +251,6 @@ export const SearchFilters = () => {
         return [];
     }
   };
- 
-  //   if (!activeFilter) return;
-    
-  //   setTempSelectedValues(prev => 
-  //     prev.includes(value)
-  //       ? prev.filter(v => v !== value)
-  //       : [...prev, value]
-  //   );
-  // };
 
   const handleApplyFilter = () => {
     if (!activeFilter) return;
@@ -375,60 +332,53 @@ export const SearchFilters = () => {
   
   return (
     <FilterContainer>
-     {filterButtons.map(({ key, label }) => {
-        const selectedCount = getSelectedValues(key).length;
-        return (
-          <FilterButton
-            key={key}
-            onClick={(e) => handleFilterClick(e, key)}
-            active={selectedCount > 0 ? 1 : 0}
-          >
-            {label}
-            {selectedCount > 0 && <span className="count">{selectedCount}</span>}
-            <ExpandMoreIcon />
-          </FilterButton>
-        );
-      })}
-      
+      {filterButtons.map(({ key, label }) => (
+        <FilterButton
+          key={key}
+          onClick={(e) => handleFilterClick(e, key)}
+          active={getSelectedValues(key).length > 0 ? 1 : 0}
+        >
+          {label}
+          <ExpandMoreIcon />
+        </FilterButton>
+      ))}
+
       <SearchBox>
-        <SearchIcon sx={{ color: '#666', mr: 1 }} />
         <InputBase
-          fullWidth
           placeholder="Search..."
           value={state.searchQuery}
           onChange={(e) => dispatch({ type: 'SET_SEARCH_QUERY', payload: e.target.value })}
         />
+        <SearchIcon />
       </SearchBox>
 
       {hasActiveFilters && (
-        <ResetButton onClick={handleReset}>
-          <RestartAltIcon />
+        <Box 
+          onClick={handleReset}
+          sx={{ 
+            display: 'flex',
+            alignItems: 'center',
+            cursor: 'pointer',
+            color: '#2D3748',
+            fontSize: '14px',
+            fontWeight: 500,
+            gap: '4px'
+          }}
+        >
+          <RestartAltIcon sx={{ fontSize: '20px' }} />
           Reset All
-        </ResetButton>
+        </Box>
       )}
 
       <FilterPopover
         open={Boolean(anchorEl)}
         anchorEl={anchorEl}
         onClose={handleClose}
-        disableAutoFocus // Prevents autofocus on the popover when opening
-        disableEnforceFocus // Prevents MUI from trapping focus inside
-        disableRestoreFocus // Prevents MUI from restoring focus on close
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',
         }}
       >
-        <PopoverSearch>
-          <SearchIcon sx={{ color: '#666', mr: 1 }} />
-          <InputBase
-            fullWidth
-            placeholder="Search options..."
-            value={filterSearch}
-            onChange={(e) => setFilterSearch(e.target.value)}
-          />
-        </PopoverSearch>
-        
         <CheckboxGroup>
           {filteredOptions.map((option) => (
             <FormControlLabel
@@ -439,22 +389,14 @@ export const SearchFilters = () => {
                   onChange={() => handleOptionToggle(option.value)}
                 />
               }
-              label={
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                  <span>{option.label}</span> &nbsp; <span>({option.count})</span>
-                </Box>
-              }
+              label={`${option.label} (${option.count})`}
             />
           ))}
         </CheckboxGroup>
 
-          <ApplyButton
-            variant="contained"
-            onClick={handleApplyFilter}
-            sx={{ width: "fit-content", background: 'linear-gradient(180deg,#535353,#111 66.66%,#000)', color: '#fff' }}
-          >
-            Apply Now
-          </ApplyButton>
+        <ApplyButton onClick={handleApplyFilter}>
+          Apply
+        </ApplyButton>
       </FilterPopover>
     </FilterContainer>
   );

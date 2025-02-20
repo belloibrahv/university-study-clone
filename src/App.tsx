@@ -35,9 +35,9 @@ const theme = createTheme({
 });
 
 const PageHeader = styled(Box)({
-  background: 'linear-gradient(135deg, #fff5e6 0%, #ffe4d3 100%)',
+  background: 'linear-gradient(135deg, rgb(255, 242, 197) 0%, rgb(247, 193, 162) 100%)',
   padding: '28px 0',
-  marginBottom: '32px',
+  marginBottom: '12px',
 });
 
 const App: React.FC = () => {
@@ -59,11 +59,9 @@ const App: React.FC = () => {
       <CssBaseline />
       <Header />
       <PageHeader>
-        <Container maxWidth="lg">
-          <Typography variant="h1">Search Programs</Typography>
-          <SearchFilters />
-        </Container>
+          <Typography variant="h1" sx={{ paddingLeft: '44px', fontWeight: 700, letterSpacing: '-2px' }}>Search Programs</Typography>
       </PageHeader>
+      <SearchFilters />
       <Container maxWidth="lg" sx={{ bgcolor: '#fff' }}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={3}>
