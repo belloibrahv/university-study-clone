@@ -50,9 +50,9 @@ const FilterSection = styled(Box)(({ theme }) => ({
   '& .MuiRadio-root': {
     '&.Mui-checked': {
       '& .MuiSvgIcon-root': {
-        border: '2px solid #ed6f33',
-        borderRadius: '50%',
-        padding: '2px'
+        // border: '2px solid #ed6f33',
+        // borderRadius: '50%',
+        // padding: '2px'
       }
     }
   }
@@ -283,8 +283,8 @@ export const FilterPanel = () => {
                     '&.Mui-checked': {
                       color: '#ed6f33',
                       '& .MuiSvgIcon-root': {
-                        border: '2px solid #ed6f33',
-                        padding: '2px',
+                        // border: '2px solid #ed6f33',
+                        // padding: '2px',
                       }
                     }
                   }}
