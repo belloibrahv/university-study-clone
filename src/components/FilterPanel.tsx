@@ -3,6 +3,9 @@ import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import { useFilter } from '../context/FilterContext';
 import { DUMMY_PROGRAMS } from '../assets/data';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { useState } from 'react';
 
 const FilterContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(0.3),
@@ -37,6 +40,21 @@ const FilterSection = styled(Box)(({ theme }) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: theme.spacing(0.5, 1),
+  },
+  '& .MuiRadio-root.Mui-checked': {
+    color: '#ed6f33',
+    '& + .MuiFormControlLabel-label': {
+      color: '#ed6f33',
+    }
+  },
+  '& .MuiRadio-root': {
+    '&.Mui-checked': {
+      '& .MuiSvgIcon-root': {
+        border: '2px solid #ed6f33',
+        borderRadius: '50%',
+        padding: '2px'
+      }
+    }
   }
 }));
 
@@ -78,16 +96,24 @@ const FilterLabel = styled('span')({
   width: '100%'
 });
 
+const ShowMoreButton = styled(Box)({
+  color: '#ed6f33',
+  cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '4px',
+  fontSize: '14px',
+  fontWeight: 500,
+  marginTop: '8px',
+  // '&:hover': {
+  //   textDecoration: 'underline',
+  // },
+});
 
 export const FilterPanel = () => {
-  const { 
-    state, 
-    dispatch, 
-    filterCounts, 
-    availableFilters,
-    filteredPrograms 
-  } = useFilter();
-
+  const [showAllUniversities, setShowAllUniversities] = useState(false);
+  const { state, dispatch, filterCounts, availableFilters } = useFilter();
+  
   const handleProvinceChange = (provinceName: string) => {
     dispatch({ type: 'SET_PROVINCE', payload: provinceName });
   };
@@ -156,6 +182,9 @@ export const FilterPanel = () => {
       .sort();
   };
 
+  const visibleUniversities = showAllUniversities 
+  ? getAvailableUniversities()
+  : getAvailableUniversities().slice(0, 13);
 
   return (
     <FilterContainer>
@@ -250,6 +279,15 @@ export const FilterPanel = () => {
                 <Radio
                   checked={true}
                   onChange={() => handleUniversityChange(state.university[0])}
+                  sx={{
+                    '&.Mui-checked': {
+                      color: '#ed6f33',
+                      '& .MuiSvgIcon-root': {
+                        border: '2px solid #ed6f33',
+                        padding: '2px',
+                      }
+                    }
+                  }}
                 />
               }
               label={
@@ -259,33 +297,54 @@ export const FilterPanel = () => {
                 </FilterLabel>
               }
             />
-            <IconButton
-              onClick={() => dispatch({ type: 'CLEAR_UNIVERSITY' })}
-              sx={{ ml: 1 }}
-            >
+            <IconButton onClick={() => dispatch({ type: 'CLEAR_UNIVERSITY' })} sx={{ ml: 1 }}>
               <CloseIcon />
             </IconButton>
           </SelectedProvince>
         ) : (
-          <FormGroup>
-            {getAvailableUniversities().map((university) => (
-              <FormControlLabel
-                key={university}
-                control={
-                  <Radio
-                    checked={state.university.includes(university)}
-                    onChange={() => handleUniversityChange(university)}
-                  />
-                }
-                label={
-                  <FilterLabel>
-                    {university}
-                    <span>({filterCounts.university[university] || 0})</span>
-                  </FilterLabel>
-                }
-              />
-            ))}
-          </FormGroup>
+          <>
+            <FormGroup>
+              {visibleUniversities.map((university) => (
+                <FormControlLabel
+                  key={university}
+                  control={
+                    <Radio
+                      checked={state.university.includes(university)}
+                      onChange={() => handleUniversityChange(university)}
+                      sx={{
+                        '&.Mui-checked': {
+                          color: '#ed6f33',
+                          '& .MuiSvgIcon-root': {
+                            border: '2px solid #ed6f33',
+                            padding: '2px',
+                          }
+                        }
+                      }}
+                    />
+                  }
+                  label={
+                    <FilterLabel>
+                      {university}
+                      <span>({filterCounts.university[university] || 0})</span>
+                    </FilterLabel>
+                  }
+                />
+              ))}
+            </FormGroup>
+            {getAvailableUniversities().length > 13 && (
+              <ShowMoreButton onClick={() => setShowAllUniversities(!showAllUniversities)}>
+                {showAllUniversities ? (
+                  <>
+                    Show less <KeyboardArrowUpIcon />
+                  </>
+                ) : (
+                  <>
+                    Show more <KeyboardArrowDownIcon />
+                  </>
+                )}
+              </ShowMoreButton>
+            )}
+          </>
         )}
       </FilterSection>
     </FilterContainer>
