@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Box, Checkbox, FormControlLabel, Popover, InputBase, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useFilter } from '../context/FilterContext';
 import { DUMMY_PROGRAMS } from '../assets/data';
 import { FilterState, Program } from '../types';
+import { ArrowDropDown as ArrowDropDownIcon, BorderBottom } from '@mui/icons-material';
 
 const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFilters: Partial<FilterState>) => {
   const counts: Record<string, number> = {};
@@ -87,6 +87,12 @@ const FilterButton = styled(Box)<{ active: number }>(({ active }) => ({
     borderColor: '#CBD5E0',
     outline: '1px solid #ed6f33',
   },
+  '&.active': {
+    backgroundColor: 'linear-gradient(180deg,#ed6f33 0,#ca2c3d)'
+  },
+  '&.focus': {
+    backgroundColor: 'linear-gradient(180deg,#ed6f33 0,#ca2c3d)'
+  },
   '& .MuiSvgIcon-root': {
     fontSize: '20px',
     marginLeft: 'auto'
@@ -133,6 +139,8 @@ const FilterPopover = styled(Popover)({
 });
 
 const CheckboxGroup = styled(Box)({
+  borderBottom: '1px solid #CBD5E0',
+  paddingBottom: '16px',
   maxHeight: '280px',
   overflowY: 'auto',
   marginTop: '16px',
@@ -143,11 +151,14 @@ const CheckboxGroup = styled(Box)({
 });
 
 const ApplyButton = styled(Button)({
-  width: '100%',
+  fontSize: '17px',
+  fontWeight: '700',
   marginTop: '16px',
   padding: '8px 16px',
-  backgroundColor: '#2D3748',
-  color: '#fff',
+  background: 'linear-gradient(rgb(83, 83, 83), rgb(17, 17, 17) 66.66%, rgb(0, 0, 0))',
+  border: '1px solid #ccc',
+  boxShadow: 'rgba(0, 0, 0, 0.1) 0px 22px 24px -12px',
+  color: 'rgb(255, 255, 255)',
   borderRadius: '8px',
   textTransform: 'none',
   '&:hover': {
@@ -339,7 +350,7 @@ export const SearchFilters = () => {
           active={getSelectedValues(key).length > 0 ? 1 : 0}
         >
           {label}
-          <ExpandMoreIcon />
+          <ArrowDropDownIcon />
         </FilterButton>
       ))}
 
@@ -363,15 +374,15 @@ export const SearchFilters = () => {
             borderRadius: '8px',
             backgroundColor: 'rgb(254, 242, 236)',
             color: '#df0724',
-            fontSize: '14px',
-            fontWeight: 500,
+            fontSize: '15px',
+            fontWeight: 700,
             gap: '4px',
             '&:hover': {
               border: '1px solid #df0724',
             },
           }}
         >
-          <RestartAltIcon sx={{ fontSize: '20px' }} />
+          <RestartAltIcon sx={{ fontSize: '21px', fontWeight: 700, }} />
           Reset All
         </Box>
       )}
@@ -401,7 +412,7 @@ export const SearchFilters = () => {
         </CheckboxGroup>
 
         <ApplyButton onClick={handleApplyFilter}>
-          Apply
+          Apply now
         </ApplyButton>
       </FilterPopover>
     </FilterContainer>
