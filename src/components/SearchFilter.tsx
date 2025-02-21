@@ -73,7 +73,7 @@ const FilterButton = styled(Box)<{ active: number }>(({ active }) => ({
   height: '40px',
   padding: '24px 16px',
   borderRadius: '8px',
-  border: '1px solid #E2E8F0',
+  border: '1px solid #ddd',
   backgroundColor: '#fff',
   cursor: 'pointer',
   display: 'flex',
@@ -101,7 +101,7 @@ const SearchBox = styled(Box)({
   fontWeight: 700,
   maxWidth: '400px',
   height: '40px',
-  border: '1px solid #E2E8F0',
+  border: '1px solid #ddd',
   borderRadius: '8px',
   display: 'flex',
   alignItems: 'center',
@@ -359,10 +359,16 @@ export const SearchFilters = () => {
             display: 'flex',
             alignItems: 'center',
             cursor: 'pointer',
-            color: '#2D3748',
+            padding: '14px 16px',
+            borderRadius: '8px',
+            backgroundColor: 'rgb(254, 242, 236)',
+            color: '#df0724',
             fontSize: '14px',
             fontWeight: 500,
-            gap: '4px'
+            gap: '4px',
+            '&:hover': {
+              border: '1px solid #df0724',
+            },
           }}
         >
           <RestartAltIcon sx={{ fontSize: '20px' }} />

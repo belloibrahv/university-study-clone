@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import { useFilter } from '../context/FilterContext';
 
 const ResultCard = styled(Card)({
+  width: '1010px',
   marginBottom: '16px',
   border: '1px solid #eaeaea',
   boxShadow: 'none',
@@ -63,18 +64,18 @@ export const ProgramResults: React.FC = () => {
           <CardContent>
             <Grid container spacing={3} alignItems="center">
               <Grid item xs={12} sm={2}>
-                <UniversityLogo src={program.image} alt={program.university} />
+                <UniversityLogo src={program.image} alt={program.university} sx={{ border: '1px solid #ddd', borderRadius: '8px', padding: '20px 15px'}} />
               </Grid>
-              <Grid item xs={12} sm={8}>
+              <Grid item xs={12} sm={8} sx={{ marginLeft: '-30px' }}>
                 <Typography variant="h6" sx={{ mb: 1 }}>
                   {program.programName}
                 </Typography>
                 <Typography color="text.secondary">
                   {program.university} • {program.province}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                {/* <Typography variant="body2" color="text.secondary">
                   {program.programLevel} • {program.language}
-                </Typography>
+                </Typography> */}
               </Grid>
               <Grid 
                 item xs={12} 
@@ -128,7 +129,7 @@ export const ProgramResults: React.FC = () => {
                       }
                     }}                
                   >
-                    <CompareArrowsIcon />
+                    <CompareArrowsIcon sx={{ fontSize: '17px'}} />
                   </IconButton>
                 </Tooltip>
 
@@ -177,7 +178,7 @@ export const ProgramResults: React.FC = () => {
                       }
                     }}  
                   >
-                    <FavoriteBorderIcon />
+                    <FavoriteBorderIcon sx={{ fontSize: '17px'}}/>
                   </IconButton>
                 </Tooltip>
               </Grid>

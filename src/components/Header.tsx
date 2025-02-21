@@ -5,7 +5,7 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CloseIcon from '@mui/icons-material/Close';
 import UniversityImg from '../assets/images/university.svg';
-import FoundationImg from '../assets/images/foundation.svg';
+import FoundationImg from '../assets/images/RBC-Foundation-Logo.png';
 import Ads from './Ads';
 
 const NewsletterBar = styled(Box)({
@@ -62,14 +62,17 @@ const NavButton = styled(Button)({
   color: '#333',
   textTransform: 'none',
   fontSize: '16px',
-  padding: '8px 16px',
+  fontWeight: 600,
+  padding: '8px 16px 4px',
+  borderRadius: 0,
+  borderBottom: '1px solid transparent',
   '&:hover': {
     backgroundColor: 'transparent',
     color: '#0066cc',
   },
   '&.active': {
-    borderBottom: '2px solid #0066cc',
-    color: '#0066cc',
+    borderBottom: '1px solid #000',
+    color: '#000',
   },
 });
 

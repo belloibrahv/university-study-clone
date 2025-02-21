@@ -159,10 +159,11 @@ export const FilterPanel = () => {
 
   return (
     <FilterContainer>
-    <Typography variant="h6">More filters</Typography>
+    <Typography variant="h5" sx={{ fontWeight: 700, mb: '10px' }}>More filters</Typography>
+    <Divider />
     
     <FilterSection>
-      <Typography variant="h6">Province/Territory</Typography>
+      <Typography variant="h6" sx={{ fontWeight: 700 }}>Province/Territory</Typography>
       {state.selectedProvince ? (
         <SelectedProvince>
           <FormControlLabel
@@ -212,7 +213,7 @@ export const FilterPanel = () => {
       <Divider />
       <SwitchContainer>
         <Box>
-          <Typography variant="h6" sx={{ mb: 0 }}>Co-op availability</Typography>
+          <Typography variant="h6" sx={{ mb: 0, fontWeight: 700 }}>Co-op availability</Typography>
         </Box>
         <div className="switch-section">
           <span className="switch-label">{state.coop ? 'Yes' : 'No'}</span>
@@ -227,7 +228,7 @@ export const FilterPanel = () => {
       <Divider />
       <SwitchContainer>
         <Box>
-          <Typography variant="h6" sx={{ mb: 0 }}>Remote learning</Typography>
+          <Typography variant="h6" sx={{ mb: 0, fontWeight: 700 }}>Remote learning</Typography>
         </Box>
         <div className="switch-section">
           <span className="switch-label">{state.remote ? 'Yes' : 'No'}</span>
@@ -241,7 +242,7 @@ export const FilterPanel = () => {
 
       <Divider />
       <FilterSection>
-        <Typography variant="h6">University</Typography>
+        <Typography variant="h6" sx={{ fontWeight: 700 }}>University</Typography>
         {state.university?.length > 0 ? (
           <SelectedProvince>
             <FormControlLabel

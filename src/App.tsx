@@ -36,7 +36,7 @@ const theme = createTheme({
 
 const PageHeader = styled(Box)({
   background: 'linear-gradient(135deg, rgb(255, 242, 197) 0%, rgb(247, 193, 162) 100%)',
-  padding: '28px 0',
+  padding: '28px 0 10px',
   marginBottom: '12px',
 });
 
@@ -59,10 +59,10 @@ const App: React.FC = () => {
       <CssBaseline />
       <Header />
       <PageHeader>
-          <Typography variant="h1" sx={{ paddingLeft: '44px', fontWeight: 700, letterSpacing: '-2px' }}>Search Programs</Typography>
+        <Typography variant="h1" sx={{ paddingLeft: '44px', fontWeight: 700, letterSpacing: '-2px' }}>Search Programs</Typography>
       </PageHeader>
       <SearchFilters />
-      <Container maxWidth="lg" sx={{ bgcolor: '#fff' }}>
+      <Box maxWidth="lg" sx={{ bgcolor: '#fff,', margin: '0 54px' }}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={3}>
             <FilterPanel />
@@ -71,7 +71,7 @@ const App: React.FC = () => {
             <ProgramResults programs={DUMMY_PROGRAMS} />
           </Grid>
         </Grid>
-      </Container>
+      </Box>
       <Ads text="Advertisment" position='340px' addBorder/>
       <PartnerSlider partners={partners} />
       <Footer />
