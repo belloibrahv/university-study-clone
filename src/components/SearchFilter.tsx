@@ -6,7 +6,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useFilter } from '../context/FilterContext';
 import { DUMMY_PROGRAMS } from '../assets/data';
 import { FilterState, Program } from '../types';
-import { ArrowDropDown as ArrowDropDownIcon, BorderBottom } from '@mui/icons-material';
+import { ArrowDropDown as ArrowDropDownIcon } from '@mui/icons-material';
 
 const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFilters: Partial<FilterState>) => {
   const counts: Record<string, number> = {};
@@ -166,6 +166,29 @@ const ApplyButton = styled(Button)({
   }
 });
 
+const PopoverSearch = styled(Box)({
+  margin: '0 0 8px',
+  position: 'relative',
+  '& .MuiInputBase-root': {
+    width: '100%',
+    padding: '8px 12px',
+    paddingRight: '40px',
+    border: '1px solid #e0e0e0',
+    borderRadius: '4px',
+    fontSize: '14px',
+    '&:focus-within': {
+      borderColor: '#666',
+    }
+  },
+  '& .MuiSvgIcon-root': {
+    position: 'absolute',
+    right: '12px',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    color: '#666',
+    fontSize: '20px'
+  }
+});
 
 export const SearchFilters = () => {
   const { state, dispatch } = useFilter();
@@ -202,19 +225,25 @@ export const SearchFilters = () => {
       remote: state.remote,
       searchQuery: state.searchQuery
     };
-  
+
     const otherFilters = { ...activeFilters };
     delete otherFilters[filter as keyof typeof otherFilters];
-  
-    const options = getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], otherFilters);
     
-    // Filter out options based on applied filters
+    let options = getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], otherFilters);
+    
+    // Filter options based on search input
+    if (filterSearch) {
+      options = options.filter(option => 
+        option.label.toLowerCase().includes(filterSearch.toLowerCase())
+      );
+    }
+
     if (appliedFilters[filter as keyof typeof appliedFilters]) {
-      return options.filter(option => 
+      return options.filter(option =>
         selectedOptions[filter as keyof typeof selectedOptions].includes(option.value)
       );
     }
-    
+
     return options;
   };
 
@@ -364,9 +393,9 @@ export const SearchFilters = () => {
       </SearchBox>
 
       {hasActiveFilters && (
-        <Box 
+        <Box
           onClick={handleReset}
-          sx={{ 
+          sx={{
             display: 'flex',
             alignItems: 'center',
             cursor: 'pointer',
@@ -382,7 +411,7 @@ export const SearchFilters = () => {
             },
           }}
         >
-          <RestartAltIcon sx={{ fontSize: '21px', fontWeight: 700, }} />
+          <RestartAltIcon sx={{ fontSize: '21px', fontWeight: 700 }} />
           Reset All
         </Box>
       )}
@@ -396,8 +425,17 @@ export const SearchFilters = () => {
           horizontal: 'left',
         }}
       >
+        <PopoverSearch>
+          <InputBase
+            placeholder={`Search ${activeFilter?.toLowerCase() || ''}...`}
+            value={filterSearch}
+            onChange={(e) => setFilterSearch(e.target.value)}
+          />
+          <SearchIcon />
+        </PopoverSearch>
+
         <CheckboxGroup>
-          {filteredOptions.map((option) => (
+          {getFilterOptions(activeFilter || '').map((option) => (
             <FormControlLabel
               key={option.value}
               control={
