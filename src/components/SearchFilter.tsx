@@ -8,54 +8,6 @@ import { DUMMY_PROGRAMS } from '../assets/data';
 import { FilterState, Program } from '../types';
 import { ArrowDropDown as ArrowDropDownIcon } from '@mui/icons-material';
 
-const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFilters: Partial<FilterState>) => {
-  const counts: Record<string, number> = {};
-  
-  DUMMY_PROGRAMS.forEach(program => {
-    // Check if the program matches all current active filters
-    const matchesFilters = Object.entries(activeFilters).every(([filterKey, filterValue]) => {
-      // Skip if no filter value or empty array
-      if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) return true;
-      
-      // For boolean filters (coop, remote)
-      if (typeof filterValue === 'boolean') {
-        return program[filterKey as keyof Program] === filterValue;
-      }
-      
-      // For array filters (programLevel, language, studyArea)
-      if (Array.isArray(filterValue)) {
-        return filterValue.includes(program[filterKey as keyof Program]);
-      }
-      
-      // For string filters (province, university, searchQuery)
-      if (typeof filterValue === 'string') {
-        if (filterKey === 'searchQuery') {
-          return program.programName.toLowerCase().includes(filterValue.toLowerCase()) ||
-                 program.university.toLowerCase().includes(filterValue.toLowerCase());
-        }
-        return program[filterKey as keyof Program] === filterValue;
-      }
-      
-      return true;
-    });
-
-    if (matchesFilters) {
-      const value = program[key];
-      if (typeof value === 'string') {
-        counts[value] = (counts[value] || 0) + 1;
-      }
-    }
-  });
-
-  return Object.entries(counts)
-    .map(([value, count]) => ({
-      value,
-      label: value,
-      count
-    }))
-    .sort((a, b) => a.label.localeCompare(b.label));
-};
-
 const FilterContainer = styled(Box)({
   display: 'flex',
   gap: '12px',
@@ -69,34 +21,40 @@ const FilterContainer = styled(Box)({
   }
 });
 
-const FilterButton = styled(Box)<{ active: number }>(({ active }) => ({
+const FilterButton = styled(Box)<{ active: number; count?: number }>(({ active, count }) => ({
   height: '40px',
-  padding: '24px 16px',
+  padding: '8px 16px',
   borderRadius: '8px',
   border: '1px solid #ddd',
-  backgroundColor: '#fff',
+  backgroundColor: active ? 'rgb(254, 242, 236)' : '#fff',
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
   gap: '8px',
   fontSize: '16px',
-  color: '#1A202C',
+  color: active ? '#df0724' : '#1A202C',
   fontWeight: 700,
   minWidth: '140px',
+  position: 'relative',
   '&:hover': {
     borderColor: '#CBD5E0',
     outline: '1px solid #ed6f33',
   },
-  '&.active': {
-    backgroundColor: 'linear-gradient(180deg,#ed6f33 0,#ca2c3d)'
-  },
-  '&.focus': {
-    backgroundColor: 'linear-gradient(180deg,#ed6f33 0,#ca2c3d)'
-  },
-  '& .MuiSvgIcon-root': {
-    fontSize: '20px',
-    marginLeft: 'auto'
-  }
+  '&:after': count ? {
+    content: `"${count}"`,
+    position: 'absolute',
+    top: '-8px',
+    right: '-8px',
+    backgroundColor: '#df0724',
+    color: '#fff',
+    borderRadius: '50%',
+    width: '24px',
+    height: '24px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '14px',
+  } : {},
 }));
 
 const SearchBox = styled(Box)({
@@ -190,6 +148,54 @@ const PopoverSearch = styled(Box)({
   }
 });
 
+const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFilters: Partial<FilterState>) => {
+  const counts: Record<string, number> = {};
+  
+  DUMMY_PROGRAMS.forEach(program => {
+    // Check if the program matches all current active filters
+    const matchesFilters = Object.entries(activeFilters).every(([filterKey, filterValue]) => {
+      // Skip if no filter value or empty array
+      if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) return true;
+      
+      // For boolean filters (coop, remote)
+      if (typeof filterValue === 'boolean') {
+        return program[filterKey as keyof Program] === filterValue;
+      }
+      
+      // For array filters (programLevel, language, studyArea)
+      if (Array.isArray(filterValue)) {
+        return filterValue.includes(program[filterKey as keyof Program]);
+      }
+      
+      // For string filters (province, university, searchQuery)
+      if (typeof filterValue === 'string') {
+        if (filterKey === 'searchQuery') {
+          return program.programName.toLowerCase().includes(filterValue.toLowerCase()) ||
+                 program.university.toLowerCase().includes(filterValue.toLowerCase());
+        }
+        return program[filterKey as keyof Program] === filterValue;
+      }
+      
+      return true;
+    });
+
+    if (matchesFilters) {
+      const value = program[key];
+      if (typeof value === 'string') {
+        counts[value] = (counts[value] || 0) + 1;
+      }
+    }
+  });
+
+  return Object.entries(counts)
+    .map(([value, count]) => ({
+      value,
+      label: value,
+      count
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label));
+};
+
 export const SearchFilters = () => {
   const { state, dispatch } = useFilter();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -225,25 +231,18 @@ export const SearchFilters = () => {
       remote: state.remote,
       searchQuery: state.searchQuery
     };
-
+    
     const otherFilters = { ...activeFilters };
     delete otherFilters[filter as keyof typeof otherFilters];
-    
     let options = getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], otherFilters);
     
-    // Filter options based on search input
-    if (filterSearch) {
-      options = options.filter(option => 
+    // Only apply search filter for Area of Study
+    if (filter === 'studyArea' && filterSearch) {
+      options = options.filter(option =>
         option.label.toLowerCase().includes(filterSearch.toLowerCase())
       );
     }
-
-    if (appliedFilters[filter as keyof typeof appliedFilters]) {
-      return options.filter(option =>
-        selectedOptions[filter as keyof typeof selectedOptions].includes(option.value)
-      );
-    }
-
+    
     return options;
   };
 
@@ -251,8 +250,6 @@ export const SearchFilters = () => {
     setAnchorEl(event.currentTarget);
     setActiveFilter(filter);
     setFilterSearch('');
-    
-    // Initialize selected options for this filter if not already set
     setSelectedOptions(prev => ({
       ...prev,
       [filter]: getSelectedValues(filter)
@@ -320,17 +317,28 @@ export const SearchFilters = () => {
   const handleOptionToggle = (value: string) => {
     if (!activeFilter) return;
     
-    setSelectedOptions(prev => {
-      const currentValues = prev[activeFilter as keyof typeof prev];
-      const newValues = currentValues.includes(value)
-        ? currentValues.filter(v => v !== value)
-        : [...currentValues, value];
-        
-      return {
-        ...prev,
-        [activeFilter]: newValues
-      };
-    });
+    const currentValues = selectedOptions[activeFilter as keyof typeof selectedOptions];
+    const newValues = currentValues.includes(value)
+      ? currentValues.filter(v => v !== value)
+      : [...currentValues, value];
+    
+    setSelectedOptions(prev => ({
+      ...prev,
+      [activeFilter]: newValues
+    }));
+    
+    // Auto-apply the filter
+    switch (activeFilter) {
+      case 'programLevel':
+        dispatch({ type: 'SET_PROGRAM_LEVEL', payload: newValues });
+        break;
+      case 'language':
+        dispatch({ type: 'SET_LANGUAGE', payload: newValues });
+        break;
+      case 'studyArea':
+        dispatch({ type: 'SET_STUDY_AREA', payload: newValues });
+        break;
+    }
   };
 
   const handleReset = () => {
@@ -372,16 +380,76 @@ export const SearchFilters = () => {
   
   return (
     <FilterContainer>
-      {filterButtons.map(({ key, label }) => (
-        <FilterButton
-          key={key}
-          onClick={(e) => handleFilterClick(e, key)}
-          active={getSelectedValues(key).length > 0 ? 1 : 0}
-        >
-          {label}
-          <ArrowDropDownIcon />
-        </FilterButton>
-      ))}
+      {/* Program Level Filter Button */}
+      <FilterButton
+        onClick={(e) => handleFilterClick(e, 'programLevel')}
+        active={state.programLevel.length > 0 ? 1 : 0}
+        count={state.programLevel.length || undefined}
+      >
+        Program Level
+        <ArrowDropDownIcon />
+      </FilterButton>
+
+      {/* Language Filter Button */}
+      <FilterButton
+        onClick={(e) => handleFilterClick(e, 'language')}
+        active={state.language.length > 0 ? 1 : 0}
+        count={state.language.length || undefined}
+      >
+        Language
+        <ArrowDropDownIcon />
+      </FilterButton>
+
+      {/* Area of Study Filter Button */}
+      <FilterButton
+        onClick={(e) => handleFilterClick(e, 'studyArea')}
+        active={state.studyArea.length > 0 ? 1 : 0}
+        count={state.studyArea.length || undefined}
+      >
+        Area of Study
+        <ArrowDropDownIcon />
+      </FilterButton>
+
+      {/* Filter Popover */}
+      <FilterPopover
+        open={Boolean(anchorEl)}
+        anchorEl={anchorEl}
+        onClose={() => {
+          setAnchorEl(null);
+          setActiveFilter(null);
+        }}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+      >
+        {/* Only show search for Area of Study */}
+        {activeFilter === 'studyArea' && (
+          <PopoverSearch>
+            <InputBase
+              placeholder="Search area of study..."
+              value={filterSearch}
+              onChange={(e) => setFilterSearch(e.target.value)}
+            />
+            <SearchIcon />
+          </PopoverSearch>
+        )}
+
+        <CheckboxGroup>
+          {getFilterOptions(activeFilter || '').map((option) => (
+            <FormControlLabel
+              key={option.value}
+              control={
+                <Checkbox
+                  checked={selectedOptions[activeFilter as keyof typeof selectedOptions]?.includes(option.value)}
+                  onChange={() => handleOptionToggle(option.value)}
+                />
+              }
+              label={`${option.label} (${option.count})`}
+            />
+          ))}
+        </CheckboxGroup>
+      </FilterPopover>
 
       <SearchBox>
         <InputBase
