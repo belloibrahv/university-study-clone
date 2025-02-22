@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Checkbox, FormControlLabel, Popover, InputBase, Button } from '@mui/material';
+import { Box, Checkbox, FormControlLabel, Popover, InputBase, Button, Divider } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
@@ -8,7 +8,6 @@ import { DUMMY_PROGRAMS } from '../assets/data';
 import { FilterState, Program } from '../types';
 import { ArrowDropDown as ArrowDropDownIcon } from '@mui/icons-material';
 
-// Existing helper function remains unchanged
 const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFilters: Partial<FilterState>) => {
   const counts: Record<string, number> = {};
   DUMMY_PROGRAMS.forEach(program => {
@@ -60,20 +59,18 @@ const FilterContainer = styled(Box)({
   }
 });
 
-// Updated FilterButton styling to match the original website
 const FilterButton = styled(Box)<{ active: number }>(({ active }) => ({
-  height: '40px',
+  height: '45px',
   padding: '8px 16px',
-  borderRadius: '8px',
+  borderRadius: '5px',
   border: '1px solid #ddd',
-  backgroundColor: active ? 'rgb(254, 242, 236)' : '#fff',
+  background: active ? 'linear-gradient(180deg,#ed6f33 0,#ca2c3d)' : '#fff',
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
-  gap: '8px',
   fontSize: '16px',
-  color: active ? '#df0724' : '#1A202C',
   fontWeight: 700,
+  color: active ? '#fff' : '#1A202C',
   minWidth: '140px',
   position: 'relative',
   '&:hover': {
@@ -81,10 +78,16 @@ const FilterButton = styled(Box)<{ active: number }>(({ active }) => ({
     outline: '1px solid #ed6f33',
   },
   '& .counter': {
-    backgroundColor: active ? '#df0724' : 'transparent',
-    color: active ? '#fff' : 'inherit',
+    dispaly: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    background: active ? '#ffffff' : 'transparent',
+    color: active ? '#ed6f33' : 'inherit',
+    height: '24px',
+    width: '24px',
+    lineHeight: '1.4em',
     borderRadius: '50%',
-    padding: '2px 8px',
     marginLeft: '4px',
     fontSize: '14px',
   }
@@ -97,9 +100,9 @@ const SearchBox = styled(Box)({
   color: '#1A202C',
   fontWeight: 700,
   maxWidth: '400px',
-  height: '40px',
+  height: '45px',
   border: '1px solid #ddd',
-  borderRadius: '8px',
+  borderRadius: '5px',
   display: 'flex',
   alignItems: 'center',
   backgroundColor: '#fff',
@@ -119,7 +122,6 @@ const SearchBox = styled(Box)({
   }
 });
 
-// Updated FilterPopover styling to match the original website
 const FilterPopover = styled(Popover)({
   '& .MuiPaper-root': {
     width: '320px',
@@ -142,7 +144,6 @@ const CheckboxGroup = styled(Box)({
   }
 });
 
-// Updated PopoverSearch to only show for Area of Study
 const PopoverSearch = styled(Box)({
   margin: '0 0 8px',
   position: 'relative',
@@ -346,6 +347,8 @@ export const SearchFilters = () => {
 
       {/* Reset Button */}
       {hasActiveFilters && (
+        <>
+        <Divider orientation="vertical" variant="middle" flexItem sx={{ height: '45px' }} />
         <Box
           onClick={handleReset}
           sx={{
@@ -353,6 +356,7 @@ export const SearchFilters = () => {
             alignItems: 'center',
             cursor: 'pointer',
             padding: '8px 16px',
+            height: '45px',
             borderRadius: '8px',
             backgroundColor: 'rgb(254, 242, 236)',
             color: '#df0724',
@@ -367,6 +371,7 @@ export const SearchFilters = () => {
           <RestartAltIcon sx={{ fontSize: '21px', fontWeight: 700 }} />
           Reset All
         </Box>
+        </>
       )}
 
       {/* Filter Popover */}
@@ -390,7 +395,7 @@ export const SearchFilters = () => {
             <SearchIcon />
           </PopoverSearch>
         )}
-
+        
         <CheckboxGroup>
           {getFilterOptions(activeFilter || '').map((option) => (
             <FormControlLabel
