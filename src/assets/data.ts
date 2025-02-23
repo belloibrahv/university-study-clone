@@ -83054,7 +83054,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     image: SaintMary,
     programName: 'BA with honours in Social Justice & Community Studies',
     programLevel: 'Bachelor',
-    language: 'Engliush',
+    language: 'English',
     coop: true,
     remote: false,
     studyArea: 'Family and community services, Social sciences',
