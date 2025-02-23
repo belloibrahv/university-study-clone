@@ -40,7 +40,6 @@ import OntarioT from '../assets/images/OntarioT.jpg';
 import RoyalR from '../assets/images/RoyalR.webp';
 import RoyalMCC from '../assets/images/RoyalMCC.webp';
 import SaintMary from '../assets/images/SaintMary.jpg';
-import SaintPaul from '../assets/images/SaintPaul.jpg';
 import SimonFraser from '../assets/images/SimonFraser.jpg';
 import StFrancisXU from '../assets/images/StFrancisXU.jpg';
 import StMary from '../assets/images/StMary.jpg';
@@ -53,6 +52,7 @@ import TWU from '../assets/images/TWU.jpg';
 import UkingsC from '../assets/images/UKingsC.jpg';
 import Lethbridge from '../assets/images/Lethbridge.jpg';
 import UNB from '../assets/images/UNB.jpg';
+import UNBC from '../assets/images/UNBC.webp';
 
 
 import { Agent } from 'http';
@@ -4514,19 +4514,17 @@ export const DUMMY_PROGRAMS: Program[] = [
     university: 'Saint Marys University',
     province: 'Nova Scotia'
   },
-
-  // Saint Paul University Programs
   {
     id: '365',
-    image: SaintPaul,
-    programName: 'BA (Human Ecology) in Family Studies and Human Development (Major/ Specialization/ Honors Specialization)',
+    image: SaintMary,
+    programName: 'BA with honours in Sociology',
     programLevel: 'Bachelor',
     language: 'English',
-    coop: false,
+    coop: true,
     remote: false,
-    studyArea: 'Human development and family studies',
-    university: '',
-    province: ''
+    studyArea: 'Sociology',
+    university: 'Saint Marys University',
+    province: 'Nova Scotia'
   },
 
   // Simon Fraser University Programs
@@ -6689,113 +6687,209 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: 'New Brunswick'
   },
 
-  //
+  // University of Northern British Columbia Programs
   {
     id: '544',
-    image: ,
-    programName: '',
-    programLevel: '',
-    language: '',
-    coop: ,
-    remote: ,
-    studyArea: '',
-    university: '',
-    province: ''
+    image: UNBC,
+    programName: 'BA (General Arts)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'General studies',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
   },
   {
     id: '545',
-    image: ,
-    programName: '',
-    programLevel: '',
-    language: '',
-    coop: ,
-    remote: ,
-    studyArea: '',
-    university: '',
-    province: ''
+    image: UNBC,
+    programName: 'BA (Joint Major)',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Social sciences, general',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
   },
   {
     id: '546',
-    image: ,
-    programName: '',
-    programLevel: '',
-    language: '',
-    coop: ,
-    remote: ,
-    studyArea: '',
-    university: '',
-    province: ''
+    image: UNBC,
+    programName: 'BA in Anthropology',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Anthropology',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
   },
   {
     id: '547',
-    image: ,
-    programName: '',
-    programLevel: '',
-    language: '',
-    coop: ,
-    remote: ,
-    studyArea: '',
-    university: '',
-    province: ''
+    image: UNBC,
+    programName: 'BA in Economics',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Economics',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
   },
   {
     id: '548',
-    image: ,
-    programName: '',
-    programLevel: '',
-    language: '',
-    coop: ,
-    remote: ,
-    studyArea: '',
-    university: '',
-    province: ''
+    image: UNBC,
+    programName: 'BA in English',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'English language and literature',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
   },
   {
     id: '549',
-    image: ,
-    programName: '',
-    programLevel: '',
-    language: '',
-    coop: ,
-    remote: ,
-    studyArea: '',
-    university: '',
-    province: ''
+    image: UNBC,
+    programName: 'BA in Environmental and Sustainability Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Environmental studies, Sustainability studies',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
   },
   {
     id: '550',
-    image: ,
-    programName: '',
-    programLevel: '',
-    language: '',
-    coop: ,
-    remote: ,
-    studyArea: '',
-    university: '',
-    province: ''
+    image: UNBC,
+    programName: 'BA in First Nations Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Indigenous peoples of the Americas studies',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
   },
   {
-    id: '',
-    image: ,
-    programName: '',
-    programLevel: '',
-    language: '',
-    coop: ,
-    remote: ,
-    studyArea: '',
-    university: '',
-    province: ''
+    id: '551',
+    image: UNBC,
+    programName: 'BA in Geography',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Geography',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
   },
   {
-    id: '',
-    image: ,
-    programName: '',
-    programLevel: '',
-    language: '',
-    coop: ,
-    remote: ,
-    studyArea: '',
-    university: '',
-    province: ''
+    id: '552',
+    image: UNBC,
+    programName: 'BA in Global &amp; International Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'International/globalization studies',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
+  },
+  {
+    id: '553',
+    image: UNBC,
+    programName: 'BA in History',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'History',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
+  },
+  {
+    id: '554',
+    image: UNBC,
+    programName: 'BA in Northern Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Regional studies (U.S, Canadian, foreign)',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
+  },
+  {
+    id: '555',
+    image: UNBC,
+    programName: 'BA in Political Science',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Political science and government, general',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
+  },
+  {
+    id: '556',
+    image: UNBC,
+    programName: 'BA in Womens Studies',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Womens studies',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
+  },
+  {
+    id: '557',
+    image: UNBC,
+    programName: 'BA in Nature-Based Tourism Management',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Tourism and travel services management',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
+  },
+  {
+    id: '558',
+    image: UNBC,
+    programName: 'Bachelor of Applied Science in Civil Engineering',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Civil engineering',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
+  },
+  {
+    id: '559',
+    image: UNBC,
+    programName: 'Bachelor of Applied Science in Environmental Engineering',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: true,
+    remote: false,
+    studyArea: 'Environmental/environmental health engineering',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
+  },
+  {
+    id: '560',
+    image: UNBC,
+    programName: 'Bachelor of Planning (BP) in Environmental Planning',
+    programLevel: 'Bachelor',
+    language: 'English',
+    coop: false,
+    remote: false,
+    studyArea: 'Facilities planning and management',
+    university: 'University of Northern British Columbia',
+    province: 'British Columbia'
   },
 ];
