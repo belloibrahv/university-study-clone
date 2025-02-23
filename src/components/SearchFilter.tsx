@@ -241,7 +241,8 @@ export const SearchFilters = () => {
     setAnchorEl(null);
     setActiveFilter(null);
     setFilterSearch('');
-  };
+    document.getElementById('main-content')?.focus(); // Set focus to a visible element
+  }; 
 
   const handleOptionToggle = (value: string) => {
     if (!activeFilter) return;
