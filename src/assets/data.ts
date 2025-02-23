@@ -55,10 +55,6 @@ import UNB from '../assets/images/UNB.jpg';
 import UNBC from '../assets/images/UNBC.webp';
 
 
-import { Agent } from 'http';
-import { LegendToggle } from '@mui/icons-material';
-
-
 export const DUMMY_PROGRAMS: Program[] = [
 
     // University of Manitoba Programs
