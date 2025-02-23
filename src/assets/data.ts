@@ -33,24 +33,22 @@ import Concordia from '../assets/images/Concordia.png';
 import OCAD from '../assets/images/OCAD.png';
 import Redeemer from '../assets/images/Redeemer.png';
 import Trent from '../assets/images/Trent.png';
-import MountA from '../assets/images/MountA.webp';
+import MountA from '../assets/images/MountA.jpeg';
 import MountR from '../assets/images/MountR.jpg';
 import MountSV from '../assets/images/MountSV.jpg';
 import OntarioT from '../assets/images/OntarioT.jpg';
-import RoyalR from '../assets/images/RoyalR.webp';
-import RoyalMCC from '../assets/images/RoyalMCC.webp';
+import RoyalR from '../assets/images/RoyalR.png';
+import RoyalMCC from '../assets/images/RoyalMCC.jpeg';
 import SaintMary from '../assets/images/SaintMary.jpg';
-// import SaintPaul from '../assets/images/SaintPaul.jpg';
 import SimonFraser from '../assets/images/SimonFraser.jpg';
 import StFrancisXU from '../assets/images/StFrancisXU.jpg';
 import StMary from '../assets/images/StMary.jpg';
 import StPaul from '../assets/images/StPaul.jpg';
 import StThomas from '../assets/images/StThomas.jpg';
-import TheKings from '../assets/images/TheKings.webp';
+import TheKings from '../assets/images/TheKings.png';
 import ThompsonR from '../assets/images/ThompsonR.jpg';
 import TMU from '../assets/images/TMU.jpg';
 import TWU from '../assets/images/TWU.jpg';
-// import UkingsC from '../assets/images/UKingsC.jpg';
 import Ottawa from '../assets/images/Ottawa.jpg';
 import Carleton from '../assets/images/Carleton.jpg';
 import WesternU from '../assets/images/WesternU.png';
@@ -87,6 +85,7 @@ import UQTR from '../assets/images/UQTR.png';
 import UQAR from '../assets/images/UQAR.png';
 import ETS from '../assets/images/ETS.jpg';
 import USudbury from '../assets/images/USudbury.png';
+import ECUAD from '../assets/images/ECUAD.jpg';
 
 
 export const DUMMY_PROGRAMS: Program[] = [
@@ -3417,7 +3416,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "278",
-    image: "EmilyCarrUniversityofArt+Design",
+    image: ECUAD,
     programName: "BDesign with major in industrial design",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -3429,7 +3428,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "279",
-    image: "EmilyCarrUniversityofArt+Design",
+    image: ECUAD,
     programName: "Bachelor of fine arts with major in photography",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -3441,7 +3440,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "280",
-    image: "EmilyCarrUniversityofArt+Design",
+    image: ECUAD,
     programName: "BDesign with major in interaction design",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -3453,7 +3452,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "281",
-    image: "EmilyCarrUniversityofArt+Design",
+    image: ECUAD,
     programName: "Bachelor of fine arts with major in critical and cultural practice",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -3465,7 +3464,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "282",
-    image: "EmilyCarrUniversityofArt+Design",
+    image: ECUAD,
     programName: "Bachelor of fine arts with major in illustration",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -3477,7 +3476,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "283",
-    image: "EmilyCarrUniversityofArt+Design",
+    image: ECUAD,
     programName: "Master of Design in Information Futures",
     programLevel: "Master's degree",
     language: "English",
@@ -3489,7 +3488,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "284",
-    image: "EmilyCarrUniversityofArt+Design",
+    image: ECUAD,
     programName: "Bachelor of media arts with major in 2D-AN 2D + Experimental Animation",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -3501,7 +3500,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "285",
-    image: "EmilyCarrUniversityofArt+Design",
+    image: ECUAD,
     programName: "Master of Design in Interdisciplinary Design",
     programLevel: "Master's degree",
     language: "English",
