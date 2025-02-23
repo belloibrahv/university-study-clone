@@ -53,19 +53,19 @@ import TWU from '../assets/images/TWU.jpg';
 // import UkingsC from '../assets/images/UKingsC.jpg';
 import Ottawa from '../assets/images/Ottawa.jpg';
 import Carleton from '../assets/images/Carleton.jpg';
-import WesternU from '../assets/images/WesternU.jpg';
-import USaskatchewan from '../assets/images/USaskatchewan.jpg';
+import WesternU from '../assets/images/WesternU.png';
+import USaskatchewan from '../assets/images/USaskatchewan.png';
 import VancouverU from '../assets/images/VancouverU.jpg';
-import UWindsor from '../assets/images/UWindsor.jpg';
+import UWindsor from '../assets/images/UWindsor.png';
 import UPEI from '../assets/images/UPEI.jpg';
-import UWaterloo from '../assets/images/UWaterloo.jpg';
-import UNBC from '../assets/images/UNBC.jpg';
-import UVictoria from '../assets/images/UVictoria.jpg';
-import UNewBrunswick from '../assets/images/UNewBrunswick.jpg';
-import UFV from '../assets/images/UFV.jpg';
-import CapilanoU from '../assets/images/CapilanoU.jpg';
+import UWaterloo from '../assets/images/UWaterloo.png';
+import UNBC from '../assets/images/UNBC.png';
+import UVictoria from '../assets/images/UVictoria.png';
+import UNewBrunswick from '../assets/images/UNewBrunswick.png';
+import UFV from '../assets/images/UFV.jpeg';
+import CapilanoU from '../assets/images/CapilanoU.png';
 import UGuelph from '../assets/images/UGuelph.jpg';
-import UMontreal from '../assets/images/UMontreal.jpg';
+import UMontreal from '../assets/images/UMontreal.png';
 import UQAM from '../assets/images/UQAM.jpg';
 import UQAC from '../assets/images/UQAC.jpg';
 import UQAT from '../assets/images/UQAT.jpg';
@@ -79,14 +79,14 @@ import ENAP from '../assets/images/ENAP.jpg';
 import URegina from '../assets/images/URegina.jpg';
 import UMoncton from '../assets/images/UMoncton.jpg';
 import WLU from '../assets/images/WLU.jpg';
-import INRS from '../assets/images/INRS.jpg';
+import INRS from '../assets/images/INRS.png';
 import CapeBretonU from '../assets/images/CapeBretonU.jpg';
-import VictoriaU from '../assets/images/VictoriaU.jpg';
+import VictoriaU from '../assets/images/VictoriaU.png';
 import UStMC from '../assets/images/UStMC.jpg';
-import UQTR from '../assets/images/UQTR.jpg';
-import UQAR from '../assets/images/UQAR.jpg';
+import UQTR from '../assets/images/UQTR.png';
+import UQAR from '../assets/images/UQAR.png';
 import ETS from '../assets/images/ETS.jpg';
-import USudbury from '../assets/images/USudbury.jpg';
+import USudbury from '../assets/images/USudbury.png';
 
 
 export const DUMMY_PROGRAMS: Program[] = [
@@ -61779,7 +61779,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: "Biology/biological sciences, general",
+    studyArea: "Biology\/biological sciences, general",
     university: "Universit\u00e9 de Montr\u00e9al",
     province: "Quebec"
   },
@@ -80692,7 +80692,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: "Computer engineering, general",
-    university: "\u00c9cole de technologie sup\u00e9rieure (\u00c9TS)",
+    university: "\u00c9cole de technologie sup\u00e9rieure \(\u00c9TS\)",
     province: "Quebec"
   },
   {
@@ -83468,7 +83468,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     remote: false,
     studyArea: 'Child development, Youth service/administration',
     university: 'Mount Royal University',
-    province: 'Albert'
+    province: 'Alberta'
     },
    {
     id: "6949",
