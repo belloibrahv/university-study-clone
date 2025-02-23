@@ -35,7 +35,7 @@ const theme = createTheme({
 });
 
 const PageHeader = styled(Box)({
-  background: 'linear-gradient(135deg, rgb(255, 242, 197) 0%, rgb(247, 193, 162) 100%)',
+  background: 'linear-gradient(to right, rgb(255, 243, 200), rgb(253, 232, 195), rgb(249, 211, 193))',
   padding: '28px 0 10px',
   marginBottom: '12px',
 });
