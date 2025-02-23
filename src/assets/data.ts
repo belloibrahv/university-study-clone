@@ -40,7 +40,7 @@ import OntarioT from '../assets/images/OntarioT.jpg';
 import RoyalR from '../assets/images/RoyalR.webp';
 import RoyalMCC from '../assets/images/RoyalMCC.webp';
 import SaintMary from '../assets/images/SaintMary.jpg';
-import SaintPaul from '../assets/images/SaintPaul.jpg';
+// import SaintPaul from '../assets/images/SaintPaul.jpg';
 import SimonFraser from '../assets/images/SimonFraser.jpg';
 import StFrancisXU from '../assets/images/StFrancisXU.jpg';
 import StMary from '../assets/images/StMary.jpg';
@@ -50,7 +50,7 @@ import TheKings from '../assets/images/TheKings.webp';
 import ThompsonR from '../assets/images/ThompsonR.jpg';
 import TMU from '../assets/images/TMU.jpg';
 import TWU from '../assets/images/TWU.jpg';
-import UkingsC from '../assets/images/UKingsC.jpg';
+// import UkingsC from '../assets/images/UKingsC.jpg';
 import Ottawa from '../assets/images/Ottawa.jpg';
 import Carleton from '../assets/images/Carleton.jpg';
 import WesternU from '../assets/images/WesternU.jpg';
@@ -82596,7 +82596,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     },
    {
     id: "6876",
-    image: StMary',
+    image: StMary,
     programName: 'BSc in Biology (4-Year)',
     programLevel: 'Bachelor',
     language: 'English',
