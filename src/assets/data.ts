@@ -82866,7 +82866,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Anthropology',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -82878,7 +82878,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Asian studies/civilization',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -82890,7 +82890,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Canadian studies, Regional studies (U.S, Canadian, foreign)',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -82902,7 +82902,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Criminology',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -82914,7 +82914,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Economics',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -82926,7 +82926,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'English language and literature',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -82938,7 +82938,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'French language and literature',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -82950,7 +82950,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Geography',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -82962,7 +82962,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'History',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -82974,7 +82974,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Development economics and international development',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -82986,7 +82986,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Linguistics',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -82998,7 +82998,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Mathematics',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -83010,7 +83010,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Philosophy',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -83022,7 +83022,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Political science and government',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -83034,7 +83034,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Psychology',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -83046,7 +83046,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Religion/religious studies',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -83058,7 +83058,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Family and community services, Social sciences',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
@@ -83070,7 +83070,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Sociology',
-    university: 'Saint Marys University',
+    university: "Saint Mary's University",
     province: 'Nova Scotia'
     },
    {
