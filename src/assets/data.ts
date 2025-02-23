@@ -50936,7 +50936,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4238",
-    image: "St.Mary'sUniversity",
+    image: StMary,
     programName: "BA in Psychology (3-Year/4-Year)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -50948,7 +50948,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4239",
-    image: "St.Mary'sUniversity",
+    image: StMary,
     programName: "BA in General Studies (3-Year)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -50960,7 +50960,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4240",
-    image: "St.Mary'sUniversity",
+    image: StMary,
     programName: "Diploma in Entrepreneurship &amp; Social Responsibility ",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
@@ -50972,7 +50972,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4241",
-    image: "St.Mary'sUniversity",
+    image: StMary,
     programName: "BA in Social Justice and Catholic Studies (4-Year)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -50984,7 +50984,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4242",
-    image: "St.Mary'sUniversity",
+    image: StMary,
     programName: "Bachelor of Education - Elementary (2-Year)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -82506,7 +82506,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'English language and literature',
-    university: 'St. Marys University',
+    university: "St. Mary's University",
     province: 'Alberta'
     },
    {
@@ -82518,7 +82518,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'General studies',
-    university: 'St. Marys University',
+    university: "St. Mary's University",
     province: 'Alberta'
     },
    {
@@ -82530,7 +82530,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'History',
-    university: 'St. Marys University',
+    university: "St. Mary's University",
     province: 'Alberta'
     },
    {
@@ -82542,7 +82542,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'Liberal arts and sciences/liberal studies',
-    university: 'St. Marys University',
+    university: "St. Mary's University",
     province: 'Alberta'
     },
    {
@@ -82554,7 +82554,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'Psychology',
-    university: 'St. Marys University',
+    university: "St. Mary's University",
     province: 'Alberta'
     },
    {
@@ -82566,7 +82566,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'Religion/religious studies, general, Social sciences',
-    university: 'St. Marys University',
+    university: "St. Mary's University",
     province: 'Alberta'
     },
    {
@@ -82578,7 +82578,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'Elementary education and teaching',
-    university: 'St. Marys University',
+    university: "St. Mary's University",
     province: 'Alberta'
     },
    {
@@ -82590,7 +82590,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'Secondary education and teaching',
-    university: 'St. Marys University',
+    university: "St. Mary's University",
     province: 'Alberta'
     },
    {
@@ -82602,7 +82602,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'Biology/biological science',
-    university: 'St. Marys University',
+    university: "St. Mary's University",
     province: 'Alberta'
     },
    {
@@ -82614,7 +82614,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'Entrepreneurial and small business operations',
-    university: 'St. Marys University',
+    university: "St. Mary's University",
     province: 'Alberta'
     },
    {
@@ -82626,7 +82626,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'Peace studies and conflict resolution',
-    university: 'St. Pauls College',
+    university: "St. Paul's College",
     province: 'Manitoba'
     },
    {
@@ -82638,7 +82638,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'Christian studies',
-    university: 'St. Pauls College',
+    university: "St. Paul's College",
     province: 'Manitoba'
     },
    {
@@ -82650,7 +82650,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: false,
     remote: false,
     studyArea: 'Peace studies and conflict resolution',
-    university: 'St. Pauls College',
+    university: "St. Paul's College",
     province: 'Manitoba'
     },
    {
@@ -83034,7 +83034,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     coop: true,
     remote: false,
     studyArea: 'Psychology',
-    university: 'Saint Marys Unoiversity',
+    university: 'Saint Marys University',
     province: 'Nova Scotia'
     },
    {
