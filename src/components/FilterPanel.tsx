@@ -1,14 +1,78 @@
-import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch, Divider, IconButton } from '@mui/material';
+import { Box, Typography, Radio, FormGroup, FormControlLabel, Switch, Divider, IconButton, SwitchProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import { useFilter } from '../context/FilterContext';
 import { DUMMY_PROGRAMS } from '../assets/data';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { useState } from 'react';
+
+
+const SSwitch = styled((props: SwitchProps) => (
+  <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+))(({ theme }) => ({
+  width: 42,
+  height: 26,
+  padding: 0,
+  '& .MuiSwitch-switchBase': {
+    padding: 0,
+    margin: 2,
+    transitionDuration: '300ms',
+    '&.Mui-checked': {
+      transform: 'translateX(16px)',
+      color: '#fff',
+      '& + .MuiSwitch-track': {
+        backgroundColor: '#1c7d60',
+        opacity: 1,
+        border: 0,
+        ...theme.applyStyles('dark', {
+          backgroundColor: '#2ECA45',
+        }),
+      },
+      '&.Mui-disabled + .MuiSwitch-track': {
+        opacity: 0.5,
+      },
+    },
+    '&.Mui-focusVisible .MuiSwitch-thumb': {
+      color: '#33cf4d',
+      border: '6px solid #fff',
+    },
+    '&.Mui-disabled .MuiSwitch-thumb': {
+      color: theme.palette.grey[100],
+      ...theme.applyStyles('dark', {
+        color: theme.palette.grey[600],
+      }),
+    },
+    '&.Mui-disabled + .MuiSwitch-track': {
+      opacity: 0.7,
+      ...theme.applyStyles('dark', {
+        opacity: 0.3,
+      }),
+    },
+  },
+  '& .MuiSwitch-thumb': {
+    boxSizing: 'border-box',
+    width: 22,
+    height: 22,
+  },
+  '& .MuiSwitch-track': {
+    borderRadius: 26 / 2,
+    backgroundColor: '#E9E9EA',
+    opacity: 1,
+    transition: theme.transitions.create(['background-color'], {
+      duration: 500,
+    }),
+    ...theme.applyStyles('dark', {
+      backgroundColor: '#39393D',
+    }),
+  },
+}));
 
 const FilterContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(0.3),
   background: 'transparent',
   '& .MuiTypography-root': {
-    fontFamily: "'Inter', sans-serif",
+    fontFamily: "'CircularStd', sans-serif",
   },
   '& .MuiTypography-h4': {
     fontSize: '2rem',
@@ -37,6 +101,21 @@ const FilterSection = styled(Box)(({ theme }) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: theme.spacing(0.5, 1),
+  },
+  '& .MuiRadio-root.Mui-checked': {
+    color: '#ed6f33',
+    '& + .MuiFormControlLabel-label': {
+      color: '#ed6f33',
+    }
+  },
+  '& .MuiRadio-root': {
+    '&.Mui-checked': {
+      '& .MuiSvgIcon-root': {
+        // border: '2px solid #ed6f33',
+        // borderRadius: '50%',
+        // padding: '2px'
+      }
+    }
   }
 }));
 
@@ -78,16 +157,24 @@ const FilterLabel = styled('span')({
   width: '100%'
 });
 
+const ShowMoreButton = styled(Box)({
+  color: '#ed6f33',
+  cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '4px',
+  fontSize: '14px',
+  fontWeight: 500,
+  marginTop: '8px',
+  // '&:hover': {
+  //   textDecoration: 'underline',
+  // },
+});
 
 export const FilterPanel = () => {
-  const { 
-    state, 
-    dispatch, 
-    filterCounts, 
-    availableFilters,
-    filteredPrograms 
-  } = useFilter();
-
+  const [showAllUniversities, setShowAllUniversities] = useState(false);
+  const { state, dispatch, filterCounts, availableFilters } = useFilter();
+  
   const handleProvinceChange = (provinceName: string) => {
     dispatch({ type: 'SET_PROVINCE', payload: provinceName });
   };
@@ -156,13 +243,17 @@ export const FilterPanel = () => {
       .sort();
   };
 
+  const visibleUniversities = showAllUniversities 
+  ? getAvailableUniversities()
+  : getAvailableUniversities().slice(0, 13);
 
   return (
     <FilterContainer>
-    <Typography variant="h6">More filters</Typography>
+    <Typography variant="h5" sx={{ fontWeight: 700, mb: '10px' }}>More filters</Typography>
+    <Divider />
     
     <FilterSection>
-      <Typography variant="h6">Province/Territory</Typography>
+      <Typography variant="h6" sx={{ fontWeight: 700 }}>Province/Territory</Typography>
       {state.selectedProvince ? (
         <SelectedProvince>
           <FormControlLabel
@@ -212,14 +303,14 @@ export const FilterPanel = () => {
       <Divider />
       <SwitchContainer>
         <Box>
-          <Typography variant="h6" sx={{ mb: 0 }}>Co-op availability</Typography>
+          <Typography variant="h6" sx={{ mb: 0, fontWeight: 700 }}>Co-op availability</Typography>
         </Box>
         <div className="switch-section">
           <span className="switch-label">{state.coop ? 'Yes' : 'No'}</span>
-          <Switch
+          <SSwitch
             checked={state.coop}
             onChange={(e) => dispatch({ type: 'SET_COOP', payload: e.target.checked })}
-            color="primary"
+            color="success"
           />
         </div>
       </SwitchContainer>
@@ -227,21 +318,21 @@ export const FilterPanel = () => {
       <Divider />
       <SwitchContainer>
         <Box>
-          <Typography variant="h6" sx={{ mb: 0 }}>Remote learning</Typography>
+          <Typography variant="h6" sx={{ mb: 0, fontWeight: 700 }}>Remote learning</Typography>
         </Box>
         <div className="switch-section">
           <span className="switch-label">{state.remote ? 'Yes' : 'No'}</span>
-          <Switch
+          <SSwitch
             checked={state.remote}
             onChange={(e) => dispatch({ type: 'SET_REMOTE_LEARNING', payload: e.target.checked })}
-            color="primary"
+            color="success"
           />
         </div>
       </SwitchContainer>
 
       <Divider />
       <FilterSection>
-        <Typography variant="h6">University</Typography>
+        <Typography variant="h6" sx={{ fontWeight: 700 }}>University</Typography>
         {state.university?.length > 0 ? (
           <SelectedProvince>
             <FormControlLabel
@@ -249,6 +340,11 @@ export const FilterPanel = () => {
                 <Radio
                   checked={true}
                   onChange={() => handleUniversityChange(state.university[0])}
+                  sx={{
+                    '&.Mui-checked': {
+                      color: '#ed6f33',
+                    }
+                  }}
                 />
               }
               label={
@@ -258,33 +354,54 @@ export const FilterPanel = () => {
                 </FilterLabel>
               }
             />
-            <IconButton
-              onClick={() => dispatch({ type: 'CLEAR_UNIVERSITY' })}
-              sx={{ ml: 1 }}
-            >
+            <IconButton onClick={() => dispatch({ type: 'CLEAR_UNIVERSITY' })} sx={{ ml: 1 }}>
               <CloseIcon />
             </IconButton>
           </SelectedProvince>
         ) : (
-          <FormGroup>
-            {getAvailableUniversities().map((university) => (
-              <FormControlLabel
-                key={university}
-                control={
-                  <Radio
-                    checked={state.university.includes(university)}
-                    onChange={() => handleUniversityChange(university)}
-                  />
-                }
-                label={
-                  <FilterLabel>
-                    {university}
-                    <span>({filterCounts.university[university] || 0})</span>
-                  </FilterLabel>
-                }
-              />
-            ))}
-          </FormGroup>
+          <>
+            <FormGroup>
+              {visibleUniversities.map((university) => (
+                <FormControlLabel
+                  key={university}
+                  control={
+                    <Radio
+                      checked={state.university.includes(university)}
+                      onChange={() => handleUniversityChange(university)}
+                      sx={{
+                        '&.Mui-checked': {
+                          color: '#ed6f33',
+                          '& .MuiSvgIcon-root': {
+                            border: '2px solid #ed6f33',
+                            padding: '2px',
+                          }
+                        }
+                      }}
+                    />
+                  }
+                  label={
+                    <FilterLabel>
+                      {university}
+                      <span>({filterCounts.university[university] || 0})</span>
+                    </FilterLabel>
+                  }
+                />
+              ))}
+            </FormGroup>
+            {getAvailableUniversities().length > 13 && (
+              <ShowMoreButton onClick={() => setShowAllUniversities(!showAllUniversities)}>
+                {showAllUniversities ? (
+                  <>
+                    Show less <KeyboardArrowUpIcon />
+                  </>
+                ) : (
+                  <>
+                    Show more <KeyboardArrowDownIcon />
+                  </>
+                )}
+              </ShowMoreButton>
+            )}
+          </>
         )}
       </FilterSection>
     </FilterContainer>

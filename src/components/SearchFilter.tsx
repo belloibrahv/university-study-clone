@@ -1,33 +1,24 @@
 import React, { useState } from 'react';
-import { Box, Checkbox, FormControlLabel, Popover, InputBase, Button } from '@mui/material';
+import { Box, Checkbox, FormControlLabel, Popover, InputBase, Button, Divider } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useFilter } from '../context/FilterContext';
 import { DUMMY_PROGRAMS } from '../assets/data';
 import { FilterState, Program } from '../types';
+import { ArrowDropDown as ArrowDropDownIcon } from '@mui/icons-material';
 
 const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFilters: Partial<FilterState>) => {
   const counts: Record<string, number> = {};
-  
   DUMMY_PROGRAMS.forEach(program => {
-    // Check if the program matches all current active filters
     const matchesFilters = Object.entries(activeFilters).every(([filterKey, filterValue]) => {
-      // Skip if no filter value or empty array
       if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) return true;
-      
-      // For boolean filters (coop, remote)
       if (typeof filterValue === 'boolean') {
         return program[filterKey as keyof Program] === filterValue;
       }
-      
-      // For array filters (programLevel, language, studyArea)
       if (Array.isArray(filterValue)) {
         return filterValue.includes(program[filterKey as keyof Program]);
       }
-      
-      // For string filters (province, university, searchQuery)
       if (typeof filterValue === 'string') {
         if (filterKey === 'searchQuery') {
           return program.programName.toLowerCase().includes(filterValue.toLowerCase()) ||
@@ -35,7 +26,6 @@ const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFi
         }
         return program[filterKey as keyof Program] === filterValue;
       }
-      
       return true;
     });
 
@@ -59,135 +49,139 @@ const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFi
 const FilterContainer = styled(Box)({
   display: 'flex',
   gap: '12px',
-  marginBottom: '32px',
   alignItems: 'center',
-  flexWrap: 'wrap',
-  width: '100%'
+  width: '100%',
+  padding: '20px 0 20px 44px',
+  borderBottom: '1px solid #d6dadc',
+  marginBottom: '40px',
+  '& > *': {
+    marginRight: '12px'
+  }
 });
 
-const ApplyButton = styled(Button)(({ theme }) => ({
-  width: '100%',
-  marginTop: theme.spacing(2),
-  backgroundColor: '#DC3545',
-  color: 'white',
-  '&:hover': {
-    backgroundColor: '#C82333',
-  },
-}));
-
-interface StyledFilterButtonProps {
-  active: number;
-}
-
-const FilterButton = styled(Box)<StyledFilterButtonProps>(({ active }) => ({
-  height: '44px',
-  padding: '0 16px',
-  borderRadius: '4px',
-  border: '1px solid #E0E0E0',
-  backgroundColor: active ? '#FFF5F5' : '#FFF',
+const FilterButton = styled(Box)<{ active: number }>(({ active }) => ({
+  height: '45px',
+  padding: '8px 16px',
+  borderRadius: '5px',
+  border: '1px solid #ddd',
+  background: active ? 'linear-gradient(180deg,#ed6f33 0,#ca2c3d)' : '#fff',
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
-  gap: '8px',
+  fontSize: '16px',
+  fontWeight: 700,
+  color: active ? '#fff' : '#1A202C',
   minWidth: '140px',
   position: 'relative',
   '&:hover': {
-    borderColor: '#999',
+    borderColor: '#CBD5E0',
+    outline: '1px solid #ed6f33',
   },
-  '& .count': {
-    position: 'absolute',
-    top: '-8px',
-    right: '-8px',
-    background: '#DC3545',
-    color: 'white',
-    borderRadius: '50%',
-    width: '24px',
-    height: '24px',
-    display: 'flex',
-    alignItems: 'center',
+  '& .counter': {
+    dispaly: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    background: active ? '#ffffff' : 'transparent',
+    color: active ? '#ed6f33' : 'inherit',
+    height: '24px',
+    width: '24px',
+    lineHeight: '1.4em',
+    borderRadius: '50%',
+    marginLeft: '4px',
     fontSize: '14px',
   }
 }));
 
 const SearchBox = styled(Box)({
   flex: 1,
-  minWidth: '200px',
-  height: '44px',
-  border: '1px solid #E0E0E0',
-  borderRadius: '4px',
+  padding: '8px 16px',
+  fontSize: '16px',
+  color: '#1A202C',
+  fontWeight: 700,
+  maxWidth: '400px',
+  height: '45px',
+  border: '1px solid #ddd',
+  borderRadius: '5px',
   display: 'flex',
   alignItems: 'center',
-  padding: '0 12px',
-  backgroundColor: '#FFF',
+  backgroundColor: '#fff',
+  position: 'relative',
   '&:hover': {
-    borderColor: '#999',
+    borderColor: '#CBD5E0',
+    outline: '1px solid #ed6f33',
   },
-});
-
-const ResetButton = styled(Box)({
-  height: '44px',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '8px',
-  padding: '0 16px',
-  backgroundColor: '#FFF5F5',
-  color: '#DC3545',
-  borderRadius: '4px',
-  cursor: 'pointer',
-  border: '1px solid transparent',
-  '&:hover': {
-    backgroundColor: '#FFE9E9',
+  '& .MuiInputBase-root': {
+    width: '100%',
   },
+  '& .MuiSvgIcon-root': {
+    position: 'absolute',
+    right: '16px',
+    color: '#718096',
+    fontSize: '20px'
+  }
 });
 
 const FilterPopover = styled(Popover)({
   '& .MuiPaper-root': {
     width: '320px',
-    marginTop: '4px',
+    marginTop: '8px',
     padding: '16px',
-    minWidth: '300px',
-    maxHeight: '400px',
-    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
-  },
-});
-
-const PopoverSearch = styled(Box)({
-  marginBottom: '16px',
-  border: '1px solid #E0E0E0',
-  borderRadius: '4px',
-  padding: '8px 12px',
-  display: 'flex',
-  alignItems: 'center',
-  backgroundColor: '#F8F9FA',
+    boxShadow: '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
+    borderRadius: '8px'
+  }
 });
 
 const CheckboxGroup = styled(Box)({
+  borderBottom: '1px solid #CBD5E0',
+  paddingBottom: '16px',
   maxHeight: '280px',
   overflowY: 'auto',
+  marginTop: '16px',
   '& .MuiFormControlLabel-root': {
     margin: '4px 0',
     width: '100%',
-  },
-  '& .MuiFormControlLabel-label': {
+  }
+});
+
+const PopoverSearch = styled(Box)({
+  margin: '0 0 8px',
+  position: 'relative',
+  '& .MuiInputBase-root': {
+    width: '100%',
+    padding: '8px 12px',
+    paddingRight: '40px',
+    border: '1px solid #e0e0e0',
+    borderRadius: '4px',
     fontSize: '14px',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
+    '&:focus-within': {
+      borderColor: '#666',
+    }
   },
-  '& .MuiCheckbox-root': {
-    padding: '6px',
-  },
-  '&::-webkit-scrollbar': {
-    width: '6px',
-  },
-  '&::-webkit-scrollbar-track': {
-    background: '#f1f1f1',
-  },
-  '&::-webkit-scrollbar-thumb': {
-    background: '#888',
-    borderRadius: '3px',
-  },
+  '& .MuiSvgIcon-root': {
+    position: 'absolute',
+    right: '12px',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    color: '#666',
+    fontSize: '20px'
+  }
+});
+
+const ApplyButton = styled(Button)({
+  fontSize: '17px',
+  fontWeight: '700',
+  marginTop: '16px',
+  padding: '8px 16px',
+  background: 'linear-gradient(rgb(83, 83, 83), rgb(17, 17, 17) 66.66%, rgb(0, 0, 0))',
+  border: '1px solid #ccc',
+  boxShadow: 'rgba(0, 0, 0, 0.1) 0px 22px 24px -12px',
+  color: 'rgb(255, 255, 255)',
+  borderRadius: '8px',
+  textTransform: 'none',
+  '&:hover': {
+    backgroundColor: '#1A202C',
+  }
 });
 
 export const SearchFilters = () => {
@@ -195,7 +189,9 @@ export const SearchFilters = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [filterSearch, setFilterSearch] = useState('');
-  const [selectedOptions, setSelectedOptions] = useState<{
+  
+  // Store all options to handle deselection properly
+  const [allOptions, setAllOptions] = useState<{
     programLevel: string[];
     language: string[];
     studyArea: string[];
@@ -204,74 +200,47 @@ export const SearchFilters = () => {
     language: [],
     studyArea: [],
   });
-  const [appliedFilters, setAppliedFilters] = useState<{
-    programLevel: boolean;
-    language: boolean;
-    studyArea: boolean;
-  }>({
-    programLevel: false,
-    language: false,
-    studyArea: false,
-  });
-
-  const getFilterOptions = (filter: string) => {
-    const activeFilters: Partial<FilterState> = {
-      programLevel: state.programLevel,
-      language: state.language,
-      studyArea: state.studyArea,
-      province: state.province?.[0],
-      university: state.university?.[0],
-      coop: state.coop,
-      remote: state.remote,
-      searchQuery: state.searchQuery
-    };
-  
-    const otherFilters = { ...activeFilters };
-    delete otherFilters[filter as keyof typeof otherFilters];
-  
-    const options = getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], otherFilters);
-    
-    // Filter out options based on applied filters
-    if (appliedFilters[filter as keyof typeof appliedFilters]) {
-      return options.filter(option => 
-        selectedOptions[filter as keyof typeof selectedOptions].includes(option.value)
-      );
-    }
-    
-    return options;
-  };
 
   const handleFilterClick = (event: React.MouseEvent<HTMLElement>, filter: string) => {
     setAnchorEl(event.currentTarget);
     setActiveFilter(filter);
     setFilterSearch('');
     
-    // Initialize selected options for this filter if not already set
-    setSelectedOptions(prev => ({
+    // Store all available options when opening the filter
+    const options = getFilterOptions(filter);
+    setAllOptions(prev => ({
       ...prev,
-      [filter]: getSelectedValues(filter)
+      [filter]: options.map(opt => opt.value)
     }));
   };
 
   const handleClose = () => {
-    // Forcefully remove focus from any element inside the popover
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
-    }
-  
-    // Move focus back to the button that opened the popover
-    if (anchorEl) {
-      anchorEl.focus();
-    } else {
-      document.body.focus(); // Fallback if anchorEl is null
-    }
-  
-    // Close the popover
     setAnchorEl(null);
     setActiveFilter(null);
+    setFilterSearch('');
   };
-  
-  
+
+  const handleOptionToggle = (value: string) => {
+    if (!activeFilter) return;
+    
+    const currentValues = getSelectedValues(activeFilter);
+    const newValues = currentValues.includes(value)
+      ? currentValues.filter(v => v !== value)
+      : [...currentValues, value];
+
+    // Apply filter immediately on selection/deselection
+    switch (activeFilter) {
+      case 'programLevel':
+        dispatch({ type: 'SET_PROGRAM_LEVEL', payload: newValues });
+        break;
+      case 'language':
+        dispatch({ type: 'SET_LANGUAGE', payload: newValues });
+        break;
+      case 'studyArea':
+        dispatch({ type: 'SET_STUDY_AREA', payload: newValues });
+        break;
+    }
+  };
 
   const getSelectedValues = (filter: string): string[] => {
     switch (filter) {
@@ -285,77 +254,38 @@ export const SearchFilters = () => {
         return [];
     }
   };
- 
-  //   if (!activeFilter) return;
-    
-  //   setTempSelectedValues(prev => 
-  //     prev.includes(value)
-  //       ? prev.filter(v => v !== value)
-  //       : [...prev, value]
-  //   );
-  // };
 
-  const handleApplyFilter = () => {
-    if (!activeFilter) return;
-    
-    // Update the applied filters state
-    setAppliedFilters(prev => ({
-      ...prev,
-      [activeFilter]: true
-    }));
-    
-    // Dispatch the selected options to the global state
-    switch (activeFilter) {
-      case 'programLevel':
-        dispatch({ type: 'SET_PROGRAM_LEVEL', payload: selectedOptions.programLevel });
-        break;
-      case 'language':
-        dispatch({ type: 'SET_LANGUAGE', payload: selectedOptions.language });
-        break;
-      case 'studyArea':
-        dispatch({ type: 'SET_STUDY_AREA', payload: selectedOptions.studyArea });
-        break;
+  const getFilterOptions = (filter: string) => {
+    const activeFilters: Partial<FilterState> = {
+      programLevel: state.programLevel,
+      language: state.language,
+      studyArea: state.studyArea,
+      province: state.province?.[0],
+      university: state.university?.[0],
+      coop: state.coop,
+      remote: state.remote,
+      searchQuery: state.searchQuery
+    };
+
+    const otherFilters = { ...activeFilters };
+    delete otherFilters[filter as keyof typeof otherFilters];
+
+    let options = getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], otherFilters);
+
+    // Only filter by search for Area of Study
+    if (filter === 'studyArea' && filterSearch) {
+      options = options.filter(option =>
+        option.label.toLowerCase().includes(filterSearch.toLowerCase())
+      );
     }
-    
-    handleClose();
-  };
 
-  const handleOptionToggle = (value: string) => {
-    if (!activeFilter) return;
-    
-    setSelectedOptions(prev => {
-      const currentValues = prev[activeFilter as keyof typeof prev];
-      const newValues = currentValues.includes(value)
-        ? currentValues.filter(v => v !== value)
-        : [...currentValues, value];
-        
-      return {
-        ...prev,
-        [activeFilter]: newValues
-      };
-    });
+    return options;
   };
 
   const handleReset = () => {
     dispatch({ type: 'RESET_FILTERS' });
-    setAppliedFilters({
-      programLevel: false,
-      language: false,
-      studyArea: false,
-    });
-    setSelectedOptions({
-      programLevel: [],
-      language: [],
-      studyArea: [],
-    });
     handleClose();
   };
-
-  const filteredOptions = activeFilter
-    ? getFilterOptions(activeFilter).filter(option =>
-        option.label.toLowerCase().includes(filterSearch.toLowerCase())
-      )
-    : [];
 
   const hasActiveFilters =
     state.programLevel.length > 0 ||
@@ -367,96 +297,123 @@ export const SearchFilters = () => {
     state.coop ||
     state.remote;
 
-  const filterButtons = [
-    { key: 'programLevel', label: 'Program Level' },
-    { key: 'language', label: 'Language' },
-    { key: 'studyArea', label: 'Area of Study' }
-  ];
-  
   return (
     <FilterContainer>
-     {filterButtons.map(({ key, label }) => {
-        const selectedCount = getSelectedValues(key).length;
-        return (
-          <FilterButton
-            key={key}
-            onClick={(e) => handleFilterClick(e, key)}
-            active={selectedCount > 0 ? 1 : 0}
-          >
-            {label}
-            {selectedCount > 0 && <span className="count">{selectedCount}</span>}
-            <ExpandMoreIcon />
-          </FilterButton>
-        );
-      })}
-      
+      {/* Program Level Filter Button */}
+      <FilterButton
+        onClick={(e) => handleFilterClick(e, 'programLevel')}
+        active={state.programLevel.length > 0 ? 1 : 0}
+      >
+        Program Level
+        {state.programLevel.length > 0 && (
+          <span className="counter">{state.programLevel.length}</span>
+        )}
+        <ArrowDropDownIcon />
+      </FilterButton>
+
+      {/* Language Filter Button */}
+      <FilterButton
+        onClick={(e) => handleFilterClick(e, 'language')}
+        active={state.language.length > 0 ? 1 : 0}
+      >
+        Language
+        {state.language.length > 0 && (
+          <span className="counter">{state.language.length}</span>
+        )}
+        <ArrowDropDownIcon />
+      </FilterButton>
+
+      {/* Area of Study Filter Button */}
+      <FilterButton
+        onClick={(e) => handleFilterClick(e, 'studyArea')}
+        active={state.studyArea.length > 0 ? 1 : 0}
+      >
+        Area of Study
+        {state.studyArea.length > 0 && (
+          <span className="counter">{state.studyArea.length}</span>
+        )}
+        <ArrowDropDownIcon />
+      </FilterButton>
+
+      {/* Search Box */}
       <SearchBox>
-        <SearchIcon sx={{ color: '#666', mr: 1 }} />
         <InputBase
-          fullWidth
           placeholder="Search..."
           value={state.searchQuery}
           onChange={(e) => dispatch({ type: 'SET_SEARCH_QUERY', payload: e.target.value })}
         />
+        <SearchIcon />
       </SearchBox>
 
+      {/* Reset Button */}
       {hasActiveFilters && (
-        <ResetButton onClick={handleReset}>
-          <RestartAltIcon />
+        <>
+        <Divider orientation="vertical" variant="middle" flexItem sx={{ height: '45px' }} />
+        <Box
+          onClick={handleReset}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            cursor: 'pointer',
+            padding: '8px 16px',
+            height: '45px',
+            borderRadius: '8px',
+            backgroundColor: 'rgb(254, 242, 236)',
+            color: '#df0724',
+            fontSize: '15px',
+            fontWeight: 700,
+            gap: '4px',
+            '&:hover': {
+              border: '1px solid #df0724',
+            },
+          }}
+        >
+          <RestartAltIcon sx={{ fontSize: '21px', fontWeight: 700 }} />
           Reset All
-        </ResetButton>
+        </Box>
+        </>
       )}
 
+      {/* Filter Popover */}
       <FilterPopover
         open={Boolean(anchorEl)}
         anchorEl={anchorEl}
         onClose={handleClose}
-        disableAutoFocus // Prevents autofocus on the popover when opening
-        disableEnforceFocus // Prevents MUI from trapping focus inside
-        disableRestoreFocus // Prevents MUI from restoring focus on close
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',
         }}
       >
-        <PopoverSearch>
-          <SearchIcon sx={{ color: '#666', mr: 1 }} />
-          <InputBase
-            fullWidth
-            placeholder="Search options..."
-            value={filterSearch}
-            onChange={(e) => setFilterSearch(e.target.value)}
-          />
-        </PopoverSearch>
+        {/* Search field only for Area of Study */}
+        {activeFilter === 'studyArea' && (
+          <PopoverSearch>
+            <InputBase
+              placeholder="Search area of study..."
+              value={filterSearch}
+              onChange={(e) => setFilterSearch(e.target.value)}
+            />
+            <SearchIcon />
+          </PopoverSearch>
+        )}
         
         <CheckboxGroup>
-          {filteredOptions.map((option) => (
+          {getFilterOptions(activeFilter || '').map((option) => (
             <FormControlLabel
               key={option.value}
               control={
                 <Checkbox
-                  checked={selectedOptions[activeFilter as keyof typeof selectedOptions]?.includes(option.value)}
+                  checked={getSelectedValues(activeFilter || '').includes(option.value)}
                   onChange={() => handleOptionToggle(option.value)}
                 />
               }
-              label={
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                  <span>{option.label}</span>
-                  <span style={{ color: '#666' }}>({option.count})</span>
-                </Box>
-              }
+              label={`${option.label} (${option.count})`}
             />
           ))}
         </CheckboxGroup>
-        
-        <ApplyButton
-          variant="contained"
-          onClick={handleApplyFilter}
-        >
-          Apply Now
-        </ApplyButton>
+        <ApplyButton>
+          Apply now
+        </ApplyButton> 
       </FilterPopover>
     </FilterContainer>
   );
 };
-  

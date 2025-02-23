@@ -17,6 +17,7 @@ import CanadaImg from './assets/images/canadauni.svg';
 import PostmanImg from './assets/images/postmedia.png';
 import UniversityImg from './assets/images/university.svg';
 import FoundationImg from './assets/images/foundation.svg';
+import "./App.css"
 
 const theme = createTheme({
   palette: {
@@ -29,13 +30,14 @@ const theme = createTheme({
       fontWeight: 700,
       marginBottom: '32px',
     },
+    fontFamily: "'CircularStd', sans-serif",
   },
 });
 
 const PageHeader = styled(Box)({
-  background: 'linear-gradient(135deg, #fff5e6 0%, #ffe4d3 100%)',
-  padding: '28px 0',
-  marginBottom: '32px',
+  background: 'linear-gradient(to right, rgb(255, 243, 200), rgb(253, 232, 195), rgb(249, 211, 193))',
+  padding: '28px 0 10px',
+  marginBottom: '12px',
 });
 
 const App: React.FC = () => {
@@ -57,12 +59,10 @@ const App: React.FC = () => {
       <CssBaseline />
       <Header />
       <PageHeader>
-        <Container maxWidth="lg">
-          <Typography variant="h1">Search Programs</Typography>
-          <SearchFilters />
-        </Container>
+        <Typography variant="h1" sx={{ paddingLeft: '44px', fontWeight: 700, letterSpacing: '-2px' }}>Search Programs</Typography>
       </PageHeader>
-      <Container maxWidth="lg" sx={{ bgcolor: '#fff' }}>
+      <SearchFilters />
+      <Box maxWidth="lg" sx={{ bgcolor: '#fff,', margin: '0 54px' }}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={3}>
             <FilterPanel />
@@ -71,7 +71,7 @@ const App: React.FC = () => {
             <ProgramResults programs={DUMMY_PROGRAMS} />
           </Grid>
         </Grid>
-      </Container>
+      </Box>
       <Ads text="Advertisment" position='340px' addBorder/>
       <PartnerSlider partners={partners} />
       <Footer />

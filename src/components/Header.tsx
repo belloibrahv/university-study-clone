@@ -5,12 +5,12 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CloseIcon from '@mui/icons-material/Close';
 import UniversityImg from '../assets/images/university.svg';
-import FoundationImg from '../assets/images/foundation.svg';
+import FoundationImg from '../assets/images/RBC-Foundation-Logo.png';
 import Ads from './Ads';
 
 const NewsletterBar = styled(Box)({
   width: '100%',
-  backgroundColor: '#FFF7D6',
+  backgroundColor: 'rgb(255, 220, 97)',
   padding: '12px 24px',
   display: 'flex',
   justifyContent: 'center',
@@ -36,13 +36,14 @@ const CloseButton = styled(IconButton)({
 });
 
 const TopBar = styled(Box)({
-  backgroundColor: '#f8f8f8',
-  padding: '4px 24px',
-  borderBottom: '1px solid #eaeaea',
+  backgroundColor: 'transparent',
+  padding: '10px 40px',
+  borderBottom: '1px solid #d6dadc',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  fontSize: '14px',
+  fontSize: '13px',
+  fontWeight: 500,
 });
 
 const MainHeader = styled(AppBar)({
@@ -61,14 +62,17 @@ const NavButton = styled(Button)({
   color: '#333',
   textTransform: 'none',
   fontSize: '16px',
-  padding: '8px 16px',
+  fontWeight: 600,
+  padding: '8px 16px 4px',
+  borderRadius: 0,
+  borderBottom: '1px solid transparent',
   '&:hover': {
     backgroundColor: 'transparent',
     color: '#0066cc',
   },
   '&.active': {
-    borderBottom: '2px solid #0066cc',
-    color: '#0066cc',
+    borderBottom: '1px solid #000',
+    color: '#000',
   },
 });
 
@@ -97,8 +101,9 @@ export const Header: React.FC = () => {
           <CloseButton 
             onClick={() => setShowNewsletter(false)}
             size="small"
+            sx={{  marginRight: '25px',}}
           >
-            <CloseIcon fontSize="small" />
+            <CloseIcon fontSize="small" sx={{ fontSize: '15px', fontWeight: 'bold',}}/>
           </CloseButton>
         </NewsletterBar>
       )}
@@ -151,7 +156,7 @@ export const Header: React.FC = () => {
               sx={{
                 width: '40px',
                 height: '40px',
-                backgroundColor: '#f8f8f8',
+                backgroundColor: 'rgb(253, 228, 217)',
                 '&:hover': { backgroundColor: '#eaeaea' },
               }}
             >
