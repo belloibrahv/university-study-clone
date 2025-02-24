@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Checkbox, FormControlLabel, Popover, InputBase, Button, Divider } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
@@ -147,23 +147,43 @@ const ApplyButton = styled(Button)({
   }
 });
 
-const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFilters: Partial<FilterState>) => {
+
+
+// Constants for filter options
+const FILTER_TYPES = {
+  PROGRAM_LEVEL: 'programLevel',
+  LANGUAGE: 'language',
+  STUDY_AREA: 'studyArea'
+} as const;
+
+const MAX_STUDY_AREA_WORDS = 6;
+
+// Helper function to truncate study area text
+const truncateStudyArea = (text: string): string => {
+  const words = text.split(' ');
+  if (words.length > MAX_STUDY_AREA_WORDS) {
+    return words.slice(0, MAX_STUDY_AREA_WORDS).join(' ') + '...';
+  }
+  return text;
+};
+
+// Helper function to get filter options with counts
+const getFilterOptionsWithCount = (
+  key: keyof typeof DUMMY_PROGRAMS[0],
+  activeFilters: Partial<FilterState>,
+  searchQuery = ''
+) => {
   const counts: Record<string, number> = {};
+  
   DUMMY_PROGRAMS.forEach(program => {
+    // Check if program matches all active filters
     const matchesFilters = Object.entries(activeFilters).every(([filterKey, filterValue]) => {
       if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) return true;
-      if (typeof filterValue === 'boolean') {
-        return program[filterKey as keyof Program] === filterValue;
-      }
-      if (Array.isArray(filterValue)) {
-        return filterValue.includes(program[filterKey as keyof Program]);
-      }
-      if (typeof filterValue === 'string') {
-        if (filterKey === 'searchQuery') {
-          return program.programName.toLowerCase().includes(filterValue.toLowerCase()) ||
-                 program.university.toLowerCase().includes(filterValue.toLowerCase());
-        }
-        return program[filterKey as keyof Program] === filterValue;
+      if (typeof filterValue === 'boolean') return program[filterKey as keyof Program] === filterValue;
+      if (Array.isArray(filterValue)) return filterValue.includes(program[filterKey as keyof Program]);
+      if (filterKey === 'searchQuery') {
+        return program.programName.toLowerCase().includes(filterValue.toLowerCase()) ||
+               program.university.toLowerCase().includes(filterValue.toLowerCase());
       }
       return true;
     });
@@ -179,19 +199,21 @@ const getFilterOptionsWithCount = (key: keyof typeof DUMMY_PROGRAMS[0], activeFi
   return Object.entries(counts)
     .map(([value, count]) => ({
       value,
-      label: value,
+      label: key === FILTER_TYPES.STUDY_AREA ? truncateStudyArea(value) : value,
       count
     }))
+    .filter(option => 
+      !searchQuery || 
+      option.value.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     .sort((a, b) => a.label.localeCompare(b.label));
 };
 
-export const SearchFilters = () => {
+export const SearchFilters: React.FC = () => {
   const { state, dispatch } = useFilter();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [filterSearch, setFilterSearch] = useState('');
-  
-  // Temporary state to hold filter selections before applying
   const [tempSelections, setTempSelections] = useState<{
     programLevel: string[];
     language: string[];
@@ -202,12 +224,29 @@ export const SearchFilters = () => {
     studyArea: [],
   });
 
+  // Debounced filter search
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (activeFilter === FILTER_TYPES.STUDY_AREA) {
+        setTempSelections(prev => ({
+          ...prev,
+          studyArea: getFilterOptions(FILTER_TYPES.STUDY_AREA)
+            .filter(option => 
+              !filterSearch || 
+              option.value.toLowerCase().includes(filterSearch.toLowerCase())
+            )
+            .map(option => option.value)
+        }));
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [filterSearch]);
+
   const handleFilterClick = (event: React.MouseEvent<HTMLElement>, filter: string) => {
     setAnchorEl(event.currentTarget);
     setActiveFilter(filter);
     setFilterSearch('');
-    
-    // Initialize temp selections with current state
     setTempSelections(prev => ({
       ...prev,
       [filter]: getSelectedValues(filter)
@@ -218,13 +257,13 @@ export const SearchFilters = () => {
     if (!activeFilter) return;
     
     switch (activeFilter) {
-      case 'programLevel':
+      case FILTER_TYPES.PROGRAM_LEVEL:
         dispatch({ type: 'SET_PROGRAM_LEVEL', payload: tempSelections.programLevel });
         break;
-      case 'language':
+      case FILTER_TYPES.LANGUAGE:
         dispatch({ type: 'SET_LANGUAGE', payload: tempSelections.language });
         break;
-      case 'studyArea':
+      case FILTER_TYPES.STUDY_AREA:
         dispatch({ type: 'SET_STUDY_AREA', payload: tempSelections.studyArea });
         break;
     }
@@ -241,8 +280,7 @@ export const SearchFilters = () => {
     setAnchorEl(null);
     setActiveFilter(null);
     setFilterSearch('');
-    document.getElementById('main-content')?.focus(); // Set focus to a visible element
-  }; 
+  };
 
   const handleOptionToggle = (value: string) => {
     if (!activeFilter) return;
@@ -266,11 +304,11 @@ export const SearchFilters = () => {
     }
     
     switch (filter) {
-      case 'programLevel':
+      case FILTER_TYPES.PROGRAM_LEVEL:
         return state.programLevel;
-      case 'language':
+      case FILTER_TYPES.LANGUAGE:
         return state.language;
-      case 'studyArea':
+      case FILTER_TYPES.STUDY_AREA:
         return state.studyArea;
       default:
         return [];
@@ -289,18 +327,8 @@ export const SearchFilters = () => {
       searchQuery: state.searchQuery
     };
 
-    const otherFilters = { ...activeFilters };
-    delete otherFilters[filter as keyof typeof otherFilters];
-    
-    let options = getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], otherFilters);
-    
-    if (filter === 'studyArea' && filterSearch) {
-      options = options.filter(option =>
-        option.label.toLowerCase().includes(filterSearch.toLowerCase())
-      );
-    }
-    
-    return options;
+    delete activeFilters[filter as keyof typeof activeFilters];
+    return getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], activeFilters, filterSearch);
   };
 
   const handleReset = () => {
@@ -323,7 +351,7 @@ export const SearchFilters = () => {
       <ClickAwayListener onClickAway={handleClickAway}>
         <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
           <FilterButton
-            onClick={(e) => handleFilterClick(e, 'programLevel')}
+            onClick={(e) => handleFilterClick(e, FILTER_TYPES.PROGRAM_LEVEL)}
             active={state.programLevel.length > 0 ? 1 : 0}
           >
             Program Level
@@ -334,7 +362,7 @@ export const SearchFilters = () => {
           </FilterButton>
 
           <FilterButton
-            onClick={(e) => handleFilterClick(e, 'language')}
+            onClick={(e) => handleFilterClick(e, FILTER_TYPES.LANGUAGE)}
             active={state.language.length > 0 ? 1 : 0}
           >
             Language
@@ -345,7 +373,7 @@ export const SearchFilters = () => {
           </FilterButton>
 
           <FilterButton
-            onClick={(e) => handleFilterClick(e, 'studyArea')}
+            onClick={(e) => handleFilterClick(e, FILTER_TYPES.STUDY_AREA)}
             active={state.studyArea.length > 0 ? 1 : 0}
           >
             Area of Study
@@ -364,7 +392,7 @@ export const SearchFilters = () => {
               horizontal: 'left',
             }}
           >
-            {activeFilter === 'studyArea' && (
+            {activeFilter === FILTER_TYPES.STUDY_AREA && (
               <PopoverSearch>
                 <InputBase
                   placeholder="Search area of study..."
@@ -374,7 +402,7 @@ export const SearchFilters = () => {
                 <SearchIcon />
               </PopoverSearch>
             )}
-            
+
             <CheckboxGroup>
               {getFilterOptions(activeFilter || '').map((option) => (
                 <FormControlLabel
@@ -389,7 +417,7 @@ export const SearchFilters = () => {
                 />
               ))}
             </CheckboxGroup>
-            
+
             <ApplyButton onClick={handleApplyFilters}>
               Apply now
             </ApplyButton>
