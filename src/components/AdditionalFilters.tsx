@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, FormControl, InputLabel, Select, MenuItem, Chip, OutlinedInput } from '@mui/material';
 import { useFilter } from '../context/FilterContext';
+import StudyAreaFilter from './StudyAreaFilter';
 
 const PROGRAM_LEVELS = ['Certificate', 'Diploma', 'Bachelor', 'Master', 'Doctorate'];
 const LANGUAGES = ['English', 'French', 'Bilingual'];
@@ -66,31 +67,7 @@ export const AdditionalFilters: React.FC = () => {
         </Select>
       </FormControl>
 
-      <FormControl sx={{ minWidth: 200 }}>
-        <InputLabel>Area of Study</InputLabel>
-        <Select
-          multiple
-          value={state.studyArea}
-          onChange={(e) => dispatch({
-            type: 'SET_AREA_OF_STUDY',
-            payload: typeof e.target.value === 'string' ? e.target.value.split(',') : e.target.value
-          })}
-          input={<OutlinedInput label="Area of Study" />}
-          renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
-          )}
-        >
-          {AREAS_OF_STUDY.map((area) => (
-            <MenuItem key={area} value={area}>
-              {area}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <StudyAreaFilter /> 
     </Box>
   );
 };

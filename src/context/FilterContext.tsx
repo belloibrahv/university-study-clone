@@ -86,6 +86,15 @@ const filterPrograms = (programs: Program[], state: FilterState) => {
       return false;
     }
 
+    // Study area filter
+    if (state.studyArea.length > 0) {
+      const normalizedStudyArea = program.studyArea.trim().toLowerCase();
+      const matchesStudyArea = state.studyArea.some(area => 
+        area.trim().toLowerCase() === normalizedStudyArea
+      );
+      if (!matchesStudyArea) return false;
+    }
+
     return true;
   });
 };
@@ -202,6 +211,7 @@ const FilterContext = createContext<{
 
 export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, getInitialState());
+  
 
   const { filteredPrograms, filterCounts, availableFilters } = useMemo(() => {
     // Helper function to get filtered programs excluding specific filters
