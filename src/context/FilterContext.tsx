@@ -29,11 +29,26 @@ const calculateCounts = (programs: Program[]) => {
   };
 
   programs.forEach(program => {
-    counts.programLevel[program.programLevel] = (counts.programLevel[program.programLevel] || 0) + 1;
-    counts.language[program.language] = (counts.language[program.language] || 0) + 1;
-    counts.studyArea[program.studyArea] = (counts.studyArea[program.studyArea] || 0) + 1;
-    counts.province[program.province] = (counts.province[program.province] || 0) + 1;
-    counts.university[program.university] = (counts.university[program.university] || 0) + 1;
+    // Add count for program level
+    counts.programLevel[program.programLevel] = 
+      (counts.programLevel[program.programLevel] || 0) + 1;
+    
+    // Add count for language
+    counts.language[program.language] = 
+      (counts.language[program.language] || 0) + 1;
+    
+    // Add count for each study area
+    program.studyArea.forEach(area => {
+      counts.studyArea[area] = (counts.studyArea[area] || 0) + 1;
+    });
+    
+    // Add count for province
+    counts.province[program.province] = 
+      (counts.province[program.province] || 0) + 1;
+    
+    // Add count for university
+    counts.university[program.university] = 
+      (counts.university[program.university] || 0) + 1;
   });
 
   return counts;
@@ -45,34 +60,43 @@ const filterPrograms = (programs: Program[], state: FilterState) => {
     // Search query filter
     if (state.searchQuery) {
       const searchLower = state.searchQuery.toLowerCase();
-      const matchesSearch = 
+      const matchesSearch =
         program.programName.toLowerCase().includes(searchLower) ||
         program.university.toLowerCase().includes(searchLower);
       if (!matchesSearch) return false;
     }
 
     // Program level filter
-    if (state.programLevel.length > 0 && !state.programLevel.includes(program.programLevel)) {
+    if (state.programLevel.length > 0 && 
+        !state.programLevel.includes(program.programLevel)) {
       return false;
     }
 
     // Language filter
-    if (state.language.length > 0 && !state.language.includes(program.language)) {
+    if (state.language.length > 0 && 
+        !state.language.includes(program.language)) {
       return false;
     }
 
-    // Study area filter
-    if (state.studyArea.length > 0 && !state.studyArea.includes(program.studyArea)) {
-      return false;
+    // Study area filter - at least one selected study area must match
+    if (state.studyArea.length > 0) {
+      const hasMatchingArea = state.studyArea.some(selectedArea => 
+        program.studyArea.some(programArea => 
+          programArea.trim().toLowerCase() === selectedArea.trim().toLowerCase()
+        )
+      );
+      if (!hasMatchingArea) return false;
     }
 
     // Province filter
-    if (state.province.length > 0 && !state.province.includes(program.province)) {
+    if (state.province.length > 0 && 
+        !state.province.includes(program.province)) {
       return false;
     }
 
     // University filter
-    if (state.university.length > 0 && !state.university.includes(program.university)) {
+    if (state.university.length > 0 && 
+        !state.university.includes(program.university)) {
       return false;
     }
 
@@ -84,15 +108,6 @@ const filterPrograms = (programs: Program[], state: FilterState) => {
     // Remote learning filter
     if (state.remote && !program.remote) {
       return false;
-    }
-
-    // Study area filter
-    if (state.studyArea.length > 0) {
-      const normalizedStudyArea = program.studyArea.trim().toLowerCase();
-      const matchesStudyArea = state.studyArea.some(area => 
-        area.trim().toLowerCase() === normalizedStudyArea
-      );
-      if (!matchesStudyArea) return false;
     }
 
     return true;
@@ -126,7 +141,7 @@ type FilterAction =
 
 const filterReducer = (state: FilterState, action: FilterAction): FilterState => {
   let newState: FilterState;
-  
+
   switch (action.type) {
     case 'SET_PROGRAM_LEVEL':
       newState = { ...state, programLevel: action.payload };
@@ -179,12 +194,13 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
     default:
       return state;
   }
-  
+
   try {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(newState));
   } catch (error) {
     console.error('Error saving to sessionStorage:', error);
   }
+
   return newState;
 };
 
@@ -209,9 +225,10 @@ const FilterContext = createContext<{
   };
 } | null>(null);
 
-export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({
+  children
+}) => {
   const [state, dispatch] = useReducer(filterReducer, getInitialState());
-  
 
   const { filteredPrograms, filterCounts, availableFilters } = useMemo(() => {
     // Helper function to get filtered programs excluding specific filters
@@ -238,6 +255,7 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
           return true;
         })
         .map(p => p.university))].sort(),
+
       provinces: [...new Set(getFilteredProgramsExcluding(['province'])
         .filter(program => {
           // If university is selected, only show provinces with that university
@@ -247,12 +265,16 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
           return true;
         })
         .map(p => p.province))].sort(),
+
       programLevels: [...new Set(getFilteredProgramsExcluding(['programLevel'])
         .map(p => p.programLevel))].sort(),
+
       languages: [...new Set(getFilteredProgramsExcluding(['language'])
         .map(p => p.language))].sort(),
+
       hasCoopPrograms: getFilteredProgramsExcluding(['coop'])
         .some(p => p.coop),
+
       hasRemotePrograms: getFilteredProgramsExcluding(['remote'])
         .some(p => p.remote)
     };
