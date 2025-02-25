@@ -441,6 +441,7 @@ export const SearchFilters: React.FC = () => {
     );
   };
 
+  
   return (
     <FilterContainer>
       <ClickAwayListener onClickAway={handleClickAway}>
@@ -449,6 +450,8 @@ export const SearchFilters: React.FC = () => {
             onClick={(e) => handleFilterClick(e, FILTER_TYPES.PROGRAM_LEVEL)}
             active={state.programLevel.length > 0 ? 1 : 0}
             aria-label="Program Level Filter"
+            aria-haspopup="true"
+            aria-expanded={Boolean(anchorEl) && activeFilter === FILTER_TYPES.PROGRAM_LEVEL}
           >
             {getFilterLabel('Program Level', state.programLevel.length)}
           </FilterButton>
@@ -457,6 +460,8 @@ export const SearchFilters: React.FC = () => {
             onClick={(e) => handleFilterClick(e, FILTER_TYPES.LANGUAGE)}
             active={state.language.length > 0 ? 1 : 0}
             aria-label="Language Filter"
+            aria-haspopup="true"
+            aria-expanded={Boolean(anchorEl) && activeFilter === FILTER_TYPES.LANGUAGE}
           >
             {getFilterLabel('Language', state.language.length)}
           </FilterButton>
@@ -465,6 +470,8 @@ export const SearchFilters: React.FC = () => {
             onClick={(e) => handleFilterClick(e, FILTER_TYPES.STUDY_AREA)}
             active={state.studyArea.length > 0 ? 1 : 0}
             aria-label="Area of Study Filter"
+            aria-haspopup="true"
+            aria-expanded={Boolean(anchorEl) && activeFilter === FILTER_TYPES.STUDY_AREA}
           >
             {getFilterLabel('Area of Study', state.studyArea.length)}
           </FilterButton>
@@ -477,6 +484,15 @@ export const SearchFilters: React.FC = () => {
               vertical: 'bottom',
               horizontal: 'left',
             }}
+            // Important: Add these props to fix the aria-hidden issue
+            keepMounted
+            disablePortal={false}
+            disableEnforceFocus={false}
+            disableAutoFocus={false}
+            disableRestoreFocus={false}
+            // Add an ID to connect the popover with the button for accessibility
+            id={activeFilter ? `${activeFilter}-popover` : undefined}
+            aria-labelledby={activeFilter ? `${activeFilter}-button` : undefined}
           >
             {activeFilter === FILTER_TYPES.STUDY_AREA && (
               <PopoverSearch>
@@ -515,6 +531,7 @@ export const SearchFilters: React.FC = () => {
         </Box>
       </ClickAwayListener>
       
+      {/* Rest of your component remains unchanged */}
       <SearchBox>
         <InputBase
           placeholder="Search..."
@@ -553,7 +570,7 @@ export const SearchFilters: React.FC = () => {
           </Box>
         </>
       )}
-    </FilterContainer>
+    </FilterContainer> 
   );
 };
 
