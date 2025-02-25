@@ -18,7 +18,7 @@ const FilterContainer = styled(Box)({
   borderBottom: '1px solid #d6dadc',
   marginBottom: '40px',
   '& > *': {
-    marginRight: '12px'
+	marginRight: '12px'
   }
 });
 
@@ -37,22 +37,22 @@ const FilterButton = styled(Box)<{ active: number }>(({ active }) => ({
   minWidth: '140px',
   position: 'relative',
   '&:hover': {
-    borderColor: '#CBD5E0',
-    outline: '1px solid #ed6f33',
+	borderColor: '#CBD5E0',
+	outline: '1px solid #ed6f33',
   },
   '& .counter': {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    background: active ? '#ffffff' : 'transparent',
-    color: active ? '#ed6f33' : 'inherit',
-    height: '24px',
-    width: '24px',
-    lineHeight: '1.4em',
-    borderRadius: '50%',
-    marginLeft: '4px',
-    fontSize: '14px',
+	display: 'flex',
+	justifyContent: 'center',
+	alignItems: 'center',
+	textAlign: 'center',
+	background: active ? '#ffffff' : 'transparent',
+	color: active ? '#ed6f33' : 'inherit',
+	height: '24px',
+	width: '24px',
+	lineHeight: '1.4em',
+	borderRadius: '50%',
+	marginLeft: '4px',
+	fontSize: '14px',
   }
 }));
 
@@ -71,27 +71,27 @@ const SearchBox = styled(Box)({
   backgroundColor: '#fff',
   position: 'relative',
   '&:hover': {
-    borderColor: '#CBD5E0',
-    outline: '1px solid #ed6f33',
+	borderColor: '#CBD5E0',
+	outline: '1px solid #ed6f33',
   },
   '& .MuiInputBase-root': {
-    width: '100%',
+	width: '100%',
   },
   '& .MuiSvgIcon-root': {
-    position: 'absolute',
-    right: '16px',
-    color: '#718096',
-    fontSize: '20px'
+	position: 'absolute',
+	right: '16px',
+	color: '#718096',
+	fontSize: '20px'
   }
 });
 
 const FilterPopover = styled(Popover)({
   '& .MuiPaper-root': {
-    width: '320px',
-    marginTop: '8px',
-    padding: '16px',
-    boxShadow: '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    borderRadius: '8px'
+	width: '320px',
+	marginTop: '8px',
+	padding: '16px',
+	boxShadow: '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
+	borderRadius: '8px'
   }
 });
 
@@ -102,8 +102,8 @@ const CheckboxGroup = styled(Box)({
   overflowY: 'auto',
   marginTop: '16px',
   '& .MuiFormControlLabel-root': {
-    margin: '4px 0',
-    width: '100%',
+	margin: '4px 0',
+	width: '100%',
   }
 });
 
@@ -111,23 +111,23 @@ const PopoverSearch = styled(Box)({
   margin: '0 0 8px',
   position: 'relative',
   '& .MuiInputBase-root': {
-    width: '100%',
-    padding: '8px 12px',
-    paddingRight: '40px',
-    border: '1px solid #e0e0e0',
-    borderRadius: '4px',
-    fontSize: '14px',
-    '&:focus-within': {
-      borderColor: '#666',
-    }
+	width: '100%',
+	padding: '8px 12px',
+	paddingRight: '40px',
+	border: '1px solid #e0e0e0',
+	borderRadius: '4px',
+	fontSize: '14px',
+	'&:focus-within': {
+  	borderColor: '#666',
+	}
   },
   '& .MuiSvgIcon-root': {
-    position: 'absolute',
-    right: '12px',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    color: '#666',
-    fontSize: '20px'
+	position: 'absolute',
+	right: '12px',
+	top: '50%',
+	transform: 'translateY(-50%)',
+	color: '#666',
+	fontSize: '20px'
   }
 });
 
@@ -143,11 +143,9 @@ const ApplyButton = styled(Button)({
   borderRadius: '8px',
   textTransform: 'none',
   '&:hover': {
-    backgroundColor: '#1A202C',
+	backgroundColor: '#1A202C',
   }
 });
-
-
 
 // Constants for filter options
 const FILTER_TYPES = {
@@ -156,14 +154,7 @@ const FILTER_TYPES = {
   STUDY_AREA: 'studyArea'
 } as const;
 
-const MAX_STUDY_AREA_WORDS = 6;
-
-// Helper function to truncate study area text
-const truncateStudyArea = (text: string): string => {
-  const words = text.split(' ');
-  if (words.length > MAX_STUDY_AREA_WORDS) {
-    return words.slice(0, MAX_STUDY_AREA_WORDS).join(' ') + '...';
-  }
+const formatStudyArea = (text: string): string => {
   return text;
 };
 
@@ -174,19 +165,20 @@ const getFilterOptionsWithCount = (
   searchQuery = ''
 ) => {
   const counts: Record<string, number> = {};
-  
+
   DUMMY_PROGRAMS.forEach(program => {
     // Check if program matches all active filters
-    const matchesFilters = Object.entries(activeFilters).every(([filterKey, filterValue]) => {
-      if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) return true;
-      if (typeof filterValue === 'boolean') return program[filterKey as keyof Program] === filterValue;
-      if (Array.isArray(filterValue)) return filterValue.includes(program[filterKey as keyof Program]);
-      if (filterKey === 'searchQuery') {
-        return program.programName.toLowerCase().includes(filterValue.toLowerCase()) ||
-               program.university.toLowerCase().includes(filterValue.toLowerCase());
-      }
-      return true;
-    });
+    const matchesFilters = 
+      Object.entries(activeFilters).every(([filterKey, filterValue]) => {
+        if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) return true;
+        if (typeof filterValue === 'boolean') return program[filterKey as keyof Program] === filterValue;
+        if (Array.isArray(filterValue)) return filterValue.includes(program[filterKey as keyof Program]);
+        if (filterKey === 'searchQuery') {
+          return program.programName.toLowerCase().includes(filterValue.toLowerCase()) || 
+                 program.university.toLowerCase().includes(filterValue.toLowerCase());
+        }
+        return true;
+      });
 
     if (matchesFilters) {
       const value = program[key];
@@ -199,7 +191,7 @@ const getFilterOptionsWithCount = (
   return Object.entries(counts)
     .map(([value, count]) => ({
       value,
-      label: key === FILTER_TYPES.STUDY_AREA ? truncateStudyArea(value) : value,
+      label: key === FILTER_TYPES.STUDY_AREA ? formatStudyArea(value) : value,
       count
     }))
     .filter(option => 
@@ -226,242 +218,242 @@ export const SearchFilters: React.FC = () => {
 
   // Debounced filter search
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (activeFilter === FILTER_TYPES.STUDY_AREA) {
-        setTempSelections(prev => ({
-          ...prev,
-          studyArea: getFilterOptions(FILTER_TYPES.STUDY_AREA)
-            .filter(option => 
-              !filterSearch || 
-              option.value.toLowerCase().includes(filterSearch.toLowerCase())
-            )
-            .map(option => option.value)
-        }));
-      }
-    }, 300);
+	const timer = setTimeout(() => {
+  	if (activeFilter === FILTER_TYPES.STUDY_AREA) {
+    	setTempSelections(prev => ({
+      	...prev,
+      	studyArea: getFilterOptions(FILTER_TYPES.STUDY_AREA)
+        	.filter(option =>
+          	!filterSearch ||
+          	option.value.toLowerCase().includes(filterSearch.toLowerCase())
+        	)
+        	.map(option => option.value)
+    	}));
+  	}
+	}, 300);
 
-    return () => clearTimeout(timer);
+	return () => clearTimeout(timer);
   }, [filterSearch]);
 
   const handleFilterClick = (event: React.MouseEvent<HTMLElement>, filter: string) => {
-    setAnchorEl(event.currentTarget);
-    setActiveFilter(filter);
-    setFilterSearch('');
-    setTempSelections(prev => ({
-      ...prev,
-      [filter]: getSelectedValues(filter)
-    }));
+	setAnchorEl(event.currentTarget);
+	setActiveFilter(filter);
+	setFilterSearch('');
+	setTempSelections(prev => ({
+  	...prev,
+  	[filter]: getSelectedValues(filter)
+	}));
   };
 
   const handleApplyFilters = () => {
-    if (!activeFilter) return;
+	if (!activeFilter) return;
     
-    switch (activeFilter) {
-      case FILTER_TYPES.PROGRAM_LEVEL:
-        dispatch({ type: 'SET_PROGRAM_LEVEL', payload: tempSelections.programLevel });
-        break;
-      case FILTER_TYPES.LANGUAGE:
-        dispatch({ type: 'SET_LANGUAGE', payload: tempSelections.language });
-        break;
-      case FILTER_TYPES.STUDY_AREA:
-        dispatch({ type: 'SET_STUDY_AREA', payload: tempSelections.studyArea });
-        break;
-    }
-    handleClose();
+	switch (activeFilter) {
+  	case FILTER_TYPES.PROGRAM_LEVEL:
+    	dispatch({ type: 'SET_PROGRAM_LEVEL', payload: tempSelections.programLevel });
+    	break;
+  	case FILTER_TYPES.LANGUAGE:
+    	dispatch({ type: 'SET_LANGUAGE', payload: tempSelections.language });
+    	break;
+  	case FILTER_TYPES.STUDY_AREA:
+    	dispatch({ type: 'SET_STUDY_AREA', payload: tempSelections.studyArea });
+    	break;
+	}
+	handleClose();
   };
 
   const handleClickAway = () => {
-    if (anchorEl) {
-      handleApplyFilters();
-    }
+	if (anchorEl) {
+  	handleApplyFilters();
+	}
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
-    setActiveFilter(null);
-    setFilterSearch('');
+	setAnchorEl(null);
+	setActiveFilter(null);
+	setFilterSearch('');
   };
 
   const handleOptionToggle = (value: string) => {
-    if (!activeFilter) return;
+	if (!activeFilter) return;
     
-    setTempSelections(prev => {
-      const currentValues = prev[activeFilter as keyof typeof prev];
-      const newValues = currentValues.includes(value)
-        ? currentValues.filter(v => v !== value)
-        : [...currentValues, value];
-      
-      return {
-        ...prev,
-        [activeFilter]: newValues
-      };
-    });
+	setTempSelections(prev => {
+  	const currentValues = prev[activeFilter as keyof typeof prev];
+  	const newValues = currentValues.includes(value)
+    	? currentValues.filter(v => v !== value)
+    	: [...currentValues, value];
+ 	 
+  	return {
+    	...prev,
+    	[activeFilter]: newValues
+  	};
+	});
   };
 
   const getSelectedValues = (filter: string): string[] => {
-    if (anchorEl) {
-      return tempSelections[filter as keyof typeof tempSelections] || [];
-    }
+	if (anchorEl) {
+  	return tempSelections[filter as keyof typeof tempSelections] || [];
+	}
     
-    switch (filter) {
-      case FILTER_TYPES.PROGRAM_LEVEL:
-        return state.programLevel;
-      case FILTER_TYPES.LANGUAGE:
-        return state.language;
-      case FILTER_TYPES.STUDY_AREA:
-        return state.studyArea;
-      default:
-        return [];
-    }
+	switch (filter) {
+  	case FILTER_TYPES.PROGRAM_LEVEL:
+    	return state.programLevel;
+  	case FILTER_TYPES.LANGUAGE:
+    	return state.language;
+  	case FILTER_TYPES.STUDY_AREA:
+    	return state.studyArea;
+  	default:
+    	return [];
+	}
   };
 
   const getFilterOptions = (filter: string) => {
-    const activeFilters: Partial<FilterState> = {
-      programLevel: state.programLevel,
-      language: state.language,
-      studyArea: state.studyArea,
-      province: state.province?.[0],
-      university: state.university?.[0],
-      coop: state.coop,
-      remote: state.remote,
-      searchQuery: state.searchQuery
-    };
+	const activeFilters: Partial<FilterState> = {
+  	programLevel: state.programLevel,
+  	language: state.language,
+  	studyArea: state.studyArea,
+  	province: state.province?.[0],
+  	university: state.university?.[0],
+  	coop: state.coop,
+  	remote: state.remote,
+  	searchQuery: state.searchQuery
+	};
 
-    delete activeFilters[filter as keyof typeof activeFilters];
-    return getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], activeFilters, filterSearch);
+	delete activeFilters[filter as keyof typeof activeFilters];
+	return getFilterOptionsWithCount(filter as keyof typeof DUMMY_PROGRAMS[0], activeFilters, filterSearch);
   };
 
   const handleReset = () => {
-    dispatch({ type: 'RESET_FILTERS' });
-    handleClose();
+	dispatch({ type: 'RESET_FILTERS' });
+	handleClose();
   };
 
   const hasActiveFilters =
-    state.programLevel.length > 0 ||
-    state.language.length > 0 ||
-    state.studyArea.length > 0 ||
-    state.searchQuery.length > 0 ||
-    state.province.length > 0 ||
-    state.university.length > 0 ||
-    state.coop ||
-    state.remote;
+	state.programLevel.length > 0 ||
+	state.language.length > 0 ||
+	state.studyArea.length > 0 ||
+	state.searchQuery.length > 0 ||
+	state.province.length > 0 ||
+	state.university.length > 0 ||
+	state.coop ||
+	state.remote;
 
   return (
-    <FilterContainer>
-      <ClickAwayListener onClickAway={handleClickAway}>
-        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-          <FilterButton
-            onClick={(e) => handleFilterClick(e, FILTER_TYPES.PROGRAM_LEVEL)}
-            active={state.programLevel.length > 0 ? 1 : 0}
-          >
-            Program Level
-            {state.programLevel.length > 0 && (
-              <span className="counter">{state.programLevel.length}</span>
-            )}
-            <ArrowDropDownIcon />
-          </FilterButton>
+	<FilterContainer>
+  	<ClickAwayListener onClickAway={handleClickAway}>
+    	<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+      	<FilterButton
+        	onClick={(e) => handleFilterClick(e, FILTER_TYPES.PROGRAM_LEVEL)}
+        	active={state.programLevel.length > 0 ? 1 : 0}
+      	>
+        	Program Level
+        	{state.programLevel.length > 0 && (
+          	<span className="counter">{state.programLevel.length}</span>
+        	)}
+        	<ArrowDropDownIcon />
+      	</FilterButton>
 
-          <FilterButton
-            onClick={(e) => handleFilterClick(e, FILTER_TYPES.LANGUAGE)}
-            active={state.language.length > 0 ? 1 : 0}
-          >
-            Language
-            {state.language.length > 0 && (
-              <span className="counter">{state.language.length}</span>
-            )}
-            <ArrowDropDownIcon />
-          </FilterButton>
+      	<FilterButton
+        	onClick={(e) => handleFilterClick(e, FILTER_TYPES.LANGUAGE)}
+        	active={state.language.length > 0 ? 1 : 0}
+      	>
+        	Language
+        	{state.language.length > 0 && (
+          	<span className="counter">{state.language.length}</span>
+        	)}
+        	<ArrowDropDownIcon />
+      	</FilterButton>
 
-          <FilterButton
-            onClick={(e) => handleFilterClick(e, FILTER_TYPES.STUDY_AREA)}
-            active={state.studyArea.length > 0 ? 1 : 0}
-          >
-            Area of Study
-            {state.studyArea.length > 0 && (
-              <span className="counter">{state.studyArea.length}</span>
-            )}
-            <ArrowDropDownIcon />
-          </FilterButton>
+      	<FilterButton
+        	onClick={(e) => handleFilterClick(e, FILTER_TYPES.STUDY_AREA)}
+        	active={state.studyArea.length > 0 ? 1 : 0}
+      	>
+        	Area of Study
+        	{state.studyArea.length > 0 && (
+          	<span className="counter">{state.studyArea.length}</span>
+        	)}
+        	<ArrowDropDownIcon />
+      	</FilterButton>
 
-          <FilterPopover
-            open={Boolean(anchorEl)}
-            anchorEl={anchorEl}
-            onClose={handleApplyFilters}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
-            }}
-          >
-            {activeFilter === FILTER_TYPES.STUDY_AREA && (
-              <PopoverSearch>
-                <InputBase
-                  placeholder="Search area of study..."
-                  value={filterSearch}
-                  onChange={(e) => setFilterSearch(e.target.value)}
-                />
-                <SearchIcon />
-              </PopoverSearch>
-            )}
+      	<FilterPopover
+        	open={Boolean(anchorEl)}
+        	anchorEl={anchorEl}
+        	onClose={handleApplyFilters}
+        	anchorOrigin={{
+          	vertical: 'bottom',
+          	horizontal: 'left',
+        	}}
+      	>
+        	{activeFilter === FILTER_TYPES.STUDY_AREA && (
+          	<PopoverSearch>
+            	<InputBase
+              	placeholder="Search area of study..."
+              	value={filterSearch}
+              	onChange={(e) => setFilterSearch(e.target.value)}
+            	/>
+            	<SearchIcon />
+          	</PopoverSearch>
+        	)}
 
-            <CheckboxGroup>
-              {getFilterOptions(activeFilter || '').map((option) => (
-                <FormControlLabel
-                  key={option.value}
-                  control={
-                    <Checkbox
-                      checked={getSelectedValues(activeFilter || '').includes(option.value)}
-                      onChange={() => handleOptionToggle(option.value)}
-                    />
-                  }
-                  label={`${option.label} (${option.count})`}
-                />
-              ))}
-            </CheckboxGroup>
+        	<CheckboxGroup>
+          	{getFilterOptions(activeFilter || '').map((option) => (
+            	<FormControlLabel
+              	key={option.value}
+              	control={
+                	<Checkbox
+                  	checked={getSelectedValues(activeFilter || '').includes(option.value)}
+                  	onChange={() => handleOptionToggle(option.value)}
+                	/>
+              	}
+              	label={`${option.label} (${option.count})`}
+            	/>
+          	))}
+        	</CheckboxGroup>
 
-            <ApplyButton onClick={handleApplyFilters}>
-              Apply now
-            </ApplyButton>
-          </FilterPopover>
-        </Box>
-      </ClickAwayListener>
+        	<ApplyButton onClick={handleApplyFilters}>
+          	Apply now
+        	</ApplyButton>
+      	</FilterPopover>
+    	</Box>
+  	</ClickAwayListener>
 
-      <SearchBox>
-        <InputBase
-          placeholder="Search..."
-          value={state.searchQuery}
-          onChange={(e) => dispatch({ type: 'SET_SEARCH_QUERY', payload: e.target.value })}
-        />
-        <SearchIcon />
-      </SearchBox>
+  	<SearchBox>
+    	<InputBase
+      	placeholder="Search..."
+      	value={state.searchQuery}
+      	onChange={(e) => dispatch({ type: 'SET_SEARCH_QUERY', payload: e.target.value })}
+    	/>
+    	<SearchIcon />
+  	</SearchBox>
 
-      {hasActiveFilters && (
-        <>
-          <Divider orientation="vertical" variant="middle" flexItem sx={{ height: '45px' }} />
-          <Box
-            onClick={handleReset}
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              cursor: 'pointer',
-              padding: '8px 16px',
-              height: '45px',
-              borderRadius: '8px',
-              backgroundColor: 'rgb(254, 242, 236)',
-              color: '#df0724',
-              fontSize: '15px',
-              fontWeight: 700,
-              gap: '4px',
-              '&:hover': {
-                border: '1px solid #df0724',
-              },
-            }}
-          >
-            <RestartAltIcon sx={{ fontSize: '21px', fontWeight: 700 }} />
-            Reset All
-          </Box>
-        </>
-      )}
-    </FilterContainer>
+  	{hasActiveFilters && (
+    	<>
+      	<Divider orientation="vertical" variant="middle" flexItem sx={{ height: '45px' }} />
+      	<Box
+        	onClick={handleReset}
+        	sx={{
+          	display: 'flex',
+          	alignItems: 'center',
+          	cursor: 'pointer',
+          	padding: '8px 16px',
+          	height: '45px',
+          	borderRadius: '8px',
+          	backgroundColor: 'rgb(254, 242, 236)',
+          	color: '#df0724',
+          	fontSize: '15px',
+          	fontWeight: 700,
+          	gap: '4px',
+          	'&:hover': {
+            	border: '1px solid #df0724',
+          	},
+        	}}
+      	>
+        	<RestartAltIcon sx={{ fontSize: '21px', fontWeight: 700 }} />
+        	Reset All
+      	</Box>
+    	</>
+  	)}
+	</FilterContainer>
   );
 };
 
