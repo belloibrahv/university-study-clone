@@ -714,7 +714,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "40",
+    id: "53",
     image: Ottawa,
     programName: "MA in Geography",
     programLevel: "Master's degree",
@@ -726,7 +726,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "41",
+    id: "54",
     image: Ottawa,
     programName: "Bachelor of Fine Arts (BFA) in Acting",
     programLevel: "Bachelor's/First professional degree",
@@ -738,7 +738,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "42",
+    id: "55",
     image: Ottawa,
     programName: "Honours BA in Ethics and Political Philosophy",
     programLevel: "Bachelor's/First professional degree",
@@ -750,7 +750,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "43",
+    id: "56",
     image: Ottawa,
     programName: "Minor in Arabic Language and Culture",
     programLevel: "Bachelor's/First professional degree",
@@ -762,7 +762,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "44",
+    id: "57",
     image: Ottawa,
     programName: "Minor in Creative Writing",
     programLevel: "Bachelor's/First professional degree",
@@ -774,7 +774,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "45",
+    id: "58",
     image: Ottawa,
     programName: "Minor in German Language and Culture",
     programLevel: "Bachelor's/First professional degree",
@@ -786,7 +786,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "46",
+    id: "59",
     image: Ottawa,
     programName: "Minor in Russian Language and Culture",
     programLevel: "Bachelor's/First professional degree",
@@ -798,7 +798,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "47",
+    id: "60",
     image: Ottawa,
     programName: "Honours BA in World Languages and Cultures",
     programLevel: "Bachelor's/First professional degree",
@@ -810,7 +810,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "48",
+    id: "61",
     image: Ottawa,
     programName: "Minor in Applied Ethics",
     programLevel: "Bachelor's/First professional degree",
@@ -822,7 +822,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "49",
+    id: "62",
     image: Ottawa,
     programName: "Minor in Digital Humanities",
     programLevel: "Bachelor's/First professional degree",
@@ -834,7 +834,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "50",
+    id: "63",
     image: Ottawa,
     programName: "Minor in Greek and Roman Studies",
     programLevel: "Bachelor's/First professional degree",
@@ -846,7 +846,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "51",
+    id: "64",
     image: Ottawa,
     programName: "Minor in Indigenous Studies",
     programLevel: "Bachelor's/First professional degree",
@@ -858,7 +858,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "52",
+    id: "65",
     image: Ottawa,
     programName: "Minor in Medieval and Renaissance Studies",
     programLevel: "Bachelor's/First professional degree",
@@ -870,7 +870,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "53",
+    id: "66",
     image: Ottawa,
     programName: "Minor in Philosophy",
     programLevel: "Bachelor's/First professional degree",
@@ -882,7 +882,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "54",
+    id: "67",
     image: Ottawa,
     programName: "Minor in Religious Studies",
     programLevel: "Bachelor's/First professional degree",
@@ -894,7 +894,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "55",
+    id: "68",
     image: Ottawa,
     programName: "PhD in Education",
     programLevel: "Doctorate",
@@ -906,7 +906,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "56",
+    id: "69",
     image: Ottawa,
     programName: "Teacher Education",
     programLevel: "Bachelor's/First professional degree",
@@ -918,7 +918,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "57",
+    id: "70",
     image: Ottawa,
     programName: "Master of Education ",
     programLevel: "Master's degree",
@@ -930,7 +930,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "58",
+    id: "71",
     image: Ottawa,
     programName: "Indigenous Teacher Education Program - Certificate (Primary/Junior)",
     programLevel: "Undergraduate level certificate/diploma",
@@ -942,7 +942,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "59",
+    id: "72",
     image: Ottawa,
     programName: "PhD in Chemical Engineering",
     programLevel: "Doctorate",
@@ -954,7 +954,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "60",
+    id: "73",
     image: Ottawa,
     programName: "PhD in Mechanical Engineering",
     programLevel: "Doctorate",
@@ -966,7 +966,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "61",
+    id: "74",
     image: Ottawa,
     programName: "PhD in Civil Engineering",
     programLevel: "Doctorate",
@@ -978,7 +978,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "62",
+    id: "75",
     image: Ottawa,
     programName: "MSc in Systems Science",
     programLevel: "Master's degree",
@@ -990,7 +990,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "63",
+    id: "76",
     image: Ottawa,
     programName: "MASc in Electrical and Computer Engineering",
     programLevel: "Master's degree",
@@ -1002,7 +1002,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "64",
+    id: "77",
     image: Ottawa,
     programName: "MEng in Civil Engineering",
     programLevel: "Master's degree",
@@ -1014,7 +1014,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     province: "Ontario"
   },
   {
-    id: "65",
+    id: "78",
     image: Ottawa,
     programName: "MASc in Mechanical Engineering",
     programLevel: "Master's degree",
@@ -1025,342 +1025,342 @@ export const DUMMY_PROGRAMS: Program[] = [
     university: "University of Ottawa",
     province: "Ontario"
   },
-//   {
-//     id: "66",
-//     image: Ottawa,
-//     programName: "MEng in Chemical Engineering",
-//     programLevel: "Master's degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Chemical engineering",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "67",
-//     image: Ottawa,
-//     programName: "MEng in Mechanical Engineering",
-//     programLevel: "Master's degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Mechanical engineering",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "68",
-//     image: Ottawa,
-//     programName: "Graduate Diploma in Engineering Management",
-//     programLevel: "Graduate level certificate/diploma",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Engineering/industrial management, Project management",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "69",
-//     image: Ottawa,
-//     programName: "BASc in Computer Engineering",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: true,
-//     remote: false,
-//     studyArea: "Computer engineering, general",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "70",
-//     image: Ottawa,
-//     programName: "BASc in Electrical Engineering/BSc in Computing Technology",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: true,
-//     remote: false,
-//     studyArea: "Electrical and electronics engineering, Computer/computer systems technology/technician",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "71",
-//     image: Ottawa,
-//     programName: "BASc in Electrical Engineering",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: true,
-//     remote: false,
-//     studyArea: "Electrical and electronics engineering",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "72",
-//     image: Ottawa,
-//     programName: "Graduate Diploma in Internet Technologies",
-//     programLevel: "Graduate level certificate/diploma",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Computer systems networking and telecommunications, general",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "73",
-//     image: Ottawa,
-//     programName: "MASc in Biomedical Engineering",
-//     programLevel: "Master's degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Biomedical/medical engineering",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "74",
-//     image: Ottawa,
-//     programName: "BASc in Chemical Engineering",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: true,
-//     remote: false,
-//     studyArea: "Chemical engineering",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "75",
-//     image: Ottawa,
-//     programName: "Honours BSc in Biochemistry (biotechnology)/BASc in Chemical Engineering (biotechnology)",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: true,
-//     remote: false,
-//     studyArea: "Chemical engineering, Biochemistry, Biotechnology",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "76",
-//     image: Ottawa,
-//     programName: "Honours BSc in Computer Science",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: true,
-//     remote: false,
-//     studyArea: "Computer science",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "77",
-//     image: Ottawa,
-//     programName: "MSc in Electronic-Business Technologies",
-//     programLevel: "Master's degree",
-//     language: "English",
-//     coop: true,
-//     remote: false,
-//     studyArea: "E-commerce/electronic commerce",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "78",
-//     image: Ottawa,
-//     programName: "MEng in Advanced Materials and Manufacturing",
-//     programLevel: "Master's degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Materials engineering, Manufacturing engineering",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "79",
-//     image: Ottawa,
-//     programName: "PhD in Advanced Materials and Manufacturing",
-//     programLevel: "Doctorate",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Manufacturing engineering, Materials science",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "80",
-//     image: Ottawa,
-//     programName: "BASc in Civil Engineering/BSc in Computing Technology",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: true,
-//     remote: false,
-//     studyArea: "Information technology, Civil engineering, general",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "81",
-//     image: Ottawa,
-//     programName: "Honour BSc in Physics/BASc in Electrical Engineering",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: true,
-//     remote: false,
-//     studyArea: "Electrical and electronics engineering, Physics, general",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "82",
-//     image: Ottawa,
-//     programName: "MEng in Biomedical Engineering",
-//     programLevel: "Master's degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Biomedical/medical engineering",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "83",
-//     image: Ottawa,
-//     programName: "Graduate Diploma in Systems Science",
-//     programLevel: "Graduate level certificate/diploma",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Systems science and theory",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "84",
-//     image: Ottawa,
-//     programName: "BMD - Multidisciplinary Design \u2013 Experiential Learning",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Social sciences, other, Design and applied arts, other",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "85",
-//     image: Ottawa,
-//     programName: "MSc in Human Kinetics",
-//     programLevel: "Master's degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Exercise science and kinesiology",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "86",
-//     image: Ottawa,
-//     programName: "Master of Human Kinetics",
-//     programLevel: "Master's degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Sport and fitness administration/management, Exercise science and kinesiology",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "87",
-//     image: Ottawa,
-//     programName: "Bachelor of Science in Nursing",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Registered nursing/registered nurse (RN, ASN, BSN, BScN, MSN, MScN)",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "88",
-//     image: Ottawa,
-//     programName: "Minor in Studies of Social Issues in Sport, Physical Activity and Leisure",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Parks, recreation, leisure, fitness, and kinesiology, other",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "89",
-//     image: Ottawa,
-//     programName: "Graduate Diploma in Primary Health Care for Nurse Practitioners",
-//     programLevel: "Graduate level certificate/diploma",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Primary health care nurse/nursing and family practice nurse/nursing",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "90",
-//     image: Ottawa,
-//     programName: "Baccalaur\u00e9at sp\u00e9cialis\u00e9 en sciences des aliments et de la nutrition di\u00e9t\u00e9tique",
-//     programLevel: "Bachelor's/First professional degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Nutrition sciences, Dietetics/dietitian (RD)",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "91",
-//     image: Ottawa,
-//     programName: "MHSc in Audiology",
-//     programLevel: "Master's degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Audiology/audiologist",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "92",
-//     image: Ottawa,
-//     programName: "MHSc in Physiotherapy",
-//     programLevel: "Master's degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Physical therapy/therapist",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
-//   {
-//     id: "93",
-//     image: Ottawa,
-//     programName: "MA in Human Kinetics",
-//     programLevel: "Master's degree",
-//     language: "English",
-//     coop: false,
-//     remote: false,
-//     studyArea: "Exercise science and kinesiology",
-//     university: "University of Ottawa",
-//     province: "Ontario"
-//   },
+  {
+    id: "79",
+    image: Ottawa,
+    programName: "MEng in Chemical Engineering",
+    programLevel: "Master's degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Chemical engineering"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "80",
+    image: Ottawa,
+    programName: "MEng in Mechanical Engineering",
+    programLevel: "Master's degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Mechanical engineering"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "81",
+    image: Ottawa,
+    programName: "Graduate Diploma in Engineering Management",
+    programLevel: "Graduate level certificate/diploma",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Engineering/industrial management", "Project management"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "82",
+    image: Ottawa,
+    programName: "BASc in Computer Engineering",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: true,
+    remote: false,
+    studyArea: ["Computer engineering", "general"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "83",
+    image: Ottawa,
+    programName: "BASc in Electrical Engineering/BSc in Computing Technology",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: true,
+    remote: false,
+    studyArea: ["Electrical and electronics engineering", "Computer/computer systems", "technology/technician"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "84",
+    image: Ottawa,
+    programName: "BASc in Electrical Engineering",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: true,
+    remote: false,
+    studyArea: ["Electrical and electronics engineering"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "85",
+    image: Ottawa,
+    programName: "Graduate Diploma in Internet Technologies",
+    programLevel: "Graduate level certificate/diploma",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Computer systems networking and telecommunications", "general"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "86",
+    image: Ottawa,
+    programName: "MASc in Biomedical Engineering",
+    programLevel: "Master's degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Biomedical/medical engineering"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "87",
+    image: Ottawa,
+    programName: "BASc in Chemical Engineering",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: true,
+    remote: false,
+    studyArea: ["Chemical engineering"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "88",
+    image: Ottawa,
+    programName: "Honours BSc in Biochemistry (biotechnology)/BASc in Chemical Engineering (biotechnology)",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: true,
+    remote: false,
+    studyArea: ["Chemical engineering", "Biochemistry", "Biotechnology"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "89",
+    image: Ottawa,
+    programName: "Honours BSc in Computer Science",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: true,
+    remote: false,
+    studyArea: ["Computer science"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "90",
+    image: Ottawa,
+    programName: "MSc in Electronic-Business Technologies",
+    programLevel: "Master's degree",
+    language: "English",
+    coop: true,
+    remote: false,
+    studyArea: ["E-commerce/electronic commerce"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "91",
+    image: Ottawa,
+    programName: "MEng in Advanced Materials and Manufacturing",
+    programLevel: "Master's degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Materials engineering", "Manufacturing engineering"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "92",
+    image: Ottawa,
+    programName: "PhD in Advanced Materials and Manufacturing",
+    programLevel: "Doctorate",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Manufacturing engineering", "Materials science"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "93",
+    image: Ottawa,
+    programName: "BASc in Civil Engineering/BSc in Computing Technology",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: true,
+    remote: false,
+    studyArea: ["Information technology", "Civil engineering", "general"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "94",
+    image: Ottawa,
+    programName: "Honour BSc in Physics/BASc in Electrical Engineering",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: true,
+    remote: false,
+    studyArea: ["Electrical and electronics engineering", "Physics", "general"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "95",
+    image: Ottawa,
+    programName: "MEng in Biomedical Engineering",
+    programLevel: "Master's degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Biomedical/medical engineering"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "96",
+    image: Ottawa,
+    programName: "Graduate Diploma in Systems Science",
+    programLevel: "Graduate level certificate/diploma",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Systems science and theory"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "97",
+    image: Ottawa,
+    programName: "BMD - Multidisciplinary Design \u2013 Experiential Learning",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Social sciences", "other", "Design and applied arts", "other"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "98",
+    image: Ottawa,
+    programName: "MSc in Human Kinetics",
+    programLevel: "Master's degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Exercise science and kinesiology"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "99",
+    image: Ottawa,
+    programName: "Master of Human Kinetics",
+    programLevel: "Master's degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Sport and fitness administration/management", "Exercise science and kinesiology"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "100",
+    image: Ottawa,
+    programName: "Bachelor of Science in Nursing",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Registered nursing/registered nurse (RN, ASN, BSN, BScN, MSN, MScN)"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "101",
+    image: Ottawa,
+    programName: "Minor in Studies of Social Issues in Sport, Physical Activity and Leisure",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Parks", "recreation", "leisure", "fitness", "kinesiology", "other"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "102",
+    image: Ottawa,
+    programName: "Graduate Diploma in Primary Health Care for Nurse Practitioners",
+    programLevel: "Graduate level certificate/diploma",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Primary health care nurse/nursing and family practice nurse/nursing"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "103",
+    image: Ottawa,
+    programName: "Baccalaur\u00e9at sp\u00e9cialis\u00e9 en sciences des aliments et de la nutrition di\u00e9t\u00e9tique",
+    programLevel: "Bachelor's/First professional degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Nutrition sciences", "Dietetics/dietitian (RD)"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "104",
+    image: Ottawa,
+    programName: "MHSc in Audiology",
+    programLevel: "Master's degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Audiology/audiologist"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "105",
+    image: Ottawa,
+    programName: "MHSc in Physiotherapy",
+    programLevel: "Master's degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Physical therapy/therapist"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
+  {
+    id: "106",
+    image: Ottawa,
+    programName: "MA in Human Kinetics",
+    programLevel: "Master's degree",
+    language: "English",
+    coop: false,
+    remote: false,
+    studyArea: ["Exercise science and kinesiology"],
+    university: "University of Ottawa",
+    province: "Ontario"
+  },
 //   {
 //     id: "94",
 //     image: Ottawa,
