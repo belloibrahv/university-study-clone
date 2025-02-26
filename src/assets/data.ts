@@ -64701,7 +64701,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "5385",
     image: USherbrooke,
-    programName: "Dipl\u00f4me d'\u00e9tudes sup\u00e9rieures sp\u00e9cialis\u00e9es de 2e cycle en langue fran\u00e7aise", "socioculture et variation linguistique",
+    programName: "Dipl\u00f4me d'\u00e9tudes sup\u00e9rieures sp\u00e9cialis\u00e9es de 2e cycle en langue fran\u00e7aise, socioculture et variation linguistique",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
     coop: false,
