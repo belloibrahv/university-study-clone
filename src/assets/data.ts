@@ -27957,7 +27957,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2323",
     image: UofT,
-    programName: "H.B.Sc. in Biochemistry (Specialist", "Major)",
+    programName: "H.B.Sc. in Biochemistry (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -28017,7 +28017,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2328",
     image: UofT,
-    programName: "H.B.Sc. in Ecology and Evolutionary Biology (Specialist", "Major)",
+    programName: "H.B.Sc. in Ecology and Evolutionary Biology (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -28233,7 +28233,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2346",
     image: UofT,
-    programName: "H.B.Sc. in Environment and Health (Specialist", "Major)",
+    programName: "H.B.Sc. in Environment and Health (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -28329,7 +28329,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2354",
     image: UofT,
-    programName: "H.B.A. in International Relations (Specialist", "Major)",
+    programName: "H.B.A. in International Relations Specialist, Major",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -28353,7 +28353,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2356",
     image: UofT,
-    programName: "H.B.A. in Peace", "Conflict and Justice Studies (Specialist", "Major)",
+    programName: "H.B.A. in Peace, Conflict and Justice Studies (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -28365,7 +28365,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2357",
     image: UofT,
-    programName: "H.B.A. in Criminology (Specialist", "Major)",
+    programName: "H.B.A. in Criminology (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -28473,7 +28473,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2366",
     image: UofT,
-    programName: "Collaborative Specialization in Ethnic", "Immigration and Pluralism Studies",
+    programName: "Collaborative Specialization in Ethnic, Immigration and Pluralism Studies",
     programLevel: "Doctorate",
     language: "English",
     coop: false,
@@ -28497,7 +28497,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2368",
     image: UofT,
-    programName: "H.B.A. in Anthropology (Society", "Culture and Language) (Specialist", "Major)",
+    programName: "H.B.A. in Anthropology (Society, Culture and Language) (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -28521,7 +28521,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2370",
     image: UofT,
-    programName: "H.B.Sc. in Neuroscience (Specialist", "Major)",
+    programName: "H.B.Sc. in Neuroscience (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -28581,7 +28581,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2375",
     image: UofT,
-    programName: "H.B.Sc in Health and Disease (Specialist", "Major)",
+    programName: "H.B.Sc in Health and Disease (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -28713,7 +28713,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2386",
     image: UofT,
-    programName: "H.B.Sc. in Fundamental Genetics and its Applications (Specialist", "Major)",
+    programName: "H.B.Sc. in Fundamental Genetics and its Applications (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -28797,7 +28797,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2393",
     image: UofT,
-    programName: "B.Sc. in Neuroscience (Specialist", "Major)",
+    programName: "B.Sc. in Neuroscience (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -28905,7 +28905,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2402",
     image: UofT,
-    programName: "Doctor of Philosophy", "Planning ",
+    programName: "Doctor of Philosophy, Planning ",
     programLevel: "Doctorate",
     language: "English",
     coop: false,
@@ -29097,7 +29097,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2418",
     image: UofT,
-    programName: "Combined Degree Program: STG", "Honours Bachelor of Arts, Major in History/Master of Teaching",
+    programName: "Combined Degree Program: STG, Honours Bachelor of Arts, Major in History/Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -29193,7 +29193,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2426",
     image: UofT,
-    programName: "Combined Degree Program: STG", "Honours Bachelor of Arts", "Minor in Education and Society / Child Study and Education", "Master of Arts",
+    programName: "Combined Degree Program: STG, Honours Bachelor of Arts, Minor in Education and Society / Child Study and Education, Master of Arts",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -29265,7 +29265,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2432",
     image: UofT,
-    programName: "H.B.A. in Industrial Relations and Human Resources (Specialist", "Major)",
+    programName: "H.B.A. in Industrial Relations and Human Resources (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -29421,7 +29421,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2445",
     image: UofT,
-    programName: "Combined Degree Program: Law", "Juris Doctor/Master of Social Work",
+    programName: "Combined Degree Program: Law, Juris Doctor/Master of Social Work",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -29433,7 +29433,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2446",
     image: UofT,
-    programName: "Combined Degree Program: Law", "Juris Doctor/European and Russian Affairs", "Master of Arts",
+    programName: "Combined Degree Program: Law, Juris Doctor/European and Russian Affairs, Master of Arts",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -29481,7 +29481,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2450",
     image: UofT,
-    programName: "Combined Degree Program: Law", "Juris Doctor/Philosophy", "Doctor of Philosophy",
+    programName: "Combined Degree Program: Law, Juris Doctor/Philosophy, Doctor of Philosophy",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -29493,7 +29493,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2451",
     image: UofT,
-    programName: "Combined Degree Program: Law", "Juris Doctor/Master of Global Affairs",
+    programName: "Combined Degree Program: Law, Juris Doctor/Master of Global Affairs",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -29541,7 +29541,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2455",
     image: UofT,
-    programName: "Combined Degree Program: Law", "Juris Doctor/Criminology and Sociolegal Studies", "Doctor of Philosophy",
+    programName: "Combined Degree Program: Law, Juris Doctor/Criminology and Sociolegal Studies, Doctor of Philosophy",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -29721,7 +29721,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2470",
     image: UofT,
-    programName: "Doctor of Medicine", "M.D.",
+    programName: "Doctor of Medicine, M.D.",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -29841,7 +29841,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2480",
     image: UofT,
-    programName: "Combined Degree Program: Medicine", "Doctor of / Management", "Master of Business Administration",
+    programName: "Combined Degree Program: Medicine, Doctor of / Management, Master of Business Administration",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -30357,7 +30357,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2523",
     image: UofT,
-    programName: "Collaborative Specialization in Education", "Francophonies and Diversity",
+    programName: "Collaborative Specialization in Education, Francophonies and Diversity",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -30921,7 +30921,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2570",
     image: UofT,
-    programName: "H.B.A. in Criminology and Socio-Legal Studies (Specialist", "Major)",
+    programName: "H.B.A. in Criminology and Socio-Legal Studies (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31017,7 +31017,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2578",
     image: UofT,
-    programName: "Combined Degree Program: UTM", "Honours Bachelor of Science, Specialist in Exceptionality in Human Learning/Master of Arts in Child Study and Education",
+    programName: "Combined Degree Program: UTM, Honours Bachelor of Science, Specialist in Exceptionality in Human Learning/Master of Arts in Child Study and Education",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31125,7 +31125,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2587",
     image: UofT,
-    programName: "Combined Degree Program: UTM", "Honours Bachelor of Arts, Specialist in French Studies / Master of Teaching",
+    programName: "Combined Degree Program: UTM, Honours Bachelor of Arts, Specialist in French Studies / Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31137,7 +31137,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2588",
     image: UofT,
-    programName: "Combined Degree Program: UTM", "Honours Bachelor of Arts, Specialist in Language Teaching and Learning: French and Italian / Master of Teaching",
+    programName: "Combined Degree Program: UTM, Honours Bachelor of Arts, Specialist in Language Teaching and Learning: French and Italian / Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31149,7 +31149,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2589",
     image: UofT,
-    programName: "Combined Degree Program: UTM", "Honours Bachelor of Arts, Major in Language Teaching and Learning: French / Master of Teaching",
+    programName: "Combined Degree Program: UTM, Honours Bachelor of Arts, Major in Language Teaching and Learning: French / Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31449,7 +31449,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2614",
     image: UofT,
-    programName: "B.B.A. in Management and Information Technology (Specialist", "Specialist Co-operative)",
+    programName: "B.B.A. in Management and Information Technology (Specialist, Specialist Co-operative)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -31485,7 +31485,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2617",
     image: UofT,
-    programName: "H.B.Sc. in Human Biology (Specialist", "Major)",
+    programName: "H.B.Sc. in Human Biology (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31533,7 +31533,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2621",
     image: UofT,
-    programName: "B.B.A. in Management and Accounting (Specialist", "Specialist Co-operative)",
+    programName: "B.B.A. in Management and Accounting (Specialist, Specialist Co-operative)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -31545,7 +31545,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2622",
     image: UofT,
-    programName: "B.B.A. in Management and Human Resources (Specialist", "Specialist Co-operative)",
+    programName: "B.B.A. in Management and Human Resources (Specialist, Specialist Co-operative)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -31557,7 +31557,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2623",
     image: UofT,
-    programName: "B.B.A. in Strategic Management (Specialist", "Specialist Co-operative)",
+    programName: "B.B.A. in Strategic Management (Specialist, Specialist Co-operative)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -31593,7 +31593,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2626",
     image: UofT,
-    programName: "H.B.A. in Media", "Journalism and Digital Cultures (Major, Minor in Media Studies)",
+    programName: "H.B.A. in Media, Journalism and Digital Cultures (Major, Minor in Media Studies)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31617,7 +31617,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2628",
     image: UofT,
-    programName: "H.B.A. in Socio-Cultural Anthropology (Specialist", "Major)",
+    programName: "H.B.A. in Socio-Cultural Anthropology (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31641,7 +31641,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2630",
     image: UofT,
-    programName: "H.B.Sc. in Evolutionary Anthropology (Specialist", "Major)",
+    programName: "H.B.Sc. in Evolutionary Anthropology (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -31653,7 +31653,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2631",
     image: UofT,
-    programName: "H.B.Sc in Molecular Biology and Biotechnology (Specialist", "Major)",
+    programName: "H.B.Sc in Molecular Biology and Biotechnology (Specialist, Major)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -31665,7 +31665,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2632",
     image: UofT,
-    programName: "Combined Degree Program, UTSC, Honours Bachelor of Science, Specialist in Global Environmental Change /Chemical Engineering and Applied Chemistry", "Master of Engineering",
+    programName: "Combined Degree Program, UTSC, Honours Bachelor of Science, Specialist in Global Environmental Change /Chemical Engineering and Applied Chemistry, Master of Engineering",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31677,7 +31677,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2633",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Specialist in Environmental Geosciences/Civil Engineering", "Master of Engineering",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Specialist in Environmental Geosciences/Civil Engineering, Master of Engineering",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31689,7 +31689,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2634",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Specialist in Environmental Physics/ Chemical Engineering and Applied Chemistry", "Master of Engineering",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Specialist in Environmental Physics/ Chemical Engineering and Applied Chemistry, Master of Engineering",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31701,7 +31701,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2635",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Specialist in Environmental Chemistry/Civil Engineering", "Master of Engineering",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Specialist in Environmental Chemistry/Civil Engineering, Master of Engineering",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31713,7 +31713,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2636",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science,Specialist Co-op in Environmental Chemistry / Master of Engineering", "Chemical Engineering and Applied Chemistry",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science,Specialist Co-op in Environmental Chemistry / Master of Engineering, Chemical Engineering and Applied Chemistry",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -31725,7 +31725,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2637",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Specialist Co-op in Environmental Chemistry/Civil Engineering", "Master of Engineering",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Specialist Co-op in Environmental Chemistry/Civil Engineering, Master of Engineering",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31737,7 +31737,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2638",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Specialist Co-op in Environmental Biology/Civil Engineering", "Master of Engineering",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Specialist Co-op in Environmental Biology/Civil Engineering, Master of Engineering",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -31929,7 +31929,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2654",
     image: UofT,
-    programName: "Double degree: UTSC", "Bachelor of Business Administration", "Specialist in Management and Finance / UTSC, Honours Bachelor of Science, Specialist in Statistics", "Quantitative Finance stream",
+    programName: "Double degree: UTSC, Bachelor of Business Administration, Specialist in Management and Finance / UTSC, Honours Bachelor of Science, Specialist in Statistics, Quantitative Finance stream",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31965,7 +31965,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2657",
     image: UofT,
-    programName: "Combined Degree Program, UTSC, Honours Bachelor of Arts, Specialist in English", "Master of Teaching",
+    programName: "Combined Degree Program, UTSC, Honours Bachelor of Arts, Specialist in English, Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31977,7 +31977,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2658",
     image: UofT,
-    programName: "Combined Degree Program, UTSC, Honours Bachelor of Arts, Major in English", "Master of Teaching",
+    programName: "Combined Degree Program, UTSC, Honours Bachelor of Arts, Major in English, Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -31989,7 +31989,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2659",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Arts, Specialist in History", "Master of Teaching",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Arts, Specialist in History, Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -32001,7 +32001,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2660",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Arts, Specialist in Human Geography", "Master of Teaching",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Arts, Specialist in Human Geography, Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -32013,7 +32013,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2661",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Arts, Specialist in Socio-Cultural Anthropology", "Master of Teaching",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Arts, Specialist in Socio-Cultural Anthropology, Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -32025,7 +32025,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2662",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Arts, Specialist in Sociology", "Master of Teaching",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Arts, Specialist in Sociology, Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -32037,7 +32037,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2663",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Arts, Major in Theatre and Performance", "Master of Teaching",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Arts, Major in Theatre and Performance, Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -32073,7 +32073,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2666",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Major in Evolutionary Anthropology", "Master of Teaching",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Major in Evolutionary Anthropology, Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -32085,7 +32085,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2667",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Major in Human Biology", "Master of Teaching",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Major in Human Biology, Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -32109,7 +32109,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2669",
     image: UofT,
-    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Major in Molecular Biology", "Immunology and Disease / Master of Teaching",
+    programName: "Combined Degree Program: UTSC, Honours Bachelor of Science, Major in Molecular Biology, Immunology and Disease / Master of Teaching",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -32505,7 +32505,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2702",
     image: UFV,
-    programName: "Proficiency Certificates in Modern Languages (French", "German", "Halq'emeylem", "Japanese", "Mandarin", "Punjabi", "Russian and Spanish)",
+    programName: "Proficiency Certificates in Modern Languages (French, German, Halq'emeylem, Japanese, Mandarin, Punjabi, Russian and Spanish)",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
     coop: false,
@@ -32517,7 +32517,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2703",
     image: UFV,
-    programName: "BA in Philosophy (honours", "major", "extended Minor, "minor)",
+    programName: "BA in Philosophy (honours, major, extended Minor, minor)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -32529,7 +32529,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2704",
     image: UFV,
-    programName: "Bachelor of Fine Arts in Art History (extended Minor, "minor)",
+    programName: "Bachelor of Fine Arts in Art History (extended Minor, minor)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -32541,7 +32541,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2705",
     image: UFV,
-    programName: "Bachelor of Fine Arts in Graphic and Digital Design (major", "extended Minor, "minor)",
+    programName: "Bachelor of Fine Arts in Graphic and Digital Design (major, extended Minor, minor)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -32553,7 +32553,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2706",
     image: UFV,
-    programName: "Bachelor of Fine Arts in Theatre (extended Minor, "minor)",
+    programName: "Bachelor of Fine Arts in Theatre (extended Minor, minor)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -32577,7 +32577,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2708",
     image: UFV,
-    programName: "BA in Anthropology (extended Minor, "minor)",
+    programName: "BA in Anthropology (extended Minor, minor)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -32589,7 +32589,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2709",
     image: UFV,
-    programName: "BA in Computer Information Systems (extended Minor, "minor)",
+    programName: "BA in Computer Information Systems (extended Minor, minor)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -32601,7 +32601,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2710",
     image: UFV,
-    programName: "BA in French (major", "extended Minor, "minor)",
+    programName: "BA in French (major, extended Minor, minor)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -32625,7 +32625,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2712",
     image: UFV,
-    programName: "BA in Theatre (major", "extended Minor, "minor)",
+    programName: "BA in Theatre (major, extended Minor, minor)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -33069,7 +33069,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2749",
     image: UFV,
-    programName: "Bachelor of Science in Mathematics (Major, Minor, "extended minor)",
+    programName: "Bachelor of Science in Mathematics (Major, Minor, extended minor)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -33201,7 +33201,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2760",
     image: UFV,
-    programName: "Kinesiology Minor (for BGS", "BA", "and BSC students)",
+    programName: "Kinesiology Minor (for BGS, BA, and BSC students)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -33993,7 +33993,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2826",
     image: UAlberta,
-    programName: "PhD in Agricultural", "Food and Nutritional Science",
+    programName: "PhD in Agricultural, Food and Nutritional Science",
     programLevel: "Doctorate",
     language: "English",
     coop: false,
@@ -34185,7 +34185,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2842",
     image: UAlberta,
-    programName: "MA in Kinesiology", "Sport", "and Recreation",
+    programName: "MA in Kinesiology, Sport, and Recreation",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -34233,7 +34233,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2846",
     image: UAlberta,
-    programName: "MBA with specialization in Natural Resources", "Energy and Environment",
+    programName: "MBA with specialization in Natural Resources, Energy and Environment",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -34569,7 +34569,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2874",
     image: UAlberta,
-    programName: "Master of Agriculture(MAg) in Agricultural", "Food and Nutritional Science",
+    programName: "Master of Agriculture(MAg) in Agricultural, Food and Nutritional Science",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -34833,7 +34833,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2896",
     image: UAlberta,
-    programName: "MSc in Physiology", "Cell and Developmental Biology",
+    programName: "MSc in Physiology, Cell and Developmental Biology",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -35157,7 +35157,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2923",
     image: UAlberta,
-    programName: "MA in History of Art", "Design", "and Visual Culture",
+    programName: "MA in History of Art, Design, and Visual Culture",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -35265,7 +35265,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2932",
     image: UAlberta,
-    programName: "Bachelor of Arts in Recreation", "Sport and Tourism",
+    programName: "Bachelor of Arts in Recreation, Sport and Tourism",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -36045,7 +36045,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "2997",
     image: USaskatchewan,
-    programName: "BA in classical", "mediaeval and renaissance studies (4-year major/honours)",
+    programName: "BA in classical, mediaeval and renaissance studies (4-year major/honours)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -36237,7 +36237,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3013",
     image: USaskatchewan,
-    programName: "Certificate in Ethics", "Justice and Law",
+    programName: "Certificate in Ethics, Justice and Law",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
     coop: false,
@@ -36309,7 +36309,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3019",
     image: USaskatchewan,
-    programName: "BSc Cellular", "physiological and pharmacological sciences (4yr/honours)",
+    programName: "BSc Cellular, physiological and pharmacological sciences (4yr/honours)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -37245,7 +37245,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3097",
     image: USaskatchewan,
-    programName: "Master of Veterinary Science in veterinary anesthesiology", "radiology", "and surgery",
+    programName: "Master of Veterinary Science in veterinary anesthesiology, radiology, and surgery",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -38637,7 +38637,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3213",
     image: URegina,
-    programName: "BA in Philosophy", "Politics and Economics",
+    programName: "BA in Philosophy, Politics and Economics",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -38709,7 +38709,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3219",
     image: URegina,
-    programName: "Certificate in Queer", "Trans", "and Gender Studies",
+    programName: "Certificate in Queer, Trans, and Gender Studies",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
     coop: false,
@@ -38721,7 +38721,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3220",
     image: URegina,
-    programName: "BA in Journalism", "News Media", "and Communication",
+    programName: "BA in Journalism, News Media, and Communication",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -38769,7 +38769,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3224",
     image: URegina,
-    programName: "Certificate in Ideation", "Creativity", "and Entrepreneurship",
+    programName: "Certificate in Ideation, Creativity, and Entrepreneurship",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
     coop: false,
@@ -39561,7 +39561,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3290",
     image: URegina,
-    programName: "MEd in Teaching", "Learning", "and Leadership",
+    programName: "MEd in Teaching, Learning, and Leadership",
     programLevel: "Master's degree",
     language: "English",
     coop: true,
@@ -39873,7 +39873,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3316",
     image: URegina,
-    programName: "BA in Media", "Art", "and Performance (Special Three-year)",
+    programName: "BA in Media, Art, and Performance (Special Three-year)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -41469,7 +41469,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3449",
     image: UCalgary,
-    programName: "Graduate Certificate in Natural Resources", "Energy and Environmental Law",
+    programName: "Graduate Certificate in Natural Resources, Energy and Environmental Law",
     programLevel: "Graduate level certificate/diploma",
     language: "English",
     coop: false,
@@ -43497,7 +43497,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3618",
     image: UGuelph,
-    programName: "MSc Food", "Agricultural and Resource Economics",
+    programName: "MSc Food, Agricultural and Resource Economics",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -44253,7 +44253,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3681",
     image: OntarioT,
-    programName: "Bachelor of Education - Education", "Consecutive program", "Intermediate/Senior program",
+    programName: "Bachelor of Education - Education, Consecutive program, Intermediate/Senior program",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -44745,7 +44745,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3722",
     image: OntarioT,
-    programName: "Bachelor of Science (Honours) - Chemistry", "Pharmaceutical Chemistry",
+    programName: "Bachelor of Science (Honours) - Chemistry, Pharmaceutical Chemistry",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -44913,7 +44913,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3736",
     image: OntarioT,
-    programName: "Bachelor of Science (Honours) \u2013 Physics", "Nanophysics",
+    programName: "Bachelor of Science (Honours) \u2013 Physics, Nanophysics",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -44925,7 +44925,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3737",
     image: OntarioT,
-    programName: "Bachelor of Science and Management (Honours) \u2013 Chemistry", "Chemical Biology",
+    programName: "Bachelor of Science and Management (Honours) \u2013 Chemistry, Chemical Biology",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: true,
@@ -45597,7 +45597,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3793",
     image: ULethbridge,
-    programName: "Bachelor of Arts/Bachelor of Laws Dual Degree program with Bond University (Queensland", "Australia)",
+    programName: "Bachelor of Arts/Bachelor of Laws Dual Degree program with Bond University (Queensland, Australia)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -46041,7 +46041,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3830",
     image: ULethbridge,
-    programName: "PhD in Earth", "Space and Physical Science",
+    programName: "PhD in Earth, Space and Physical Science",
     programLevel: "Doctorate",
     language: "English",
     coop: false,
@@ -46197,7 +46197,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3843",
     image: ULethbridge,
-    programName: "PhD in Cultural", "Social", "and Political Thought",
+    programName: "PhD in Cultural, Social, and Political Thought",
     programLevel: "Doctorate",
     language: "English",
     coop: false,
@@ -46569,7 +46569,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3874",
     image: UManitoba,
-    programName: "Micro-Certificate in Equity", "Diversity", "Inclusion and Accessibility.",
+    programName: "Micro-Certificate in Equity, Diversity, Inclusion and Accessibility.",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
     coop: false,
@@ -47565,7 +47565,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "3957",
     image: UManitoba,
-    programName: "MEd in Educational Administration", "Foundations and Psychology",
+    programName: "MEd in Educational Administration, Foundations and Psychology",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -48285,7 +48285,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4017",
     image: UManitoba,
-    programName: "Sport", "Physical Activity and Recreation in Community (SPARC) Certificate",
+    programName: "Sport, Physical Activity and Recreation in Community (SPARC) Certificate",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
     coop: false,
@@ -50193,7 +50193,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4176",
     image: UNewBrunswick,
-    programName: "Master of Applied Psychology", "Research", "and Evaluation",
+    programName: "Master of Applied Psychology, Research, and Evaluation",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -51033,7 +51033,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4246",
     image: UQAM,
-    programName: "Ma\u00eetrise en comptabilit\u00e9", "contr\u00f4le et audit (M.Sc.)",
+    programName: "Ma\u00eetrise en comptabilit\u00e9, contr\u00f4le et audit (M.Sc.)",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -51045,7 +51045,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4247",
     image: UQAM,
-    programName: "Ma\u00eetrise \u00e8s sciences", "finance appliqu\u00e9e (M.Sc.)",
+    programName: "Ma\u00eetrise \u00e8s sciences, finance appliqu\u00e9e (M.Sc.)",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -51441,7 +51441,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4280",
     image: UQAM,
-    programName: "Microprogramme de premier cycle en \u00e9conomie", "philosophie et politique",
+    programName: "Microprogramme de premier cycle en \u00e9conomie, philosophie et politique",
     programLevel: "Undergraduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -52089,7 +52089,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4334",
     image: UQAM,
-    programName: "Doctorat en mus\u00e9ologie", "m\u00e9diation et patrimoine (Ph.D.)",
+    programName: "Doctorat en mus\u00e9ologie, m\u00e9diation et patrimoine (Ph.D.)",
     programLevel: "Doctorate",
     language: "French",
     coop: false,
@@ -52689,7 +52689,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4384",
     image: UQAM,
-    programName: "Certificat en \u00e9ducation \u00e0 la petite enfance : diversit\u00e9", "inclusion et qualit\u00e9",
+    programName: "Certificat en \u00e9ducation \u00e0 la petite enfance : diversit\u00e9, nclusion et qualit\u00e9",
     programLevel: "Undergraduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -52941,7 +52941,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4405",
     image: UQAM,
-    programName: "Dipl\u00f4me d'\u00e9tudes sup\u00e9rieures sp\u00e9cialis\u00e9es en r\u00e9silience", "risques et catastrophes",
+    programName: "Dipl\u00f4me d'\u00e9tudes sup\u00e9rieures sp\u00e9cialis\u00e9es en r\u00e9silience, risques et catastrophes",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -56349,7 +56349,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4689",
     image: INRS,
-    programName: "Ma\u00eetrise en sciences de l'\u00e9nergie et des mat\u00e9riaux (bidipl. accueil INRS-Univ. Toulouse III - P. Sabatier", "plasma)",
+    programName: "Ma\u00eetrise en sciences de l'\u00e9nergie et des mat\u00e9riaux (bidipl. accueil INRS-Univ. Toulouse III - P. Sabatier, plasma)",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -56361,7 +56361,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4690",
     image: INRS,
-    programName: "Ma\u00eetrise en sciences de l'\u00e9nergie et des mat\u00e9riaux (bidipl. accueil INRS-Univ. Bordeaux", "cheminement photonique)",
+    programName: "Ma\u00eetrise en sciences de l'\u00e9nergie et des mat\u00e9riaux (bidipl. accueil INRS-Univ. Bordeaux, cheminement photonique)",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -56373,7 +56373,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4691",
     image: INRS,
-    programName: "Ma\u00eetrise en sciences exp\u00e9rimentales de la sant\u00e9 (bidipl. accueil INRS-Univ. Clermont-Auvergne", "cheminement diagnostic biom\u00e9dical)",
+    programName: "Ma\u00eetrise en sciences exp\u00e9rimentales de la sant\u00e9 (bidipl. accueil INRS-Univ. Clermont-Auvergne, cheminement diagnostic biom\u00e9dical)",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -56385,7 +56385,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4692",
     image: INRS,
-    programName: "Doctorat en sciences de l'\u00e9nergie et des mat\u00e9riaux (bidipl. accueil INRS-Univ. Toulouse III - P. Sabatier", "plasma)",
+    programName: "Doctorat en sciences de l'\u00e9nergie et des mat\u00e9riaux (bidipl. accueil INRS-Univ. Toulouse III - P. Sabatier, plasma)",
     programLevel: "Doctorate",
     language: "French",
     coop: false,
@@ -56685,7 +56685,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4717",
     image: RoyalMCC,
-    programName: "BA en langue fran\u00e7aises", "litt\u00e9rature et culture",
+    programName: "BA en langue fran\u00e7aises, litt\u00e9rature et culture",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
     coop: false,
@@ -56745,7 +56745,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4722",
     image: RoyalMCC,
-    programName: "BA (avec sp\u00e9cialisation) en langue fran\u00e7aises", "litt\u00e9rature et culture",
+    programName: "BA (avec sp\u00e9cialisation) en langue fran\u00e7aises, litt\u00e9rature et culture",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
     coop: false,
@@ -57441,7 +57441,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4780",
     image: UTELUQ,
-    programName: "Programme court en m\u00e9dias", "information et rapports sociaux",
+    programName: "Programme court en m\u00e9dias, information et rapports sociaux",
     programLevel: "Undergraduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -57729,7 +57729,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4804",
     image: UMoncton,
-    programName: "Ma\u00eetrise en administration des affaires", "option coop",
+    programName: "Ma\u00eetrise en administration des affaires, option coop",
     programLevel: "Master's degree",
     language: "French",
     coop: true,
@@ -58629,7 +58629,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4879",
     image: UMoncton,
-    programName: "Baccalaur\u00e9at en gestion du loisir", "sport et tourisme",
+    programName: "Baccalaur\u00e9at en gestion du loisir, sport et tourisme",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
     coop: false,
@@ -58893,7 +58893,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4901",
     image: UMontreal,
-    programName: "D.E.S.S. en environnement", "sant\u00e9 et gestion des catastrophes",
+    programName: "D.E.S.S. en environnement, sant\u00e9 et gestion des catastrophes",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -58917,7 +58917,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4903",
     image: UMontreal,
-    programName: "D.E.S.S. en soci\u00e9t\u00e9", "politiques publiques et sant\u00e9",
+    programName: "D.E.S.S. en soci\u00e9t\u00e9, politiques publiques et sant\u00e9",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -58965,7 +58965,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4907",
     image: UMontreal,
-    programName: "Ma\u00eetrise en administration des services de sant\u00e9", "option gestion des services infirmiers",
+    programName: "Ma\u00eetrise en administration des services de sant\u00e9, option gestion des services infirmiers",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -59073,7 +59073,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4916",
     image: UMontreal,
-    programName: "Microprogramme de 3e cycle en analyse et \u00e9valuation des services", "organisations et syst\u00e8mes de sant\u00e9",
+    programName: "Microprogramme de 3e cycle en analyse et \u00e9valuation des services, organisations et syst\u00e8mes de sant\u00e9",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -59181,7 +59181,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4925",
     image: UMontreal,
-    programName: "D.E.S.S. en droit de la citoyennet\u00e9", "de l\u2019immigration et des r\u00e9fugi\u00e9s",
+    programName: "D.E.S.S. en droit de la citoyennet\u00e9, de l\u2019immigration et des r\u00e9fugi\u00e9s",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -59193,7 +59193,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4926",
     image: UMontreal,
-    programName: "Ma\u00eetrise en droit", "option Common law compar\u00e9e",
+    programName: "Ma\u00eetrise en droit, option Common law compar\u00e9e",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -59325,7 +59325,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4937",
     image: UMontreal,
-    programName: "Ma\u00eetrise en am\u00e9nagement", "option ville", "territoire", "paysage",
+    programName: "Ma\u00eetrise en am\u00e9nagement, option ville, territoire, paysage",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -59349,7 +59349,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4939",
     image: UMontreal,
-    programName: "Ma\u00eetrise en am\u00e9nagement", "option design", "cr\u00e9ation et innovation",
+    programName: "Ma\u00eetrise en am\u00e9nagement, option design, cr\u00e9ation et innovation",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -59553,7 +59553,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4956",
     image: UMontreal,
-    programName: "Certificat en \u00e9tudes f\u00e9ministes", "des genres et des sexualit\u00e9s",
+    programName: "Certificat en \u00e9tudes f\u00e9ministes, des genres et des sexualit\u00e9s",
     programLevel: "Undergraduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -60069,7 +60069,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "4999",
     image: UMontreal,
-    programName: "D.E.S.S. en soci\u00e9t\u00e9", "politiques publiques et sant\u00e9",
+    programName: "D.E.S.S. en soci\u00e9t\u00e9, politiques publiques et sant\u00e9",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -60489,7 +60489,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "5034",
     image: UMontreal,
-    programName: "Ma\u00eetrise en pharmacologie", "option Pharmacologie clinique avec travail dirig\u00e9",
+    programName: "Ma\u00eetrise en pharmacologie, option Pharmacologie clinique avec travail dirig\u00e9",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -60633,7 +60633,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "5046",
     image: UMontreal,
-    programName: "Ma\u00eetrise en musique", "option compostion (MMus)",
+    programName: "Ma\u00eetrise en musique, option compostion (MMus)",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -60789,7 +60789,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "5059",
     image: UMontreal,
-    programName: "Doctorat en musique", "option direction d'orchestre",
+    programName: "Doctorat en musique, option direction d'orchestre",
     programLevel: "Doctorate",
     language: "French",
     coop: false,
@@ -60897,7 +60897,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "5068",
     image: UMontreal,
-    programName: "Dipl\u00f4me compl\u00e9mentaire de troisi\u00e8me cycle en recherche", "d\u00e9veloppement et \u00e9valuation du m\u00e9dicament",
+    programName: "Dipl\u00f4me compl\u00e9mentaire de troisi\u00e8me cycle en recherche, d\u00e9veloppement et \u00e9valuation du m\u00e9dicament",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -62205,7 +62205,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "5177",
     image: UMontreal,
-    programName: "D.E.S.S. en media", "culture et technologie",
+    programName: "D.E.S.S. en media, culture et technologie",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -62301,7 +62301,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "5185",
     image: UMontreal,
-    programName: "Majeure en environnement", "soci\u00e9t\u00e9 et transitions",
+    programName: "Majeure en environnement, soci\u00e9t\u00e9 et transitions",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
     coop: false,
@@ -62661,7 +62661,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "5215",
     image: UMontreal,
-    programName: "Ma\u00eetrise en cin\u00e9ma", "jeu vid\u00e9o", "t\u00e9l\u00e9vision et arts m\u00e9diatiques",
+    programName: "Ma\u00eetrise en cin\u00e9ma, jeu vid\u00e9o, t\u00e9l\u00e9vision et arts m\u00e9diatiques",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -62685,7 +62685,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "5217",
     image: UMontreal,
-    programName: "Ma\u00eetrise en science politique", "option affaires publiques et internationales",
+    programName: "Ma\u00eetrise en science politique, option affaires publiques et internationales",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
     coop: false,
