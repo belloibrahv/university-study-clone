@@ -78441,7 +78441,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6530",
     image: UBC,
-    programName: "Master of Arts in Human Development", "Learning", "and Culture",
+    programName: "Master of Arts in Human Development, Learning, and Culture",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -78777,7 +78777,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6558",
     image: UBC,
-    programName: "Doctor of Philosophy in Gender", "Race", "Sexuality and Social Justice ",
+    programName: "Doctor of Philosophy in Gender, Race, Sexuality and Social Justice ",
     programLevel: "Doctorate",
     language: "English",
     coop: true,
@@ -78969,7 +78969,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6574",
     image: UBC,
-    programName: "Master of Science in Resources", "Environment and Sustainability",
+    programName: "Master of Science in Resources, Environment and Sustainability",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -79005,7 +79005,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6577",
     image: UBC,
-    programName: "Master of Arts in Music", "Emphasis Theory",
+    programName: "Master of Arts in Music, Emphasis Theory",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -79017,7 +79017,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6578",
     image: UBC,
-    programName: "Master of Arts in Music", "Emphasis Ethnomusicology",
+    programName: "Master of Arts in Music, Emphasis Ethnomusicology",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -79149,7 +79149,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6589",
     image: UBC,
-    programName: "Doctor of Philosophy in Music", "Emphasis Musicology",
+    programName: "Doctor of Philosophy in Music, Emphasis Musicology",
     programLevel: "Doctorate",
     language: "English",
     coop: false,
@@ -79161,7 +79161,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6590",
     image: UBC,
-    programName: "Doctor of Philosophy in Resources", "Environment and Sustainability",
+    programName: "Doctor of Philosophy in Resources, Environment and Sustainability",
     programLevel: "Doctorate",
     language: "English",
     coop: false,
@@ -79257,7 +79257,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6598",
     image: UBC,
-    programName: "Master of Education in Health", "Outdoor and Physical Education",
+    programName: "Master of Education in Health, Outdoor and Physical Education",
     programLevel: "Master's degree",
     language: "English",
     coop: false,
@@ -79677,7 +79677,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6633",
     image: UBC,
-    programName: "Bachelor of Science in Food", "Nutrition and Health",
+    programName: "Bachelor of Science in Food, Nutrition and Health",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -79797,7 +79797,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6643",
     image: UBC,
-    programName: "Bachelor of Commerce", "Bachelor of Business Administration", "University of Hong Kong Dual Degree Program",
+    programName: "Bachelor of Commerce, Bachelor of Business Administration, University of Hong Kong Dual Degree Program",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
     coop: false,
@@ -80061,7 +80061,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6665",
     image: Kings,
-    programName: "Certificate in Loss", "Grief and Bereavement Studies",
+    programName: "Certificate in Loss, Grief and Bereavement Studies",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
     coop: false,
@@ -80361,7 +80361,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6690",
     image: ENAP,
-    programName: "Ma\u00eetrise en administration publique - Profil pour gestionnaires", "concentration en gestion internationale",
+    programName: "Ma\u00eetrise en administration publique - Profil pour gestionnaires, concentration en gestion internationale",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -80385,7 +80385,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6692",
     image: ENAP,
-    programName: "Ma\u00eetrise en administration publique - Profil pour gestionnaires", "concentration en gestion municipale",
+    programName: "Ma\u00eetrise en administration publique - Profil pour gestionnaires, concentration en gestion municipale",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -80421,7 +80421,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6695",
     image: ENAP,
-    programName: "Ma\u00eetrise en administration publique - Profil pour gestionnaires", "concentration en Gestion des services de sant\u00e9 et des services sociaux",
+    programName: "Ma\u00eetrise en administration publique - Profil pour gestionnaires, concentration en Gestion des services de sant\u00e9 et des services sociaux",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -80553,7 +80553,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6706",
     image: ENAP,
-    programName: "Programme court de 2\u00e8me cycle pour professionnels \u2013 Gestion", "option secteurs public et priv\u00e9",
+    programName: "Programme court de 2\u00e8me cycle pour professionnels \u2013 Gestion, option secteurs public et priv\u00e9",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -80673,7 +80673,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6716",
     image: ETS,
-    programName: "MIng en g\u00e9nie et M.Sc.A. ",
+    programName: "MIng en g\u00e9nie et M.Sc.A.",
     programLevel: "Master's degree",
     language: "French",
     coop: true,
@@ -81405,7 +81405,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6777",
     image: UQO,
-    programName: "Programme court de deuxi\u00e8me cycle en \u00e9quit\u00e9", "diversit\u00e9 et inclusion",
+    programName: "Programme court de deuxi\u00e8me cycle en \u00e9quit\u00e9, diversit\u00e9 et inclusion",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
     coop: false,
@@ -81501,7 +81501,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6785",
     image: UQO,
-    programName: "Ma\u00eetrise en administration des affaires (MBA) (avec essai", "cheminement r\u00e9gulier) (concentration en comptabilit\u00e9)",
+    programName: "Ma\u00eetrise en administration des affaires (MBA) (avec essai, cheminement r\u00e9gulier) (concentration en comptabilit\u00e9)",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -81693,7 +81693,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6801",
     image: UQO,
-    programName: "Ma\u00eetrise en enseignement secondaire", "concentration fran\u00e7ais", "langue d'enseignement",
+    programName: "Ma\u00eetrise en enseignement secondaire, concentration fran\u00e7ais, langue d'enseignement",
     programLevel: "Master's degree",
     language: "French",
     coop: false,
@@ -81933,7 +81933,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   {
     id: "6821",
     image: UQO,
-    programName: "Baccalaur\u00e9at en sciences sociales", "concentration science politique",
+    programName: "Baccalaur\u00e9at en sciences sociales, concentration science politique",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
     coop: true,
@@ -83952,7 +83952,7 @@ export const DUMMY_PROGRAMS: Program[] = [
    {
     id: "6989",
     image: Luther,
-    programName: 'BAJ - Bachelor of Arts in Journalism", "News Media", "and Communications (University of Regina/Luther College)',
+    programName: 'BAJ - Bachelor of Arts in Journalism, News Media, and Communications (University of Regina/Luther College)',
     programLevel: 'Bachelor',
     language: 'English',
     coop: false,
