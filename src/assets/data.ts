@@ -3494,7 +3494,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Animation", "interactive technology", "video graphics and special effects", "Game and interactive media design"],
+    studyArea: ["Animation, interactive technology, video graphics and special effects", "Game and interactive media design"],
     university: "Emily Carr University of Art + Design",
     province: "British Columbia"
   },
@@ -4238,7 +4238,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Biology/biological sciences, general", "Exercise science and kinesiology", "Foods", "nutrition and wellness studies, general", "Psychology, general"],
+    studyArea: ["Biology/biological sciences, general", "Exercise science and kinesiology", "Foods, nutrition and wellness studies, general", "Psychology, general"],
     university: "Acadia University",
     province: "Nova Scotia"
   },
@@ -6770,7 +6770,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Science", "technology and society", "Sustainability studies"],
+    studyArea: ["Science, technology and society", "Sustainability studies"],
     university: "Brock University",
     province: "Ontario"
   },
@@ -6998,7 +6998,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Animation", "interactive technology", "video graphics and special effects"],
+    studyArea: ["Animation, interactive technology, video graphics and special effects"],
     university: "Brock University",
     province: "Ontario"
   },
@@ -9530,7 +9530,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Health policy analysis", "Science", "technology and society"],
+    studyArea: ["Health policy analysis", "Science, technology and society"],
     university: "Carleton University",
     province: "Ontario"
   },
@@ -14678,7 +14678,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Communication and media studies, other", "Cultural studies/critical theory and analysis", "Linguistics", "Medieval and renaissance studies", "Multidisciplinary/interdisciplinary studies, other", "Science", "technology and society"],
+    studyArea: ["Communication and media studies, other", "Cultural studies/critical theory and analysis", "Linguistics", "Medieval and renaissance studies", "Multidisciplinary/interdisciplinary studies, other", "Science, technology and society"],
     university: "Victoria University",
     province: "Ontario"
   },
@@ -24662,7 +24662,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Animation", "interactive technology", "video graphics and special effects"],
+    studyArea: ["Animation, interactive technology, video graphics and special effects"],
     university: "OCAD University",
     province: "Ontario"
   },
@@ -29078,7 +29078,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Science", "technology and society"],
+    studyArea: ["Science, technology and society"],
     university: "University of Toronto",
     province: "Ontario"
   },
@@ -29666,7 +29666,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Foods", "nutrition and wellness studies, general"],
+    studyArea: ["Foods, nutrition and wellness studies, general"],
     university: "University of Toronto",
     province: "Ontario"
   },
@@ -31946,7 +31946,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Foods", "nutrition and wellness studies, general", "Nutrition sciences"],
+    studyArea: ["Foods, nutrition and wellness studies, general", "Nutrition sciences"],
     university: "University of Toronto",
     province: "Ontario"
   },
@@ -33518,7 +33518,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["African studies", "Anthropology, general", "Art history, criticism and conservation", "Art/art studies, general", "Cinematography and film/video production", "City/urban, community and regional planning", "Classical, ancient Mediterranean and Near Eastern studies and archaeology", "Classics and classical languages, literatures and linguistics, general", "Comparative literature", "Drama and dramatics/theatre arts, general", "East Asian studies", "Economics, general", "English language and literature, general", "Film/cinema/video studies", "French language and literature, general", "Gay/lesbian studies", "Geography", "History, general", "Latin American and Caribbean studies", "Liberal arts and sciences/liberal studies", "Linguistics", "Mathematics, general", "Medieval and renaissance studies", "Music, general", "Near and Middle Eastern studies", "Philosophy", "Political science and government, general", "Psychology, general", "Religion/religious studies, general", "Science", "technology and society", "Sociology, general", "Ukraine studies", "Women's studies"],
+    studyArea: ["African studies", "Anthropology, general", "Art history, criticism and conservation", "Art/art studies, general", "Cinematography and film/video production", "City/urban, community and regional planning", "Classical, ancient Mediterranean and Near Eastern studies and archaeology", "Classics and classical languages, literatures and linguistics, general", "Comparative literature", "Drama and dramatics/theatre arts, general", "East Asian studies", "Economics, general", "English language and literature, general", "Film/cinema/video studies", "French language and literature, general", "Gay/lesbian studies", "Geography", "History, general", "Latin American and Caribbean studies", "Liberal arts and sciences/liberal studies", "Linguistics", "Mathematics, general", "Medieval and renaissance studies", "Music, general", "Near and Middle Eastern studies", "Philosophy", "Political science and government, general", "Psychology, general", "Religion/religious studies, general", "Science, technology and society", "Sociology, general", "Ukraine studies", "Women's studies"],
     university: "University of Alberta",
     province: "Alberta"
   },
@@ -35750,7 +35750,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Food science", "Foods", "nutrition and wellness studies, general", "Nutrition sciences"],
+    studyArea: ["Food science", "Foods, nutrition and wellness studies, general", "Nutrition sciences"],
     university: "University of Saskatchewan",
     province: "Saskatchewan"
   },
@@ -39902,7 +39902,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Animation", "interactive technology", "video graphics and special effects"],
+    studyArea: ["Animation, interactive technology, video graphics and special effects"],
     university: "University of Regina",
     province: "Saskatchewan"
   },
@@ -45110,7 +45110,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Humanities/humanistic studies", "Science", "technology and society"],
+    studyArea: ["Humanities/humanistic studies", "Science, technology and society"],
     university: "University of King's College",
     province: "Nova Scotia"
   },
@@ -51650,7 +51650,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Arts", "entertainment", "and media management, general", "Communication", "journalism and related programs, other"],
+    studyArea: ["Arts, entertainment, and media management, general", "Communication, journalism and related programs, other"],
     university: "Universit\u00e9 du Qu\u00e9bec \u00e0 Montr\u00e9al (UQAM)",
     province: "Quebec"
   },
@@ -62306,7 +62306,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Environmental studies", "Science", "technology and society"],
+    studyArea: ["Environmental studies", "Science, technology and society"],
     university: "Universit\u00e9 de Montr\u00e9al",
     province: "Quebec"
   },
@@ -65990,7 +65990,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Animation", "interactive technology", "video graphics and special effects"],
+    studyArea: ["Animation, interactive technology, video graphics and special effects"],
     university: "Universit\u00e9 du Qu\u00e9bec \u00e0 Chicoutimi (UQAC)",
     province: "Quebec"
   },
@@ -66002,7 +66002,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Animation", "interactive technology", "video graphics and special effects", "Cinematography and film/video production"],
+    studyArea: ["Animation, interactive technology, video graphics and special effects", "Cinematography and film/video production"],
     university: "Universit\u00e9 du Qu\u00e9bec \u00e0 Chicoutimi (UQAC)",
     province: "Quebec"
   },
@@ -66290,7 +66290,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Science", "technology and society"],
+    studyArea: ["Science, technology and society"],
     university: "Universit\u00e9 du Qu\u00e9bec \u00e0 Chicoutimi (UQAC)",
     province: "Quebec"
   },
@@ -68378,7 +68378,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Animation", "interactive technology", "video graphics and special effects"],
+    studyArea: ["Animation, interactive technology, video graphics and special effects"],
     university: "Universit\u00e9 du Qu\u00e9bec en Abitibi-T\u00e9miscamingue (UQAT)",
     province: "Quebec"
   },
@@ -68414,7 +68414,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: true,
-    studyArea: ["Animation", "interactive technology", "video graphics and special effects"],
+    studyArea: ["Animation, interactive technology, video graphics and special effects"],
     university: "Universit\u00e9 du Qu\u00e9bec en Abitibi-T\u00e9miscamingue (UQAT)",
     province: "Quebec"
   },
@@ -69926,7 +69926,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: true,
-    studyArea: ["Animation", "interactive technology", "video graphics and special effects"],
+    studyArea: ["Animation, interactive technology, video graphics and special effects"],
     university: "Universit\u00e9 Laval",
     province: "Quebec"
   },
@@ -73430,7 +73430,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: true,
-    studyArea: ["Animation", "interactive technology", "video graphics and special effects", "Film/cinema/video studies"],
+    studyArea: ["Animation, interactive technology, video graphics and special effects", "Film/cinema/video studies"],
     university: "Universit\u00e9 Laval",
     province: "Quebec"
   },
@@ -74318,7 +74318,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Science", "technology and society"],
+    studyArea: ["Science, technology and society"],
     university: "Memorial University",
     province: "Newfoundland and Labrador"
   },
@@ -78254,7 +78254,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Dental clinical sciences, general (MS, MSc, PhD)", "Dental materials (MS, MSc, PhD)", "Dental public health and education (Cert.", "MS", "MSc", "MPH", "PhD", "DPH)", "Endodontics/endodontology (Cert., MS, MSc, PhD)", "Oral biology and oral and maxillofacial pathology (MS, MSc, PhD)", "Pediatric dentistry/pedodontics (Cert., MS, MSc, PhD)", "Periodontics/periodontology (Cert., MS, MSc, PhD)", "Prosthodontics/prosthodontology (Cert., MS, MSc, PhD)"],
+    studyArea: ["Dental clinical sciences, general (MS, MSc, PhD)", "Dental materials (MS, MSc, PhD)", "Dental public health and education (Cert., MS, MSc, MPH, PhD, DPH)", "Endodontics/endodontology (Cert., MS, MSc, PhD)", "Oral biology and oral and maxillofacial pathology (MS, MSc, PhD)", "Pediatric dentistry/pedodontics (Cert., MS, MSc, PhD)", "Periodontics/periodontology (Cert., MS, MSc, PhD)", "Prosthodontics/prosthodontology (Cert., MS, MSc, PhD)"],
     university: "The University of British Columbia",
     province: "British Columbia"
   },
@@ -78326,7 +78326,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Canadian law/legal studies/jurisprudence (LLM", "MCJ", "LLD", "JSD/SJD)"],
+    studyArea: ["Canadian law/legal studies/jurisprudence (LLM, MCJ, LLD, JSD/SJD)"],
     university: "The University of British Columbia",
     province: "British Columbia"
   },
@@ -79682,7 +79682,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Foods", "nutrition and wellness studies, general"],
+    studyArea: ["Foods, nutrition and wellness studies, general"],
     university: "The University of British Columbia",
     province: "British Columbia"
   },
@@ -81338,7 +81338,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Animation", "interactive technology", "video graphics and special effects"],
+    studyArea: ["Animation, interactive technology, video graphics and special effects"],
     university: "Universit\u00e9 du Qu\u00e9bec en Outaouais (UQO)",
     province: "Quebec"
   },
