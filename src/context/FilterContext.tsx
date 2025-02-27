@@ -32,20 +32,20 @@ const calculateCounts = (programs: Program[]) => {
     // Add count for program level
     counts.programLevel[program.programLevel] = 
       (counts.programLevel[program.programLevel] || 0) + 1;
-    
+
     // Add count for language
     counts.language[program.language] = 
       (counts.language[program.language] || 0) + 1;
-    
+
     // Add count for each study area
     program.studyArea.forEach(area => {
       counts.studyArea[area] = (counts.studyArea[area] || 0) + 1;
     });
-    
+
     // Add count for province
     counts.province[program.province] = 
       (counts.province[program.province] || 0) + 1;
-    
+
     // Add count for university
     counts.university[program.university] = 
       (counts.university[program.university] || 0) + 1;
@@ -60,8 +60,8 @@ const filterPrograms = (programs: Program[], state: FilterState) => {
     // Search query filter
     if (state.searchQuery) {
       const searchLower = state.searchQuery.toLowerCase();
-      const matchesSearch =
-        program.programName.toLowerCase().includes(searchLower) ||
+      const matchesSearch = 
+        program.programName.toLowerCase().includes(searchLower) || 
         program.university.toLowerCase().includes(searchLower);
       if (!matchesSearch) return false;
     }
@@ -82,7 +82,8 @@ const filterPrograms = (programs: Program[], state: FilterState) => {
     if (state.studyArea.length > 0) {
       const hasMatchingArea = state.studyArea.some(selectedArea => 
         program.studyArea.some(programArea => 
-          programArea.trim().toLowerCase() === selectedArea.trim().toLowerCase()
+          programArea.trim().toLowerCase() === 
+          selectedArea.trim().toLowerCase()
         )
       );
       if (!hasMatchingArea) return false;
@@ -141,7 +142,7 @@ type FilterAction =
 
 const filterReducer = (state: FilterState, action: FilterAction): FilterState => {
   let newState: FilterState;
-
+  
   switch (action.type) {
     case 'SET_PROGRAM_LEVEL':
       newState = { ...state, programLevel: action.payload };
@@ -150,6 +151,7 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
       newState = { ...state, language: action.payload };
       break;
     case 'SET_STUDY_AREA':
+      // Fixed: Don't reset province and university when setting study area
       newState = { ...state, studyArea: action.payload };
       break;
     case 'SET_PROVINCE':
@@ -189,7 +191,8 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
       newState = { ...state, searchQuery: action.payload };
       break;
     case 'RESET_FILTERS':
-      newState = { ...defaultState, searchQuery: state.searchQuery };
+      // Fixed: Reset search query as well when resetting all filters
+      newState = { ...defaultState };
       break;
     default:
       return state;
@@ -200,7 +203,7 @@ const filterReducer = (state: FilterState, action: FilterAction): FilterState =>
   } catch (error) {
     console.error('Error saving to sessionStorage:', error);
   }
-
+  
   return newState;
 };
 
@@ -239,6 +242,8 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({
           (tempState[filter] as any) = [];
         } else if (typeof tempState[filter] === 'boolean') {
           tempState[filter] = false;
+        } else if (filter === 'searchQuery') {
+          tempState[filter] = '';
         }
       });
       return filterPrograms(DUMMY_PROGRAMS, tempState);
@@ -252,29 +257,45 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({
           if (state.province.length > 0) {
             return state.province.includes(program.province);
           }
+          // If study area is selected, only show universities with that study area
+          if (state.studyArea.length > 0) {
+            return state.studyArea.some(area => 
+              program.studyArea.some(programArea => 
+                programArea.trim().toLowerCase() === area.trim().toLowerCase()
+              )
+            );
+          }
           return true;
         })
         .map(p => p.university))].sort(),
-
+        
       provinces: [...new Set(getFilteredProgramsExcluding(['province'])
         .filter(program => {
           // If university is selected, only show provinces with that university
           if (state.university.length > 0) {
             return state.university.includes(program.university);
           }
+          // If study area is selected, only show provinces with that study area
+          if (state.studyArea.length > 0) {
+            return state.studyArea.some(area => 
+              program.studyArea.some(programArea => 
+                programArea.trim().toLowerCase() === area.trim().toLowerCase()
+              )
+            );
+          }
           return true;
         })
         .map(p => p.province))].sort(),
-
+        
       programLevels: [...new Set(getFilteredProgramsExcluding(['programLevel'])
         .map(p => p.programLevel))].sort(),
-
+        
       languages: [...new Set(getFilteredProgramsExcluding(['language'])
         .map(p => p.language))].sort(),
-
+        
       hasCoopPrograms: getFilteredProgramsExcluding(['coop'])
         .some(p => p.coop),
-
+        
       hasRemotePrograms: getFilteredProgramsExcluding(['remote'])
         .some(p => p.remote)
     };

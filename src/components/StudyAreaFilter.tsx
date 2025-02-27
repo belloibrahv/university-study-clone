@@ -27,11 +27,7 @@ const StudyAreaFilter = () => {
     // Convert to array of options with values and counts
     return Object.entries(studyAreaCounts)
       .map(([value, count]) => ({ value, count }))
-      .sort((a, b) => {
-        // Sort by count (descending) and then alphabetically
-        if (b.count !== a.count) return b.count - a.count;
-        return a.value.localeCompare(b.value);
-      });
+      .sort((a, b) => a.value.localeCompare(b.value)); // Sort alphabetically (A to Z)
   }, [filteredPrograms]);
 
   // Handle study area selection changes

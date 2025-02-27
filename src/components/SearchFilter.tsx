@@ -213,35 +213,36 @@ const getFilterOptionsWithCount = (
   
   DUMMY_PROGRAMS.forEach(program => {
     // Check if program matches all active filters
-    const matchesFilters = Object.entries(activeFilters).every(([filterKey, filterValue]) => {
-      if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) return true;
-      
-      if (typeof filterValue === 'boolean') {
-        return program[filterKey as keyof Program] === filterValue;
-      }
-      
-      if (Array.isArray(filterValue)) {
-        if (filterKey === 'studyArea') {
-          // Special handling for study area
-          const programAreas = parseStudyArea(program.studyArea);
-          return filterValue.some(value => 
-            programAreas.some(area => 
-              area.toLowerCase().includes(value.toLowerCase())
-            )
-          );
-        } else {
-          return filterValue.includes(program[filterKey as keyof Program]);
+    const matchesFilters =
+      Object.entries(activeFilters).every(([filterKey, filterValue]) => {
+        if (!filterValue || (Array.isArray(filterValue) && filterValue.length === 0)) return true;
+        
+        if (typeof filterValue === 'boolean') {
+          return program[filterKey as keyof Program] === filterValue;
         }
-      }
+        
+        if (Array.isArray(filterValue)) {
+          if (filterKey === 'studyArea') {
+            // Special handling for study area
+            const programAreas = parseStudyArea(program.studyArea);
+            return filterValue.some(value =>
+              programAreas.some(area =>
+                area.toLowerCase().includes(value.toLowerCase())
+              )
+            );
+          } else {
+            return filterValue.includes(program[filterKey as keyof Program]);
+          }
+        }
+        
+        if (filterKey === 'searchQuery') {
+          return program.programName.toLowerCase().includes(filterValue.toLowerCase()) ||
+                 program.university.toLowerCase().includes(filterValue.toLowerCase());
+        }
+        
+        return true;
+      });
       
-      if (filterKey === 'searchQuery') {
-        return program.programName.toLowerCase().includes(filterValue.toLowerCase()) ||
-               program.university.toLowerCase().includes(filterValue.toLowerCase());
-      }
-      
-      return true;
-    });
-    
     if (matchesFilters) {
       if (key === FILTER_TYPES.STUDY_AREA) {
         // Process study area as array
@@ -257,21 +258,21 @@ const getFilterOptionsWithCount = (
       }
     }
   });
-  
+
   return Object.entries(counts)
     .map(([value, count]) => ({
       value,
       label: key === FILTER_TYPES.STUDY_AREA ? formatStudyArea(value) : value,
       count
     }))
-    .filter(option => 
-      !searchQuery || 
+    .filter(option =>
+      !searchQuery ||
       option.value.toLowerCase().includes(searchQuery.toLowerCase())
     )
     .sort((a, b) => {
-      // Sort by count for study areas, alphabetically for others
+      // Sort alphabetically for study areas (changing from count-based sorting)
       if (key === FILTER_TYPES.STUDY_AREA) {
-        return b.count - a.count;
+        return a.label.localeCompare(b.label);
       }
       return a.label.localeCompare(b.label);
     });
