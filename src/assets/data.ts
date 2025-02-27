@@ -626,7 +626,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Germanic languages", "literatures and linguistics, general"],
+    studyArea: ["Germanic languages, literatures and linguistics, general"],
     university: "University of Ottawa",
     province: "Ontario"
   },
@@ -650,7 +650,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Indigenous and foreign languages", "literatures and linguistics, other"],
+    studyArea: ["Indigenous and foreign languages, literatures and linguistics, other"],
     university: "University of Ottawa",
     province: "Ontario"
   },
@@ -746,7 +746,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Educational leadership and administration, general", "Educational assessment", "testing and measurement", "Learning sciences", "Social and philosophical foundations of education", "Teacher education and professional development, specific levels and methods, other", "Counselling psychology"],
+    studyArea: ["Educational leadership and administration, general", "Educational assessment, testing and measurement", "Learning sciences", "Social and philosophical foundations of education", "Teacher education and professional development, specific levels and methods, other", "Counselling psychology"],
     university: "University of Ottawa",
     province: "Ontario"
   },
@@ -758,7 +758,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Teacher education", "multiple levels"],
+    studyArea: ["Teacher education, multiple levels"],
     university: "University of Ottawa",
     province: "Ontario"
   },
@@ -2522,7 +2522,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Linguistic", "comparative and related language studies and services, other"],
+    studyArea: ["Linguistic, comparative and related language studies and services, other"],
     university: "Mount Allison University",
     province: "New Brunswick"
   },
@@ -3278,7 +3278,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: true,
-    studyArea: ["Licensed practical/vocational nurse training (LPN", "LVN", "RPN", "Cert.", "Dipl.", "AAS)"],
+    studyArea: ["Licensed practical/vocational nurse training (LPN, LVN, RPN, Cert., Dipl., AAS)"],
     university: "Athabasca University",
     province: "Alberta"
   },
@@ -3458,7 +3458,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Art history, criticism and conservation", "Fine arts and art studies, other", "Fine/studio arts, general", "Public relations", "advertising and applied communication, other"],
+    studyArea: ["Art history, criticism and conservation", "Fine arts and art studies, other", "Fine/studio arts, general", "Public relations, advertising and applied communication, other"],
     university: "Emily Carr University of Art + Design",
     province: "British Columbia"
   },
@@ -3794,7 +3794,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Music history", "literature and theory", "Music performance, general"],
+    studyArea: ["Music history, literature and theory", "Music performance, general"],
     university: "Brandon University",
     province: "Manitoba"
   },
@@ -5594,7 +5594,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Music history", "literature and theory"],
+    studyArea: ["Music history, literature and theory"],
     university: "Bishop's University",
     province: "Quebec"
   },
@@ -5690,7 +5690,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Arts", "entertainment", "and media management, general"],
+    studyArea: ["Arts, entertainment, and media management, general"],
     university: "Bishop's University",
     province: "Quebec"
   },
@@ -6482,7 +6482,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Elementary education and teaching", "Junior high/intermediate/middle school education and teaching", "Teacher education", "multiple levels"],
+    studyArea: ["Elementary education and teaching", "Junior high/intermediate/middle school education and teaching", "Teacher education, multiple levels"],
     university: "Brock University",
     province: "Ontario"
   },
@@ -6494,7 +6494,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Teacher education", "multiple levels"],
+    studyArea: ["Teacher education, multiple levels"],
     university: "Brock University",
     province: "Ontario"
   },
@@ -6506,7 +6506,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Teacher education", "multiple levels"],
+    studyArea: ["Teacher education, multiple levels"],
     university: "Brock University",
     province: "Ontario"
   },
@@ -6902,7 +6902,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Hispanic and Latin American languages", "literatures and linguistics, general"],
+    studyArea: ["Hispanic and Latin American languages, literatures and linguistics, general"],
     university: "Brock University",
     province: "Ontario"
   },
@@ -7322,7 +7322,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Celtic languages", "literatures and linguistics"],
+    studyArea: ["Celtic languages, literatures and linguistics"],
     university: "Cape Breton University",
     province: "Nova Scotia"
   },
@@ -7466,7 +7466,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["English language and literature, general", "Theatre literature", "history and criticism"],
+    studyArea: ["English language and literature, general", "Theatre literature, history and criticism"],
     university: "Cape Breton University",
     province: "Nova Scotia"
   },
@@ -10814,7 +10814,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Dentistry (DDS", "DMD)"],
+    studyArea: ["Dentistry (DDS, DMD)"],
     university: "Dalhousie University",
     province: "Nova Scotia"
   },
@@ -11762,7 +11762,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Health law (LLM", "MJ", "LLD", "JSD/SJD)", "Health/health care administration/management"],
+    studyArea: ["Health law (LLM, MJ, LLD, JSD/SJD)", "Health/health care administration/management"],
     university: "Dalhousie University",
     province: "Nova Scotia"
   },
@@ -12374,7 +12374,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Mathematics and atmospheric/oceanic science", "Oceanography", "chemical and physical"],
+    studyArea: ["Mathematics and atmospheric/oceanic science", "Oceanography, chemical and physical"],
     university: "Dalhousie University",
     province: "Nova Scotia"
   },
@@ -12578,7 +12578,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: true,
-    studyArea: ["Geographic information science and cartography", "Security and protective services", "specialized programs, other"],
+    studyArea: ["Geographic information science and cartography", "Security and protective services, specialized programs, other"],
     university: "Wilfrid Laurier University",
     province: "Ontario"
   },
@@ -14498,7 +14498,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Licensed practical/vocational nurse training (LPN", "LVN", "RPN", "Cert.", "Dipl.", "AAS)"],
+    studyArea: ["Licensed practical/vocational nurse training (LPN, LVN, RPN, Cert., Dipl., AAS)"],
     university: "Thompson Rivers University",
     province: "British Columbia"
   },
@@ -15278,7 +15278,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Elementary education and teaching", "Secondary education and teaching", "Teacher education", "multiple levels"],
+    studyArea: ["Elementary education and teaching", "Secondary education and teaching", "Teacher education, multiple levels"],
     university: "Trent University",
     province: "Ontario"
   },
@@ -16298,7 +16298,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Heating", "air conditioning", "ventilation and refrigeration maintenance technology/technician"],
+    studyArea: ["Heating, air conditioning, ventilation and refrigeration maintenance technology/technician"],
     university: "Vancouver Island University",
     province: "British Columbia"
   },
@@ -17054,7 +17054,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Teacher education", "multiple levels"],
+    studyArea: ["Teacher education, multiple levels"],
     university: "Trinity Western University",
     province: "British Columbia"
   },
@@ -17066,7 +17066,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Teacher education", "multiple levels"],
+    studyArea: ["Teacher education, multiple levels"],
     university: "Trinity Western University",
     province: "British Columbia"
   },
@@ -17738,7 +17738,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Arts", "entertainment", "and media management, general"],
+    studyArea: ["Arts, entertainment, and media management, general"],
     university: "University of Windsor",
     province: "Ontario"
   },
@@ -18614,7 +18614,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Licensed practical/vocational nurse training (LPN", "LVN", "RPN", "Cert.", "Dipl.", "AAS)"],
+    studyArea: ["Licensed practical/vocational nurse training (LPN, LVN, RPN, Cert., Dipl., AAS)"],
     university: "University of Windsor",
     province: "Ontario"
   },
@@ -19202,7 +19202,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Music history", "literature and theory"],
+    studyArea: ["Music history, literature and theory"],
     university: "Western University",
     province: "Ontario"
   },
@@ -19646,7 +19646,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Teacher education", "multiple levels"],
+    studyArea: ["Teacher education, multiple levels"],
     university: "Western University",
     province: "Ontario"
   },
@@ -21566,7 +21566,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Music, general", "Music history", "literature and theory"],
+    studyArea: ["Music, general", "Music history, literature and theory"],
     university: "Western University",
     province: "Ontario"
   },
@@ -21626,7 +21626,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Computer engineering, general", "Electrical", "electronic", "and communications engineering technology/technician"],
+    studyArea: ["Computer engineering, general", "Electrical, electronic, and communications engineering technology/technician"],
     university: "Western University",
     province: "Ontario"
   },
@@ -21650,7 +21650,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Computer engineering, general", "Electrical", "electronic", "and communications engineering technology/technician"],
+    studyArea: ["Computer engineering, general", "Electrical, electronic, and communications engineering technology/technician"],
     university: "Western University",
     province: "Ontario"
   },
@@ -21842,7 +21842,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: true,
-    studyArea: ["Energy", "environment and natural resources law (LLM, MS, MSc, LLD, JSD/SJD)"],
+    studyArea: ["Energy, environment and natural resources law (LLM, MS, MSc, LLD, JSD/SJD)"],
     university: "Western University",
     province: "Ontario"
   },
@@ -21902,7 +21902,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Dentistry (DDS", "DMD)"],
+    studyArea: ["Dentistry (DDS, DMD)"],
     university: "Western University",
     province: "Ontario"
   },
@@ -22178,7 +22178,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["English rhetoric and composition", "English Technical and Business Writing", "Mass communication/media studies", "Public relations", "advertising and applied communication, general"],
+    studyArea: ["English rhetoric and composition", "English Technical and Business Writing", "Mass communication/media studies", "Public relations, advertising and applied communication, general"],
     university: "University of Waterloo",
     province: "Ontario"
   },
@@ -24734,7 +24734,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Ceramic arts and ceramics", "Fibre", "textile and weaving arts", "Jewellery arts"],
+    studyArea: ["Ceramic arts and ceramics", "Fibre, textile and weaving arts", "Jewellery arts"],
     university: "OCAD University",
     province: "Ontario"
   },
@@ -24986,7 +24986,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Music history", "literature and theory", "Musicology and ethnomusicology"],
+    studyArea: ["Music history, literature and theory", "Musicology and ethnomusicology"],
     university: "University of Victoria",
     province: "British Columbia"
   },
@@ -25106,7 +25106,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Geology/Earth science, general", "Oceanography", "chemical and physical"],
+    studyArea: ["Geology/Earth science, general", "Oceanography, chemical and physical"],
     university: "University of Victoria",
     province: "British Columbia"
   },
@@ -25202,7 +25202,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Geology/Earth science, general", "Oceanography", "chemical and physical"],
+    studyArea: ["Geology/Earth science, general", "Oceanography, chemical and physical"],
     university: "University of Victoria",
     province: "British Columbia"
   },
@@ -25838,7 +25838,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Drama and dramatics/theatre arts, general", "Theatre literature", "history and criticism"],
+    studyArea: ["Drama and dramatics/theatre arts, general", "Theatre literature, history and criticism"],
     university: "University of Victoria",
     province: "British Columbia"
   },
@@ -26234,7 +26234,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Geology/Earth science, general", "Oceanography", "chemical and physical", "Geography"],
+    studyArea: ["Geology/Earth science, general", "Oceanography, chemical and physical", "Geography"],
     university: "University of Victoria",
     province: "British Columbia"
   },
@@ -26414,7 +26414,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Oceanography", "chemical and physical", "Geography"],
+    studyArea: ["Oceanography, chemical and physical", "Geography"],
     university: "University of Victoria",
     province: "British Columbia"
   },
@@ -27614,7 +27614,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Bosnian", "Serbian", "and Croatian languages and literatures", "Polish language and literature", "Russian language and literature", "Slavic Languages", "Literatures and Linguistics, general", "Slovak language and literature", "Ukrainian language and literature"],
+    studyArea: ["Bosnian, Serbian, and Croatian languages and literatures", "Polish language and literature", "Russian language and literature", "Slavic Languages", "Literatures and Linguistics, general", "Slovak language and literature", "Ukrainian language and literature"],
     university: "University of Toronto",
     province: "Ontario"
   },
@@ -28598,7 +28598,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Pharmacology and toxicology", "integrated"],
+    studyArea: ["Pharmacology and toxicology, integrated"],
     university: "University of Toronto",
     province: "Ontario"
   },
@@ -28694,7 +28694,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Music history", "literature and theory"],
+    studyArea: ["Music history, literature and theory"],
     university: "University of Toronto",
     province: "Ontario"
   },
@@ -28766,7 +28766,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Germanic languages", "literatures and linguistics, other"],
+    studyArea: ["Germanic languages, literatures and linguistics, other"],
     university: "University of Toronto",
     province: "Ontario"
   },
@@ -30098,7 +30098,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Pharmacology and toxicology", "integrated", "Pharmacy administration and pharmacy policy and regulatory affairs (MS, MSc, PhD)", "Pharmaceutics and drug design (MS, MSc, PhD)"],
+    studyArea: ["Pharmacology and toxicology, integrated", "Pharmacy administration and pharmacy policy and regulatory affairs (MS, MSc, PhD)", "Pharmaceutics and drug design (MS, MSc, PhD)"],
     university: "University of Toronto",
     province: "Ontario"
   },
@@ -35294,7 +35294,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Dentistry (DDS", "DMD)"],
+    studyArea: ["Dentistry (DDS, DMD)"],
     university: "University of Alberta",
     province: "Alberta"
   },
@@ -35318,7 +35318,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Dentistry (DDS", "DMD)"],
+    studyArea: ["Dentistry (DDS, DMD)"],
     university: "University of Alberta",
     province: "Alberta"
   },
@@ -36626,7 +36626,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Dentistry (DDS", "DMD)"],
+    studyArea: ["Dentistry (DDS, DMD)"],
     university: "University of Saskatchewan",
     province: "Saskatchewan"
   },
@@ -39878,7 +39878,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Arts", "entertainment", "and media management, general"],
+    studyArea: ["Arts, entertainment, and media management, general"],
     university: "University of Regina",
     province: "Saskatchewan"
   },
@@ -40310,7 +40310,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Music history", "literature and theory", "Music pedagogy", "Music performance, general", "Music teacher education", "Music theory and composition", "Music, general"],
+    studyArea: ["Music history, literature and theory", "Music pedagogy", "Music performance, general", "Music teacher education", "Music theory and composition", "Music, general"],
     university: "University of Calgary",
     province: "Alberta"
   },
@@ -40994,7 +40994,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Advanced legal research/studies, general (LLM, MCL, MLI, MSL, LLD, JSD/SJD)", "Energy", "environment and natural resources law (LLM, MS, MSc, LLD, JSD/SJD)"],
+    studyArea: ["Advanced legal research/studies, general (LLM, MCL, MLI, MSL, LLD, JSD/SJD)", "Energy, environment and natural resources law (LLM, MS, MSc, LLD, JSD/SJD)"],
     university: "University of Calgary",
     province: "Alberta"
   },
@@ -41246,7 +41246,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Allied health diagnostic", "intervention and treatment professions, other", "Environmental/environmental health engineering", "Environmental/natural resources management and policy, general", "Physical and biological anthropology"],
+    studyArea: ["Allied health diagnostic, intervention and treatment professions, other", "Environmental/environmental health engineering", "Environmental/natural resources management and policy, general", "Physical and biological anthropology"],
     university: "University of Calgary",
     province: "Alberta"
   },
@@ -41474,7 +41474,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Energy", "environment and natural resources law (LLM, MS, MSc, LLD, JSD/SJD)", "Natural resources/conservation, general"],
+    studyArea: ["Energy, environment and natural resources law (LLM, MS, MSc, LLD, JSD/SJD)", "Natural resources/conservation, general"],
     university: "University of Calgary",
     province: "Alberta"
   },
@@ -45134,7 +45134,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: true,
     remote: false,
-    studyArea: ["Anthropology, general", "Atmospheric sciences and meteorology, general", "Biochemistry", "Biology/biological sciences, general", "Canadian studies", "Chemistry, general", "Classics and classical languages, literatures and linguistics, general", "Cognitive science, general", "Development economics and international development", "Drama and dramatics/theatre arts, general", "Economics, general", "English creative writing", "English language and literature, general", "Environmental science", "Environmental studies", "European studies/civilization", "Film/cinema/video studies", "French language and literature, general", "Geology/Earth science, general", "German language and literature", "Health Services/Allied Health/Health Sciences, general", "History, general", "Immunology", "Italian language and literature", "Linguistics", "Marine biology and biological oceanography", "Mathematics, general", "Microbiology, general", "Molecular biology", "Music, general", "Neuroscience", "Oceanography", "chemical and physical", "Philosophy", "Physics, general", "Political science and government, general", "Psychology, general", "Religion/religious studies, general", "Russian language and literature", "Russian studies", "Sociology, general", "Spanish language and literature", "Statistics, general", "Technical theatre/theatre design and technology", "Women's studies"],
+    studyArea: ["Anthropology, general", "Atmospheric sciences and meteorology, general", "Biochemistry", "Biology/biological sciences, general", "Canadian studies", "Chemistry, general", "Classics and classical languages, literatures and linguistics, general", "Cognitive science, general", "Development economics and international development", "Drama and dramatics/theatre arts, general", "Economics, general", "English creative writing", "English language and literature, general", "Environmental science", "Environmental studies", "European studies/civilization", "Film/cinema/video studies", "French language and literature, general", "Geology/Earth science, general", "German language and literature", "Health Services/Allied Health/Health Sciences, general", "History, general", "Immunology", "Italian language and literature", "Linguistics", "Marine biology and biological oceanography", "Mathematics, general", "Microbiology, general", "Molecular biology", "Music, general", "Neuroscience", "Oceanography, chemical and physical", "Philosophy", "Physics, general", "Political science and government, general", "Psychology, general", "Religion/religious studies, general", "Russian language and literature", "Russian studies", "Sociology, general", "Spanish language and literature", "Statistics, general", "Technical theatre/theatre design and technology", "Women's studies"],
     university: "University of King's College",
     province: "Nova Scotia"
   },
@@ -49262,7 +49262,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Indigenous and foreign languages and literatures, general", "Indigenous and foreign languages", "literatures and linguistics, other"],
+    studyArea: ["Indigenous and foreign languages and literatures, general", "Indigenous and foreign languages, literatures and linguistics, other"],
     university: "University of New Brunswick",
     province: "New Brunswick"
   },
@@ -50306,7 +50306,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Arts", "entertainment", "and media management, general"],
+    studyArea: ["Arts, entertainment, and media management, general"],
     university: "HEC Montr\u00e9al",
     province: "Quebec"
   },
@@ -50726,7 +50726,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Arts", "entertainment", "and media management, general"],
+    studyArea: ["Arts, entertainment, and media management, general"],
     university: "Capilano University",
     province: "British Columbia"
   },
@@ -50738,7 +50738,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Film/video and photographic arts, other", "Arts", "entertainment", "and media management, general"],
+    studyArea: ["Film/video and photographic arts, other", "Arts, entertainment, and media management, general"],
     university: "Capilano University",
     province: "British Columbia"
   },
@@ -53066,7 +53066,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["French language and literature, general", "Linguistic", "comparative and related language studies and services, other", "Linguistics"],
+    studyArea: ["French language and literature, general", "Linguistic, comparative and related language studies and services, other", "Linguistics"],
     university: "Universit\u00e9 du Qu\u00e9bec \u00e0 Montr\u00e9al (UQAM)",
     province: "Quebec"
   },
@@ -53378,7 +53378,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Counselling psychology", "Educational assessment", "testing and measurement", "Educational leadership and administration, general", "Learning sciences", "Social and philosophical foundations of education", "Teacher education and professional development, specific levels and methods, other"],
+    studyArea: ["Counselling psychology", "Educational assessment, testing and measurement", "Educational leadership and administration, general", "Learning sciences", "Social and philosophical foundations of education", "Teacher education and professional development, specific levels and methods, other"],
     university: "University of Ottawa",
     province: "Ontario"
   },
@@ -53390,7 +53390,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Counselling psychology", "Educational assessment", "testing and measurement", "Educational leadership and administration, general", "Learning sciences", "Social and philosophical foundations of education", "Teacher education and professional development, specific levels and methods, other"],
+    studyArea: ["Counselling psychology", "Educational assessment, testing and measurement", "Educational leadership and administration, general", "Learning sciences", "Social and philosophical foundations of education", "Teacher education and professional development, specific levels and methods, other"],
     university: "University of Ottawa",
     province: "Ontario"
   },
@@ -53414,7 +53414,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Teacher education", "multiple levels"],
+    studyArea: ["Teacher education, multiple levels"],
     university: "University of Ottawa",
     province: "Ontario"
   },
@@ -54206,7 +54206,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Linguistic", "comparative and related language studies and services, other"],
+    studyArea: ["Linguistic, comparative and related language studies and services, other"],
     university: "University of Ottawa",
     province: "Ontario"
   },
@@ -55946,7 +55946,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Accounting", "Business administration and management, general", "Computer and information systems security/auditing/information assurance", "Entrepreneurship/entrepreneurial studies", "Finance, general", "Financial planning and services", "Human resources development", "Human resources management and services, other", "Human resources management/personnel administration, general", "International business/trade/commerce", "Logistics, materials, and supply chain management", "Management information systems and services, other", "Management information systems, general", "Marketing/marketing management, general", "Office management and supervision", "Operations management and supervision", "Organizational behaviour studies", "Organizational leadership", "Project management", "Sales", "distribution and marketing operations, general", "Small business administration/management", "Sustainability studies"],
+    studyArea: ["Accounting", "Business administration and management, general", "Computer and information systems security/auditing/information assurance", "Entrepreneurship/entrepreneurial studies", "Finance, general", "Financial planning and services", "Human resources development", "Human resources management and services, other", "Human resources management/personnel administration, general", "International business/trade/commerce", "Logistics, materials, and supply chain management", "Management information systems and services, other", "Management information systems, general", "Marketing/marketing management, general", "Office management and supervision", "Operations management and supervision", "Organizational behaviour studies", "Organizational leadership", "Project management", "Sales, distribution and marketing operations, general", "Small business administration/management", "Sustainability studies"],
     university: "HEC Montr\u00e9al",
     province: "Quebec"
   },
@@ -55970,7 +55970,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Arts", "entertainment", "and media management, general", "Non-profit/public/organizational management"],
+    studyArea: ["Arts, entertainment, and media management, general", "Non-profit/public/organizational management"],
     university: "HEC Montr\u00e9al",
     province: "Quebec"
   },
@@ -57230,7 +57230,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: true,
-    studyArea: ["Hispanic and Latin American languages", "literatures and linguistics, general"],
+    studyArea: ["Hispanic and Latin American languages, literatures and linguistics, general"],
     university: "Universit\u00e9 T\u00c9LUQ",
     province: "Quebec"
   },
@@ -59138,7 +59138,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Banking", "corporate", "finance and securities law (LLM, LLD, JSD/SJD)"],
+    studyArea: ["Banking, corporate, finance and securities law (LLM, LLD, JSD/SJD)"],
     university: "Universit\u00e9 de Montr\u00e9al",
     province: "Quebec"
   },
@@ -59222,7 +59222,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Banking", "corporate", "finance and securities law (LLM, LLD, JSD/SJD)", "International business", "trade and tax law (LLM, LLD, JSD/SJD)"],
+    studyArea: ["Banking, corporate, finance and securities law (LLM, LLD, JSD/SJD)", "International business, trade and tax law (LLM, LLD, JSD/SJD)"],
     university: "Universit\u00e9 de Montr\u00e9al",
     province: "Quebec"
   },
@@ -59666,7 +59666,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Allied health diagnostic", "intervention and treatment professions, other", "Mental and social health services and allied professions, other"],
+    studyArea: ["Allied health diagnostic, intervention and treatment professions, other", "Mental and social health services and allied professions, other"],
     university: "Universit\u00e9 de Montr\u00e9al",
     province: "Quebec"
   },
@@ -60518,7 +60518,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Dentistry (DDS", "DMD)"],
+    studyArea: ["Dentistry (DDS, DMD)"],
     university: "Universit\u00e9 de Montr\u00e9al",
     province: "Quebec"
   },
@@ -60770,7 +60770,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Art history, criticism and conservation", "Music history", "literature and theory"],
+    studyArea: ["Art history, criticism and conservation", "Music history, literature and theory"],
     university: "Universit\u00e9 de Montr\u00e9al",
     province: "Quebec"
   },
@@ -60818,7 +60818,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Art history, criticism and conservation", "Music history", "literature and theory"],
+    studyArea: ["Art history, criticism and conservation", "Music history, literature and theory"],
     university: "Universit\u00e9 de Montr\u00e9al",
     province: "Quebec"
   },
@@ -62390,7 +62390,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Hispanic and Latin American languages", "literatures and linguistics, general", "Spanish language and literature"],
+    studyArea: ["Hispanic and Latin American languages, literatures and linguistics, general", "Spanish language and literature"],
     university: "Universit\u00e9 de Montr\u00e9al",
     province: "Quebec"
   },
@@ -62666,7 +62666,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Cinematography and film/video production", "Radio", "television and digital communication, other"],
+    studyArea: ["Cinematography and film/video production", "Radio, television and digital communication, other"],
     university: "Universit\u00e9 de Montr\u00e9al",
     province: "Quebec"
   },
@@ -63854,7 +63854,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: true,
-    studyArea: ["Educational", "instructional and curriculum supervision"],
+    studyArea: ["Educational, instructional and curriculum supervision"],
     university: "Universit\u00e9 de Sherbrooke",
     province: "Quebec"
   },
@@ -63902,7 +63902,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: true,
-    studyArea: ["Educational", "instructional and curriculum supervision", "Urban education and leadership"],
+    studyArea: ["Educational, instructional and curriculum supervision", "Urban education and leadership"],
     university: "Universit\u00e9 de Sherbrooke",
     province: "Quebec"
   },
@@ -63926,7 +63926,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Educational", "instructional and curriculum supervision"],
+    studyArea: ["Educational, instructional and curriculum supervision"],
     university: "Universit\u00e9 de Sherbrooke",
     province: "Quebec"
   },
@@ -63938,7 +63938,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Health law (LLM", "MJ", "LLD", "JSD/SJD)"],
+    studyArea: ["Health law (LLM, MJ, LLD, JSD/SJD)"],
     university: "Universit\u00e9 de Sherbrooke",
     province: "Quebec"
   },
@@ -63950,7 +63950,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Health law (LLM", "MJ", "LLD", "JSD/SJD)"],
+    studyArea: ["Health law (LLM, MJ, LLD, JSD/SJD)"],
     university: "Universit\u00e9 de Sherbrooke",
     province: "Quebec"
   },
@@ -65402,7 +65402,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: true,
-    studyArea: ["Security and protective services", "specialized programs, other"],
+    studyArea: ["Security and protective services, specialized programs, other"],
     university: "Universit\u00e9 de Sherbrooke",
     province: "Quebec"
   },
@@ -66494,7 +66494,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Electrical and electronics engineering", "Electrical", "electronics and communications engineering, other", "Electromechanical engineering", "Mechanical engineering", "Mechatronics, robotics, and automation engineering", "Telecommunications engineering"],
+    studyArea: ["Electrical and electronics engineering", "Electrical, electronic, and communications engineering, other", "Electromechanical engineering", "Mechanical engineering", "Mechatronics, robotics, and automation engineering", "Telecommunications engineering"],
     university: "Universit\u00e9 du Qu\u00e9bec \u00e0 Rimouski (UQAR)",
     province: "Quebec"
   },
@@ -67058,7 +67058,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Digital communication and media/multimedia", "French language and literature, general", "Public relations", "advertising and applied communication, general"],
+    studyArea: ["Digital communication and media/multimedia", "French language and literature, general", "Public relations, advertising and applied communication, general"],
     university: "Universit\u00e9 du Qu\u00e9bec \u00e0 Trois-Rivi\u00e8res (UQTR)",
     province: "Quebec"
   },
@@ -70514,7 +70514,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: true,
-    studyArea: ["Educational assessment", "evaluation and research, other", "Educational evaluation and research", "Health Services/Allied Health/Health Sciences, general"],
+    studyArea: ["Educational assessment, evaluation and research, other", "Educational evaluation and research", "Health Services/Allied Health/Health Sciences, general"],
     university: "Universit\u00e9 Laval",
     province: "Quebec"
   },
@@ -70598,7 +70598,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Dentistry (DDS", "DMD)"],
+    studyArea: ["Dentistry (DDS, DMD)"],
     university: "Universit\u00e9 Laval",
     province: "Quebec"
   },
@@ -70670,7 +70670,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: true,
-    studyArea: ["Music history", "literature and theory"],
+    studyArea: ["Music history, literature and theory"],
     university: "Universit\u00e9 Laval",
     province: "Quebec"
   },
@@ -70934,7 +70934,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: true,
-    studyArea: ["Ancient Near Eastern and Biblical languages", "literatures and linguistics", "Bible/Biblical studies"],
+    studyArea: ["Ancient Near Eastern and Biblical languages, literatures and linguistics", "Bible/Biblical studies"],
     university: "Universit\u00e9 Laval",
     province: "Quebec"
   },
@@ -72758,7 +72758,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Educational assessment", "testing and measurement"],
+    studyArea: ["Educational assessment, testing and measurement"],
     university: "Universit\u00e9 Laval",
     province: "Quebec"
   },
@@ -72770,7 +72770,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Educational assessment", "testing and measurement"],
+    studyArea: ["Educational assessment, testing and measurement"],
     university: "Universit\u00e9 Laval",
     province: "Quebec"
   },
@@ -74462,7 +74462,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Oceanography", "chemical and physical"],
+    studyArea: ["Oceanography, chemical and physical"],
     university: "Memorial University",
     province: "Newfoundland and Labrador"
   },
@@ -75254,7 +75254,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Oceanography", "chemical and physical"],
+    studyArea: ["Oceanography, chemical and physical"],
     university: "Memorial University",
     province: "Newfoundland and Labrador"
   },
@@ -77246,7 +77246,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Indigenous and foreign languages and literatures, general", "Indigenous and foreign languages", "literatures and linguistics, other"],
+    studyArea: ["Indigenous and foreign languages and literatures, general", "Indigenous and foreign languages, literatures and linguistics, other"],
     university: "The University of British Columbia",
     province: "British Columbia"
   },
@@ -77258,7 +77258,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Indigenous and foreign languages and literatures, general", "Indigenous and foreign languages", "literatures and linguistics, other"],
+    studyArea: ["Indigenous and foreign languages and literatures, general", "Indigenous and foreign languages, literatures and linguistics, other"],
     university: "The University of British Columbia",
     province: "British Columbia"
   },
@@ -78422,7 +78422,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Educational assessment", "testing and measurement"],
+    studyArea: ["Educational assessment, testing and measurement"],
     university: "The University of British Columbia",
     province: "British Columbia"
   },
@@ -79562,7 +79562,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Engineering, other", "Energy", "environment and natural resources law (LLM, MS, MSc, LLD, JSD/SJD)"],
+    studyArea: ["Engineering, other", "Energy, environment and natural resources law (LLM, MS, MSc, LLD, JSD/SJD)"],
     university: "The University of British Columbia",
     province: "British Columbia"
   },
@@ -79742,7 +79742,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "English",
     coop: false,
     remote: false,
-    studyArea: ["Astronomy", "Atmospheric sciences and meteorology, general", "Biochemistry", "Biology/biological sciences, general", "Biotechnology", "Cell/cellular and molecular biology", "Chemistry, general", "Cognitive science, general", "Computer science", "Environmental science", "Forensic science and technology", "Geographic information science and cartography", "Geological and Earth sciences/geosciences, other", "Geology/Earth science, general", "Geophysics and seismology", "Liberal arts and sciences/liberal studies", "Mathematics, general", "Microbiology and immunology", "Neurobiology and neurosciences, other", "Neuroscience", "Oceanography", "chemical and physical", "Pharmacology", "Physics, general", "Statistics, general", "Zoology/animal biology, general"],
+    studyArea: ["Astronomy", "Atmospheric sciences and meteorology, general", "Biochemistry", "Biology/biological sciences, general", "Biotechnology", "Cell/cellular and molecular biology", "Chemistry, general", "Cognitive science, general", "Computer science", "Environmental science", "Forensic science and technology", "Geographic information science and cartography", "Geological and Earth sciences/geosciences, other", "Geology/Earth science, general", "Geophysics and seismology", "Liberal arts and sciences/liberal studies", "Mathematics, general", "Microbiology and immunology", "Neurobiology and neurosciences, other", "Neuroscience", "Oceanography, chemical and physical", "Pharmacology", "Physics, general", "Statistics, general", "Zoology/animal biology, general"],
     university: "The University of British Columbia",
     province: "British Columbia"
   },
@@ -80546,7 +80546,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Educational assessment", "evaluation and research, other", "Public administration, general"],
+    studyArea: ["Educational assessment, evaluation and research, other", "Public administration, general"],
     university: "\u00c9cole nationale d\u2019administration publique (ENAP)",
     province: "Quebec"
   },
@@ -80990,7 +80990,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Building/construction finishing", "management and inspection, other", "Occupational safety and health technology/technician"],
+    studyArea: ["Building/construction finishing, management and inspection, other", "Occupational safety and health technology/technician"],
     university: "\u00c9cole de technologie sup\u00e9rieure (\u00c9TS)",
     province: "Quebec"
   },
@@ -81722,7 +81722,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: "French",
     coop: false,
     remote: false,
-    studyArea: ["Teacher education", "multiple levels"],
+    studyArea: ["Teacher education, multiple levels"],
     university: "Universit\u00e9 du Qu\u00e9bec en Outaouais (UQO)",
     province: "Quebec"
   },
@@ -82349,7 +82349,7 @@ export const DUMMY_PROGRAMS: Program[] = [
     language: 'English',
     coop: false,
     remote: false,
-    studyArea: ["Celtic languages", "literatures and linguistics"],
+    studyArea: ["Celtic languages, literatures and linguistics"],
     university: 'St. Francis Xavier University',
     province: 'Nova Scotia'
     },
