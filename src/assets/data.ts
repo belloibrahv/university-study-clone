@@ -8,7 +8,6 @@ import UBC from '../assets/images/UBC.jpg';
 import CMU from '../assets/images/CMU.png';
 import UManitoba from '../assets/images/UManitoba.png';
 import BrandonU from '../assets/images/BrandonU.png';
-import USB from '../assets/images/USB.png';
 import UCalgary from '../assets/images/UCalgary.png';
 import UWinnipeg from '../assets/images/UWinnipeg.png';
 import BoothUC from '../assets/images/BoothUC.png';
@@ -30,6 +29,7 @@ import Athabasca from '../assets/images/Athabasca.png';
 import Algoma from '../assets/images/Algoma.png';
 import Lakehead from '../assets/images/Lakehead.png';
 import Concordia from '../assets/images/Concordia.png';
+import ConcordiaUE from '../assets/images/ConcordiaUE.jpg';
 import OCAD from '../assets/images/OCAD.png';
 import Redeemer from '../assets/images/Redeemer.png';
 import Trent from '../assets/images/Trent.png';
@@ -89,7 +89,8 @@ import ECUAD from '../assets/images/ECUAD.jpg';
 import UKingsC from '../assets/images/UKingsC.jpg';
 import NSCAD from '../assets/images/NSCAD.png';
 import UTC from '../assets/images/UTC.png';
-
+import HECM from '../assets/images/HECM.png';
+import USB from '../assets/images/USB.png';
 
 export const DUMMY_PROGRAMS: Program[] = [
 
@@ -9755,7 +9756,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "806",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Science in Chemistry 3-Year",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9767,7 +9768,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "807",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Arts in Religious Studies 3-Year",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9779,7 +9780,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "808",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Science in Mathematics 3-Year",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9791,7 +9792,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "809",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Arts in Sociology",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9803,7 +9804,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "810",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Education (2-Year After Degree) in Elementary Education",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9815,7 +9816,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "811",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Science in Environmental Science",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9827,7 +9828,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "812",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Science in Chemistry",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9839,7 +9840,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "813",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Arts in Music 3-Year",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9851,7 +9852,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "814",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Arts in Philosophy 3-Year",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9863,7 +9864,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "815",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Arts in Religious Studies",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9875,7 +9876,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "816",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Master of Information Systems Security Management",
     programLevel: "Master's degree",
     language: "English",
@@ -9887,7 +9888,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "817",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Environmental Health (2-Year After Degree)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9899,7 +9900,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "818",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Arts in Drama 3-Year",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9911,7 +9912,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "819",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Graduate Diploma in Environmental Health Practice",
     programLevel: "Graduate level certificate/diploma",
     language: "English",
@@ -9923,7 +9924,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "820",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Graduate Diploma in Information Security",
     programLevel: "Graduate level certificate/diploma",
     language: "English",
@@ -9935,7 +9936,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "821",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Doctor of Psychology in Clinical Psychology ",
     programLevel: "Doctorate",
     language: "English",
@@ -9947,7 +9948,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "822",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Bachelor of Arts in Sociology 3-Year",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -9959,7 +9960,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "823",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Graduate Certificate in Educational Leadership",
     programLevel: "Graduate level certificate/diploma",
     language: "English",
@@ -9971,7 +9972,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "824",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Master of Education in Educational Leadership",
     programLevel: "Master's degree",
     language: "English",
@@ -9983,7 +9984,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "825",
-    image: Concordia,
+    image: ConcordiaUE,
     programName: "Vocal Pedagogy and Performance Certificate",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
@@ -50291,7 +50292,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4184",
-    image: "HECMontr\u00e9al",
+    image: HECM,
     programName: "PhD in administration",
     programLevel: "Doctorate",
     language: "English",
@@ -50303,7 +50304,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4185",
-    image: "HECMontr\u00e9al",
+    image: HECM,
     programName: "Master of Management in International Arts Management (MMIAM)",
     programLevel: "Master's degree",
     language: "English",
@@ -50315,7 +50316,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4186",
-    image: "HECMontr\u00e9al",
+    image: HECM,
     programName: "Short Graduate Program",
     programLevel: "Graduate level certificate/diploma",
     language: "English",
@@ -55487,7 +55488,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4617",
-    image: "ConcordiaUniversity",
+    image: Concordia,
     programName: "BA en Traduction",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
@@ -55499,7 +55500,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4618",
-    image: "ConcordiaUniversity",
+    image: Concordia,
     programName: "Dipl\u00f4me d'\u00e9tudes sup\u00e9rieures en Traduction",
     programLevel: "Graduate level certificate/diploma",
     language: "French",
@@ -55511,7 +55512,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4619",
-    image: "ConcordiaUniversity",
+    image: Concordia,
     programName: "BA en \u00e9tudes fran\u00e7aises",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
@@ -58679,7 +58680,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4883",
-    image: "Universit\u00e9deSaint-Boniface",
+    image: USB,
     programName: "Baccalaur\u00e9at en administration des affaires",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
@@ -58691,7 +58692,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4884",
-    image: "Universit\u00e9deSaint-Boniface",
+    image: USB,
     programName: "Baccalaur\u00e9at en travail social",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
@@ -58703,7 +58704,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4885",
-    image: "Universit\u00e9deSaint-Boniface",
+    image: USB,
     programName: "Maitrise \u00e8s arts en \u00e9tudes canadiennes et interculturelles",
     programLevel: "Master's degree",
     language: "French",
@@ -58715,7 +58716,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4886",
-    image: "Universit\u00e9deSaint-Boniface",
+    image: USB,
     programName: "Baccalaur\u00e9at \u00e8s arts g\u00e9n\u00e9ral ",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
@@ -58727,7 +58728,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4887",
-    image: "Universit\u00e9deSaint-Boniface",
+    image: USB,
     programName: "Baccalaur\u00e9at \u00e8s sciences avec majeure conjointe en biochimie-microbiologie",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
@@ -58739,7 +58740,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4888",
-    image: "Universit\u00e9deSaint-Boniface",
+    image: USB,
     programName: "Certificat de traduction (par internet)",
     programLevel: "Undergraduate level certificate/diploma",
     language: "French",
@@ -58751,7 +58752,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "4889",
-    image: "Universit\u00e9deSaint-Boniface",
+    image: USB,
     programName: "Baccalaur\u00e9at \u00e8s arts avec double sp\u00e9cialisation en histoire et \u00e9tudes internationales ou leadership interculturel",
     programLevel: "Bachelor's/First professional degree",
     language: "French",
