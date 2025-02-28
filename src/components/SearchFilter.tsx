@@ -292,6 +292,8 @@ export const SearchFilters: React.FC = () => {
     language: [],
     studyArea: [],
   });
+
+  const [filteredStudyAreaOptions, setFilteredStudyAreaOptions] = useState([]);
   
   // Reference to track if we're actively managing focus
   const focusManagementRef = useRef(false);
@@ -305,38 +307,50 @@ export const SearchFilters: React.FC = () => {
   // Debounced filter search for performance
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (activeFilter === FILTER_TYPES.STUDY_AREA && filterSearch) {
-        // Update temporary selections based on search
-        const matchingOptions = getFilterOptions(FILTER_TYPES.STUDY_AREA)
-          .filter(option => 
-            option.value.toLowerCase().includes(filterSearch.toLowerCase())
-          )
-          .map(option => option.value);
-          
-        // Keep already selected options
-        const currentSelections = tempSelections.studyArea;
-        setTempSelections(prev => ({
-          ...prev,
-          studyArea: [...new Set([...currentSelections, ...matchingOptions])]
-        }));
-      }
+        if (activeFilter === FILTER_TYPES.STUDY_AREA && filterSearch) {
+            // Get all study area options (based on global filters)
+            const allStudyAreaOptions = getFilterOptions(FILTER_TYPES.STUDY_AREA);
+
+            // Filter options based on search query
+            const matchingOptions = allStudyAreaOptions.filter(option =>
+                option.value.toLowerCase().includes(filterSearch.toLowerCase())
+            );
+
+            // Update filtered options state, NOT tempSelections
+            setFilteredStudyAreaOptions(matchingOptions);
+        } else if (activeFilter === FILTER_TYPES.STUDY_AREA) {
+            // If no search query, reset filtered options to all options
+            setFilteredStudyAreaOptions(getFilterOptions(FILTER_TYPES.STUDY_AREA));
+        }
     }, 300);
-    
-    return () => clearTimeout(timer);
-  }, [filterSearch]);
+
+      return () => clearTimeout(timer);
+  }, [filterSearch, activeFilter]);
+
+  useEffect(() => {
+    if (activeFilter === FILTER_TYPES.STUDY_AREA && !filterSearch) {
+        // When popover opens or activeFilter changes and no search, set initial options
+        setFilteredStudyAreaOptions(getFilterOptions(FILTER_TYPES.STUDY_AREA));
+      }
+  }, [activeFilter]);
+
+
 
   const handleFilterClick = (event: React.MouseEvent<HTMLElement>, filter: string) => {
     // Save button reference for focus management
-    buttonRefs.current[filter] = event.currentTarget;
-    setAnchorEl(event.currentTarget);
-    setActiveFilter(filter);
-    setFilterSearch('');
-    focusManagementRef.current = true;
+     buttonRefs.current[filter] = event.currentTarget;
+        setAnchorEl(event.currentTarget);
+        setActiveFilter(filter);
+        setFilterSearch(''); // Clear search when opening a new filter
+        focusManagementRef.current = true;
 
-    setTempSelections(prev => ({
-      ...prev,
-      [filter]: getSelectedValues(filter)
-    }));
+        setTempSelections(prev => ({
+            ...prev,
+            [filter]: getSelectedValues(filter)
+        }));
+        if (filter === FILTER_TYPES.STUDY_AREA) {
+            setFilteredStudyAreaOptions(getFilterOptions(FILTER_TYPES.STUDY_AREA)); // Initialize options when popover opens
+        }
   };
 
   const handleApplyFilters = () => {
@@ -427,9 +441,9 @@ export const SearchFilters: React.FC = () => {
       coop: state.coop,
       remote: state.remote,
       searchQuery: state.searchQuery
-    };
-    
-    return getFilterOptionsWithCount(
+  };
+
+  return getFilterOptionsWithCount(
       filter as keyof typeof DUMMY_PROGRAMS[0],
       activeFilters,
       filterSearch
@@ -500,65 +514,65 @@ export const SearchFilters: React.FC = () => {
             aria-label="Area of Study Filter"
             aria-haspopup="true"
             aria-expanded={Boolean(anchorEl) && activeFilter === FILTER_TYPES.STUDY_AREA}
-            ref={(el) => { 
-              if (el) buttonRefs.current.studyArea = el; 
+            ref={(el) => {
+                if (el) buttonRefs.current.studyArea = el;
             }}
-          >
+        >
             {getFilterLabel('Area of Study', state.studyArea.length)}
-          </FilterButton>
-          
-          <FilterPopover
-              open={Boolean(anchorEl)}
-              anchorEl={anchorEl}
-              onClose={handleApplyFilters}
-              anchorOrigin={{
+        </FilterButton>
+
+        <FilterPopover
+            open={Boolean(anchorEl)}
+            anchorEl={anchorEl}
+            onClose={handleApplyFilters}
+            anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'left',
-              }}
-              // Fix aria-hidden issue by properly managing focus
-              keepMounted={true}
-              disableRestoreFocus={true}
-              disablePortal={true}
-              container={document.body}
-              role="dialog"
-              id={activeFilter ? `${activeFilter}-popover` : undefined}
-              aria-labelledby={activeFilter ? `${activeFilter}-button` : undefined}
-            >
+            }}
+            keepMounted={true}
+            disableRestoreFocus={true}
+            disablePortal={true}
+            container={document.body}
+            role="dialog"
+            id={activeFilter ? `${activeFilter}-popover` : undefined}
+            aria-labelledby={activeFilter ? `${activeFilter}-button` : undefined}
+        >
             {activeFilter === FILTER_TYPES.STUDY_AREA && (
-              <PopoverSearch>
-                <InputBase
-                  placeholder="Search area of study..."
-                  value={filterSearch}
-                  onChange={(e) => setFilterSearch(e.target.value)}
-                  aria-label="Search area of study"
-                  autoFocus={false}
-                />
-                <SearchIcon />
-              </PopoverSearch>
-            )}
-            
-            <CheckboxGroup>
-              {getFilterOptions(activeFilter || '').map((option) => (
-                <FormControlLabel
-                  key={option.value}
-                  control={
-                    <Checkbox
-                      checked={getSelectedValues(activeFilter || '').includes(option.value)}
-                      onChange={() => handleOptionToggle(option.value)}
+                <PopoverSearch>
+                    <InputBase
+                        placeholder="Search area of study..."
+                        value={filterSearch}
+                        onChange={(e) => setFilterSearch(e.target.value)}
+                        aria-label="Search area of study"
+                        autoFocus={false}
                     />
-                  }
-                  label={`${option.label} (${option.count})`}
-                />
-              ))}
+                    <SearchIcon />
+                </PopoverSearch>
+            )}
+
+            <CheckboxGroup>
+                {/* Use filteredStudyAreaOptions here for rendering */}
+                {(activeFilter === FILTER_TYPES.STUDY_AREA ? filteredStudyAreaOptions : getFilterOptions(activeFilter || '')).map((option) => (
+                    <FormControlLabel
+                        key={option.value}
+                        control={
+                            <Checkbox
+                                checked={getSelectedValues(activeFilter || '').includes(option.value)}
+                                onChange={() => handleOptionToggle(option.value)}
+                            />
+                        }
+                        label={`${option.label} (${option.count})`}
+                    />
+                ))}
             </CheckboxGroup>
-            
-            <ApplyButton 
-              onClick={handleApplyFilters}
-              variant="contained"
+
+            <ApplyButton
+                onClick={handleApplyFilters}
+                variant="contained"
             >
-              Apply now
+                Apply now
             </ApplyButton>
-          </FilterPopover>
+        </FilterPopover>
         </Box>
       </ClickAwayListener>
       
