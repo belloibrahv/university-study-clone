@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Box, Checkbox, FormControlLabel, Popover, InputBase, Button, Divider } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
@@ -9,6 +9,7 @@ import { FilterState, Program } from '../types';
 import { ArrowDropDown as ArrowDropDownIcon } from '@mui/icons-material';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 
+// Your existing styled components remain unchanged
 const FilterContainer = styled(Box)({
   display: 'flex',
   gap: '12px',
@@ -85,6 +86,7 @@ const SearchBox = styled(Box)({
   }
 });
 
+// Updated FilterPopover with keepMounted to properly handle focus management
 const FilterPopover = styled(Popover)({
   '& .MuiPaper-root': {
     width: '320px',
@@ -154,7 +156,7 @@ const FILTER_TYPES = {
   STUDY_AREA: 'studyArea'
 } as const;
 
-// Helper function to parse and normalize study area values
+// Helper functions remain unchanged
 const parseStudyArea = (text: string): string[] => {
   if (Array.isArray(text)) return text;
   
@@ -191,7 +193,6 @@ const parseStudyArea = (text: string): string[] => {
   }).filter(area => area.length > 0);
 };
 
-// Format a single study area for display
 const formatStudyArea = (text: string): string => {
   // Clean up the text - trim whitespace, remove extra spaces
   const cleaned = text.trim().replace(/\s+/g, ' ');
@@ -203,7 +204,6 @@ const formatStudyArea = (text: string): string => {
   return cleaned.substring(0, 47) + '...';
 };
 
-// Helper function to get filter options with counts, handling study area arrays
 const getFilterOptionsWithCount = (
   key: keyof typeof DUMMY_PROGRAMS[0],
   activeFilters: Partial<FilterState>,
@@ -292,6 +292,15 @@ export const SearchFilters: React.FC = () => {
     language: [],
     studyArea: [],
   });
+  
+  // Reference to track if we're actively managing focus
+  const focusManagementRef = useRef(false);
+  // Button reference for focus management
+  const buttonRefs = useRef<{ [key: string]: HTMLElement | null }>({
+    programLevel: null,
+    language: null,
+    studyArea: null
+  });
 
   // Debounced filter search for performance
   useEffect(() => {
@@ -317,9 +326,12 @@ export const SearchFilters: React.FC = () => {
   }, [filterSearch]);
 
   const handleFilterClick = (event: React.MouseEvent<HTMLElement>, filter: string) => {
+    // Save button reference for focus management
+    buttonRefs.current[filter] = event.currentTarget;
     setAnchorEl(event.currentTarget);
     setActiveFilter(filter);
     setFilterSearch('');
+    focusManagementRef.current = true;
 
     setTempSelections(prev => ({
       ...prev,
@@ -352,6 +364,21 @@ export const SearchFilters: React.FC = () => {
   };
 
   const handleClose = () => {
+    // If we have an active filter and its button ref, restore focus to it
+    if (activeFilter && buttonRefs.current[activeFilter]) {
+      focusManagementRef.current = true;
+      const button = buttonRefs.current[activeFilter];
+      
+      // Use setTimeout to ensure it happens after popover close
+      setTimeout(() => {
+        if (button) {
+          // Transfer focus back to the button after close
+          button.focus();
+        }
+        focusManagementRef.current = false;
+      }, 0);
+    }
+    
     setAnchorEl(null);
     setActiveFilter(null);
     setFilterSearch('');
@@ -437,7 +464,6 @@ export const SearchFilters: React.FC = () => {
     );
   };
 
-  
   return (
     <FilterContainer>
       <ClickAwayListener onClickAway={handleClickAway}>
@@ -448,6 +474,9 @@ export const SearchFilters: React.FC = () => {
             aria-label="Program Level Filter"
             aria-haspopup="true"
             aria-expanded={Boolean(anchorEl) && activeFilter === FILTER_TYPES.PROGRAM_LEVEL}
+            ref={(el) => { 
+              if (el) buttonRefs.current.programLevel = el; 
+            }}
           >
             {getFilterLabel('Program Level', state.programLevel.length)}
           </FilterButton>
@@ -458,6 +487,9 @@ export const SearchFilters: React.FC = () => {
             aria-label="Language Filter"
             aria-haspopup="true"
             aria-expanded={Boolean(anchorEl) && activeFilter === FILTER_TYPES.LANGUAGE}
+            ref={(el) => { 
+              if (el) buttonRefs.current.language = el; 
+            }}
           >
             {getFilterLabel('Language', state.language.length)}
           </FilterButton>
@@ -468,25 +500,30 @@ export const SearchFilters: React.FC = () => {
             aria-label="Area of Study Filter"
             aria-haspopup="true"
             aria-expanded={Boolean(anchorEl) && activeFilter === FILTER_TYPES.STUDY_AREA}
+            ref={(el) => { 
+              if (el) buttonRefs.current.studyArea = el; 
+            }}
           >
             {getFilterLabel('Area of Study', state.studyArea.length)}
           </FilterButton>
           
           <FilterPopover
-            open={Boolean(anchorEl)}
-            anchorEl={anchorEl}
-            onClose={handleApplyFilters}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
-            }}
-            container={document.body}
-            disableRestoreFocus
-            keepMounted={false}
-            disableScrollLock={false}
-            id={activeFilter ? `${activeFilter}-popover` : undefined}
-            aria-labelledby={activeFilter ? `${activeFilter}-button` : undefined}
-          >
+              open={Boolean(anchorEl)}
+              anchorEl={anchorEl}
+              onClose={handleApplyFilters}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              // Fix aria-hidden issue by properly managing focus
+              keepMounted={true}
+              disableRestoreFocus={true}
+              disablePortal={true}
+              container={document.body}
+              role="dialog"
+              id={activeFilter ? `${activeFilter}-popover` : undefined}
+              aria-labelledby={activeFilter ? `${activeFilter}-button` : undefined}
+            >
             {activeFilter === FILTER_TYPES.STUDY_AREA && (
               <PopoverSearch>
                 <InputBase
@@ -494,6 +531,7 @@ export const SearchFilters: React.FC = () => {
                   value={filterSearch}
                   onChange={(e) => setFilterSearch(e.target.value)}
                   aria-label="Search area of study"
+                  autoFocus={false}
                 />
                 <SearchIcon />
               </PopoverSearch>
@@ -524,7 +562,6 @@ export const SearchFilters: React.FC = () => {
         </Box>
       </ClickAwayListener>
       
-      {/* Rest of your component remains unchanged */}
       <SearchBox>
         <InputBase
           placeholder="Search..."
