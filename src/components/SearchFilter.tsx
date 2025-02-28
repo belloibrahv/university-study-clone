@@ -197,11 +197,8 @@ const formatStudyArea = (text: string): string => {
   // Clean up the text - trim whitespace, remove extra spaces
   const cleaned = text.trim().replace(/\s+/g, ' ');
   
-  // If it's short enough, return as is
-  if (cleaned.length <= 50) return cleaned;
-  
-  // Truncate with ellipsis for longer texts
-  return cleaned.substring(0, 47) + '...';
+  // Return the full text without truncation
+  return cleaned;
 };
 
 const getFilterOptionsWithCount = (
