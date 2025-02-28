@@ -86,6 +86,9 @@ import UQAR from '../assets/images/UQAR.png';
 import ETS from '../assets/images/ETS.jpg';
 import USudbury from '../assets/images/USudbury.png';
 import ECUAD from '../assets/images/ECUAD.jpg';
+import UKingsC from '../assets/images/UKingsC.jpg';
+import NSCAD from '../assets/images/NSCAD.png';
+import UTC from '../assets/images/UTC.png';
 
 
 export const DUMMY_PROGRAMS: Program[] = [
@@ -26480,7 +26483,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "2200",
-    image: "UniversityofTrinityCollege",
+    image: UTC,
     programName: "Doctor of ministry",
     programLevel: "Doctorate",
     language: "English",
@@ -26492,7 +26495,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "2201",
-    image: "UniversityofTrinityCollege",
+    image: UTC,
     programName: "Master of theology",
     programLevel: "Master's degree",
     language: "English",
@@ -26504,7 +26507,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "2202",
-    image: "UniversityofTrinityCollege",
+    image: UTC,
     programName: "Master of Arts in Theological Studies",
     programLevel: "Master's degree",
     language: "English",
@@ -26516,7 +26519,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "2203",
-    image: "UniversityofTrinityCollege",
+    image: UTC,
     programName: "Certificate in Theological Studies",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
@@ -42248,7 +42251,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3514",
-    image: "NSCADUniversity",
+    image: NSCAD,
     programName: "Master of Design",
     programLevel: "Master's degree",
     language: "English",
@@ -42260,7 +42263,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3515",
-    image: "NSCADUniversity",
+    image: NSCAD,
     programName: "Bachelor of design with major in interdisciplinary design",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -42272,7 +42275,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3516",
-    image: "NSCADUniversity",
+    image: NSCAD,
     programName: "Bachelor of fine arts with major in film",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -42284,7 +42287,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3517",
-    image: "NSCADUniversity",
+    image: NSCAD,
     programName: "Bachelor of fine arts with major in jewellery design and metal-smithing",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -42296,7 +42299,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3518",
-    image: "NSCADUniversity",
+    image: NSCAD,
     programName: "Bachelor of fine arts with major in ceramics",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -42308,7 +42311,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3519",
-    image: "NSCADUniversity",
+    image: NSCAD,
     programName: "Bachelor of fine arts with major in expanded media",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -42320,7 +42323,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3520",
-    image: "NSCADUniversity",
+    image: NSCAD,
     programName: "Visual Arts Certificate in Studio: General Practice or Discipline",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
@@ -42332,7 +42335,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3521",
-    image: "NSCADUniversity",
+    image: NSCAD,
     programName: "Post-Baccalaureate Certificate in Design",
     programLevel: "Graduate level certificate/diploma",
     language: "English",
@@ -45104,7 +45107,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3752",
-    image: "UniversityofKing'sCollege",
+    image: UKingsC,
     programName: "BA (combined honours) in Contemporary Studies",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -45116,7 +45119,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3753",
-    image: "UniversityofKing'sCollege",
+    image: UKingsC,
     programName: "BA (combined honours) in History of Science and Technology",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -45128,7 +45131,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3754",
-    image: "UniversityofKing'sCollege",
+    image: UKingsC,
     programName: "BA, BSc and BMus programs (with Dalhousie University)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -45140,7 +45143,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3755",
-    image: "UniversityofKing'sCollege",
+    image: UKingsC,
     programName: "BSc (Combined Honours) in Early Modern Studies (second subject)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -45152,7 +45155,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3756",
-    image: "UniversityofKing'sCollege",
+    image: UKingsC,
     programName: "Bachelor of Journalism (post-baccalaureate)",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -45164,7 +45167,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3757",
-    image: "UniversityofKing'sCollege",
+    image: UKingsC,
     programName: "Minor in Journalism Studies",
     programLevel: "Bachelor's/First professional degree",
     language: "English",
@@ -45176,7 +45179,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3758",
-    image: "UniversityofKing'sCollege",
+    image: UKingsC,
     programName: "Master of Fine Arts in Creative Nonfiction",
     programLevel: "Master's degree",
     language: "English",
@@ -45188,7 +45191,7 @@ export const DUMMY_PROGRAMS: Program[] = [
   },
   {
     id: "3759",
-    image: "UniversityofKing'sCollege",
+    image: UKingsC,
     programName: "Undergraduate Certificate in Medical Humanities",
     programLevel: "Undergraduate level certificate/diploma",
     language: "English",
