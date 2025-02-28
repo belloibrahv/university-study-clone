@@ -391,25 +391,20 @@ export const SearchFilters: React.FC = () => {
   };
 
   const getFilterOptions = (filter: string) => {
-    // Create a copy of active filters, excluding the current filter
     const activeFilters: Partial<FilterState> = {
-      programLevel: state.programLevel,
-      language: state.language,
-      studyArea: state.studyArea,
-      province: state.province.length > 0 ? state.province[0] : undefined,
-      university: state.university.length > 0 ? state.university[0] : undefined,
+      programLevel: filter !== FILTER_TYPES.PROGRAM_LEVEL ? state.programLevel : [],
+      language: filter !== FILTER_TYPES.LANGUAGE ? state.language : [],
+      studyArea: filter !== FILTER_TYPES.STUDY_AREA ? state.studyArea : [],
+      province: state.province,
+      university: state.university,
       coop: state.coop,
       remote: state.remote,
       searchQuery: state.searchQuery
     };
     
-    // Remove the current filter to avoid circular filtering
-    delete activeFilters[filter as keyof typeof activeFilters];
-    
-    // Get options with counts
     return getFilterOptionsWithCount(
-      filter as keyof typeof DUMMY_PROGRAMS[0], 
-      activeFilters, 
+      filter as keyof typeof DUMMY_PROGRAMS[0],
+      activeFilters,
       filterSearch
     );
   };
@@ -485,13 +480,10 @@ export const SearchFilters: React.FC = () => {
               vertical: 'bottom',
               horizontal: 'left',
             }}
-            // Important: Add these props to fix the aria-hidden issue
-            keepMounted
-            disablePortal={false}
-            disableEnforceFocus={false}
-            disableAutoFocus={false}
-            disableRestoreFocus={false}
-            // Add an ID to connect the popover with the button for accessibility
+            container={document.body}
+            disableRestoreFocus
+            keepMounted={false}
+            disableScrollLock={false}
             id={activeFilter ? `${activeFilter}-popover` : undefined}
             aria-labelledby={activeFilter ? `${activeFilter}-button` : undefined}
           >
